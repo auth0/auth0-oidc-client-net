@@ -36,14 +36,14 @@ namespace Auth0.OidcClient
                 redirectUri: $"https://{_domain}/mobile",
                 webView: new PlatformWebView()
             );
-            options.Style = OidcClientOptions.AuthenticationStyle.Hybrid;
+            options.Style = OidcClientOptions.AuthenticationStyle.AuthorizationCode;
             options.UseFormPost = false;
             //options.Policy.RequireAuthorizationCodeHash = false;
             //options.Policy.RequireAccessTokenHash = false;
 
             var oidcClient = new IdentityModel.OidcClient.OidcClient(options);
 
-            var result = await oidcClient.LoginAsync();
+            var result = await oidcClient.LoginAsync(extraParameters: new {audience = "https://rs256.test.api"});
         }
     }
 }
