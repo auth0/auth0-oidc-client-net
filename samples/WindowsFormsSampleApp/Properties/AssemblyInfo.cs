@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Auth0.OidcClient.WinForms")]
+[assembly: AssemblyTitle("WindowsFormsSampleApp")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Auth0.OidcClient.WinForms")]
+[assembly: AssemblyProduct("WindowsFormsSampleApp")]
 [assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("34085d04-7e7b-4a5e-8377-d3995983919e")]
+[assembly: Guid("a800695b-c5d8-4331-a80f-ce1ce8d842b3")]
 
 // Version information for an assembly consists of the following four values:
 //

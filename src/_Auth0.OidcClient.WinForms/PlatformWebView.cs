@@ -3,11 +3,12 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using IdentityModel.OidcClient.WebView;
+using IdentityModel.OidcClient;
+using IdentityModel.OidcClient.Browser;
 
 namespace Auth0.OidcClient
 {
-    public class PlatformWebView : IWebView
+    public class PlatformWebView : IBrowser
     {
         private readonly Func<Form> _formFactory;
 
@@ -26,9 +27,9 @@ namespace Auth0.OidcClient
             })
         { }
 
-        public event EventHandler<HiddenModeFailedEventArgs> HiddenModeFailed;
+        //public event EventHandler<HiddenModeFailedEventArgs> HiddenModeFailed;
 
-        public async Task<InvokeResult> InvokeAsync(InvokeOptions options)
+        public async Task<BrowserResult> InvokeAsync(BrowserOptions options)
         {
             using (var form = _formFactory.Invoke())
             using (var browser = new ExtendedWebBrowser()
@@ -38,9 +39,9 @@ namespace Auth0.OidcClient
             {
                 var signal = new SemaphoreSlim(0, 1);
 
-                var result = new InvokeResult
+                var result = new BrowserResult
                 {
-                    ResultType = InvokeResultType.UserCancel
+                    ResultType = BrowserResultType.UserCancel
                 };
 
                 form.FormClosed += (o, e) =>
@@ -51,7 +52,7 @@ namespace Auth0.OidcClient
                 browser.NavigateError += (o, e) =>
                 {
                     e.Cancel = true;
-                    result.ResultType = InvokeResultType.HttpError;
+                    result.ResultType = BrowserResultType.HttpError;
                     result.Error = e.StatusCode.ToString();
                     signal.Release();
                 };
@@ -61,8 +62,8 @@ namespace Auth0.OidcClient
                     if (e.Url.ToString().StartsWith(options.EndUrl))
                     {
                         //e.Cancel = true;
-                        result.ResultType = InvokeResultType.Success;
-                        if (options.ResponseMode == ResponseMode.FormPost)
+                        result.ResultType = BrowserResultType.Success;
+                        if (options.ResponseMode == OidcClientOptions.AuthorizeResponseMode.FormPost)
                         {
                             //result.Response = Encoding.UTF8.GetString(e.PostData ?? new byte[] { });
                         }
@@ -78,23 +79,23 @@ namespace Auth0.OidcClient
                 browser.Show();
 
                 System.Threading.Timer timer = null;
-                if (options.InitialDisplayMode != DisplayMode.Visible)
+                if (options.DisplayMode != DisplayMode.Visible)
                 {
-                    result.ResultType = InvokeResultType.Timeout;
-                    timer = new System.Threading.Timer((o) =>
-                    {
-                        var args = new HiddenModeFailedEventArgs(result);
-                        HiddenModeFailed?.Invoke(this, args);
-                        if (args.Cancel)
-                        {
-                            browser.Stop();
-                            form.Invoke(new Action(() => form.Close()));
-                        }
-                        else
-                        {
-                            form.Invoke(new Action(() => form.Show()));
-                        }
-                    }, null, (int)options.InvisibleModeTimeout.TotalSeconds * 1000, Timeout.Infinite);
+                    //result.ResultType = InvokeResultType.Timeout;
+                    //timer = new System.Threading.Timer((o) =>
+                    //{
+                    //    var args = new HiddenModeFailedEventArgs(result);
+                    //    HiddenModeFailed?.Invoke(this, args);
+                    //    if (args.Cancel)
+                    //    {
+                    //        browser.Stop();
+                    //        form.Invoke(new Action(() => form.Close()));
+                    //    }
+                    //    else
+                    //    {
+                    //        form.Invoke(new Action(() => form.Show()));
+                    //    }
+                    //}, null, (int)options.InvisibleModeTimeout.TotalSeconds * 1000, Timeout.Infinite);
                 }
                 else
                 {

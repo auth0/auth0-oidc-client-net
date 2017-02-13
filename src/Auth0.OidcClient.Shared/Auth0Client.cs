@@ -10,29 +10,36 @@ namespace Auth0.OidcClient
     {
         private readonly string _domain;
         private readonly string _clientId;
+        private readonly string _clientSecret;
 
         public Auth0Client(string domain, string clientId)
+            : this(domain, clientId, null)
+        {
+        }
+
+        public Auth0Client(string domain, string clientId, string clientSecret)
         {
             _domain = domain;
             _clientId = clientId;
+            _clientSecret = clientSecret;
         }
 
         public async Task LoginAsync()
         {
             var authority = $"https://{_domain}";
 
-            var options = new OidcClientOptions
-            {
-                Authority = authority,
-                ClientId = _clientId,
-                Scope = "openid profile",
-                RedirectUri = $"https://{_domain}/mobile",
-                Browser = new PlatformWebView(),
-                Flow = OidcClientOptions.AuthenticationFlow.Hybrid,
-                ResponseMode = OidcClientOptions.AuthorizeResponseMode.Redirect
-            };
-            options.Policy.RequireAuthorizationCodeHash = false;
-            options.Policy.RequireAccessTokenHash = false;
+            var options = new OidcClientOptions(
+                authority,
+                _clientId,
+                _clientSecret,
+                "openid profile",
+                redirectUri: $"https://{_domain}/mobile",
+                webView: new PlatformWebView()
+            );
+            options.Style = OidcClientOptions.AuthenticationStyle.Hybrid;
+            options.UseFormPost = false;
+            //options.Policy.RequireAuthorizationCodeHash = false;
+            //options.Policy.RequireAccessTokenHash = false;
 
             var oidcClient = new IdentityModel.OidcClient.OidcClient(options);
 
