@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using IdentityModel.Client;
 using IdentityModel.OidcClient;
 
 namespace Auth0.OidcClient
@@ -28,18 +29,22 @@ namespace Auth0.OidcClient
         {
             var authority = $"https://{_domain}";
 
-            var options = new OidcClientOptions(
-                authority,
-                _clientId,
-                _clientSecret,
-                "openid profile",
-                redirectUri: $"https://{_domain}/mobile",
-                webView: new PlatformWebView()
-            );
-            options.Style = OidcClientOptions.AuthenticationStyle.AuthorizationCode;
-            options.UseFormPost = false;
-            //options.Policy.RequireAuthorizationCodeHash = false;
-            //options.Policy.RequireAccessTokenHash = false;
+            var options = new OidcClientOptions
+            {
+                Authority = authority,
+                ClientId = _clientId,
+                ClientSecret = _clientSecret,
+                Scope = "openid profile",
+                RedirectUri = $"https://{_domain}/mobile",
+                Browser = new PlatformWebView(),
+                Flow = OidcClientOptions.AuthenticationFlow.AuthorizationCode,
+                ResponseMode = OidcClientOptions.AuthorizeResponseMode.Redirect,
+                Policy =
+                {
+                    RequireAuthorizationCodeHash = false,
+                    RequireAccessTokenHash = false
+                }
+            };
 
             var oidcClient = new IdentityModel.OidcClient.OidcClient(options);
 
