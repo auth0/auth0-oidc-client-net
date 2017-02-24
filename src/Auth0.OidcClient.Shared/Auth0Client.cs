@@ -25,7 +25,7 @@ namespace Auth0.OidcClient
             _clientSecret = clientSecret;
         }
 
-        public async Task LoginAsync()
+        public Task<LoginResult> LoginAsync(object extraParameters = null)
         {
             var authority = $"https://{_domain}";
 
@@ -48,7 +48,7 @@ namespace Auth0.OidcClient
 
             var oidcClient = new IdentityModel.OidcClient.OidcClient(options);
 
-            var result = await oidcClient.LoginAsync(extraParameters: new {audience = "https://rs256.test.api"});
+            return oidcClient.LoginAsync(extraParameters: extraParameters);
         }
     }
 }

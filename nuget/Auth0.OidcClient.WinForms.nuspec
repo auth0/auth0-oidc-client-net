@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Auth0.OidcClient.WinForms</id>
+    <version>0.1.0-beta4</version>
+    <authors>Auth0</authors>
+    <owners>Auth0</owners>
+    <licenseUrl>http://opensource.org/licenses/MIT</licenseUrl>
+    <projectUrl>https://github.com/auth0/auth0-oidc-client-net</projectUrl>
+    <iconUrl>http://secure.gravatar.com/avatar/805765c256ff8617fcad483b5476faf2</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Auth0 OIDC Client for Windows Forms and WPF applications</description>
+    <releaseNotes>
+      Version 1.0
+      - Initial version of Package
+    </releaseNotes>
+    <copyright>Copyright 2017</copyright>
+    <tags>Auth0 OIDC WinForms WPF</tags>
+    <dependencies>
+      <group targetFramework="net452">
+        <dependency id="IdentityModel.OidcClient" version="2.0.0" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="..\src\Auth0.OidcClient.WinForms\bin\Release\Auth0.OidcClient.WinForms.dll" target="lib\net452" />
+  </files>
+</package>
