@@ -17,7 +17,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UwpSampleApp", "samples\Uwp
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nuget", "nuget", "{3D6D8AA1-DD3D-4B0D-AEDF-A588704AFE09}"
 	ProjectSection(SolutionItems) = preProject
+		nuget\Auth0.OidcClient.UWP.nuspec = nuget\Auth0.OidcClient.UWP.nuspec
 		nuget\Auth0.OidcClient.WinForms.nuspec = nuget\Auth0.OidcClient.WinForms.nuspec
+		nuget\Auth0.OidcClient.WPF.nuspec = nuget\Auth0.OidcClient.WPF.nuspec
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfTestApplication", "test\WpfTestApplication\WpfTestApplication.csproj", "{004EB46A-7001-4158-BEA4-40C21F863BBF}"

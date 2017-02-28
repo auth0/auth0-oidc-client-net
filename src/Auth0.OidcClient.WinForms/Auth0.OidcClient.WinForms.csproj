@@ -8,7 +8,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Auth0.OidcClient</RootNamespace>
-    <AssemblyName>Auth0.OidcClient.WinForms</AssemblyName>
+    <AssemblyName>Auth0.OidcClient</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

@@ -4,6 +4,7 @@ using System.Text;
 using System.Threading.Tasks;
 using IdentityModel.Client;
 using IdentityModel.OidcClient;
+using IdentityModel.OidcClient.Results;
 
 namespace Auth0.OidcClient
 {
@@ -25,7 +26,7 @@ namespace Auth0.OidcClient
             _clientSecret = clientSecret;
         }
 
-        public Task<LoginResult> LoginAsync(object extraParameters = null)
+        private IdentityModel.OidcClient.OidcClient CreateClient(string scope)
         {
             var authority = $"https://{_domain}";
 
@@ -34,7 +35,7 @@ namespace Auth0.OidcClient
                 Authority = authority,
                 ClientId = _clientId,
                 ClientSecret = _clientSecret,
-                Scope = "openid profile",
+                Scope = scope,
                 RedirectUri = $"https://{_domain}/mobile",
                 Browser = new PlatformWebView(),
                 Flow = OidcClientOptions.AuthenticationFlow.AuthorizationCode,
@@ -46,9 +47,25 @@ namespace Auth0.OidcClient
                 }
             };
 
-            var oidcClient = new IdentityModel.OidcClient.OidcClient(options);
+            return new IdentityModel.OidcClient.OidcClient(options);
+        }
 
-            return oidcClient.LoginAsync(extraParameters: extraParameters);
+        public async Task<LoginResult> LoginAsync(string scope = "openid profile", object extraParameters = null)
+        {
+            var oidcClient = CreateClient(scope);
+
+            var result =  await oidcClient.LoginAsync(extraParameters: extraParameters);
+
+            var result2 = await oidcClient.RefreshTokenAsync(result.RefreshToken);
+
+            return result;
+        }
+
+        public Task<RefreshTokenResult> RefreshTokenAsync(string refreshToken)
+        {
+            var oidcClient = CreateClient("openid profile");
+
+            return oidcClient.RefreshTokenAsync(refreshToken);
         }
     }
 }
