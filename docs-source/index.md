@@ -44,4 +44,4 @@ var loginResult = await client.LoginAsync();
 
 ## Further Reading
 
-For more information please refer to the [Documentation](/documentation) section, or to the [API Documentation](/api)
+For more information please refer to the [Documentation](documentation/intro.md) section, or to the [API Documentation](api/index.md)

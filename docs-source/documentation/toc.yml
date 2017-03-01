@@ -6,9 +6,3 @@
     href: getting-started/installation.md
   - name: Authentication
     href: getting-started/authentication.md
-- name: Advanced Scenarios
-  items:
-  - name: Refresh Tokens
-    href: advanced-scenarios/refresh-tokens.md
-  - name: API Authorization
-    href: advanced-scenarios/api-authorization.md

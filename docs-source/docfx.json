@@ -34,8 +34,7 @@
           "*.md"
         ],
         "exclude": [
-          "obj/**",
-          "_site/**"
+          "obj/**"
         ]
       }
     ],
@@ -45,23 +44,21 @@
           "images/**"
         ],
         "exclude": [
-          "obj/**",
-          "_site/**"
+          "obj/**"
         ]
       }
     ],
     "overwrite": [
       {
         "files": [
-          "apidoc/**.md"
+          "api/**.md"
         ],
         "exclude": [
-          "obj/**",
-          "_site/**"
+          "obj/**"
         ]
       }
     ],
-    "dest": "_site",
+    "dest": "../docs",
     "globalMetadataFiles": [],
     "globalMetadata": {
       "_appFooter": "Copyright 2017, Auth0"

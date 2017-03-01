@@ -1,0 +1,153 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Authentication </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Authentication ">
+    <meta name="generator" content="docfx 2.12.1.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+              <h1 id="authentication">Authentication</h1>
+              
+<p>To authenticate a user in your application, your need to create a new instance of <a class="xref" href="../../api/Auth0.OidcClient.Auth0Client.html">Auth0Client</a>, passing your Auth0 <strong>Domain</strong> and <strong>Client ID</strong> for your Client. Please see the <a href="https://auth0.com/docs/clients">Clients Documentation</a> on the Auth0 website for more information.</p>
+<p>Once you have instantiated an instance of <a class="xref" href="../../api/Auth0.OidcClient.Auth0Client.html">Auth0Client</a>, you can authenticate a user by calling <a class="xref" href="../../api/Auth0.OidcClient.Auth0Client.html#Auth0_OidcClient_Auth0Client_LoginAsync_System_String_System_Object_">LoginAsync(String, Object)</a>.</p>
+<pre><code class="lang-csharp">using Auth0.OidcClient;
+
+var client = new Auth0Client(&quot;YOUR_AUTH0_DOMAIN&quot;, &quot;YOUR_AUTH0_CLIENT_ID&quot;);
+
+var loginResult = await client.LoginAsync();
+</code></pre><h2 id="the-login-result">The Login Result</h2>
+<p>The returned login result will indicate whether authentication was successful, and if so contain the tokens and claims of the user.</p>
+<h3 id="authentication-error">Authentication Error</h3>
+<p>You can check the <code>IsError</code> property of the result to see whether the login has failed. The <code>ErrorMessage</code> will contain more information regarding the error which occurred.</p>
+<pre><code class="lang-csharp">var loginResult = await client.LoginAsync();
+
+if (loginResult.IsError)
+{
+    Debug.WriteLine($&quot;An error occurred during login: {loginResult.Error}&quot;)
+}
+</code></pre><h3 id="accessing-the-tokens">Accessing the tokens</h3>
+<p>On successful login, the login result will contain the <code>id_token</code> and <code>access_token</code> in the <code>IdentityToken</code> and <code>AccessToken</code> properties respectively.</p>
+<pre><code class="lang-csharp">var loginResult = await client.LoginAsync();
+
+if (!loginResult.IsError)
+{
+    Debug.WriteLine($&quot;id_token: {loginResult.IdentityToken}&quot;);
+    Debug.WriteLine($&quot;access_token: {loginResult.AccessToken}&quot;);
+}
+</code></pre><h3 id="obtaining-the-user-information">Obtaining the User Information</h3>
+<p>On successful login, the login result will contain the user information in the <code>User</code> property, which is a <a href="https://msdn.microsoft.com/en-us/library/system.security.claims.claimsprincipal(v=vs.110).aspx">ClaimsPrincipal</a>.</p>
+<p>To obtain information about the user, you can query the claims. You can for example obtain the user&#39;s name and email address from the <code>name</code> and <code>email</code> claims:</p>
+<pre><code class="lang-csharp">if (!loginResult.IsError)
+{
+    Debug.WriteLine($&quot;name: {loginResult.User.FindFirst(c =&gt; c.Type == &quot;name&quot;)?.Value}&quot;);
+    Debug.WriteLine($&quot;email: {loginResult.User.FindFirst(c =&gt; c.Type == &quot;email&quot;)?.Value}&quot;);
+}
+</code></pre><div class="NOTE"><h5>Note</h5><p>The exact claims returned will depend on the <a href="https://auth0.com/docs/scopes">Scopes</a> that were requested.</p>
+</div>
+<p>You can obtain a list of all the claims contained in the <code>id_token</code> by iterating through the <code>Claims</code> collection:</p>
+<pre><code class="lang-csharp">if (!loginResult.IsError)
+{
+    foreach (var claim in loginResult.User.Claims)
+    {
+        Debug.WriteLine($&quot;{claim.Type} = {claim.Value}&quot;);
+    }
+}
+</code></pre>
+            </article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/auth0/auth0-oidc-client-net/blob/master/docs-source/documentation/getting-started/authentication.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright 2017, Auth0
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>
