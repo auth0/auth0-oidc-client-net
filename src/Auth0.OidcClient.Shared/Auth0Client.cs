@@ -50,15 +50,11 @@ namespace Auth0.OidcClient
             return new IdentityModel.OidcClient.OidcClient(options);
         }
 
-        public async Task<LoginResult> LoginAsync(string scope = "openid profile", object extraParameters = null)
+        public Task<LoginResult> LoginAsync(string scope = "openid profile", object extraParameters = null)
         {
             var oidcClient = CreateClient(scope);
 
-            var result =  await oidcClient.LoginAsync(extraParameters: extraParameters);
-
-            var result2 = await oidcClient.RefreshTokenAsync(result.RefreshToken);
-
-            return result;
+            return oidcClient.LoginAsync(extraParameters: extraParameters);
         }
 
         public Task<RefreshTokenResult> RefreshTokenAsync(string refreshToken)

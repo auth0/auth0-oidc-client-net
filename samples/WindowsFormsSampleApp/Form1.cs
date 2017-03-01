@@ -26,8 +26,6 @@ namespace WindowsFormsSampleApp
 
             var loginResult = await client.LoginAsync("openid offline_access");
 
-            var refreshTokenResult = await client.RefreshTokenAsync(loginResult.RefreshToken);
-
             if (loginResult.IsError)
             {
                 Debug.WriteLine($"An error occurred during login: {loginResult.Error}");
