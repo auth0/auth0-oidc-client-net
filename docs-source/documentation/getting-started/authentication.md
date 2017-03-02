@@ -1,5 +1,7 @@
 # Authentication
 
+> Before you start, ensure that you have set the correct Callback URL. Go to the Clients Settings section in the [Auth0 dashboard](https://manage.auth0.com/#/) and make sure that **Allowed Callback URLs** contains the mobile application callback URL, i.e. `https://YOUR_AUTH0_DOMAIN/mobile`
+
 To authenticate a user in your application, your need to create a new instance of @Auth0.OidcClient.Auth0Client, passing your Auth0 **Domain** and **Client ID** for your Client. Please see the [Clients Documentation](https://auth0.com/docs/clients) on the Auth0 website for more information.
 
 Once you have instantiated an instance of @Auth0.OidcClient.Auth0Client, you can authenticate a user by calling @Auth0.OidcClient.Auth0Client.LoginAsync(System.String,System.Object).

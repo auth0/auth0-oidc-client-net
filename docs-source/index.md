@@ -8,6 +8,8 @@ The Auth0 OIDC Client allows you to add authentication for your .NET Client appl
 
 ## Quick Start
 
+> Before you start, ensure that you have set the correct Callback URL. Go to the Clients Settings section in the [Auth0 dashboard](https://manage.auth0.com/#/) and make sure that **Allowed Callback URLs** contains the mobile application callback URL, i.e. `https://YOUR_AUTH0_DOMAIN/mobile`
+
 ### 1. Install the NuGet Package for your platform
 
 **Universal Windows Platform (UWP)**

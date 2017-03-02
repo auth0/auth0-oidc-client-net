@@ -5,16 +5,16 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Auth0 OIDC Client </title>
+    <title>Sample Applications </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Auth0 OIDC Client ">
+    <meta name="title" content="Sample Applications ">
     <meta name="generator" content="docfx 2.12.1.0">
     
-    <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" href="styles/docfx.vendor.css">
-    <link rel="stylesheet" href="styles/docfx.css">
-    <link rel="stylesheet" href="styles/main.css">
-    <meta property="docfx:navrel" content="toc.html">
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
     <meta property="docfx:tocrel" content="toc.html">
     
   </head>
@@ -32,8 +32,8 @@
                 <span class="icon-bar"></span>
               </button>
               
-              <a class="navbar-brand" href="index.html">
-                <img id="logo" class="svg" src="logo.svg" alt="">
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -55,35 +55,24 @@
         </div>
       </header>
       <div role="main" class="container body-content hide-when-search">
-        <div class="article row grid">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-              <h1 id="auth0-oidc-client">Auth0 OIDC Client</h1>
+              <h1 id="sample-applications">Sample Applications</h1>
               
-<p>The Auth0 OIDC Client allows you to add authentication for your .NET Client applications. The Auth0 OIDC Client supports the following platforms:</p>
+<p>You can find the following sample applications on how to use the Auth0 OIDC Client:</p>
 <ul>
-<li>Universal Windows Platform</li>
-<li>Windows Presentation Foundation (.NET 4.52 and higher)</li>
-<li>Windows Forms (.NET 4.52 and higher)</li>
+<li><a href="https://github.com/auth0-community/auth0-uwp-oidc-samples/tree/master/00-Starter-Seed/UWPSample">UWP Sample Application</a></li>
+<li><a href="https://github.com/auth0-community/auth0-WinFormsWPF-oidc-samples/tree/master/00-Starter-Seed/WPF/WPFSample">Windows Presentation Foundation</a></li>
+<li><a href="https://github.com/auth0-community/auth0-WinFormsWPF-oidc-samples/tree/master/00-Starter-Seed/WinForms/WindowsFormsSample">Windows Forms</a></li>
 </ul>
-<h2 id="quick-start">Quick Start</h2>
-<blockquote><p>Before you start, ensure that you have set the correct Callback URL. Go to the Clients Settings section in the <a href="https://manage.auth0.com/#/">Auth0 dashboard</a> and make sure that <strong>Allowed Callback URLs</strong> contains the mobile application callback URL, i.e. <code>https://YOUR_AUTH0_DOMAIN/mobile</code></p>
-</blockquote>
-<h3 id="1-install-the-nuget-package-for-your-platform">1. Install the NuGet Package for your platform</h3>
-<p><strong>Universal Windows Platform (UWP)</strong></p>
-<pre><code class="lang-text">Install-Package Auth0.OidcClient.UWP -Pre
-</code></pre><p><strong>Windows Presentation Foundation (WPF)</strong></p>
-<pre><code class="lang-text">Install-Package Auth0.OidcClient.WPF -Pre
-</code></pre><p><strong>Windows Forms</strong></p>
-<pre><code class="lang-text">Install-Package Auth0.OidcClient.WinForms -Pre
-</code></pre><h3 id="2-initialize">2. Initialize</h3>
-<pre><code class="lang-csharp">using Auth0.OidcClient;
-
-var client = new Auth0Client(&quot;YOUR_AUTH0_DOMAIN&quot;, &quot;YOUR_AUTH0_CLIENT_ID&quot;);
-</code></pre><h3 id="3-authenticate">3. Authenticate</h3>
-<pre><code class="lang-csharp">var loginResult = await client.LoginAsync();
-</code></pre><h2 id="further-reading">Further Reading</h2>
-<p>For more information please refer to the <a href="documentation/intro.html">Documentation</a> section, or to the <a href="api/index.html">API Documentation</a></p>
 
             </article>
           </div>
@@ -93,7 +82,7 @@ var client = new Auth0Client(&quot;YOUR_AUTH0_DOMAIN&quot;, &quot;YOUR_AUTH0_CLI
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/auth0/auth0-oidc-client-net/blob/master/docs-source/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/auth0/auth0-oidc-client-net/blob/master/docs-source/documentation/samples.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
@@ -119,8 +108,8 @@ var client = new Auth0Client(&quot;YOUR_AUTH0_DOMAIN&quot;, &quot;YOUR_AUTH0_CLI
       </footer>
     </div>
     
-    <script type="text/javascript" src="styles/docfx.vendor.js"></script>
-    <script type="text/javascript" src="styles/docfx.js"></script>
-    <script type="text/javascript" src="styles/main.js"></script>
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
   </body>
 </html>

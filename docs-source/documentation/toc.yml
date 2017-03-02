@@ -14,3 +14,5 @@
     href: advanced-scenarios/refresh-tokens.md
   - name: API Authorization
     href: advanced-scenarios/api-authorization.md
+- name: Samples
+  href: samples.md
