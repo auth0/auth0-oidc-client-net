@@ -68,7 +68,7 @@
               <h1 id="authentication">Authentication</h1>
               
 <p>To authenticate a user in your application, your need to create a new instance of <a class="xref" href="../../api/Auth0.OidcClient.Auth0Client.html">Auth0Client</a>, passing your Auth0 <strong>Domain</strong> and <strong>Client ID</strong> for your Client. Please see the <a href="https://auth0.com/docs/clients">Clients Documentation</a> on the Auth0 website for more information.</p>
-<p>Once you have instantiated an instance of <a class="xref" href="../../api/Auth0.OidcClient.Auth0Client.html">Auth0Client</a>, you can authenticate a user by calling <a class="xref" href="../../api/Auth0.OidcClient.Auth0Client.html#Auth0_OidcClient_Auth0Client_LoginAsync_System_String_System_Object_">LoginAsync(String, Object)</a>.</p>
+<p>Once you have instantiated an instance of <a class="xref" href="../../api/Auth0.OidcClient.Auth0Client.html">Auth0Client</a>, you can authenticate a user by calling @Auth0.OidcClient.Auth0Client.LoginAsync(System.String,System.Object).</p>
 <pre><code class="lang-csharp">using Auth0.OidcClient;
 
 var client = new Auth0Client(&quot;YOUR_AUTH0_DOMAIN&quot;, &quot;YOUR_AUTH0_CLIENT_ID&quot;);
@@ -101,7 +101,7 @@ if (!loginResult.IsError)
     Debug.WriteLine($&quot;name: {loginResult.User.FindFirst(c =&gt; c.Type == &quot;name&quot;)?.Value}&quot;);
     Debug.WriteLine($&quot;email: {loginResult.User.FindFirst(c =&gt; c.Type == &quot;email&quot;)?.Value}&quot;);
 }
-</code></pre><div class="NOTE"><h5>Note</h5><p>The exact claims returned will depend on the <a href="https://auth0.com/docs/scopes">Scopes</a> that were requested.</p>
+</code></pre><div class="NOTE"><h5>Note</h5><p>The exact claims returned will depend on the scopes that were requested. For more information see <a class="xref" href="../advanced-scenarios/scopes.html">Using Scopes</a>.</p>
 </div>
 <p>You can obtain a list of all the claims contained in the <code>id_token</code> by iterating through the <code>Claims</code> collection:</p>
 <pre><code class="lang-csharp">if (!loginResult.IsError)

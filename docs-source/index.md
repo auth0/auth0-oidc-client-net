@@ -13,19 +13,19 @@ The Auth0 OIDC Client allows you to add authentication for your .NET Client appl
 **Universal Windows Platform (UWP)**
 
 ```text
-Install-Package Auth0.OidcClient.UWP
+Install-Package Auth0.OidcClient.UWP -Pre
 ```
 
 **Windows Presentation Foundation (WPF)**
 
 ```text
-Install-Package Auth0.OidcClient.WPF
+Install-Package Auth0.OidcClient.WPF -Pre
 ```
 
 **Windows Forms**
 
 ```text
-Install-Package Auth0.OidcClient.WinForms
+Install-Package Auth0.OidcClient.WinForms -Pre
 ```
 
 ### 2. Initialize 

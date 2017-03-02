@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Scopes </title>
+    <title>Using Scopes </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Scopes ">
+    <meta name="title" content="Using Scopes ">
     <meta name="generator" content="docfx 2.12.1.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
@@ -64,10 +64,15 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="">
-              <h1 id="scopes">Scopes</h1>
+            <article class="content wrap" id="_content" data-uid="scopes">
+              <h1 id="using-scopes">Using Scopes</h1>
               
-<p>By default the Auth0 OIDC Client will request the <code>openid</code> and <code>profile</code> scopes. You can request different scopes by passing the <code>scope</code> parameter to <a class="xref" href="../../api/Auth0.OidcClient.Auth0Client.html#Auth0_OidcClient_Auth0Client_LoginAsync_System_String_System_Object_">LoginAsync(String, Object)</a></p>
+<p>By default the Auth0 OIDC Client will request the <code>openid</code> and <code>profile</code> scopes. You can request different scopes by passing the <code>scope</code> parameter to the <a class="xref" href="../../api/Auth0.OidcClient.html">Auth0.OidcClient</a> constructor.</p>
+<p>Depending on the <code>scope</code> which was request the <code>id_token</code> will contain a different set of claims.</p>
+<p>Note however that even if you request a limited set of scopes, e.g. <code>openid name</code>, the <code>User</code> returned in the login result may contain a broader set of claims. This is because the set of claims contained in the <code>User</code> property is also governed by the <code>loadProfile</code> parameter which can be passed to the <a class="xref" href="../../api/Auth0.OidcClient.html">Auth0.OidcClient</a> constructor.</p>
+<p>By default <code>loadProfile</code> will be set to <code>true</code> which means the UserInfo endpoint will be called during the authorization flow. To ensure the User object contain only the claims requested in the <code>scope</code>, be sure to also set <code>loadProfile</code> to <code>false</code>, e.g:</p>
+<pre><code class="lang-csharp">var client = new Auth0Client(&quot;YOUR_AUTH0_DOMAIN&quot;, &quot;YOUR_AUTH0_CLIENT_ID&quot;, scope: &quot;openid name&quot;, loadProfile: false);
+</code></pre><p>For more information you can read the <a href="https://auth0.com/docs/scopes">Auth0 Scopes documentation</a></p>
 
             </article>
           </div>

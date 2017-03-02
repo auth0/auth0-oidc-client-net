@@ -58,7 +58,7 @@ if (!loginResult.IsError)
 ```
 
 > [!Note]
-> The exact claims returned will depend on the [Scopes](https://auth0.com/docs/scopes) that were requested.
+> The exact claims returned will depend on the scopes that were requested. For more information see @scopes.
 
 You can obtain a list of all the claims contained in the `id_token` by iterating through the `Claims` collection:
 

@@ -68,13 +68,30 @@
               <h2 id="refresh-tokens">Refresh Tokens</h2>
               
 <p>You can request a refresh token by requesting the <code>offline_access</code> scope. The login result will contain the refresh token in the <code>RefreshToken</code> property:</p>
-<pre><code class="lang-csharp">var loginResult = await client.LoginAsync(&quot;openid offline_access&quot;);
+<pre><code class="lang-csharp">var client = new Auth0Client(&quot;YOUR_AUTH0_DOMAIN&quot;, &quot;YOUR_AUTH0_CLIENT_ID&quot;, scope: &quot;openid offline_access&quot;);
+var loginResult = await client.LoginAsync();
 
 if (!loginResult.IsError)
 {
     Debug.WriteLine($&quot;refresh_token: {loginResult.RefreshToken}&quot;);
 }
-</code></pre><h3 id="refresh-token-handler">Refresh Token handler</h3>
+</code></pre><h3 id="requesting-a-refresh-token">Requesting a Refresh Token</h3>
+<p>You can request a Refresh Token by calling <a class="xref" href="../../api/Auth0.OidcClient.Auth0Client.html#Auth0_OidcClient_Auth0Client_RefreshTokenAsync_System_String_">RefreshTokenAsync(String)</a>, passing along the refresh token which was previously returned in the login result as the </p>
+<pre><code class="lang-csharp">var client = new Auth0Client(&quot;YOUR_AUTH0_DOMAIN&quot;, &quot;YOUR_AUTH0_CLIENT_ID&quot;, scope: &quot;openid offline_access&quot;);
+var loginResult = await client.LoginAsync();
+
+if (!loginResult.IsError)
+{
+    string refreshToken = loginResult.RefreshToken;
+
+    // Save the refresh token somwewhere...
+}
+
+
+// Later on elsewhere in your code you can retrieve the refresh token from where you have saved it, and call RefreshTokenAsync
+var refreshTokenResult = await client.RefreshTokenAsync(refreshToken);
+</code></pre><div class="NOTE"><h5>Note</h5><p>Please note that of your use Auth0 API Authorization, your API should allow offline access. This is configured via the <strong>Allow Offline Access</strong> switch on the <a href="https://manage.auth0.com/#/apis">API Settings</a></p>
+</div>
 
             </article>
           </div>

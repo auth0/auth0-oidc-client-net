@@ -19,7 +19,7 @@ namespace UwpTestApp
 
         private async void button_Click(object sender, RoutedEventArgs e)
         {
-            var client = new Auth0Client("", "");
+            var client = new Auth0Client("jerrie.auth0.com", "vV9twaySQzfGesS9Qs6gOgqDsYDdgoKE", scope: "openid name");
 
             var loginResult = await client.LoginAsync();
 

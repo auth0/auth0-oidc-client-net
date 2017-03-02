@@ -12,7 +12,15 @@ namespace Auth0.OidcClient
     {
         private readonly IdentityModel.OidcClient.OidcClient _oidcClient;
 
-        public Auth0Client(string domain, string clientId, string clientSecret = null, string scope = "openid profile")
+        /// <summary>
+        /// Creates a new instance of the Auth0 OIDC Client.
+        /// </summary>
+        /// <param name="domain">Your Auth0 domain.</param>
+        /// <param name="clientId">Your Auth0 Client ID.</param>
+        /// <param name="clientSecret">Your Auth0 Client Secret.</param>
+        /// <param name="scope">The scope you want to request during authorization.</param>
+        /// <param name="loadProfile">Indicates whether the user's profile should be loaded from the UserInfo endpoint.</param>
+        public Auth0Client(string domain, string clientId, string clientSecret = null, string scope = "openid profile", bool loadProfile = true)
         {
             var authority = $"https://{domain}";
 
@@ -22,6 +30,7 @@ namespace Auth0.OidcClient
                 ClientId = clientId,
                 ClientSecret = clientSecret,
                 Scope = scope,
+                LoadProfile = loadProfile,
                 RedirectUri = $"https://{domain}/mobile",
                 Browser = new PlatformWebView(),
                 Flow = OidcClientOptions.AuthenticationFlow.AuthorizationCode,
