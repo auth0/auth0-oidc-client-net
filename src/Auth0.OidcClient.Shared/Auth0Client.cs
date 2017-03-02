@@ -10,33 +10,19 @@ namespace Auth0.OidcClient
 {
     public class Auth0Client
     {
-        private readonly string _domain;
-        private readonly string _clientId;
-        private readonly string _clientSecret;
+        private readonly IdentityModel.OidcClient.OidcClient _oidcClient;
 
-        public Auth0Client(string domain, string clientId)
-            : this(domain, clientId, null)
+        public Auth0Client(string domain, string clientId, string clientSecret = null, string scope = "openid profile")
         {
-        }
-
-        public Auth0Client(string domain, string clientId, string clientSecret)
-        {
-            _domain = domain;
-            _clientId = clientId;
-            _clientSecret = clientSecret;
-        }
-
-        private IdentityModel.OidcClient.OidcClient CreateClient(string scope)
-        {
-            var authority = $"https://{_domain}";
+            var authority = $"https://{domain}";
 
             var options = new OidcClientOptions
             {
                 Authority = authority,
-                ClientId = _clientId,
-                ClientSecret = _clientSecret,
+                ClientId = clientId,
+                ClientSecret = clientSecret,
                 Scope = scope,
-                RedirectUri = $"https://{_domain}/mobile",
+                RedirectUri = $"https://{domain}/mobile",
                 Browser = new PlatformWebView(),
                 Flow = OidcClientOptions.AuthenticationFlow.AuthorizationCode,
                 ResponseMode = OidcClientOptions.AuthorizeResponseMode.Redirect,
@@ -46,22 +32,17 @@ namespace Auth0.OidcClient
                     RequireAccessTokenHash = false
                 }
             };
-
-            return new IdentityModel.OidcClient.OidcClient(options);
+            _oidcClient = new IdentityModel.OidcClient.OidcClient(options);
         }
 
-        public Task<LoginResult> LoginAsync(string scope = "openid profile", object extraParameters = null)
+        public Task<LoginResult> LoginAsync(object extraParameters = null)
         {
-            var oidcClient = CreateClient(scope);
-
-            return oidcClient.LoginAsync(extraParameters: extraParameters);
+            return _oidcClient.LoginAsync(extraParameters: extraParameters);
         }
 
         public Task<RefreshTokenResult> RefreshTokenAsync(string refreshToken)
         {
-            var oidcClient = CreateClient("openid profile");
-
-            return oidcClient.RefreshTokenAsync(refreshToken);
+            return _oidcClient.RefreshTokenAsync(refreshToken);
         }
     }
 }

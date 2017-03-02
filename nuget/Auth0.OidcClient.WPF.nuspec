@@ -19,7 +19,7 @@
     <tags>Auth0 OIDC WPF</tags>
     <dependencies>
       <group targetFramework="net452">
-        <dependency id="IdentityModel.OidcClient" version="2.0.0" />
+        <dependency id="IdentityModel.OidcClient" version="2.0.1" />
       </group>
     </dependencies>
   </metadata>

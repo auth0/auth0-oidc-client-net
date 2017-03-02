@@ -7,8 +7,8 @@
     <ProjectGuid>{E5110B30-EEBA-4514-9E55-EB0C2F00BA12}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>UwpSampleApp</RootNamespace>
-    <AssemblyName>UwpSampleApp</AssemblyName>
+    <RootNamespace>UwpTestApp</RootNamespace>
+    <AssemblyName>UwpTestApp</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion>10.0.10586.0</TargetPlatformVersion>

@@ -1,30 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Diagnostics;
+using System.Windows;
 using Auth0.OidcClient;
-using IdentityModel.Client;
 
-namespace WindowsFormsSampleApp
+namespace WpfTestApp
 {
-    public partial class Form1 : Form
+    /// <summary>
+    /// Interaction logic for MainWindow.xaml
+    /// </summary>
+    public partial class MainWindow : Window
     {
-        public Form1()
+        public MainWindow()
         {
             InitializeComponent();
         }
 
-        private async void button1_Click(object sender, EventArgs e)
+        private async void button_Click(object sender, RoutedEventArgs e)
         {
-            var client = new Auth0Client("jerrie.auth0.com", "vV9twaySQzfGesS9Qs6gOgqDsYDdgoKE");
+            var client = new Auth0Client("", "");
 
-            var loginResult = await client.LoginAsync("openid offline_access");
+            var loginResult = await client.LoginAsync();
 
             if (loginResult.IsError)
             {
