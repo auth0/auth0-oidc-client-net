@@ -32,7 +32,9 @@ namespace Auth0.OidcClient
                 Scope = scope,
                 LoadProfile = loadProfile,
                 RedirectUri = $"https://{domain}/mobile",
+#if !__IOS__
                 Browser = new PlatformWebView(),
+#endif
                 Flow = OidcClientOptions.AuthenticationFlow.AuthorizationCode,
                 ResponseMode = OidcClientOptions.AuthorizeResponseMode.Redirect,
                 Policy =
@@ -44,10 +46,26 @@ namespace Auth0.OidcClient
             _oidcClient = new IdentityModel.OidcClient.OidcClient(options);
         }
 
+#if !__IOS__
+
         public Task<LoginResult> LoginAsync(object extraParameters = null)
         {
             return _oidcClient.LoginAsync(extraParameters: extraParameters);
         }
+
+#else
+
+        public Task<AuthorizeState> PrepareLoginAsync(object extraParameters = null)
+        {
+            return _oidcClient.PrepareLoginAsync();
+        }
+
+        public Task<LoginResult> ProcessResponseAsync(string data, AuthorizeState state)
+        {
+            return _oidcClient.ProcessResponseAsync(data, state);
+        }
+
+#endif
 
         public Task<RefreshTokenResult> RefreshTokenAsync(string refreshToken)
         {
