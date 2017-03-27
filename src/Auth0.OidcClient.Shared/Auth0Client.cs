@@ -31,9 +31,11 @@ namespace Auth0.OidcClient
                 ClientSecret = clientSecret,
                 Scope = scope,
                 LoadProfile = loadProfile,
-                RedirectUri = $"https://{domain}/mobile",
 #if !__IOS__
+                RedirectUri = $"https://{domain}/mobile",
                 Browser = new PlatformWebView(),
+#else
+				RedirectUri = $"{Foundation.NSBundle.MainBundle.BundleIdentifier}://callback",
 #endif
                 Flow = OidcClientOptions.AuthenticationFlow.AuthorizationCode,
                 ResponseMode = OidcClientOptions.AuthorizeResponseMode.Redirect,

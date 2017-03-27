@@ -5,7 +5,7 @@
 	<key>CFBundleDisplayName</key>
 	<string>XamariniOSTestApp</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.companyname.XamariniOSTestApp</string>
+	<string>com.auth0.XamariniOSTestApp</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
@@ -37,6 +37,17 @@
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	<key>CFBundleName</key>
+	<string>XamariniOSTestApp</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+			</array>
+		</dict>
 	</array>
 </dict>
 </plist>

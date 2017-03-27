@@ -1,4 +1,5 @@
-﻿using Foundation;
+﻿using System;
+using Foundation;
 using UIKit;
 
 namespace XamariniOSTestApp
@@ -8,7 +9,9 @@ namespace XamariniOSTestApp
     [Register("AppDelegate")]
     public class AppDelegate : UIApplicationDelegate
     {
-        // class-level declarations
+		// class-level declarations
+		MyViewController myViewController = new MyViewController();
+		public static Action<string> CallbackHandler { get; set; }
 
         public override UIWindow Window
         {
@@ -16,13 +19,21 @@ namespace XamariniOSTestApp
             set;
         }
 
+		public override bool OpenUrl(UIApplication application, NSUrl url, string sourceApplication, NSObject annotation)
+		{
+			CallbackHandler(url.AbsoluteString);
+			CallbackHandler = null;
+
+			return true;
+		}
+
         public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
         {
             // create a new window instance based on the screen size
             Window = new UIWindow(UIScreen.MainScreen.Bounds);
 
             // If you have defined a root view controller, set it here:
-            // Window.RootViewController = myViewController;
+            Window.RootViewController = myViewController;
 
             // make the window visible
             Window.MakeKeyAndVisible();

@@ -1,4 +1,4 @@
-﻿// WARNING
+// WARNING
 //
 // This file has been generated automatically by Xamarin Studio from the outlets and
 // actions declared in your storyboard file.
@@ -11,11 +11,19 @@ using UIKit;
 
 namespace XamariniOSTestApp
 {
-	[Register("MyViewController")]
-	partial class MyViewController
-	{
-		void ReleaseDesignerOutlets()
-		{
-		}
-	}
+    [Register ("MyViewController")]
+    partial class MyViewController
+    {
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIButton LoginButton { get; set; }
+
+        void ReleaseDesignerOutlets ()
+        {
+            if (LoginButton != null) {
+                LoginButton.Dispose ();
+                LoginButton = null;
+            }
+        }
+    }
 }

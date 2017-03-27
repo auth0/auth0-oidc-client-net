@@ -94,6 +94,11 @@
     <InterfaceDefinition Include="Resources\LaunchScreen.xib" />
     <Content Include="Entitlements.plist" />
     <None Include="packages.config" />
+    <InterfaceDefinition Include="MyViewController.xib" />
+    <Compile Include="MyViewController.cs" />
+    <Compile Include="MyViewController.designer.cs">
+      <DependentUpon>MyViewController.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="IdentityModel, Version=2.6.0.0, Culture=neutral, processorArchitecture=MSIL">
