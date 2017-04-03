@@ -20,7 +20,11 @@ namespace Auth0.OidcClient
         /// <param name="clientSecret">Your Auth0 Client Secret.</param>
         /// <param name="scope">The scope you want to request during authorization.</param>
         /// <param name="loadProfile">Indicates whether the user's profile should be loaded from the UserInfo endpoint.</param>
+#if __ANDROID__
+        public Auth0Client(string domain, string clientId, Android.App.Activity activity, string clientSecret = null, string scope = "openid profile", bool loadProfile = true)
+#else
         public Auth0Client(string domain, string clientId, string clientSecret = null, string scope = "openid profile", bool loadProfile = true)
+#endif
         {
             var authority = $"https://{domain}";
 
@@ -31,11 +35,15 @@ namespace Auth0.OidcClient
                 ClientSecret = clientSecret,
                 Scope = scope,
                 LoadProfile = loadProfile,
-#if !__IOS__
+#if __IOS__
+				RedirectUri = $"{Foundation.NSBundle.MainBundle.BundleIdentifier}://callback",
+#elif __ANDROID__
+                RedirectUri = $"https://{domain}/android/XamarinAndroidTestApp.XamarinAndroidTestApp/callback",
+                Browser = new PlatformWebView(activity),
+#else
                 RedirectUri = $"https://{domain}/mobile",
                 Browser = new PlatformWebView(),
-#else
-				RedirectUri = $"{Foundation.NSBundle.MainBundle.BundleIdentifier}://callback",
+
 #endif
                 Flow = OidcClientOptions.AuthenticationFlow.AuthorizationCode,
                 ResponseMode = OidcClientOptions.AuthorizeResponseMode.Redirect,
@@ -48,14 +56,7 @@ namespace Auth0.OidcClient
             _oidcClient = new IdentityModel.OidcClient.OidcClient(options);
         }
 
-#if !__IOS__
-
-        public Task<LoginResult> LoginAsync(object extraParameters = null)
-        {
-            return _oidcClient.LoginAsync(extraParameters: extraParameters);
-        }
-
-#else
+#if __IOS__
 
         public Task<AuthorizeState> PrepareLoginAsync(object extraParameters = null)
         {
@@ -65,6 +66,13 @@ namespace Auth0.OidcClient
         public Task<LoginResult> ProcessResponseAsync(string data, AuthorizeState state)
         {
             return _oidcClient.ProcessResponseAsync(data, state);
+        }
+
+#else
+
+        public Task<LoginResult> LoginAsync(object extraParameters = null)
+        {
+            return _oidcClient.LoginAsync(extraParameters: extraParameters);
         }
 
 #endif
