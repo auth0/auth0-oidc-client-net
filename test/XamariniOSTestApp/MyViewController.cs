@@ -33,27 +33,31 @@ namespace XamariniOSTestApp
 
 		private async void LoginButton_TouchUpInside(object sender, EventArgs e)
 		{
-			_client = new Auth0Client("jerrie.auth0.com", "vV9twaySQzfGesS9Qs6gOgqDsYDdgoKE", scope: "openid name");
+			_client = new Auth0Client("jerrie.auth0.com", "vV9twaySQzfGesS9Qs6gOgqDsYDdgoKE", this, scope: "openid name");
 
-			_state = await _client.PrepareLoginAsync(null);
+			var result = await _client.LoginAsync(null);
+			//_state = await _client.PrepareLoginAsync(null);
 
-			AppDelegate.CallbackHandler = HandleCallback;
-			safari = new SafariServices.SFSafariViewController(new NSUrl(_state.StartUrl));
+			//AppDelegate.CallbackHandler = HandleCallback;
+			//safari = new SafariServices.SFSafariViewController(new NSUrl(_state.StartUrl));
 
-			this.PresentViewController(safari, true, null);
+			//this.PresentViewController(safari, true, null);
 		}
 
 		private async void HandleCallback(string url)
 		{
-			await safari.DismissViewControllerAsync(true);
+			//await safari.DismissViewControllerAsync(true);
 
-			var result = await _client.ProcessResponseAsync(url, _state);
+			//var result = await _client.ProcessResponseAsync(url, _state);
 
-			if (result.IsError)
-			{
+			//if (result.IsError)
+			//{
 				
-				return;
-			}
+			//	return;
+			//}
+
+
+
 
 			//var sb = new StringBuilder(128);
 			//foreach (var claim in result.User.Claims)

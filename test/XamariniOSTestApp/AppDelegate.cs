@@ -1,4 +1,5 @@
 ﻿using System;
+using Auth0.OidcClient;
 using Foundation;
 using UIKit;
 
@@ -21,8 +22,9 @@ namespace XamariniOSTestApp
 
 		public override bool OpenUrl(UIApplication application, NSUrl url, string sourceApplication, NSObject annotation)
 		{
-			CallbackHandler(url.AbsoluteString);
-			CallbackHandler = null;
+			//CallbackHandler(url.AbsoluteString);
+			//CallbackHandler = null;
+			ActivityMediator.Instance.Send(url.AbsoluteString);
 
 			return true;
 		}

@@ -20,7 +20,9 @@ namespace Auth0.OidcClient
         /// <param name="clientSecret">Your Auth0 Client Secret.</param>
         /// <param name="scope">The scope you want to request during authorization.</param>
         /// <param name="loadProfile">Indicates whether the user's profile should be loaded from the UserInfo endpoint.</param>
-#if __ANDROID__
+#if __IOS__
+		public Auth0Client(string domain, string clientId, UIKit.UIViewController controller, string clientSecret = null, string scope = "openid profile", bool loadProfile = true)
+#elif __ANDROID__
         public Auth0Client(string domain, string clientId, Android.App.Activity activity, string clientSecret = null, string scope = "openid profile", bool loadProfile = true)
 #else
         public Auth0Client(string domain, string clientId, string clientSecret = null, string scope = "openid profile", bool loadProfile = true)
@@ -37,6 +39,7 @@ namespace Auth0.OidcClient
                 LoadProfile = loadProfile,
 #if __IOS__
 				RedirectUri = $"{Foundation.NSBundle.MainBundle.BundleIdentifier}://callback",
+				Browser = new PlatformWebView(controller),
 #elif __ANDROID__
                 RedirectUri = $"https://{domain}/android/XamarinAndroidTestApp.XamarinAndroidTestApp/callback",
                 Browser = new PlatformWebView(activity),
@@ -56,26 +59,26 @@ namespace Auth0.OidcClient
             _oidcClient = new IdentityModel.OidcClient.OidcClient(options);
         }
 
-#if __IOS__
+//#if __IOS__
 
-        public Task<AuthorizeState> PrepareLoginAsync(object extraParameters = null)
-        {
-            return _oidcClient.PrepareLoginAsync();
-        }
+//        public Task<AuthorizeState> PrepareLoginAsync(object extraParameters = null)
+//        {
+//            return _oidcClient.PrepareLoginAsync();
+//        }
 
-        public Task<LoginResult> ProcessResponseAsync(string data, AuthorizeState state)
-        {
-            return _oidcClient.ProcessResponseAsync(data, state);
-        }
+//        public Task<LoginResult> ProcessResponseAsync(string data, AuthorizeState state)
+//        {
+//            return _oidcClient.ProcessResponseAsync(data, state);
+//        }
 
-#else
+//#else
 
         public Task<LoginResult> LoginAsync(object extraParameters = null)
         {
             return _oidcClient.LoginAsync(extraParameters: extraParameters);
         }
 
-#endif
+//#endif
 
         public Task<RefreshTokenResult> RefreshTokenAsync(string refreshToken)
         {

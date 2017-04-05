@@ -8,7 +8,7 @@
     <ProjectGuid>{D6CD228A-D8FA-4250-B770-CCC9CCD5698B}</ProjectGuid>
     <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
-    <RootNamespace>Auth0.OidcClient.Xamarin.iOS</RootNamespace>
+    <RootNamespace>Auth0.OidcClient</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AssemblyName>Auth0.OidcClient.Xamarin.iOS</AssemblyName>
   </PropertyGroup>
@@ -70,6 +70,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PlatformWebView.cs" />
+    <Compile Include="ActivityMediator.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
