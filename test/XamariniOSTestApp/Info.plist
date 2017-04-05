@@ -45,8 +45,10 @@
 		<dict>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+				<string>com.auth0.XamariniOSTestApp</string>
 			</array>
+			<key>CFBundleURLName</key>
+			<string>auth0</string>
 		</dict>
 	</array>
 </dict>

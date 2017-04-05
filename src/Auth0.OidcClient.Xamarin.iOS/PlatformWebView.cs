@@ -36,10 +36,13 @@ namespace Auth0.OidcClient
 			_safari = new SafariServices.SFSafariViewController(new NSUrl(options.StartUrl));
 
 			ActivityMediator.MessageReceivedEventHandler callback = null;
-			callback = (response) =>
+			callback = async (response) =>
 			{
 				// remove handler
 				ActivityMediator.Instance.ActivityMessageReceived -= callback;
+
+				// Close Safari
+				await _safari.DismissViewControllerAsync(true);
 
 				// set result
 				tcs.SetResult(new BrowserResult
