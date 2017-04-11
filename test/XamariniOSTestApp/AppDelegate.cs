@@ -12,7 +12,6 @@ namespace XamariniOSTestApp
     {
 		// class-level declarations
 		MyViewController myViewController = new MyViewController();
-		public static Action<string> CallbackHandler { get; set; }
 
         public override UIWindow Window
         {
@@ -22,8 +21,6 @@ namespace XamariniOSTestApp
 
 		public override bool OpenUrl(UIApplication application, NSUrl url, string sourceApplication, NSObject annotation)
 		{
-			//CallbackHandler(url.AbsoluteString);
-			//CallbackHandler = null;
 			ActivityMediator.Instance.Send(url.AbsoluteString);
 
 			return true;

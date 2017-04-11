@@ -4,23 +4,24 @@ using UIKit;
 using Auth0.OidcClient;
 using IdentityModel.OidcClient;
 using Foundation;
+using System.Text;
 
 namespace XamariniOSTestApp
 {
 	public partial class MyViewController : UIViewController
 	{
-		private SafariServices.SFSafariViewController safari;
 		private Auth0Client _client;
-		private AuthorizeState _state;
 
 		public MyViewController() : base("MyViewController", null)
 		{
-			
+
 		}
 
 		public override void ViewDidLoad()
 		{
 			base.ViewDidLoad();
+
+			UserDetailsTextView.Text = String.Empty;
 
 			LoginButton.TouchUpInside += LoginButton_TouchUpInside;
 		}
@@ -35,46 +36,29 @@ namespace XamariniOSTestApp
 		{
 			_client = new Auth0Client("jerrie.auth0.com", "vV9twaySQzfGesS9Qs6gOgqDsYDdgoKE", this, scope: "openid name");
 
-			var result = await _client.LoginAsync(null);
-			//_state = await _client.PrepareLoginAsync(null);
+			var loginResult = await _client.LoginAsync(null);
 
-			//AppDelegate.CallbackHandler = HandleCallback;
-			//safari = new SafariServices.SFSafariViewController(new NSUrl(_state.StartUrl));
+            var sb = new StringBuilder();
 
-			//this.PresentViewController(safari, true, null);
-		}
+            if (loginResult.IsError)
+            {
+                sb.AppendLine("An error occurred during login:");
+                sb.AppendLine(loginResult.Error);
+            }
+            else
+            {
+                sb.AppendLine($"ID Token: {loginResult.IdentityToken}");
+                sb.AppendLine($"Access Token: {loginResult.AccessToken}");
+                sb.AppendLine($"Refresh Token: {loginResult.RefreshToken}");
+                sb.AppendLine();
+                sb.AppendLine("-- Claims --");
+                foreach (var claim in loginResult.User.Claims)
+                {
+                    sb.AppendLine($"{claim.Type} = {claim.Value}");
+                }
+            }
 
-		private async void HandleCallback(string url)
-		{
-			//await safari.DismissViewControllerAsync(true);
-
-			//var result = await _client.ProcessResponseAsync(url, _state);
-
-			//if (result.IsError)
-			//{
-				
-			//	return;
-			//}
-
-
-
-
-			//var sb = new StringBuilder(128);
-			//foreach (var claim in result.User.Claims)
-			//{
-			//	sb.AppendFormat("{0}: {1}\n", claim.Type, claim.Value);
-			//}
-
-			//sb.AppendFormat("\n{0}: {1}\n", "refresh token", result?.RefreshToken ?? "none");
-			//sb.AppendFormat("\n{0}: {1}\n", "access token", result.AccessToken);
-
-			//OutputTextView.Text = sb.ToString();
-
-			//_apiClient = new HttpClient();
-			//_apiClient.SetBearerToken(result.AccessToken);
-			//_apiClient.BaseAddress = new Uri("https://api.identityserver.io");
-
-			//CallApiButton.Enabled = true;
+            UserDetailsTextView.Text = sb.ToString();
 		}
 	}
 }
