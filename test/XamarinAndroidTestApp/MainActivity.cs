@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 using Android.App;
 using Android.Content;
 using Android.Graphics;
@@ -14,7 +15,8 @@ namespace XamarinAndroidTestApp
     public class MainActivity : Activity
     {
         private Auth0Client _client;
-        //private AuthorizeState _state;
+        private Button _loginButton;
+        private TextView _userDetailsTextView;
 
         protected override void OnCreate(Bundle bundle)
         {
@@ -22,34 +24,40 @@ namespace XamarinAndroidTestApp
 
             SetContentView(Resource.Layout.Main);
 
+            _loginButton = FindViewById<Button>(Resource.Id.LoginButton);
+            _userDetailsTextView = FindViewById<TextView>(Resource.Id.UserDetailsTextView);
+
             _client = new Auth0Client(Resources.GetString(Resource.String.auth0_domain), Resources.GetString(Resource.String.auth0_client_id), this, scope: "openid name");
 
-            //string oauthCallbackData = Intent.GetStringExtra("OAuthCallbackData");
-            //if (!string.IsNullOrEmpty(oauthCallbackData))
-            //{
-            //    await _client.ProcessResponseAsync(oauthCallbackData, _state);
-            //}
-            
-            Button loginButton = FindViewById<Button>(Resource.Id.LoginButton);
-            loginButton.Click += LoginButtonOnClick;
+            _loginButton.Click += LoginButtonOnClick;
+            _userDetailsTextView.Text = String.Empty;
         }
 
         private async void LoginButtonOnClick(object sender, EventArgs eventArgs)
         {
             var loginResult = await _client.LoginAsync();
 
-            //_state = await _client.PrepareLoginAsync();
+            var sb = new StringBuilder();
+            if (loginResult.IsError)
+            {
+                sb.AppendLine($"An error occurred during login: {loginResult.Error}");
+            }
+            else
+            {
+                sb.AppendLine($"ID Token: {loginResult.IdentityToken}");
+                sb.AppendLine($"Access Token: {loginResult.AccessToken}");
+                sb.AppendLine($"Refresh Token: {loginResult.RefreshToken}");
 
-            //var customTabs = new CustomTabsActivityManager(this);
-            //var builder = new CustomTabsIntent.Builder(customTabs.Session)
-            //   .SetToolbarColor(Color.Argb(255, 52, 152, 219))
-            //   .SetShowTitle(true)
-            //   .EnableUrlBarHiding();
+                sb.AppendLine();
 
-            //var customTabsIntent = builder.Build();
-            //customTabsIntent.Intent.AddFlags(ActivityFlags.NoHistory);
+                sb.AppendLine("-- Claims --");
+                foreach (var claim in loginResult.User.Claims)
+                {
+                    sb.AppendLine($"{claim.Type} = {claim.Value}");
+                }
+            }
 
-            //customTabsIntent.LaunchUrl(this, Android.Net.Uri.Parse(_state.StartUrl));
+            _userDetailsTextView.Text = sb.ToString();
         }
     }
 }

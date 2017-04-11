@@ -22,7 +22,8 @@ namespace XamarinAndroidTestApp
 
             ActivityMediator.Instance.Send(Intent.DataString);
 
-            StartActivity(typeof(MainActivity));
+            // We don't need to redirect to MainActivity explicitly...?
+            //StartActivity(typeof(MainActivity));
         }
     }
 }
