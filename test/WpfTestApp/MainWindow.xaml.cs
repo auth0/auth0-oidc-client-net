@@ -16,7 +16,11 @@ namespace WpfTestApp
 
         private async void button_Click(object sender, RoutedEventArgs e)
         {
-            var client = new Auth0Client("", "");
+            var client = new Auth0Client(new Auth0ClientOptions
+            {
+                Domain = "jerrie.auth0.com",
+                ClientId = "vV9twaySQzfGesS9Qs6gOgqDsYDdgoKE"
+            });
 
             var loginResult = await client.LoginAsync();
 

@@ -14,7 +14,11 @@ namespace WindowsFormsTestApp
 
         private async void button1_Click(object sender, EventArgs e)
         {
-            var client = new Auth0Client("", "");
+            var client = new Auth0Client(new Auth0ClientOptions
+            {
+                Domain = "jerrie.auth0.com",
+                ClientId = "vV9twaySQzfGesS9Qs6gOgqDsYDdgoKE"
+            });
 
             var loginResult = await client.LoginAsync();
 

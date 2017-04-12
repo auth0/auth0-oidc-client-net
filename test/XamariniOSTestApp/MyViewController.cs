@@ -34,7 +34,12 @@ namespace XamariniOSTestApp
 
 		private async void LoginButton_TouchUpInside(object sender, EventArgs e)
 		{
-			_client = new Auth0Client("jerrie.auth0.com", "vV9twaySQzfGesS9Qs6gOgqDsYDdgoKE", this, scope: "openid name");
+		    _client = new Auth0Client(new Auth0ClientOptions
+		    {
+		        Domain = "jerrie.auth0.com",
+		        ClientId = "vV9twaySQzfGesS9Qs6gOgqDsYDdgoKE",
+		        Controller = this
+		    });
 
 			var loginResult = await _client.LoginAsync(null);
 

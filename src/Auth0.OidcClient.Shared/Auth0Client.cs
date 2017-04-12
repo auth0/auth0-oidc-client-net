@@ -15,38 +15,27 @@ namespace Auth0.OidcClient
         /// <summary>
         /// Creates a new instance of the Auth0 OIDC Client.
         /// </summary>
-        /// <param name="domain">Your Auth0 domain.</param>
-        /// <param name="clientId">Your Auth0 Client ID.</param>
-        /// <param name="clientSecret">Your Auth0 Client Secret.</param>
-        /// <param name="scope">The scope you want to request during authorization.</param>
-        /// <param name="loadProfile">Indicates whether the user's profile should be loaded from the UserInfo endpoint.</param>
-#if __IOS__
-		public Auth0Client(string domain, string clientId, UIKit.UIViewController controller, string clientSecret = null, string scope = "openid profile", bool loadProfile = true)
-#elif __ANDROID__
-        public Auth0Client(string domain, string clientId, Android.App.Activity activity, string clientSecret = null, string scope = "openid profile", bool loadProfile = true)
-#else
-        public Auth0Client(string domain, string clientId, string clientSecret = null, string scope = "openid profile", bool loadProfile = true)
-#endif
+        /// <param name="options">The <see cref="Auth0ClientOptions"/> specifying the configuration for the Auth0 OIDC Client.</param>
+        public Auth0Client(Auth0ClientOptions options)
         {
-            var authority = $"https://{domain}";
+            var authority = $"https://{options.Domain}";
 
-            var options = new OidcClientOptions
+            var oidcClientOptions = new OidcClientOptions
             {
                 Authority = authority,
-                ClientId = clientId,
-                ClientSecret = clientSecret,
-                Scope = scope,
-                LoadProfile = loadProfile,
+                ClientId = options.ClientId,
+                ClientSecret = options.ClientSecret,
+                Scope = options.Scope,
+                LoadProfile = options.LoadProfile,
 #if __IOS__
 				RedirectUri = $"{Foundation.NSBundle.MainBundle.BundleIdentifier}://callback",
-				Browser = new PlatformWebView(controller),
+				Browser = new PlatformWebView(options.Controller),
 #elif __ANDROID__
-                RedirectUri = $"https://{domain}/android/XamarinAndroidTestApp.XamarinAndroidTestApp/callback",
-                Browser = new PlatformWebView(activity),
+                RedirectUri = $"https://{options.Domain}/android/XamarinAndroidTestApp.XamarinAndroidTestApp/callback",
+                Browser = new PlatformWebView(options.Activity),
 #else
-                RedirectUri = $"https://{domain}/mobile",
+                RedirectUri = $"https://{options.Domain}/mobile",
                 Browser = new PlatformWebView(),
-
 #endif
                 Flow = OidcClientOptions.AuthenticationFlow.AuthorizationCode,
                 ResponseMode = OidcClientOptions.AuthorizeResponseMode.Redirect,
@@ -56,29 +45,13 @@ namespace Auth0.OidcClient
                     RequireAccessTokenHash = false
                 }
             };
-            _oidcClient = new IdentityModel.OidcClient.OidcClient(options);
+            _oidcClient = new IdentityModel.OidcClient.OidcClient(oidcClientOptions);
         }
-
-//#if __IOS__
-
-//        public Task<AuthorizeState> PrepareLoginAsync(object extraParameters = null)
-//        {
-//            return _oidcClient.PrepareLoginAsync();
-//        }
-
-//        public Task<LoginResult> ProcessResponseAsync(string data, AuthorizeState state)
-//        {
-//            return _oidcClient.ProcessResponseAsync(data, state);
-//        }
-
-//#else
 
         public Task<LoginResult> LoginAsync(object extraParameters = null)
         {
             return _oidcClient.LoginAsync(extraParameters: extraParameters);
         }
-
-//#endif
 
         public Task<RefreshTokenResult> RefreshTokenAsync(string refreshToken)
         {

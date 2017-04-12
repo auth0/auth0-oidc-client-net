@@ -11,7 +11,8 @@ using IdentityModel.OidcClient;
 
 namespace XamarinAndroidTestApp
 {
-    [Activity(Label = "XamarinAndroidTestApp", MainLauncher = true, Icon = "@drawable/icon", LaunchMode = Android.Content.PM.LaunchMode.SingleTask)]
+    [Activity(Label = "XamarinAndroidTestApp", MainLauncher = true, Icon = "@drawable/icon",
+        LaunchMode = Android.Content.PM.LaunchMode.SingleTask)]
     public class MainActivity : Activity
     {
         private Auth0Client _client;
@@ -27,7 +28,12 @@ namespace XamarinAndroidTestApp
             _loginButton = FindViewById<Button>(Resource.Id.LoginButton);
             _userDetailsTextView = FindViewById<TextView>(Resource.Id.UserDetailsTextView);
 
-            _client = new Auth0Client(Resources.GetString(Resource.String.auth0_domain), Resources.GetString(Resource.String.auth0_client_id), this, scope: "openid name");
+            _client = new Auth0Client(new Auth0ClientOptions
+            {
+                Domain = Resources.GetString(Resource.String.auth0_domain),
+                ClientId = Resources.GetString(Resource.String.auth0_client_id),
+                Activity = this
+            });
 
             _loginButton.Click += LoginButtonOnClick;
             _userDetailsTextView.Text = String.Empty;
@@ -61,4 +67,3 @@ namespace XamarinAndroidTestApp
         }
     }
 }
-
