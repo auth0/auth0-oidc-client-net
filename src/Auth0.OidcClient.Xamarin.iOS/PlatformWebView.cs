@@ -2,11 +2,12 @@
 using System.Threading.Tasks;
 using Foundation;
 using IdentityModel.OidcClient.Browser;
+using SafariServices;
 using UIKit;
 
 namespace Auth0.OidcClient
 {
-	public class PlatformWebView : IBrowser
+	public class PlatformWebView : SFSafariViewControllerDelegate, IBrowser
 	{
 		private SafariServices.SFSafariViewController _safari;
 		private readonly UIViewController _controller;
@@ -15,6 +16,11 @@ namespace Auth0.OidcClient
 		{
 			_controller = controller;
 		}
+
+        public override void DidFinish(SFSafariViewController controller)
+        {
+            ActivityMediator.Instance.Send("Cancelled");
+        }
 
 		public Task<BrowserResult> InvokeAsync(BrowserOptions options)
 		{
@@ -34,6 +40,7 @@ namespace Auth0.OidcClient
 
 			// create Safari controller
 			_safari = new SafariServices.SFSafariViewController(new NSUrl(options.StartUrl));
+            _safari.Delegate = this;
 
 			ActivityMediator.MessageReceivedEventHandler callback = null;
 			callback = async (response) =>
@@ -41,15 +48,25 @@ namespace Auth0.OidcClient
 				// remove handler
 				ActivityMediator.Instance.ActivityMessageReceived -= callback;
 
-				// Close Safari
-				await _safari.DismissViewControllerAsync(true);
+                if (response == "Cancelled")
+                {
+                    tcs.SetResult(new BrowserResult
+                    {
+                        ResultType = BrowserResultType.UserCancel
+                    });
+                }
+                else
+                {
+                    // Close Safari
+                    await _safari.DismissViewControllerAsync(true);
 
-				// set result
-				tcs.SetResult(new BrowserResult
-				{
-					Response = response,
-					ResultType = BrowserResultType.Success
-				});
+                    // set result
+                    tcs.SetResult(new BrowserResult
+                    {
+                        Response = response,
+                        ResultType = BrowserResultType.Success
+                    });
+                }
 			};
 
 			// attach handler
