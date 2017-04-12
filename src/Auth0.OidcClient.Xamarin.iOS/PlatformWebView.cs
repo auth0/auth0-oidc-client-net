@@ -19,7 +19,7 @@ namespace Auth0.OidcClient
 
         public override void DidFinish(SFSafariViewController controller)
         {
-            ActivityMediator.Instance.Send("Cancelled");
+            ActivityMediator.Instance.Send("UserCancel");
         }
 
 		public Task<BrowserResult> InvokeAsync(BrowserOptions options)
@@ -48,7 +48,7 @@ namespace Auth0.OidcClient
 				// remove handler
 				ActivityMediator.Instance.ActivityMessageReceived -= callback;
 
-                if (response == "Cancelled")
+                if (response == "UserCancel")
                 {
                     tcs.SetResult(new BrowserResult
                     {
