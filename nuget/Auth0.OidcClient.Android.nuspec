@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+
+<package>
+  <metadata>
+    <id>Auth0.OidcClient.Android</id>
+    <version>1.0.0-beta1</version>
+    <authors>Auth0</authors>
+    <owners>Auth0</owners>
+    <licenseUrl>http://opensource.org/licenses/MIT</licenseUrl>
+    <projectUrl>https://github.com/auth0/auth0-oidc-client-net</projectUrl>
+    <iconUrl>http://secure.gravatar.com/avatar/805765c256ff8617fcad483b5476faf2</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Auth0 OIDC Client for Xamarin Android applications</description>
+    <releaseNotes>
+      Version 1.0
+      - Initial version of Package
+    </releaseNotes>
+    <copyright>Copyright 2017</copyright>
+    <tags>Auth0 OIDC Android MonoAndroid</tags>
+    <dependencies>
+      <group targetFramework="MonoAndroid10">
+        <dependency id="IdentityModel.OidcClient" version="2.1.1" />
+        <dependency id="Xamarin.Android.Support.CustomTabs" version="23.3.0" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="..\src\Auth0.OidcClient.Android\bin\Release\Auth0.OidcClient.dll" target="lib\MonoAndroid10" />
+  </files>
+</package>
