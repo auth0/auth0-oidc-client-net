@@ -21,8 +21,6 @@ namespace Auth0.OidcClient
             : this(() => new Form
             {
                 Name = "WebAuthentication",
-                //AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F),
-                //AutoScaleMode = AutoScaleMode.Font,
                 Text = title,
                 Width = width,
                 Height = height

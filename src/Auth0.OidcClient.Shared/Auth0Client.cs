@@ -35,7 +35,7 @@ namespace Auth0.OidcClient
                 Browser = new PlatformWebView(options.Activity),
 #else
                 RedirectUri = $"https://{options.Domain}/mobile",
-                Browser = new PlatformWebView(),
+                Browser = options.Browser ?? new PlatformWebView(),
 #endif
                 Flow = OidcClientOptions.AuthenticationFlow.AuthorizationCode,
                 ResponseMode = OidcClientOptions.AuthorizeResponseMode.Redirect,

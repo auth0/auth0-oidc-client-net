@@ -1,4 +1,6 @@
-﻿namespace Auth0.OidcClient
+﻿using IdentityModel.OidcClient.Browser;
+
+namespace Auth0.OidcClient
 {
     public class Auth0ClientOptions
     {
@@ -8,6 +10,11 @@
         /// </summary>
         public Android.App.Activity Activity { get; set; }
 #endif
+
+        /// <summary>
+        /// The <see cref="IBrowser"/> implementation which is responsible for displaying the Auth0 Login screen
+        /// </summary>
+        public IBrowser Browser { get; set; }
 
         /// <summary>
         /// Your Auth0 Client ID.
