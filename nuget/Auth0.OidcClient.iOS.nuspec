@@ -3,7 +3,7 @@
 <package>
   <metadata>
     <id>Auth0.OidcClient.iOS</id>
-    <version>1.0.0-beta1</version>
+    <version>1.0.0-beta2</version>
     <authors>Auth0</authors>
     <owners>Auth0</owners>
     <licenseUrl>http://opensource.org/licenses/MIT</licenseUrl>
@@ -24,6 +24,6 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="../src/Auth0.OidcClient.Xamarin.iOS/bin/Release/Auth0.OidcClient.dll" target="lib\Xamarin.iOS10" />
+    <file src="../src/Auth0.OidcClient.Xamarin.iOS/bin/Release/Auth0.OidcClient.dll" target="lib/Xamarin.iOS10/Auth0.OidcClient.dll" />
   </files>
 </package>
