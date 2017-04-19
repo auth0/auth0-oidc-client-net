@@ -10,7 +10,7 @@
     <OutputType>Library</OutputType>
     <RootNamespace>Auth0.OidcClient</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
-    <AssemblyName>Auth0.OidcClient.Xamarin.iOS</AssemblyName>
+    <AssemblyName>Auth0.OidcClient</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -33,9 +33,6 @@
   <ItemGroup>
     <Reference Include="IdentityModel, Version=2.6.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\IdentityModel.2.6.0\lib\netstandard1.3\IdentityModel.dll</HintPath>
-    </Reference>
-    <Reference Include="IdentityModel.OidcClient, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\IdentityModel.OidcClient.2.1.0\lib\netstandard1.4\IdentityModel.OidcClient.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=1.1.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.1.1.0\lib\netstandard1.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
@@ -64,6 +61,9 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="Xamarin.iOS" />
+    <Reference Include="IdentityModel.OidcClient">
+      <HintPath>..\..\packages\IdentityModel.OidcClient.2.1.2\lib\netstandard1.4\IdentityModel.OidcClient.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />

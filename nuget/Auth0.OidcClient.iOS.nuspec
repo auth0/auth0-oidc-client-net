@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+
+<package>
+  <metadata>
+    <id>Auth0.OidcClient.iOS</id>
+    <version>1.0.0-beta1</version>
+    <authors>Auth0</authors>
+    <owners>Auth0</owners>
+    <licenseUrl>http://opensource.org/licenses/MIT</licenseUrl>
+    <projectUrl>https://github.com/auth0/auth0-oidc-client-net</projectUrl>
+    <iconUrl>http://secure.gravatar.com/avatar/805765c256ff8617fcad483b5476faf2</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Auth0 OIDC Client for Xamarin iOS applications</description>
+    <releaseNotes>
+      Version 1.0
+      - Initial version of Package
+    </releaseNotes>
+    <copyright>Copyright 2017</copyright>
+    <tags>Auth0 OIDC iOS MonoTouch</tags>
+    <dependencies>
+      <group targetFramework="Xamarin.iOS10">
+        <dependency id="IdentityModel.OidcClient" version="2.1.2" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="../src/Auth0.OidcClient.Xamarin.iOS/bin/Release/Auth0.OidcClient.dll" target="lib\Xamarin.iOS10" />
+  </files>
+</package>
