@@ -6,8 +6,9 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Button x:Name="button" Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="1.856,1.702" Margin="30,38,0,0" Click="button_Click"/>
-
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" >
+        <Button x:Name="loginButton" Content="Login" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" Width="57" Click="button_Click"/>
+        <TextBlock x:Name="textBlock_Copy" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Result:" VerticalAlignment="Top" Margin="10,54,0,0"/>
+        <TextBox x:Name="resultTextBox" TextWrapping="Wrap" Text="" Margin="10,79,10,10"/>
     </Grid>
 </Page>

@@ -33,12 +33,19 @@ namespace Auth0.OidcClient
 #elif __ANDROID__
                 RedirectUri = $"https://{options.Domain}/android/XamarinAndroidTestApp.XamarinAndroidTestApp/callback",
                 Browser = new PlatformWebView(options.Activity),
+#elif WINDOWS_UWP
+                RedirectUri = Windows.Security.Authentication.Web.WebAuthenticationBroker.GetCurrentApplicationCallbackUri().AbsoluteUri,
+                Browser = options.Browser ?? new PlatformWebView(),
 #else
                 RedirectUri = $"https://{options.Domain}/mobile",
                 Browser = options.Browser ?? new PlatformWebView(),
 #endif
                 Flow = OidcClientOptions.AuthenticationFlow.AuthorizationCode,
+#if WINDOWS_UWP
+                ResponseMode = OidcClientOptions.AuthorizeResponseMode.FormPost,
+#else
                 ResponseMode = OidcClientOptions.AuthorizeResponseMode.Redirect,
+#endif
                 Policy =
                 {
                     RequireAuthorizationCodeHash = false,
