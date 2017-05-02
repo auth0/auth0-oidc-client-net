@@ -28,7 +28,7 @@ namespace Auth0.OidcClient
                 Scope = options.Scope,
                 LoadProfile = options.LoadProfile,
 #if __IOS__
-				RedirectUri = $"{Foundation.NSBundle.MainBundle.BundleIdentifier}://callback",
+				RedirectUri = $"{Foundation.NSBundle.MainBundle.BundleIdentifier}://{options.Domain}/ios/{Foundation.NSBundle.MainBundle.BundleIdentifier}/callback",
 				Browser = new PlatformWebView(options.Controller),
 #elif __ANDROID__
                 RedirectUri = $"https://{options.Domain}/android/XamarinAndroidTestApp.XamarinAndroidTestApp/callback",
