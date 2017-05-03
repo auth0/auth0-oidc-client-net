@@ -57,11 +57,21 @@ namespace Auth0.OidcClient
                 ActivityMediator.Instance.ActivityMessageReceived -= callback;
 
                 // set result
-                tcs.SetResult(new BrowserResult
+                if (response == "UserCancel")
                 {
-                    Response = response,
-                    ResultType = BrowserResultType.Success
-                });
+                    tcs.SetResult(new BrowserResult
+                    {
+                        ResultType = BrowserResultType.UserCancel
+                    });
+                }
+                else
+                {
+                    tcs.SetResult(new BrowserResult
+                    {
+                        Response = response,
+                        ResultType = BrowserResultType.Success
+                    });
+                }
             };
 
             // attach handler
