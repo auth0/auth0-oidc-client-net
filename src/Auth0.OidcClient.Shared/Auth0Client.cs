@@ -19,7 +19,9 @@ namespace Auth0.OidcClient
         public Auth0Client(Auth0ClientOptions options)
         {
             var authority = $"https://{options.Domain}";
-
+#if __ANDROID__
+            string packageName = options.Activity.Application.ApplicationInfo.PackageName;
+#endif
             var oidcClientOptions = new OidcClientOptions
             {
                 Authority = authority,
@@ -31,7 +33,7 @@ namespace Auth0.OidcClient
 				RedirectUri = $"{Foundation.NSBundle.MainBundle.BundleIdentifier}://{options.Domain}/ios/{Foundation.NSBundle.MainBundle.BundleIdentifier}/callback",
 				Browser = new PlatformWebView(options.Controller),
 #elif __ANDROID__
-                RedirectUri = $"https://{options.Domain}/android/XamarinAndroidTestApp.XamarinAndroidTestApp/callback",
+                RedirectUri = $"{packageName}://{options.Domain}/android/{packageName}/callback".ToLower(),
                 Browser = new PlatformWebView(options.Activity),
 #elif WINDOWS_UWP
                 RedirectUri = Windows.Security.Authentication.Web.WebAuthenticationBroker.GetCurrentApplicationCallbackUri().AbsoluteUri,

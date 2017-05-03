@@ -17,9 +17,9 @@ namespace XamarinAndroidTestApp
     [IntentFilter(
         new[] { Intent.ActionView },
         Categories = new[] { Intent.CategoryDefault, Intent.CategoryBrowsable },
-        DataScheme = "https",
+        DataScheme = "xamarinandroidtestapp.xamarinandroidtestapp",
         DataHost = "@string/auth0_domain",
-        DataPathPrefix = "/android/XamarinAndroidTestApp.XamarinAndroidTestApp/callback")]
+        DataPathPrefix = "/android/xamarinandroidtestapp.xamarinandroidtestapp/callback")]
     public class MainActivity : Activity
     {
         private Auth0Client _client;
