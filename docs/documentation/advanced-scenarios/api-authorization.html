@@ -8,7 +8,7 @@
     <title>API Authorization </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="API Authorization ">
-    <meta name="generator" content="docfx 2.12.1.0">
+    <meta name="generator" content="docfx 2.15.4.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
     <link rel="stylesheet" href="../../styles/docfx.vendor.css">
@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="../../styles/main.css">
     <meta property="docfx:navrel" content="../../toc.html">
     <meta property="docfx:tocrel" content="../toc.html">
+    
     
   </head>
   <body data-spy="scroll" data-target="#affix">
@@ -69,9 +70,9 @@
               
 <p>Auth0&#39;s API authorization features allow you to manage the authorization requirements for server-to-server and client-to-server applications.</p>
 <p>For more information you can refer to the <a href="https://auth0.com/docs/api-auth">Auth0 API Authorization documentation</a></p>
-<p>Using the Auth0 OIDC Client, you can request an <code>access_token</code> for an API by passing the <code>authority</code> in the <code>extraParameters</code> parameter when calling <a class="xref" href="../../api/Auth0.OidcClient.Auth0Client.html#Auth0_OidcClient_Auth0Client_LoginAsync_System_Object_">LoginAsync(Object)</a></p>
+<p>Using the Auth0 OIDC Client, you can request an <code>access_token</code> for an API by passing the <code>audience</code> in the <code>extraParameters</code> parameter when calling <a class="xref" href="../../api/Auth0.OidcClient.Auth0Client.html#Auth0_OidcClient_Auth0Client_LoginAsync_System_Object_">LoginAsync(Object)</a></p>
 <pre><code class="lang-csharp">var client = new Auth0Client(&quot;YOUR_AUTH0_DOMAIN&quot;, &quot;YOUR_AUTH0_CLIENT_ID&quot;);
-var loginResult = await client.LoginAsync(new { authority = &quot;https://your-api-identifier&quot; });
+var loginResult = await client.LoginAsync(new { audience = &quot;https://your-api-identifier&quot; });
 </code></pre>
             </article>
           </div>

@@ -13,12 +13,12 @@ references:
   commentId: T:Auth0.OidcClient.Auth0Client
   fullName: Auth0.OidcClient.Auth0Client
   nameWithType: Auth0Client
-- uid: Auth0.OidcClient.Auth0Client.#ctor(System.String,System.String,System.String,System.String,System.Boolean)
-  name: Auth0Client(String, String, String, String, Boolean)
-  href: api/Auth0.OidcClient.Auth0Client.html#Auth0_OidcClient_Auth0Client__ctor_System_String_System_String_System_String_System_String_System_Boolean_
-  commentId: M:Auth0.OidcClient.Auth0Client.#ctor(System.String,System.String,System.String,System.String,System.Boolean)
-  fullName: Auth0.OidcClient.Auth0Client.Auth0Client(System.String, System.String, System.String, System.String, System.Boolean)
-  nameWithType: Auth0Client.Auth0Client(String, String, String, String, Boolean)
+- uid: Auth0.OidcClient.Auth0Client.#ctor(Auth0.OidcClient.Auth0ClientOptions)
+  name: Auth0Client(Auth0ClientOptions)
+  href: api/Auth0.OidcClient.Auth0Client.html#Auth0_OidcClient_Auth0Client__ctor_Auth0_OidcClient_Auth0ClientOptions_
+  commentId: M:Auth0.OidcClient.Auth0Client.#ctor(Auth0.OidcClient.Auth0ClientOptions)
+  fullName: Auth0.OidcClient.Auth0Client.Auth0Client(Auth0.OidcClient.Auth0ClientOptions)
+  nameWithType: Auth0Client.Auth0Client(Auth0ClientOptions)
 - uid: Auth0.OidcClient.Auth0Client.#ctor*
   name: Auth0Client
   href: api/Auth0.OidcClient.Auth0Client.html#Auth0_OidcClient_Auth0Client__ctor_
@@ -49,6 +49,96 @@ references:
   commentId: Overload:Auth0.OidcClient.Auth0Client.RefreshTokenAsync
   fullName: Auth0.OidcClient.Auth0Client.RefreshTokenAsync
   nameWithType: Auth0Client.RefreshTokenAsync
+- uid: Auth0.OidcClient.Auth0ClientOptions
+  name: Auth0ClientOptions
+  href: api/Auth0.OidcClient.Auth0ClientOptions.html
+  commentId: T:Auth0.OidcClient.Auth0ClientOptions
+  fullName: Auth0.OidcClient.Auth0ClientOptions
+  nameWithType: Auth0ClientOptions
+- uid: Auth0.OidcClient.Auth0ClientOptions.#ctor
+  name: Auth0ClientOptions()
+  href: api/Auth0.OidcClient.Auth0ClientOptions.html#Auth0_OidcClient_Auth0ClientOptions__ctor
+  commentId: M:Auth0.OidcClient.Auth0ClientOptions.#ctor
+  fullName: Auth0.OidcClient.Auth0ClientOptions.Auth0ClientOptions()
+  nameWithType: Auth0ClientOptions.Auth0ClientOptions()
+- uid: Auth0.OidcClient.Auth0ClientOptions.#ctor*
+  name: Auth0ClientOptions
+  href: api/Auth0.OidcClient.Auth0ClientOptions.html#Auth0_OidcClient_Auth0ClientOptions__ctor_
+  commentId: Overload:Auth0.OidcClient.Auth0ClientOptions.#ctor
+  fullName: Auth0.OidcClient.Auth0ClientOptions.Auth0ClientOptions
+  nameWithType: Auth0ClientOptions.Auth0ClientOptions
+- uid: Auth0.OidcClient.Auth0ClientOptions.Browser
+  name: Browser
+  href: api/Auth0.OidcClient.Auth0ClientOptions.html#Auth0_OidcClient_Auth0ClientOptions_Browser
+  commentId: P:Auth0.OidcClient.Auth0ClientOptions.Browser
+  fullName: Auth0.OidcClient.Auth0ClientOptions.Browser
+  nameWithType: Auth0ClientOptions.Browser
+- uid: Auth0.OidcClient.Auth0ClientOptions.Browser*
+  name: Browser
+  href: api/Auth0.OidcClient.Auth0ClientOptions.html#Auth0_OidcClient_Auth0ClientOptions_Browser_
+  commentId: Overload:Auth0.OidcClient.Auth0ClientOptions.Browser
+  fullName: Auth0.OidcClient.Auth0ClientOptions.Browser
+  nameWithType: Auth0ClientOptions.Browser
+- uid: Auth0.OidcClient.Auth0ClientOptions.ClientId
+  name: ClientId
+  href: api/Auth0.OidcClient.Auth0ClientOptions.html#Auth0_OidcClient_Auth0ClientOptions_ClientId
+  commentId: P:Auth0.OidcClient.Auth0ClientOptions.ClientId
+  fullName: Auth0.OidcClient.Auth0ClientOptions.ClientId
+  nameWithType: Auth0ClientOptions.ClientId
+- uid: Auth0.OidcClient.Auth0ClientOptions.ClientId*
+  name: ClientId
+  href: api/Auth0.OidcClient.Auth0ClientOptions.html#Auth0_OidcClient_Auth0ClientOptions_ClientId_
+  commentId: Overload:Auth0.OidcClient.Auth0ClientOptions.ClientId
+  fullName: Auth0.OidcClient.Auth0ClientOptions.ClientId
+  nameWithType: Auth0ClientOptions.ClientId
+- uid: Auth0.OidcClient.Auth0ClientOptions.ClientSecret
+  name: ClientSecret
+  href: api/Auth0.OidcClient.Auth0ClientOptions.html#Auth0_OidcClient_Auth0ClientOptions_ClientSecret
+  commentId: P:Auth0.OidcClient.Auth0ClientOptions.ClientSecret
+  fullName: Auth0.OidcClient.Auth0ClientOptions.ClientSecret
+  nameWithType: Auth0ClientOptions.ClientSecret
+- uid: Auth0.OidcClient.Auth0ClientOptions.ClientSecret*
+  name: ClientSecret
+  href: api/Auth0.OidcClient.Auth0ClientOptions.html#Auth0_OidcClient_Auth0ClientOptions_ClientSecret_
+  commentId: Overload:Auth0.OidcClient.Auth0ClientOptions.ClientSecret
+  fullName: Auth0.OidcClient.Auth0ClientOptions.ClientSecret
+  nameWithType: Auth0ClientOptions.ClientSecret
+- uid: Auth0.OidcClient.Auth0ClientOptions.Domain
+  name: Domain
+  href: api/Auth0.OidcClient.Auth0ClientOptions.html#Auth0_OidcClient_Auth0ClientOptions_Domain
+  commentId: P:Auth0.OidcClient.Auth0ClientOptions.Domain
+  fullName: Auth0.OidcClient.Auth0ClientOptions.Domain
+  nameWithType: Auth0ClientOptions.Domain
+- uid: Auth0.OidcClient.Auth0ClientOptions.Domain*
+  name: Domain
+  href: api/Auth0.OidcClient.Auth0ClientOptions.html#Auth0_OidcClient_Auth0ClientOptions_Domain_
+  commentId: Overload:Auth0.OidcClient.Auth0ClientOptions.Domain
+  fullName: Auth0.OidcClient.Auth0ClientOptions.Domain
+  nameWithType: Auth0ClientOptions.Domain
+- uid: Auth0.OidcClient.Auth0ClientOptions.LoadProfile
+  name: LoadProfile
+  href: api/Auth0.OidcClient.Auth0ClientOptions.html#Auth0_OidcClient_Auth0ClientOptions_LoadProfile
+  commentId: P:Auth0.OidcClient.Auth0ClientOptions.LoadProfile
+  fullName: Auth0.OidcClient.Auth0ClientOptions.LoadProfile
+  nameWithType: Auth0ClientOptions.LoadProfile
+- uid: Auth0.OidcClient.Auth0ClientOptions.LoadProfile*
+  name: LoadProfile
+  href: api/Auth0.OidcClient.Auth0ClientOptions.html#Auth0_OidcClient_Auth0ClientOptions_LoadProfile_
+  commentId: Overload:Auth0.OidcClient.Auth0ClientOptions.LoadProfile
+  fullName: Auth0.OidcClient.Auth0ClientOptions.LoadProfile
+  nameWithType: Auth0ClientOptions.LoadProfile
+- uid: Auth0.OidcClient.Auth0ClientOptions.Scope
+  name: Scope
+  href: api/Auth0.OidcClient.Auth0ClientOptions.html#Auth0_OidcClient_Auth0ClientOptions_Scope
+  commentId: P:Auth0.OidcClient.Auth0ClientOptions.Scope
+  fullName: Auth0.OidcClient.Auth0ClientOptions.Scope
+  nameWithType: Auth0ClientOptions.Scope
+- uid: Auth0.OidcClient.Auth0ClientOptions.Scope*
+  name: Scope
+  href: api/Auth0.OidcClient.Auth0ClientOptions.html#Auth0_OidcClient_Auth0ClientOptions_Scope_
+  commentId: Overload:Auth0.OidcClient.Auth0ClientOptions.Scope
+  fullName: Auth0.OidcClient.Auth0ClientOptions.Scope
+  nameWithType: Auth0ClientOptions.Scope
 - uid: Auth0.OidcClient.PlatformWebView
   name: PlatformWebView
   href: api/Auth0.OidcClient.PlatformWebView.html

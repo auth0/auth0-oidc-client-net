@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class Auth0Client
    ">
-    <meta name="generator" content="docfx 2.12.1.0">
+    <meta name="generator" content="docfx 2.15.4.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="../styles/main.css">
     <meta property="docfx:navrel" content="../toc.html">
     <meta property="docfx:tocrel" content="toc.html">
+    
     
   </head>
   <body data-spy="scroll" data-target="#affix">
@@ -112,19 +113,19 @@
               </h3>
               <span class="small pull-right mobile-hide">
                 <span class="divider">|</span>
-                <a href="https://github.com/auth0/auth0-oidc-client-net/new/master/apiSpec/new?filename=Auth0_OidcClient_Auth0Client__ctor_System_String_System_String_System_String_System_String_System_Boolean_.md&amp;value=---%0Auid%3A%20Auth0.OidcClient.Auth0Client.%23ctor(System.String%2CSystem.String%2CSystem.String%2CSystem.String%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+                <a href="https://github.com/auth0/auth0-oidc-client-net/new/master/apiSpec/new?filename=Auth0_OidcClient_Auth0Client__ctor_Auth0_OidcClient_Auth0ClientOptions_.md&amp;value=---%0Auid%3A%20Auth0.OidcClient.Auth0Client.%23ctor(Auth0.OidcClient.Auth0ClientOptions)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
               </span>
               <span class="small pull-right mobile-hide">
-                <a href="https://github.com/auth0/auth0-oidc-client-net/blob/master/src/Auth0.OidcClient.Shared/Auth0Client.cs/#L23">View Source</a>
+                <a href="https://github.com/auth0/auth0-oidc-client-net/blob/master/src/Auth0.OidcClient.Shared/Auth0Client.cs/#L19">View Source</a>
               </span>
               <a id="Auth0_OidcClient_Auth0Client__ctor_" data-uid="Auth0.OidcClient.Auth0Client.#ctor*"></a>
-              <h4 id="Auth0_OidcClient_Auth0Client__ctor_System_String_System_String_System_String_System_String_System_Boolean_" data-uid="Auth0.OidcClient.Auth0Client.#ctor(System.String,System.String,System.String,System.String,System.Boolean)">Auth0Client(String, String, String, String, Boolean)</h4>
+              <h4 id="Auth0_OidcClient_Auth0Client__ctor_Auth0_OidcClient_Auth0ClientOptions_" data-uid="Auth0.OidcClient.Auth0Client.#ctor(Auth0.OidcClient.Auth0ClientOptions)">Auth0Client(Auth0ClientOptions)</h4>
               <div class="markdown level1 summary"><p>Creates a new instance of the Auth0 OIDC Client.</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public Auth0Client(string domain, string clientId, string clientSecret = null, string scope = &quot;openid profile&quot;, bool loadProfile = true)</code></pre>
+                <pre><code class="lang-csharp hljs">public Auth0Client(Auth0ClientOptions options)</code></pre>
               </div>
               <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -137,33 +138,9 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td><span class="xref">System.String</span></td>
-                    <td><span class="parametername">domain</span></td>
-                    <td><p>Your Auth0 domain.</p>
-</td>
-                  </tr>
-                  <tr>
-                    <td><span class="xref">System.String</span></td>
-                    <td><span class="parametername">clientId</span></td>
-                    <td><p>Your Auth0 Client ID.</p>
-</td>
-                  </tr>
-                  <tr>
-                    <td><span class="xref">System.String</span></td>
-                    <td><span class="parametername">clientSecret</span></td>
-                    <td><p>Your Auth0 Client Secret.</p>
-</td>
-                  </tr>
-                  <tr>
-                    <td><span class="xref">System.String</span></td>
-                    <td><span class="parametername">scope</span></td>
-                    <td><p>The scope you want to request during authorization.</p>
-</td>
-                  </tr>
-                  <tr>
-                    <td><span class="xref">System.Boolean</span></td>
-                    <td><span class="parametername">loadProfile</span></td>
-                    <td><p>Indicates whether the user&#39;s profile should be loaded from the UserInfo endpoint.</p>
+                    <td><a class="xref" href="Auth0.OidcClient.Auth0ClientOptions.html">Auth0ClientOptions</a></td>
+                    <td><span class="parametername">options</span></td>
+                    <td><p>The <a class="xref" href="Auth0.OidcClient.Auth0ClientOptions.html">Auth0ClientOptions</a> specifying the configuration for the Auth0 OIDC Client.</p>
 </td>
                   </tr>
                 </tbody>
@@ -175,7 +152,7 @@
                 <a href="https://github.com/auth0/auth0-oidc-client-net/new/master/apiSpec/new?filename=Auth0_OidcClient_Auth0Client_LoginAsync_System_Object_.md&amp;value=---%0Auid%3A%20Auth0.OidcClient.Auth0Client.LoginAsync(System.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
               </span>
               <span class="small pull-right mobile-hide">
-                <a href="https://github.com/auth0/auth0-oidc-client-net/blob/master/src/Auth0.OidcClient.Shared/Auth0Client.cs/#L47">View Source</a>
+                <a href="https://github.com/auth0/auth0-oidc-client-net/blob/master/src/Auth0.OidcClient.Shared/Auth0Client.cs/#L60">View Source</a>
               </span>
               <a id="Auth0_OidcClient_Auth0Client_LoginAsync_" data-uid="Auth0.OidcClient.Auth0Client.LoginAsync*"></a>
               <h4 id="Auth0_OidcClient_Auth0Client_LoginAsync_System_Object_" data-uid="Auth0.OidcClient.Auth0Client.LoginAsync(System.Object)">LoginAsync(Object)</h4>
@@ -222,7 +199,7 @@
                 <a href="https://github.com/auth0/auth0-oidc-client-net/new/master/apiSpec/new?filename=Auth0_OidcClient_Auth0Client_RefreshTokenAsync_System_String_.md&amp;value=---%0Auid%3A%20Auth0.OidcClient.Auth0Client.RefreshTokenAsync(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
               </span>
               <span class="small pull-right mobile-hide">
-                <a href="https://github.com/auth0/auth0-oidc-client-net/blob/master/src/Auth0.OidcClient.Shared/Auth0Client.cs/#L52">View Source</a>
+                <a href="https://github.com/auth0/auth0-oidc-client-net/blob/master/src/Auth0.OidcClient.Shared/Auth0Client.cs/#L65">View Source</a>
               </span>
               <a id="Auth0_OidcClient_Auth0Client_RefreshTokenAsync_" data-uid="Auth0.OidcClient.Auth0Client.RefreshTokenAsync*"></a>
               <h4 id="Auth0_OidcClient_Auth0Client_RefreshTokenAsync_System_String_" data-uid="Auth0.OidcClient.Auth0Client.RefreshTokenAsync(System.String)">RefreshTokenAsync(String)</h4>
