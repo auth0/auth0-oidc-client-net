@@ -57,11 +57,46 @@ namespace Auth0.OidcClient
             _oidcClient = new IdentityModel.OidcClient.OidcClient(oidcClientOptions);
         }
 
+        /// <summary>
+        /// Launches a browser to log the user in.
+        /// </summary>
+        /// <param name="extraParameters">Any extra parameters that need to be passed to the authorization endpoint.</param>
+        /// <returns></returns>
         public Task<LoginResult> LoginAsync(object extraParameters = null)
         {
             return _oidcClient.LoginAsync(extraParameters: extraParameters);
         }
 
+        /// <summary>
+        /// Generates an <see cref="AuthorizeState"/> containing the URL, state, nonce and code challenge which can
+        /// be used to redirect the user to the authorization URL, and subsequently process any response by calling
+        /// the <see cref="ProcessResponseAsync"/> method.
+        /// </summary>
+        /// <param name="extraParameters"></param>
+        /// <returns></returns>
+        public Task<AuthorizeState> PrepareLoginAsync(object extraParameters = null)
+        {
+            return _oidcClient.PrepareLoginAsync(extraParameters);
+        }
+
+        /// <summary>
+        /// Process the response from the Auth0 redirect URI
+        /// </summary>
+        /// <param name="data">The data containing the full redirect URI.</param>
+        /// <param name="state">The <see cref="AuthorizeState"/> which was generated when the <see cref="PrepareLoginAsync"/>
+        /// method was called.</param>
+        /// <returns></returns>
+        public Task<LoginResult> ProcessResponseAsync(string data, AuthorizeState state)
+        {
+            return _oidcClient.ProcessResponseAsync(data, state);
+        }
+
+        /// <summary>
+        /// Generates a new set of tokens based on a refresh token. 
+        /// </summary>
+        /// <param name="refreshToken">The refresh token which was issued during the authorization flow, or subsequent
+        /// calls to <see cref="RefreshTokenAsync"/>.</param>
+        /// <returns></returns>
         public Task<RefreshTokenResult> RefreshTokenAsync(string refreshToken)
         {
             return _oidcClient.RefreshTokenAsync(refreshToken);
