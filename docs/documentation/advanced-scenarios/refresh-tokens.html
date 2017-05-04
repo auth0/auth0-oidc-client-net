@@ -69,7 +69,12 @@
               <h2 id="refresh-tokens">Refresh Tokens</h2>
               
 <p>You can request a refresh token by requesting the <code>offline_access</code> scope. The login result will contain the refresh token in the <code>RefreshToken</code> property:</p>
-<pre><code class="lang-csharp">var client = new Auth0Client(&quot;YOUR_AUTH0_DOMAIN&quot;, &quot;YOUR_AUTH0_CLIENT_ID&quot;, scope: &quot;openid offline_access&quot;);
+<pre><code class="lang-csharp">var client = new Auth0Client(new Auth0ClientOptions
+{
+    Domain = &quot;YOUR_AUTH0_DOMAIN&quot;,
+    ClientId = &quot;YOUR_AUTH0_CLIENT_ID&quot;,
+    Scope = &quot;openid offline_access&quot;
+});
 var loginResult = await client.LoginAsync();
 
 if (!loginResult.IsError)
@@ -78,14 +83,19 @@ if (!loginResult.IsError)
 }
 </code></pre><h3 id="requesting-a-refresh-token">Requesting a Refresh Token</h3>
 <p>You can request a Refresh Token by calling <a class="xref" href="../../api/Auth0.OidcClient.Auth0Client.html#Auth0_OidcClient_Auth0Client_RefreshTokenAsync_System_String_">RefreshTokenAsync(String)</a>, passing along the refresh token which was previously returned in the login result as the </p>
-<pre><code class="lang-csharp">var client = new Auth0Client(&quot;YOUR_AUTH0_DOMAIN&quot;, &quot;YOUR_AUTH0_CLIENT_ID&quot;, scope: &quot;openid offline_access&quot;);
+<pre><code class="lang-csharp">var client = new Auth0Client(new Auth0ClientOptions
+{
+    Domain = &quot;YOUR_AUTH0_DOMAIN&quot;,
+    ClientId = &quot;YOUR_AUTH0_CLIENT_ID&quot;,
+    Scope = &quot;openid offline_access&quot;
+});
 var loginResult = await client.LoginAsync();
 
 if (!loginResult.IsError)
 {
     string refreshToken = loginResult.RefreshToken;
 
-    // Save the refresh token somwewhere...
+    // Save the refresh token somewhere...
 }
 
 

@@ -19,7 +19,8 @@ namespace WpfTestApp
             var client = new Auth0Client(new Auth0ClientOptions
             {
                 Domain = "jerrie.auth0.com",
-                ClientId = "vV9twaySQzfGesS9Qs6gOgqDsYDdgoKE"
+                ClientId = "vV9twaySQzfGesS9Qs6gOgqDsYDdgoKE",
+                Scope = "openid offline_access"
             });
 
             var loginResult = await client.LoginAsync();
