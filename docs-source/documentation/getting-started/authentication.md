@@ -1,18 +1,97 @@
 # Authentication
 
-> Before you start, ensure that you have set the correct Callback URL. Go to the Clients Settings section in the [Auth0 dashboard](https://manage.auth0.com/#/) and make sure that **Allowed Callback URLs** contains the mobile application callback URL, i.e. `https://YOUR_AUTH0_DOMAIN/mobile`
+## Initializing Auth0Client and logging the user in
 
 To authenticate a user in your application, your need to create a new instance of @Auth0.OidcClient.Auth0Client, passing your Auth0 **Domain** and **Client ID** for your Client. Please see the [Clients Documentation](https://auth0.com/docs/clients) on the Auth0 website for more information.
 
-Once you have instantiated an instance of @Auth0.OidcClient.Auth0Client, you can authenticate a user by calling @Auth0.OidcClient.Auth0Client.LoginAsync(System.String,System.Object).
+Once you have instantiated an instance of @Auth0.OidcClient.Auth0Client, you can use it to authenticate a user. 
 
 ```csharp
 using Auth0.OidcClient;
 
-var client = new Auth0Client("YOUR_AUTH0_DOMAIN", "YOUR_AUTH0_CLIENT_ID");
+var client = new Auth0Client(new Auth0ClientOptions
+{
+    Domain = "YOUR_AUTH0_DOMAIN",
+    ClientId = "YOUR_AUTH0_CLIENT_ID"
+});
+```
 
+The way in which you authenticate the user will be different for each platform.
+
+### For Windows Applications (UWP, WPF and Windows Forms)
+
+For Windows applications, you can authenticate a user by calling @Auth0.OidcClient.Auth0Client.LoginAsync(System.Object).
+
+```csharp
 var loginResult = await client.LoginAsync();
 ```
+
+### For Android
+
+1. First you need to call @Auth0.OidcClient.Auth0Client.PrepareLoginAsync(System.Object). This will return an `AuthorizeState` instance:
+
+    ```
+    authorizeState = await _client.PrepareLoginAsync();
+    ```
+
+    You will need to store the instance of `AuthorizeState`, as you will need it in step 3 below.
+
+2. The `AuthorizeState` instance will contain a `StartUrl` property with the authorization URL where the user should be redirected to log in. You can use the [Chrome Custom Tabs Manager](https://developer.chrome.com/multidevice/android/customtabs) to achieve this.
+
+    Ensure that you have installed the Custom Tabs Support Library:
+
+    ```text
+    Install-Package Xamarin.Android.Support.CustomTabs
+    ```
+
+    Then create a custom tabs intent, and launch the authorization URL which was returned in the `AuthorizeState`:
+
+    ```
+    var customTabs = new CustomTabsActivityManager(this); // this == your Activity
+
+    // build custom tab
+    var builder = new CustomTabsIntent.Builder(customTabs.Session)
+        .SetToolbarColor(Color.Argb(255, 52, 152, 219))
+        .SetShowTitle(true)
+        .EnableUrlBarHiding();
+
+    var customTabsIntent = builder.Build();
+    customTabsIntent.Intent.AddFlags(ActivityFlags.NoHistory);
+
+    customTabsIntent.LaunchUrl(this, Android.Net.Uri.Parse(authorizeState.StartUrl));
+    ```
+
+3. Finally, after the user has authenticated, they will be redirected back to your application at the **Callback URL** that was registered before. You will need to register an intent which will handle this callback URL.
+
+    ```csharp
+    [Activity(Label = "AndroidSample", MainLauncher = true, Icon = "@drawable/icon",
+        LaunchMode = LaunchMode.SingleTask)]
+    [IntentFilter(
+        new[] { Intent.ActionView },
+        Categories = new[] { Intent.CategoryDefault, Intent.CategoryBrowsable },
+        DataScheme = "YOUR_ANDROID_PACKAGE_NAME",
+        DataHost = "YOUR_AUTH0_DOMAIN",
+        DataPathPrefix = "/android/YOUR_ANDROID_PACKAGE_NAME/callback")]
+    public class MainActivity : Activity
+    {
+        // Code omitted
+    }
+    ```
+
+    Now write code to handle the intent. You can do this by overriding the `OnNewIntent` method. Inside the method you need to call @Auth0.OidcClient.Auth0Client.ProcessResponseAsync(System.String,IdentityModel.OidcClient.AuthorizeState), passing along the `DataString` from the intent, as well as the `AuthorizeState` which was previously stored when you called `PrepareLoginAsync`:
+
+    ```csharp
+    protected override async void OnNewIntent(Intent intent)
+    {
+        base.OnNewIntent(intent);
+
+        var loginResult = await client.ProcessResponseAsync(intent.DataString, authorizeState);
+    }
+    ```
+
+### For iOS
+
+TBD
 
 ## The Login Result
 

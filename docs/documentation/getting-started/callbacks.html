@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Installation </title>
+    <title>Callback URLs </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Installation ">
+    <meta name="title" content="Callback URLs ">
     <meta name="generator" content="docfx 2.15.4.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
@@ -66,27 +66,48 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-              <h1 id="installation">Installation</h1>
+              <h1 id="callback-urls">Callback URLs</h1>
               
-<p>The Auth0 OIDC Client Library can be installed from NuGet. The NuGet package to install depends on the platform for which you are developing.</p>
-<p>NuGet packages are available for the following platforms:</p>
-<ul>
-<li>Universal Windows Platform</li>
-<li>Windows Presentation Foundation</li>
-<li>Windows Forms</li>
-<li>Xamarin (iOS)</li>
-<li>Xamarin (Android)</li>
-</ul>
+<p>Callback URLs are the URLs that Auth0 invokes after the authentication process. Auth0 redirects back to this URL and appends additional parameters to it, including an access code which will be exchanged for an <code>id_token</code>, <code>access_token</code> and <code>refresh_token</code>. </p>
+<p>Since callback URLs can be manipulated, you will need to add your application&#39;s URL to your client&#39;s <em>Allowed Callback URLs</em> for security. This will enable Auth0 to recognize these URLs as valid. If omitted, authentication will not be successful.</p>
+<p>The format of the URL will depend on the platform. In the sample callback URLs below, replace <code>YOUR_AUTH0_DOMAIN</code> with your actual Auth0 domain. You can find your domain on the Settings tab for your Client inside the <a href="https://manage.auth0.com/#/">Auth0 dashboard</a>: </p>
+<p><img src="/images/dashboard-domain.png" alt=""></p>
 <h2 id="universal-windows-platform-uwp">Universal Windows Platform (UWP)</h2>
-<pre><code class="lang-text">Install-Package Auth0.OidcClient.UWP
+<p>For UWP applications, the callback URL needs to be in the format <strong>ms-app://SID</strong>, where <strong>SID</strong> is the <strong>Package SID</strong> for your application. Assuming you have associated your application with and application on the Windows Store, you can go to the Windows Developer Centre, go to the settings for your application, and then go to the App management &gt; App identity section, where you will see the <strong>Package SID</strong> listed.</p>
+<p>Alternatively - or if you have not associated your application with the Store yet - you can obtain the value by calling the <code>Windows.Security.Authentication.Web.WebAuthenticationBroker.GetCurrentApplicationCallbackUri()</code> method. So for example, in the <code>OnLaunched</code> method of your application, you can add the following line of code:</p>
+<pre><code class="lang-csharp">protected override void OnLaunched(LaunchActivatedEventArgs e)
+{
+#if DEBUG
+    if (System.Diagnostics.Debugger.IsAttached)
+    {
+        System.Diagnostics.Debug.WriteLine(Windows.Security.Authentication.Web.WebAuthenticationBroker.GetCurrentApplicationCallbackUri());
+    }
+#endif
+
+    // rest of code omitted for brevity
+}
+</code></pre><p>For example:</p>
+<pre><code class="lang-text">ms-app://S-1-11-1-1111111111-2222222222-3333333333-4444444444-5555555555-6666666666-7777777777
 </code></pre><h2 id="windows-presentation-foundation-wpf">Windows Presentation Foundation (WPF)</h2>
-<pre><code class="lang-text">Install-Package Auth0.OidcClient.WPF
+<p>Use the following callback URL:</p>
+<pre><code class="lang-text">https://YOUR_AUTH0_DOMAIN/mobile
+</code></pre><p>For example:</p>
+<pre><code class="lang-text">https://contoso.auth0.com/mobile
 </code></pre><h2 id="windows-forms">Windows Forms</h2>
-<pre><code class="lang-text">Install-Package Auth0.OidcClient.WinForms
+<p>Use the following callback URL:</p>
+<pre><code class="lang-text">https://YOUR_AUTH0_DOMAIN/mobile
+</code></pre><p>For example:</p>
+<pre><code class="lang-text">https://contoso.auth0.com/mobile
 </code></pre><h2 id="xamarin-ios">Xamarin (iOS)</h2>
-<pre><code class="lang-text">Install-Package Auth0.OidcClient.iOS
+<p>For iOS your Callback URL needs to be in the following format:</p>
+<pre><code class="lang-text">YOUR_BUNDLE_IDENTIFIER://YOUR_AUTH0_DOMAIN/ios/YOUR_BUNDLE_IDENTIFIER/callback
+</code></pre><p>Where <code>YOUR_BUNDLE_IDENTIFIER</code> is the Bundle Identifier of your application. So given a Bundle Identifier of <code>com.contoso.myapp</code>, and an Auth0 Domain of <code>contoso.auth0.com</code>, your callback URL will be the following:</p>
+<pre><code class="lang-text">com.contoso.myapp://contoso.auth0.com/ios/com.contoso.myapp/callback
 </code></pre><h2 id="xamarin-android">Xamarin (Android)</h2>
-<pre><code class="lang-text">Install-Package Auth0.OidcClient.Android
+<p>For Android your Callback URL needs to be in the following format:</p>
+<pre><code class="lang-text">YOUR_ANDROID_PACKAGE_NAME://YOUR_AUTH0_DOMAIN/android/YOUR_ANDROID_PACKAGE_NAME/callback
+</code></pre><p>Where <code>YOUR_ANDROID_PACKAGE_NAME</code> is the Package Name of your application. So given a Package Name of <code>com.contoso.myapp</code>, and an Auth0 Domain of <code>contoso.auth0.com</code>, your callback URL will be the following:</p>
+<pre><code class="lang-text">com.contoso.myapp://contoso.auth0.com/android/com.contoso.myapp/callback
 </code></pre>
             </article>
           </div>
@@ -96,7 +117,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/auth0/auth0-oidc-client-net/blob/master/docs-source/documentation/getting-started/installation.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/auth0/auth0-oidc-client-net/blob/master/docs-source/documentation/getting-started/callbacks.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

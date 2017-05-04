@@ -68,22 +68,38 @@
 <li>Windows Forms (.NET 4.52 and higher)</li>
 </ul>
 <h2 id="quick-start">Quick Start</h2>
-<blockquote><p>Before you start, ensure that you have set the correct Callback URL. Go to the Clients Settings section in the <a href="https://manage.auth0.com/#/">Auth0 dashboard</a> and make sure that <strong>Allowed Callback URLs</strong> contains the mobile application callback URL, i.e. <code>https://YOUR_AUTH0_DOMAIN/mobile</code></p>
+<blockquote><p>Before you start, ensure that you have configured the Callback URL in the Clients Settings section in the <a href="https://manage.auth0.com/#/">Auth0 dashboard</a>. See the <a href="documentation/getting-started/callbacks.html">Callback URLs documentation</a> for more information on what Callback URL you need to use for your particular platform.</p>
 </blockquote>
 <h3 id="1-install-the-nuget-package-for-your-platform">1. Install the NuGet Package for your platform</h3>
 <p><strong>Universal Windows Platform (UWP)</strong></p>
-<pre><code class="lang-text">Install-Package Auth0.OidcClient.UWP -Pre
+<pre><code class="lang-text">Install-Package Auth0.OidcClient.UWP
 </code></pre><p><strong>Windows Presentation Foundation (WPF)</strong></p>
-<pre><code class="lang-text">Install-Package Auth0.OidcClient.WPF -Pre
+<pre><code class="lang-text">Install-Package Auth0.OidcClient.WPF
 </code></pre><p><strong>Windows Forms</strong></p>
-<pre><code class="lang-text">Install-Package Auth0.OidcClient.WinForms -Pre
+<pre><code class="lang-text">Install-Package Auth0.OidcClient.WinForms
+</code></pre><p><strong>Xamarin (iOS)</strong></p>
+<pre><code class="lang-text">Install-Package Auth0.OidcClient.iOS
+</code></pre><p><strong>Xamarin (Android)</strong></p>
+<pre><code class="lang-text">Install-Package Auth0.OidcClient.Android
 </code></pre><h3 id="2-initialize">2. Initialize</h3>
 <pre><code class="lang-csharp">using Auth0.OidcClient;
 
-var client = new Auth0Client(&quot;YOUR_AUTH0_DOMAIN&quot;, &quot;YOUR_AUTH0_CLIENT_ID&quot;);
+var client = new Auth0Client(new Auth0ClientOptions
+{
+    Domain = &quot;YOUR_AUTH0_DOMAIN&quot;,
+    ClientId = &quot;YOUR_AUTH0_CLIENT_ID&quot;
+});
 </code></pre><h3 id="3-authenticate">3. Authenticate</h3>
+<p>For Windows clients, you can simply call <a class="xref" href="api/Auth0.OidcClient.Auth0Client.html#Auth0_OidcClient_Auth0Client_LoginAsync_System_Object_">LoginAsync(Object)</a></p>
 <pre><code class="lang-csharp">var loginResult = await client.LoginAsync();
-</code></pre><h2 id="further-reading">Further Reading</h2>
+</code></pre><p>For Android and iOS clients, you need to do some manual work to log a user in. The basic flow is as follows:</p>
+<ol>
+<li>Obtain an <code>AuthorizeState</code> by calling <a class="xref" href="api/Auth0.OidcClient.Auth0Client.html#Auth0_OidcClient_Auth0Client_PrepareLoginAsync_System_Object_">PrepareLoginAsync(Object)</a>. You will need to save the instance of <code>AuthorizeState</code> as you will need it later on.</li>
+<li>Launch the system browser and direct the user to the <code>StartUrl</code> in the returned <code>AuthorizeState</code>. After the user has logged in, Auth0 will call back to your application on the Callback URL.</li>
+<li>Your application will need to handle the callback. The means either creating an <code>Intent</code> or Android, or handling <code>OpenUrl</code> in your <code>AppDelegate</code> on iOS.</li>
+</ol>
+<p>For a more detailed walkthrough, please see the relevant <a href="https://auth0.com/docs/quickstart/native">Quickstarts</a>.</p>
+<h2 id="further-reading">Further Reading</h2>
 <p>For more information please refer to the <a href="documentation/intro.html">Documentation</a> section, or to the <a href="api/index.html">API Documentation</a></p>
 
             </article>

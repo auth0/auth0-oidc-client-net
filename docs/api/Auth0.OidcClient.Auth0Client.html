@@ -152,15 +152,67 @@
                 <a href="https://github.com/auth0/auth0-oidc-client-net/new/master/apiSpec/new?filename=Auth0_OidcClient_Auth0Client_LoginAsync_System_Object_.md&amp;value=---%0Auid%3A%20Auth0.OidcClient.Auth0Client.LoginAsync(System.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
               </span>
               <span class="small pull-right mobile-hide">
-                <a href="https://github.com/auth0/auth0-oidc-client-net/blob/master/src/Auth0.OidcClient.Shared/Auth0Client.cs/#L60">View Source</a>
+                <a href="https://github.com/auth0/auth0-oidc-client-net/blob/master/src/Auth0.OidcClient.Shared/Auth0Client.cs/#L65">View Source</a>
               </span>
               <a id="Auth0_OidcClient_Auth0Client_LoginAsync_" data-uid="Auth0.OidcClient.Auth0Client.LoginAsync*"></a>
               <h4 id="Auth0_OidcClient_Auth0Client_LoginAsync_System_Object_" data-uid="Auth0.OidcClient.Auth0Client.LoginAsync(System.Object)">LoginAsync(Object)</h4>
-              <div class="markdown level1 summary"></div>
+              <div class="markdown level1 summary"><p>Launches a browser to log the user in.</p>
+</div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public Task&lt;LoginResult&gt; LoginAsync(object extraParameters = null)</code></pre>
+              </div>
+              <h5 class="parameters">Parameters</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">System.Object</span></td>
+                    <td><span class="parametername">extraParameters</span></td>
+                    <td><p>Any extra parameters that need to be passed to the authorization endpoint.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="returns">Returns</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">IdentityModel.OidcClient.LoginResult</span>&gt;</td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+              <span class="small pull-right mobile-hide">
+                <span class="divider">|</span>
+                <a href="https://github.com/auth0/auth0-oidc-client-net/new/master/apiSpec/new?filename=Auth0_OidcClient_Auth0Client_PrepareLoginAsync_System_Object_.md&amp;value=---%0Auid%3A%20Auth0.OidcClient.Auth0Client.PrepareLoginAsync(System.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+              </span>
+              <span class="small pull-right mobile-hide">
+                <a href="https://github.com/auth0/auth0-oidc-client-net/blob/master/src/Auth0.OidcClient.Shared/Auth0Client.cs/#L77">View Source</a>
+              </span>
+              <a id="Auth0_OidcClient_Auth0Client_PrepareLoginAsync_" data-uid="Auth0.OidcClient.Auth0Client.PrepareLoginAsync*"></a>
+              <h4 id="Auth0_OidcClient_Auth0Client_PrepareLoginAsync_System_Object_" data-uid="Auth0.OidcClient.Auth0Client.PrepareLoginAsync(System.Object)">PrepareLoginAsync(Object)</h4>
+              <div class="markdown level1 summary"><p>Generates an <span class="xref">IdentityModel.OidcClient.AuthorizeState</span> containing the URL, state, nonce and code challenge which can
+be used to redirect the user to the authorization URL, and subsequently process any response by calling
+the <a class="xref" href="Auth0.OidcClient.Auth0Client.html#Auth0_OidcClient_Auth0Client_ProcessResponseAsync_System_String_IdentityModel_OidcClient_AuthorizeState_">ProcessResponseAsync(String, AuthorizeState)</a> method.</p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public Task&lt;AuthorizeState&gt; PrepareLoginAsync(object extraParameters = null)</code></pre>
               </div>
               <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -189,6 +241,62 @@
                 </thead>
                 <tbody>
                   <tr>
+                    <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">IdentityModel.OidcClient.AuthorizeState</span>&gt;</td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+              <span class="small pull-right mobile-hide">
+                <span class="divider">|</span>
+                <a href="https://github.com/auth0/auth0-oidc-client-net/new/master/apiSpec/new?filename=Auth0_OidcClient_Auth0Client_ProcessResponseAsync_System_String_IdentityModel_OidcClient_AuthorizeState_.md&amp;value=---%0Auid%3A%20Auth0.OidcClient.Auth0Client.ProcessResponseAsync(System.String%2CIdentityModel.OidcClient.AuthorizeState)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+              </span>
+              <span class="small pull-right mobile-hide">
+                <a href="https://github.com/auth0/auth0-oidc-client-net/blob/master/src/Auth0.OidcClient.Shared/Auth0Client.cs/#L89">View Source</a>
+              </span>
+              <a id="Auth0_OidcClient_Auth0Client_ProcessResponseAsync_" data-uid="Auth0.OidcClient.Auth0Client.ProcessResponseAsync*"></a>
+              <h4 id="Auth0_OidcClient_Auth0Client_ProcessResponseAsync_System_String_IdentityModel_OidcClient_AuthorizeState_" data-uid="Auth0.OidcClient.Auth0Client.ProcessResponseAsync(System.String,IdentityModel.OidcClient.AuthorizeState)">ProcessResponseAsync(String, AuthorizeState)</h4>
+              <div class="markdown level1 summary"><p>Process the response from the Auth0 redirect URI</p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public Task&lt;LoginResult&gt; ProcessResponseAsync(string data, AuthorizeState state)</code></pre>
+              </div>
+              <h5 class="parameters">Parameters</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">System.String</span></td>
+                    <td><span class="parametername">data</span></td>
+                    <td><p>The data containing the full redirect URI.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><span class="xref">IdentityModel.OidcClient.AuthorizeState</span></td>
+                    <td><span class="parametername">state</span></td>
+                    <td><p>The <span class="xref">IdentityModel.OidcClient.AuthorizeState</span> which was generated when the <a class="xref" href="Auth0.OidcClient.Auth0Client.html#Auth0_OidcClient_Auth0Client_PrepareLoginAsync_System_Object_">PrepareLoginAsync(Object)</a>
+method was called.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="returns">Returns</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
                     <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">IdentityModel.OidcClient.LoginResult</span>&gt;</td>
                     <td></td>
                   </tr>
@@ -199,11 +307,12 @@
                 <a href="https://github.com/auth0/auth0-oidc-client-net/new/master/apiSpec/new?filename=Auth0_OidcClient_Auth0Client_RefreshTokenAsync_System_String_.md&amp;value=---%0Auid%3A%20Auth0.OidcClient.Auth0Client.RefreshTokenAsync(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
               </span>
               <span class="small pull-right mobile-hide">
-                <a href="https://github.com/auth0/auth0-oidc-client-net/blob/master/src/Auth0.OidcClient.Shared/Auth0Client.cs/#L65">View Source</a>
+                <a href="https://github.com/auth0/auth0-oidc-client-net/blob/master/src/Auth0.OidcClient.Shared/Auth0Client.cs/#L100">View Source</a>
               </span>
               <a id="Auth0_OidcClient_Auth0Client_RefreshTokenAsync_" data-uid="Auth0.OidcClient.Auth0Client.RefreshTokenAsync*"></a>
               <h4 id="Auth0_OidcClient_Auth0Client_RefreshTokenAsync_System_String_" data-uid="Auth0.OidcClient.Auth0Client.RefreshTokenAsync(System.String)">RefreshTokenAsync(String)</h4>
-              <div class="markdown level1 summary"></div>
+              <div class="markdown level1 summary"><p>Generates a new set of tokens based on a refresh token. </p>
+</div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
@@ -222,7 +331,9 @@
                   <tr>
                     <td><span class="xref">System.String</span></td>
                     <td><span class="parametername">refreshToken</span></td>
-                    <td></td>
+                    <td><p>The refresh token which was issued during the authorization flow, or subsequent
+calls to <a class="xref" href="Auth0.OidcClient.Auth0Client.html#Auth0_OidcClient_Auth0Client_RefreshTokenAsync_System_String_">RefreshTokenAsync(String)</a>.</p>
+</td>
                   </tr>
                 </tbody>
               </table>
