@@ -120,6 +120,7 @@ namespace XamarinAndroidTestApp
 
             var uri = Android.Net.Uri.Parse(authorizeState.StartUrl);
             var intent = new Intent(Intent.ActionView, uri);
+            intent.AddFlags(ActivityFlags.NoHistory);
             StartActivity(intent);
 
             //---
