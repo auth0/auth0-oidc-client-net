@@ -118,18 +118,23 @@ namespace XamarinAndroidTestApp
 
             authorizeState = await _client.PrepareLoginAsync();
 
-            var customTabs = new CustomTabsActivityManager(this);
+            var uri = Android.Net.Uri.Parse(authorizeState.StartUrl);
+            var intent = new Intent(Intent.ActionView, uri);
+            StartActivity(intent);
 
-            // build custom tab
-            var builder = new CustomTabsIntent.Builder(customTabs.Session)
-               .SetToolbarColor(Color.Argb(255, 52, 152, 219))
-               .SetShowTitle(true)
-               .EnableUrlBarHiding();
+            //---
+            //var customTabs = new CustomTabsActivityManager(this);
 
-            var customTabsIntent = builder.Build();
-            customTabsIntent.Intent.AddFlags(ActivityFlags.NoHistory);
+            //// build custom tab
+            //var builder = new CustomTabsIntent.Builder(customTabs.Session)
+            //   .SetToolbarColor(Color.Argb(255, 52, 152, 219))
+            //   .SetShowTitle(true)
+            //   .EnableUrlBarHiding();
 
-            customTabsIntent.LaunchUrl(this, Android.Net.Uri.Parse(authorizeState.StartUrl));
+            //var customTabsIntent = builder.Build();
+            //customTabsIntent.Intent.AddFlags(ActivityFlags.NoHistory);
+
+            //customTabsIntent.LaunchUrl(this, Android.Net.Uri.Parse(authorizeState.StartUrl));
         }
     }
 }
