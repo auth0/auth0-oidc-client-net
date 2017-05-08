@@ -1,19 +1,16 @@
-﻿using System;
-using System.Text;
-using Android.App;
+﻿using Android.App;
 using Android.Content;
-using Android.Graphics;
-using Android.Widget;
 using Android.OS;
-using Android.Support.CustomTabs;
+using Android.Widget;
 using Auth0.OidcClient;
 using IdentityModel.OidcClient;
+using System;
+using System.Text;
 
 namespace XamarinAndroidTestApp
 {
     [Activity(Label = "XamarinAndroidTestApp", MainLauncher = true, Icon = "@drawable/icon",
         LaunchMode = Android.Content.PM.LaunchMode.SingleTask)]
-    //[Activity(Label = "Auth0 OIDC Callback Activity")]
     [IntentFilter(
         new[] { Intent.ActionView },
         Categories = new[] { Intent.CategoryDefault, Intent.CategoryBrowsable },

@@ -3,7 +3,7 @@
 <package>
   <metadata>
     <id>Auth0.OidcClient.Android</id>
-    <version>1.0.0-beta2</version>
+    <version>1.0.0-beta3</version>
     <authors>Auth0</authors>
     <owners>Auth0</owners>
     <licenseUrl>http://opensource.org/licenses/MIT</licenseUrl>
@@ -20,7 +20,6 @@
     <dependencies>
       <group targetFramework="MonoAndroid10">
         <dependency id="IdentityModel.OidcClient" version="2.1.1" />
-        <dependency id="Xamarin.Android.Support.CustomTabs" version="23.3.0" />
       </group>
     </dependencies>
   </metadata>
