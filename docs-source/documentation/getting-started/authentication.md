@@ -1,10 +1,17 @@
 # Authentication
 
-## Initializing Auth0Client and logging the user in
+> [!Note]
+> You need to ensure that the JWT Signature Algorithm for your client is set to RS256
+
+## Initialize Auth0Client 
 
 To authenticate a user in your application, your need to create a new instance of @Auth0.OidcClient.Auth0Client, passing your Auth0 **Domain** and **Client ID** for your Client. Please see the [Clients Documentation](https://auth0.com/docs/clients) on the Auth0 website for more information.
 
-Once you have instantiated an instance of @Auth0.OidcClient.Auth0Client, you can use it to authenticate a user. 
+There are however small differences for each platform.
+
+### For Windows Applications (UWP, WPF and Windows Forms)
+
+For Windows applications, you simply pass your Auth0 **Domain** and **Client ID**:
 
 ```csharp
 using Auth0.OidcClient;
@@ -16,17 +23,102 @@ var client = new Auth0Client(new Auth0ClientOptions
 });
 ```
 
-The way in which you authenticate the user will be different for each platform.
+### For iOS
+
+For iOS applications, you need to pass your Auth0 **Domain** and **Client ID**, as well as the instance of the view controller from which you are running the code:
+
+```csharp
+using Auth0.OidcClient;
+
+var client = new Auth0Client(new Auth0ClientOptions
+{
+    Domain = "YOUR_AUTH0_DOMAIN",
+    ClientId = "YOUR_AUTH0_CLIENT_ID",
+    Controller = this
+});
+```
+
+### For Android
+
+For Android applications, you need to pass your Auth0 **Domain** and **Client ID**, as well as the instance of the activity from which you are running the code:
+
+```csharp
+using Auth0.OidcClient;
+
+var client = new Auth0Client(new Auth0ClientOptions
+{
+    Domain = "YOUR_AUTH0_DOMAIN",
+    ClientId = "YOUR_AUTH0_CLIENT_ID",
+    Ativity = this
+});
+```
+
+## Log the user in
+
+The way in which you authenticate the user is also different for each platform.
 
 ### For Windows Applications (UWP, WPF and Windows Forms)
 
-For Windows applications, you can authenticate a user by calling @Auth0.OidcClient.Auth0Client.LoginAsync(System.Object).
+For Windows applications, you can authenticate a user by simply calling @Auth0.OidcClient.Auth0Client.LoginAsync(System.Object).
 
 ```csharp
 var loginResult = await client.LoginAsync();
 ```
 
+### For iOS
+
+For iOS applications, the process is fairly similar, but you need a few extra steps:
+
+1. You initiate the authentication process the same way as for Windows applications, by calling @Auth0.OidcClient.Auth0Client.LoginAsync(System.Object) inside your view controller:
+
+    ```csharp
+    var loginResult = await client.LoginAsync();
+    ```
+
+2. After a user has logged in, Auth0 will redirect to the callback URL in your application. You need to handle the incoming link to your `AppDelegate` and resume the login flow of the Auth0 OIDC Client by calling the `Send` method of the `ActivityMediator` singleton, passing along the url sent in. This will allow the Auth0 OIDC Client library to complete the authentication process:
+
+    ```csharp
+    using Auth0.OidcClient;
+
+    [Register("AppDelegate")]
+    public class AppDelegate : UIApplicationDelegate
+    {
+        public override bool OpenUrl(UIApplication application, NSUrl url, string sourceApplication, NSObject annotation)
+        {
+            ActivityMediator.Instance.Send(url.AbsoluteString);
+
+            return true;
+        }
+    }
+    ```
+
+3. Finally, you also need to ensure that you have registered the URL Scheme. To do that follow these steps
+
+    * Open your application's `Info.plist` file in Visual Studio for Mac, and go to the **Advanced** tab. 
+    * Under **URL Types**, click the **Add URL Type** button
+    * Set the **Identifier** as `Auth0`, the **URL Schemes** the same as your application's **Bundle Identifier**, and the **Role** as `None`
+
+    This is an example of the XML representation of your `info.plist` file after you have added the URL Type:
+
+    ```xml
+    <key>CFBundleURLTypes</key>
+    <array>
+        <dict>
+            <key>CFBundleTypeRole</key>
+            <string>None</string>
+            <key>CFBundleURLName</key>
+            <string>Auth0</string>
+            <key>CFBundleURLSchemes</key>
+            <array>
+                <string>YOUR_BUNDLE_IDENTIFIER</string>
+            </array>
+        </dict>
+    </array>
+    ```
+
 ### For Android
+
+For Android the entire login process is a bit more manual, but still fairly simple.
 
 1. First you need to call @Auth0.OidcClient.Auth0Client.PrepareLoginAsync(System.Object). This will return an `AuthorizeState` instance:
 
@@ -36,29 +128,13 @@ var loginResult = await client.LoginAsync();
 
     You will need to store the instance of `AuthorizeState`, as you will need it in step 3 below.
 
-2. The `AuthorizeState` instance will contain a `StartUrl` property with the authorization URL where the user should be redirected to log in. You can use the [Chrome Custom Tabs Manager](https://developer.chrome.com/multidevice/android/customtabs) to achieve this.
+2. The `AuthorizeState` instance will contain a `StartUrl` property with the authorization URL where the user should be redirected to log in. You will need to create a new intent which will open the system browser and send the user to this URL:
 
-    Ensure that you have installed the Custom Tabs Support Library:
-
-    ```text
-    Install-Package Xamarin.Android.Support.CustomTabs
-    ```
-
-    Then create a custom tabs intent, and launch the authorization URL which was returned in the `AuthorizeState`:
-
-    ```
-    var customTabs = new CustomTabsActivityManager(this); // this == your Activity
-
-    // build custom tab
-    var builder = new CustomTabsIntent.Builder(customTabs.Session)
-        .SetToolbarColor(Color.Argb(255, 52, 152, 219))
-        .SetShowTitle(true)
-        .EnableUrlBarHiding();
-
-    var customTabsIntent = builder.Build();
-    customTabsIntent.Intent.AddFlags(ActivityFlags.NoHistory);
-
-    customTabsIntent.LaunchUrl(this, Android.Net.Uri.Parse(authorizeState.StartUrl));
+    ```csharp
+    var uri = Android.Net.Uri.Parse(authorizeState.StartUrl);
+    var intent = new Intent(Intent.ActionView, uri);
+    intent.AddFlags(ActivityFlags.NoHistory);
+    StartActivity(intent);
     ```
 
 3. Finally, after the user has authenticated, they will be redirected back to your application at the **Callback URL** that was registered before. You will need to register an intent which will handle this callback URL.
@@ -88,10 +164,6 @@ var loginResult = await client.LoginAsync();
         var loginResult = await client.ProcessResponseAsync(intent.DataString, authorizeState);
     }
     ```
-
-### For iOS
-
-TBD
 
 ## The Login Result
 

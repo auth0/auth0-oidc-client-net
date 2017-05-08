@@ -66,10 +66,14 @@
 <li>Universal Windows Platform</li>
 <li>Windows Presentation Foundation (.NET 4.52 and higher)</li>
 <li>Windows Forms (.NET 4.52 and higher)</li>
+<li>Xamarin (iOS)</li>
+<li>Xamarin (Android)</li>
 </ul>
 <h2 id="quick-start">Quick Start</h2>
 <blockquote><p>Before you start, ensure that you have configured the Callback URL in the Clients Settings section in the <a href="https://manage.auth0.com/#/">Auth0 dashboard</a>. See the <a href="documentation/getting-started/callbacks.html">Callback URLs documentation</a> for more information on what Callback URL you need to use for your particular platform.</p>
 </blockquote>
+<div class="NOTE"><h5>Note</h5><p>You will also need to ensure that the JWT Signature Algorithm for your client is set to RS256</p>
+</div>
 <h3 id="1-install-the-nuget-package-for-your-platform">1. Install the NuGet Package for your platform</h3>
 <p><strong>Universal Windows Platform (UWP)</strong></p>
 <pre><code class="lang-text">Install-Package Auth0.OidcClient.UWP

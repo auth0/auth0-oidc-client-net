@@ -5,10 +5,15 @@ The Auth0 OIDC Client allows you to add authentication for your .NET Client appl
 * Universal Windows Platform
 * Windows Presentation Foundation (.NET 4.52 and higher)
 * Windows Forms (.NET 4.52 and higher)
+* Xamarin (iOS)
+* Xamarin (Android)
 
 ## Quick Start
 
 > Before you start, ensure that you have configured the Callback URL in the Clients Settings section in the [Auth0 dashboard](https://manage.auth0.com/#/). See the [Callback URLs documentation](documentation/getting-started/callbacks.md) for more information on what Callback URL you need to use for your particular platform.
+
+> [!Note]
+> You will also need to ensure that the JWT Signature Algorithm for your client is set to RS256
 
 ### 1. Install the NuGet Package for your platform
 
