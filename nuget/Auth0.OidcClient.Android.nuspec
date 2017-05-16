@@ -3,7 +3,7 @@
 <package>
   <metadata>
     <id>Auth0.OidcClient.Android</id>
-    <version>1.0.0-beta3</version>
+    <version>1.0.0</version>
     <authors>Auth0</authors>
     <owners>Auth0</owners>
     <licenseUrl>http://opensource.org/licenses/MIT</licenseUrl>
@@ -19,7 +19,13 @@
     <tags>Auth0 OIDC Android MonoAndroid</tags>
     <dependencies>
       <group targetFramework="MonoAndroid10">
-        <dependency id="IdentityModel.OidcClient" version="2.1.1" />
+        <dependency id="IdentityModel.OidcClient" version="2.1.2" />
+        <dependency id="IdentityModel" version="(,2.7.0]" />
+        <!-- 
+          Constrain IdentityModel to maximum of version 2.7.0
+          2.8.0 brings in ValueTuple which currently breaks Xamarin.
+          I think it is related to this: https://github.com/dotnet/corefx/issues/14235
+        -->
       </group>
     </dependencies>
   </metadata>
