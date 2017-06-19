@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26403.3
+VisualStudioVersion = 15.0.26430.13
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Auth0.OidcClient.Shared", "src\Auth0.OidcClient.Shared\Auth0.OidcClient.Shared.shproj", "{5D8121D2-4ED5-41B9-8B89-8A5CA8E851BA}"
 EndProject
@@ -17,6 +17,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nuget", "nuget", "{3D6D8AA1
 		nuget\Auth0.OidcClient.UWP.nuspec = nuget\Auth0.OidcClient.UWP.nuspec
 		nuget\Auth0.OidcClient.WinForms.nuspec = nuget\Auth0.OidcClient.WinForms.nuspec
 		nuget\Auth0.OidcClient.WPF.nuspec = nuget\Auth0.OidcClient.WPF.nuspec
+		nuget\uwp-readme.txt = nuget\uwp-readme.txt
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Auth0.OidcClient.WPF", "src\Auth0.OidcClient.WPF\Auth0.OidcClient.WPF.csproj", "{F5F9BBD8-0BC0-415C-9DF1-D830699B00C4}"
