@@ -39,7 +39,7 @@ namespace Auth0.OidcClient
                 RedirectUri = Windows.Security.Authentication.Web.WebAuthenticationBroker.GetCurrentApplicationCallbackUri().AbsoluteUri,
                 Browser = options.Browser ?? new PlatformWebView(),
 #else
-                RedirectUri = $"https://{options.Domain}/mobile",
+                RedirectUri = options.RedirectUri ?? $"https://{options.Domain}/mobile",
                 Browser = options.Browser ?? new PlatformWebView(),
 #endif
                 Flow = OidcClientOptions.AuthenticationFlow.AuthorizationCode,

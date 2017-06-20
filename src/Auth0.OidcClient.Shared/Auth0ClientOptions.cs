@@ -54,6 +54,16 @@ namespace Auth0.OidcClient
         /// </summary>
         public string Scope { get; set; }
 
+#if WPF || WINFORMS
+        /// <summary>
+        /// Allow overriding of the Redirect URI
+        /// </summary>
+        /// <remarks>
+        /// This should only be done in exceptional circumstances
+        /// </remarks>
+        public string RedirectUri { get; set; }
+#endif
+
         public Auth0ClientOptions()
         {
             LoadProfile = true;
