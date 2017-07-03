@@ -33,6 +33,7 @@ namespace UwpTestApp
             if (System.Diagnostics.Debugger.IsAttached)
             {
                 this.DebugSettings.EnableFrameRateCounter = true;
+                System.Diagnostics.Debug.WriteLine(Windows.Security.Authentication.Web.WebAuthenticationBroker.GetCurrentApplicationCallbackUri());
             }
 #endif
             Frame rootFrame = Window.Current.Content as Frame;
