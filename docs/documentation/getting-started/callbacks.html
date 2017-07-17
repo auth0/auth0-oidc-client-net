@@ -8,7 +8,7 @@
     <title>Callback URLs </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Callback URLs ">
-    <meta name="generator" content="docfx 2.15.4.0">
+    <meta name="generator" content="docfx 2.20.0.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
     <link rel="stylesheet" href="../../styles/docfx.vendor.css">
@@ -66,8 +66,8 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-              <h1 id="callback-urls">Callback URLs</h1>
-              
+<h1 id="callback-urls">Callback URLs</h1>
+
 <p>Callback URLs are the URLs that Auth0 invokes after the authentication process. Auth0 redirects back to this URL and appends additional parameters to it, including an access code which will be exchanged for an <code>id_token</code>, <code>access_token</code> and <code>refresh_token</code>. </p>
 <p>Since callback URLs can be manipulated, you will need to add your application&#39;s URL to your client&#39;s <em>Allowed Callback URLs</em> for security. This will enable Auth0 to recognize these URLs as valid. If omitted, authentication will not be successful.</p>
 <p>The format of the URL will depend on the platform. In the sample callback URLs below, replace <code>YOUR_AUTH0_DOMAIN</code> with your actual Auth0 domain. You can find your domain on the Settings tab for your Client inside the <a href="https://manage.auth0.com/#/">Auth0 dashboard</a>: </p>
@@ -108,8 +108,7 @@
 <pre><code class="lang-text">YOUR_ANDROID_PACKAGE_NAME://YOUR_AUTH0_DOMAIN/android/YOUR_ANDROID_PACKAGE_NAME/callback
 </code></pre><p>Where <code>YOUR_ANDROID_PACKAGE_NAME</code> is the Package Name of your application. So given a Package Name of <code>com.contoso.myapp</code>, and an Auth0 Domain of <code>contoso.auth0.com</code>, your callback URL will be the following:</p>
 <pre><code class="lang-text">com.contoso.myapp://contoso.auth0.com/android/com.contoso.myapp/callback
-</code></pre>
-            </article>
+</code></pre></article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">

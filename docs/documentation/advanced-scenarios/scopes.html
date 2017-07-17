@@ -8,7 +8,7 @@
     <title>Using Scopes </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Using Scopes ">
-    <meta name="generator" content="docfx 2.15.4.0">
+    <meta name="generator" content="docfx 2.20.0.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
     <link rel="stylesheet" href="../../styles/docfx.vendor.css">
@@ -66,8 +66,8 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="scopes">
-              <h1 id="using-scopes">Using Scopes</h1>
-              
+<h1 id="using-scopes">Using Scopes</h1>
+
 <p>By default the Auth0 OIDC Client will request the <code>openid</code> and <code>profile</code> scopes. You can request different scopes by setting the <a class="xref" href="../../api/Auth0.OidcClient.Auth0ClientOptions.html#Auth0_OidcClient_Auth0ClientOptions_Scope">Scope</a> property of the <a class="xref" href="../../api/Auth0.OidcClient.Auth0ClientOptions.html">Auth0ClientOptions</a> passed to the <a class="xref" href="../../api/Auth0.OidcClient.html">Auth0.OidcClient</a> constructor.</p>
 <p>Depending on the <code>scope</code> which was request the <code>id_token</code> will contain a different set of claims.</p>
 <p>Note however that even if you request a limited set of scopes, e.g. <code>openid name</code>, the <code>User</code> returned in the login result may contain a broader set of claims. This is because the set of claims contained in the <code>User</code> property is also governed by the <code>loadProfile</code> parameter which can be passed to the <a class="xref" href="../../api/Auth0.OidcClient.html">Auth0.OidcClient</a> constructor.</p>
@@ -80,8 +80,7 @@
     LoadProfile = false
 });
 </code></pre><p>For more information you can read the <a href="https://auth0.com/docs/scopes">Auth0 Scopes documentation</a></p>
-
-            </article>
+</article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">

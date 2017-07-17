@@ -8,7 +8,7 @@
     <title>Refresh Tokens </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Refresh Tokens ">
-    <meta name="generator" content="docfx 2.15.4.0">
+    <meta name="generator" content="docfx 2.20.0.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
     <link rel="stylesheet" href="../../styles/docfx.vendor.css">
@@ -66,8 +66,8 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-              <h2 id="refresh-tokens">Refresh Tokens</h2>
-              
+<h2 id="refresh-tokens">Refresh Tokens</h2>
+
 <p>You can request a refresh token by requesting the <code>offline_access</code> scope. The login result will contain the refresh token in the <code>RefreshToken</code> property:</p>
 <pre><code class="lang-csharp">var client = new Auth0Client(new Auth0ClientOptions
 {
@@ -103,8 +103,7 @@ if (!loginResult.IsError)
 var refreshTokenResult = await client.RefreshTokenAsync(refreshToken);
 </code></pre><div class="NOTE"><h5>Note</h5><p>Please note that of your use Auth0 API Authorization, your API should allow offline access. This is configured via the <strong>Allow Offline Access</strong> switch on the <a href="https://manage.auth0.com/#/apis">API Settings</a></p>
 </div>
-
-            </article>
+</article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
