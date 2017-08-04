@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using IdentityModel.Client;
@@ -64,7 +65,7 @@ namespace Auth0.OidcClient
         /// <returns></returns>
         public Task<LoginResult> LoginAsync(object extraParameters = null)
         {
-            return _oidcClient.LoginAsync(extraParameters: extraParameters);
+            return _oidcClient.LoginAsync(extraParameters: AppendTelemetry(extraParameters));
         }
 
         /// <summary>
@@ -76,7 +77,7 @@ namespace Auth0.OidcClient
         /// <returns></returns>
         public Task<AuthorizeState> PrepareLoginAsync(object extraParameters = null)
         {
-            return _oidcClient.PrepareLoginAsync(extraParameters);
+            return _oidcClient.PrepareLoginAsync(AppendTelemetry(extraParameters));
         }
 
         /// <summary>
@@ -100,6 +101,55 @@ namespace Auth0.OidcClient
         public Task<RefreshTokenResult> RefreshTokenAsync(string refreshToken)
         {
             return _oidcClient.RefreshTokenAsync(refreshToken);
+        }
+
+        private string CreateTelemetry()
+        {
+#if __ANDROID__
+            string platform = "xamarin-android";
+#elif __IOS__
+            string platform = "xamarin-ios";
+#elif WINFORMS
+            string platform = "winforms";
+#elif WPF
+            string platform = "wpf";
+#elif WINDOWS_UWP
+            string platform = "uwp";
+#endif
+            var version = this.GetType().GetTypeInfo().Assembly.GetCustomAttribute<AssemblyFileVersionAttribute>()
+                .Version;
+
+            string telemetryString = $"{{\"name\":\"oidc-net\",\"version\":\"{version}\",\"platform\":\"{platform}\"}}";
+            var telemetryBytes = Encoding.UTF8.GetBytes(telemetryString);
+
+            return Convert.ToBase64String(telemetryBytes);
+        }
+        private Dictionary<string, string> AppendTelemetry(object values)
+        {
+            var dictionary = ObjectToDictionary(values);
+            dictionary.Add("auth0Client", CreateTelemetry());
+
+            return dictionary;
+        }
+
+        private Dictionary<string, string> ObjectToDictionary(object values)
+        {
+            var dictionary = values as Dictionary<string, string>;
+            if (dictionary != null)
+                return dictionary;
+
+            dictionary = new Dictionary<string, string>();
+            if (values != null)
+            {
+                foreach (var prop in values.GetType().GetRuntimeProperties())
+                {
+                    var value = prop.GetValue(values) as string;
+                    if (!string.IsNullOrEmpty(value))
+                        dictionary.Add(prop.Name, value);
+                }
+            }
+
+            return dictionary;
         }
     }
 }
