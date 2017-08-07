@@ -3,7 +3,7 @@
 <package>
   <metadata>
     <id>Auth0.OidcClient.Android</id>
-    <version>1.0.0</version>
+    <version>1.1.0</version>
     <authors>Auth0</authors>
     <owners>Auth0</owners>
     <licenseUrl>http://opensource.org/licenses/MIT</licenseUrl>
@@ -12,7 +12,10 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Auth0 OIDC Client for Xamarin Android applications</description>
     <releaseNotes>
-      Version 1.0
+      Version 1.1.0
+      - Internal updates
+
+      Version 1.0.0
       - Initial version of Package
     </releaseNotes>
     <copyright>Copyright 2017</copyright>
