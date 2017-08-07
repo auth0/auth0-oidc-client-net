@@ -12,6 +12,7 @@
   "Auth0.OidcClient.Auth0ClientOptions.ClientId": "Auth0.OidcClient.Auth0ClientOptions.yml",
   "Auth0.OidcClient.Auth0ClientOptions.ClientSecret": "Auth0.OidcClient.Auth0ClientOptions.yml",
   "Auth0.OidcClient.Auth0ClientOptions.Domain": "Auth0.OidcClient.Auth0ClientOptions.yml",
+  "Auth0.OidcClient.Auth0ClientOptions.EnableTelemetry": "Auth0.OidcClient.Auth0ClientOptions.yml",
   "Auth0.OidcClient.Auth0ClientOptions.LoadProfile": "Auth0.OidcClient.Auth0ClientOptions.yml",
   "Auth0.OidcClient.Auth0ClientOptions.Scope": "Auth0.OidcClient.Auth0ClientOptions.yml"
 }

@@ -139,6 +139,18 @@ references:
   commentId: Overload:Auth0.OidcClient.Auth0ClientOptions.Domain
   fullName: Auth0.OidcClient.Auth0ClientOptions.Domain
   nameWithType: Auth0ClientOptions.Domain
+- uid: Auth0.OidcClient.Auth0ClientOptions.EnableTelemetry
+  name: EnableTelemetry
+  href: api/Auth0.OidcClient.Auth0ClientOptions.html#Auth0_OidcClient_Auth0ClientOptions_EnableTelemetry
+  commentId: P:Auth0.OidcClient.Auth0ClientOptions.EnableTelemetry
+  fullName: Auth0.OidcClient.Auth0ClientOptions.EnableTelemetry
+  nameWithType: Auth0ClientOptions.EnableTelemetry
+- uid: Auth0.OidcClient.Auth0ClientOptions.EnableTelemetry*
+  name: EnableTelemetry
+  href: api/Auth0.OidcClient.Auth0ClientOptions.html#Auth0_OidcClient_Auth0ClientOptions_EnableTelemetry_
+  commentId: Overload:Auth0.OidcClient.Auth0ClientOptions.EnableTelemetry
+  fullName: Auth0.OidcClient.Auth0ClientOptions.EnableTelemetry
+  nameWithType: Auth0ClientOptions.EnableTelemetry
 - uid: Auth0.OidcClient.Auth0ClientOptions.LoadProfile
   name: LoadProfile
   href: api/Auth0.OidcClient.Auth0ClientOptions.html#Auth0_OidcClient_Auth0ClientOptions_LoadProfile
