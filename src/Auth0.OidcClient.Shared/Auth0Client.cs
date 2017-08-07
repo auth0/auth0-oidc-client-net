@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using IdentityModel.Client;
@@ -10,6 +11,7 @@ namespace Auth0.OidcClient
 {
     public class Auth0Client
     {
+        private readonly Auth0ClientOptions _options;
         private readonly IdentityModel.OidcClient.OidcClient _oidcClient;
 
         /// <summary>
@@ -18,6 +20,8 @@ namespace Auth0.OidcClient
         /// <param name="options">The <see cref="Auth0ClientOptions"/> specifying the configuration for the Auth0 OIDC Client.</param>
         public Auth0Client(Auth0ClientOptions options)
         {
+            _options = options;
+
             var authority = $"https://{options.Domain}";
 #if __ANDROID__
             string packageName = options.Activity.Application.ApplicationInfo.PackageName;
@@ -57,6 +61,38 @@ namespace Auth0.OidcClient
             _oidcClient = new IdentityModel.OidcClient.OidcClient(oidcClientOptions);
         }
 
+        private Dictionary<string, string> AppendTelemetry(object values)
+        {
+            var dictionary = ObjectToDictionary(values);
+
+            if (_options.EnableTelemetry)
+                dictionary.Add("auth0Client", CreateTelemetry());
+
+            return dictionary;
+        }
+
+        private string CreateTelemetry()
+        {
+#if __ANDROID__
+            string platform = "xamarin-android";
+#elif __IOS__
+            string platform = "xamarin-ios";
+#elif WINFORMS
+            string platform = "winforms";
+#elif WPF
+            string platform = "wpf";
+#elif WINDOWS_UWP
+            var platform = "uwp";
+#endif
+            var version = GetType().GetTypeInfo().Assembly.GetCustomAttribute<AssemblyFileVersionAttribute>()
+                .Version;
+
+            var telemetryString = $"{{\"name\":\"oidc-net\",\"version\":\"{version}\",\"platform\":\"{platform}\"}}";
+            var telemetryBytes = Encoding.UTF8.GetBytes(telemetryString);
+
+            return Convert.ToBase64String(telemetryBytes);
+        }
+
         /// <summary>
         /// Launches a browser to log the user in.
         /// </summary>
@@ -64,7 +100,25 @@ namespace Auth0.OidcClient
         /// <returns></returns>
         public Task<LoginResult> LoginAsync(object extraParameters = null)
         {
-            return _oidcClient.LoginAsync(extraParameters: extraParameters);
+            return _oidcClient.LoginAsync(extraParameters: AppendTelemetry(extraParameters));
+        }
+
+        private Dictionary<string, string> ObjectToDictionary(object values)
+        {
+            var dictionary = values as Dictionary<string, string>;
+            if (dictionary != null)
+                return dictionary;
+
+            dictionary = new Dictionary<string, string>();
+            if (values != null)
+                foreach (var prop in values.GetType().GetRuntimeProperties())
+                {
+                    var value = prop.GetValue(values) as string;
+                    if (!string.IsNullOrEmpty(value))
+                        dictionary.Add(prop.Name, value);
+                }
+
+            return dictionary;
         }
 
         /// <summary>
@@ -76,7 +130,7 @@ namespace Auth0.OidcClient
         /// <returns></returns>
         public Task<AuthorizeState> PrepareLoginAsync(object extraParameters = null)
         {
-            return _oidcClient.PrepareLoginAsync(extraParameters);
+            return _oidcClient.PrepareLoginAsync(AppendTelemetry(extraParameters));
         }
 
         /// <summary>

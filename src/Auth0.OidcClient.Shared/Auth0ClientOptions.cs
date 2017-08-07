@@ -42,6 +42,15 @@ namespace Auth0.OidcClient
         public string Domain { get; set; }
 
         /// <summary>
+        /// Indicates whether telemetry information should be sent to Auth0.
+        /// </summary>
+        /// <remarks>
+        /// Telemetry simply contains information about the version of the Auth0 OIDC Client being used. No information about your
+        /// application or users are being sent to Auth0.
+        /// </remarks>
+        public bool EnableTelemetry { get; set; }
+
+        /// <summary>
         /// Indicates whether the user profile should be loaded from the /userinfo endpoint.
         /// </summary>
         /// <remarks>
@@ -66,6 +75,7 @@ namespace Auth0.OidcClient
 
         public Auth0ClientOptions()
         {
+            EnableTelemetry = true;
             LoadProfile = true;
             Scope = "openid profile";
         }
