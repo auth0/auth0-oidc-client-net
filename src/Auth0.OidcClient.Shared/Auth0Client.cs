@@ -37,7 +37,7 @@ namespace Auth0.OidcClient
 				RedirectUri = $"{Foundation.NSBundle.MainBundle.BundleIdentifier}://{options.Domain}/ios/{Foundation.NSBundle.MainBundle.BundleIdentifier}/callback",
 				Browser = new PlatformWebView(options.Controller),
 #elif __ANDROID__
-                RedirectUri = $"{packageName}://{options.Domain}/android/{packageName}/callback".ToLower(),
+				RedirectUri = options.RedirectUri ?? $"{packageName}://{options.Domain}/android/{packageName}/callback".ToLower(),
                 Browser = new PlatformWebView(options.Activity),
 #elif WINDOWS_UWP
                 RedirectUri = Windows.Security.Authentication.Web.WebAuthenticationBroker.GetCurrentApplicationCallbackUri().AbsoluteUri,
