@@ -19,13 +19,6 @@ namespace XamariniOSTestApp
             set;
         }
 
-		public override bool OpenUrl(UIApplication application, NSUrl url, string sourceApplication, NSObject annotation)
-		{
-			ActivityMediator.Instance.Send(url.AbsoluteString);
-
-			return true;
-		}
-
         public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
         {
             // create a new window instance based on the screen size

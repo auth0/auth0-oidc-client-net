@@ -7,20 +7,9 @@ using UIKit;
 
 namespace Auth0.OidcClient
 {
-	public class PlatformWebView : SFSafariViewControllerDelegate, IBrowser
+	public class PlatformWebView : IBrowser
 	{
-		private SafariServices.SFSafariViewController _safari;
-		private readonly UIViewController _controller;
-
-		public PlatformWebView(UIViewController controller)
-		{
-			_controller = controller;
-		}
-
-        public override void DidFinish(SFSafariViewController controller)
-        {
-            ActivityMediator.Instance.Send("UserCancel");
-        }
+        private SFAuthenticationSession _authSession;
 
 		public Task<BrowserResult> InvokeAsync(BrowserOptions options)
 		{
@@ -34,49 +23,39 @@ namespace Auth0.OidcClient
 				throw new ArgumentException("Missing EndUrl", nameof(options));
 			}
 
-			// must be able to wait for the intent to be finished to continue
+			// must be able to wait for the authentication session to be finished to continue
 			// with setting the task result
 			var tcs = new TaskCompletionSource<BrowserResult>();
 
-			// create Safari controller
-			_safari = new SafariServices.SFSafariViewController(new NSUrl(options.StartUrl));
-            _safari.Delegate = this;
-
-			ActivityMediator.MessageReceivedEventHandler callback = null;
-			callback = async (response) =>
-			{
-				// remove handler
-				ActivityMediator.Instance.ActivityMessageReceived -= callback;
-
-                if (response == "UserCancel")
+            // create the authentication session
+            _authSession = new SFAuthenticationSession(
+                new NSUrl(options.StartUrl),
+                options.EndUrl,
+                (callbackUrl, error) =>
                 {
-                    tcs.SetResult(new BrowserResult
+                    if (error != null)
                     {
-                        ResultType = BrowserResultType.UserCancel
-                    });
-                }
-                else
-                {
-                    // Close Safari
-                    await _safari.DismissViewControllerAsync(true);
-
-                    // set result
-                    tcs.SetResult(new BrowserResult
+                        tcs.SetResult(new BrowserResult
+                        {
+                            ResultType = BrowserResultType.UserCancel,
+                            Error = error.ToString()
+                        });
+                    }
+                    else
                     {
-                        Response = response,
-                        ResultType = BrowserResultType.Success
-                    });
-                }
-			};
+                        tcs.SetResult(new BrowserResult
+                        {
+                            ResultType = BrowserResultType.Success,
+                            Response = callbackUrl.AbsoluteString
+                        });
+                    }
+                });
 
-			// attach handler
-			ActivityMediator.Instance.ActivityMessageReceived += callback;
+            // launch authentication session
+            _authSession.Start();
 
-			// launch Safari
-			_controller.PresentViewController(_safari, true, null);
-
-			// need an intent to be triggered when browsing to the "io.identitymodel.native://callback"
-			// scheme/URI => CallbackInterceptorActivity
+			// Result for this task will be set in the authentication session
+            // completion handler
 			return tcs.Task;
 		}
 	}

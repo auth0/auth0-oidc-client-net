@@ -35,7 +35,7 @@ namespace Auth0.OidcClient
                 LoadProfile = options.LoadProfile,
 #if __IOS__
 				RedirectUri = $"{Foundation.NSBundle.MainBundle.BundleIdentifier}://{options.Domain}/ios/{Foundation.NSBundle.MainBundle.BundleIdentifier}/callback",
-				Browser = new PlatformWebView(options.Controller),
+				Browser = new PlatformWebView(),
 #elif __ANDROID__
 				RedirectUri = options.RedirectUri ?? $"{packageName}://{options.Domain}/android/{packageName}/callback".ToLower(),
                 Browser = new PlatformWebView(options.Activity),
