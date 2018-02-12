@@ -27,6 +27,7 @@
       <group targetFramework="MonoAndroid10">
         <dependency id="IdentityModel.OidcClient" version="2.1.2" />
         <dependency id="IdentityModel" version="(,2.7.0]" />
+        <dependency id="Plugin.CurrentActivity" version="1.0.1"/>
         <!-- 
           Constrain IdentityModel to maximum of version 2.7.0
           2.8.0 brings in ValueTuple which currently breaks Xamarin.

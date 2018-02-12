@@ -38,7 +38,7 @@ namespace Auth0.OidcClient
 				Browser = new PlatformWebView(),
 #elif __ANDROID__
 				RedirectUri = options.RedirectUri ?? $"{packageName}://{options.Domain}/android/{packageName}/callback".ToLower(),
-                Browser = new PlatformWebView(options.Activity),
+                Browser = new PlatformWebView(),
 #elif WINDOWS_UWP
                 RedirectUri = Windows.Security.Authentication.Web.WebAuthenticationBroker.GetCurrentApplicationCallbackUri().AbsoluteUri,
                 Browser = options.Browser ?? new PlatformWebView(),

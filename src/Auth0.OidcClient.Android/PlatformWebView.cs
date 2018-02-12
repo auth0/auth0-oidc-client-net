@@ -3,6 +3,7 @@ using Android.Content;
 using IdentityModel.OidcClient.Browser;
 using System;
 using System.Threading.Tasks;
+using Plugin.CurrentActivity;
 
 namespace Auth0.OidcClient
 {
@@ -11,9 +12,9 @@ namespace Auth0.OidcClient
     {
         private readonly Activity _context;
 
-        public PlatformWebView(Activity context)
+        public PlatformWebView()
         {
-            _context = context;
+            _context = CrossCurrentActivity.Current.Activity;
         }
 
         public Task<BrowserResult> InvokeAsync(BrowserOptions options)
@@ -28,7 +29,7 @@ namespace Auth0.OidcClient
                 throw new ArgumentException("Missing EndUrl", nameof(options));
             }
 
-            // must be able to wait for the intent to be finished to continue
+            // must be able to wait for the intent to be triggered to continue
             // with setting the task result
             var tcs = new TaskCompletionSource<BrowserResult>();
 
@@ -65,8 +66,7 @@ namespace Auth0.OidcClient
             intent.AddFlags(ActivityFlags.NoHistory);
             _context.StartActivity(intent);
 
-            // need an intent to be triggered when browsing to the "io.identitymodel.native://callback"
-            // scheme/URI => CallbackInterceptorActivity
+            // Return task which will be completed when intent is triggered
             return tcs.Task;
         }
     }
