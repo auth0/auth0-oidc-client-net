@@ -33,25 +33,27 @@ namespace Auth0.OidcClient
                 ClientSecret = options.ClientSecret,
                 Scope = options.Scope,
                 LoadProfile = options.LoadProfile,
+                Browser = options.Browser ?? new PlatformWebView(),
+                Flow = OidcClientOptions.AuthenticationFlow.AuthorizationCode,
+
+                // Set redirect uri depending on platform
 #if __IOS__
-				RedirectUri = $"{Foundation.NSBundle.MainBundle.BundleIdentifier}://{options.Domain}/ios/{Foundation.NSBundle.MainBundle.BundleIdentifier}/callback",
-				Browser = new PlatformWebView(),
+				RedirectUri = options.RedirectUri ?? $"{Foundation.NSBundle.MainBundle.BundleIdentifier}://{options.Domain}/ios/{Foundation.NSBundle.MainBundle.BundleIdentifier}/callback",
 #elif __ANDROID__
 				RedirectUri = options.RedirectUri ?? $"{packageName}://{options.Domain}/android/{packageName}/callback".ToLower(),
-                Browser = new PlatformWebView(),
 #elif WINDOWS_UWP
-                RedirectUri = Windows.Security.Authentication.Web.WebAuthenticationBroker.GetCurrentApplicationCallbackUri().AbsoluteUri,
-                Browser = options.Browser ?? new PlatformWebView(),
+                RedirectUri = options.RedirectUri ?? Windows.Security.Authentication.Web.WebAuthenticationBroker.GetCurrentApplicationCallbackUri().AbsoluteUri,
 #else
                 RedirectUri = options.RedirectUri ?? $"https://{options.Domain}/mobile",
-                Browser = options.Browser ?? new PlatformWebView(),
 #endif
-                Flow = OidcClientOptions.AuthenticationFlow.AuthorizationCode,
+
+                // Set correct response mode depending on the platform
 #if WINDOWS_UWP
                 ResponseMode = OidcClientOptions.AuthorizeResponseMode.FormPost,
 #else
                 ResponseMode = OidcClientOptions.AuthorizeResponseMode.Redirect,
 #endif
+
                 Policy =
                 {
                     RequireAuthorizationCodeHash = false,
