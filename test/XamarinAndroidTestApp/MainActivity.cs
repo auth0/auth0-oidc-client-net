@@ -95,8 +95,7 @@ namespace XamarinAndroidTestApp
             _client = new Auth0Client(new Auth0ClientOptions
             {
                 Domain = Resources.GetString(Resource.String.auth0_domain),
-                ClientId = Resources.GetString(Resource.String.auth0_client_id),
-                Activity = this
+                ClientId = Resources.GetString(Resource.String.auth0_client_id)
             });
 
             _loginButton.Click += LoginButtonOnClick;

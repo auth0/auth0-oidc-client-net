@@ -24,7 +24,7 @@ namespace Auth0.OidcClient
 
             var authority = $"https://{options.Domain}";
 #if __ANDROID__
-            string packageName = options.Activity.Application.ApplicationInfo.PackageName;
+            string packageName = Plugin.CurrentActivity.CrossCurrentActivity.Current.Activity.Application.ApplicationInfo.PackageName;
 #endif
             var oidcClientOptions = new OidcClientOptions
             {
