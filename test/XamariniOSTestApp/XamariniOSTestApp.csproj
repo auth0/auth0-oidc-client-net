@@ -148,7 +148,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\src\Auth0.OidcClient.Core\Auth0.OidcClient.Core.csproj">
-      <Project>{1f79db59-f3a8-45b7-972b-ecd15259d1c9}</Project>
+      <Project>{F519F303-EA1D-466D-B880-21023D0DF6BC}</Project>
       <Name>Auth0.OidcClient.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\src\Auth0.OidcClient.Xamarin.iOS\Auth0.OidcClient.Xamarin.iOS.csproj">
