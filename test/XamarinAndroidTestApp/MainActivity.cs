@@ -2,10 +2,10 @@
 using Android.Content;
 using Android.OS;
 using Android.Widget;
-using Auth0.OidcClient;
 using IdentityModel.OidcClient;
 using System;
 using System.Text;
+using Auth0.OidcClient;
 
 namespace XamarinAndroidTestApp
 {

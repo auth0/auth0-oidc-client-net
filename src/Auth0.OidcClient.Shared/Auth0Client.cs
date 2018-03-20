@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
-using IdentityModel.Client;
+using Auth0.OidcClient.Core;
 using IdentityModel.OidcClient;
 using IdentityModel.OidcClient.Results;
 
 namespace Auth0.OidcClient
 {
-    public class Auth0Client
+    public class Auth0Client : IAuth0Client
     {
         private readonly Auth0ClientOptions _options;
         private readonly IdentityModel.OidcClient.OidcClient _oidcClient;

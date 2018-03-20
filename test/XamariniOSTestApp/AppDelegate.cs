@@ -1,6 +1,4 @@
-﻿using System;
-using Auth0.OidcClient;
-using Foundation;
+﻿using Foundation;
 using UIKit;
 
 namespace XamariniOSTestApp

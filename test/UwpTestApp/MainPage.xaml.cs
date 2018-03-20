@@ -1,8 +1,7 @@
-﻿using System.Diagnostics;
-using Windows.UI.Xaml;
+﻿using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Auth0.OidcClient;
 using System.Text;
+using Auth0.OidcClient;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
