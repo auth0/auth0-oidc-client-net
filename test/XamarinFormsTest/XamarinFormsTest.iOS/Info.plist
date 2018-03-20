@@ -50,5 +50,16 @@
 	<string>LaunchScreen</string>
 	<key>CFBundleName</key>
 	<string>XamarinFormsTest</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>auth0</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.yourcompany.XamarinFormsTest</string>
+			</array>
+		</dict>
+	</array>
 </dict>
 </plist>

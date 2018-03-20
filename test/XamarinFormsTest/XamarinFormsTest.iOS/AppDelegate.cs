@@ -5,6 +5,12 @@ using System.Linq;
 using Foundation;
 using UIKit;
 
+using Auth0.OidcClient;
+using Auth0.OidcClient.Core;
+using Autofac;
+using Autofac.Extras.CommonServiceLocator;
+using CommonServiceLocator;
+
 namespace XamarinFormsTest.iOS
 {
     // The UIApplicationDelegate for the application. This class is responsible for launching the 
@@ -22,6 +28,18 @@ namespace XamarinFormsTest.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
+            ContainerBuilder builder = new ContainerBuilder();
+            builder.Register(context => new Auth0Client(new Auth0ClientOptions
+            {
+                Domain = "jerrie.auth0.com",
+                ClientId = "vV9twaySQzfGesS9Qs6gOgqDsYDdgoKE"
+            })).As<IAuth0Client>();
+
+            IContainer container = builder.Build();
+
+            AutofacServiceLocator asl = new AutofacServiceLocator(container);
+            ServiceLocator.SetLocatorProvider(() => asl);
+
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
 

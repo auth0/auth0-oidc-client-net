@@ -130,8 +130,16 @@
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
     <ProjectReference Include="..\XamarinFormsTest\XamarinFormsTest.csproj">
-      <Project>{C5BF138C-A223-44F9-AFD6-854439894DF6}</Project>
+      <Project>{DF4F96E0-7FDC-4512-B954-48C2B74419AE}</Project>
       <Name>XamarinFormsTest</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\src\Auth0.OidcClient.Core\Auth0.OidcClient.Core.csproj">
+      <Project>{F519F303-EA1D-466D-B880-21023D0DF6BC}</Project>
+      <Name>Auth0.OidcClient.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\src\Auth0.OidcClient.Xamarin.iOS\Auth0.OidcClient.Xamarin.iOS.csproj">
+      <Project>{D6CD228A-D8FA-4250-B770-CCC9CCD5698B}</Project>
+      <Name>Auth0.OidcClient.Xamarin.iOS</Name>
     </ProjectReference>
   </ItemGroup>
 </Project>
