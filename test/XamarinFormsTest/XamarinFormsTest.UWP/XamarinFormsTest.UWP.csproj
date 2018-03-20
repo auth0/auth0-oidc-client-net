@@ -152,6 +152,14 @@
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.0.1" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\src\Auth0.OidcClient.Core\Auth0.OidcClient.Core.csproj">
+      <Project>{1f79db59-f3a8-45b7-972b-ecd15259d1c9}</Project>
+      <Name>Auth0.OidcClient.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\src\Auth0.OidcClient.UWP\Auth0.OidcClient.UWP.csproj">
+      <Project>{5ffff5d6-d6df-4351-b58d-3311bd0671f7}</Project>
+      <Name>Auth0.OidcClient.UWP</Name>
+    </ProjectReference>
     <ProjectReference Include="..\XamarinFormsTest\XamarinFormsTest.csproj">
       <Project>{C5BF138C-A223-44F9-AFD6-854439894DF6}</Project>
       <Name>XamarinFormsTest</Name>

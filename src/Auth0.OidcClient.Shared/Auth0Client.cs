@@ -12,7 +12,18 @@ namespace Auth0.OidcClient
     public class Auth0Client : IAuth0Client
     {
         private readonly Auth0ClientOptions _options;
-        private readonly IdentityModel.OidcClient.OidcClient _oidcClient;
+        private IdentityModel.OidcClient.OidcClient _oidcClient;
+
+        public Auth0Client()
+        {
+            _options = new Auth0ClientOptions
+            {
+                Domain = "jerrie.auth0.com",
+                ClientId = "vV9twaySQzfGesS9Qs6gOgqDsYDdgoKE"
+            };
+
+            ConfigureOidcClient();
+        }
 
         /// <summary>
         /// Creates a new instance of the Auth0 OIDC Client.
@@ -22,29 +33,34 @@ namespace Auth0.OidcClient
         {
             _options = options;
 
-            var authority = $"https://{options.Domain}";
+            ConfigureOidcClient();
+        }
+
+        private void ConfigureOidcClient()
+        {
+            var authority = $"https://{_options.Domain}";
 #if __ANDROID__
             string packageName = Plugin.CurrentActivity.CrossCurrentActivity.Current.Activity.Application.ApplicationInfo.PackageName;
 #endif
             var oidcClientOptions = new OidcClientOptions
             {
                 Authority = authority,
-                ClientId = options.ClientId,
-                ClientSecret = options.ClientSecret,
-                Scope = options.Scope,
-                LoadProfile = options.LoadProfile,
-                Browser = options.Browser ?? new PlatformWebView(),
+                ClientId = _options.ClientId,
+                ClientSecret = _options.ClientSecret,
+                Scope = _options.Scope,
+                LoadProfile = _options.LoadProfile,
+                Browser = _options.Browser ?? new PlatformWebView(),
                 Flow = OidcClientOptions.AuthenticationFlow.AuthorizationCode,
 
                 // Set redirect uri depending on platform
 #if __IOS__
-				RedirectUri = options.RedirectUri ?? $"{Foundation.NSBundle.MainBundle.BundleIdentifier}://{options.Domain}/ios/{Foundation.NSBundle.MainBundle.BundleIdentifier}/callback",
+				RedirectUri = _options.RedirectUri ?? $"{Foundation.NSBundle.MainBundle.BundleIdentifier}://{options.Domain}/ios/{Foundation.NSBundle.MainBundle.BundleIdentifier}/callback",
 #elif __ANDROID__
-				RedirectUri = options.RedirectUri ?? $"{packageName}://{options.Domain}/android/{packageName}/callback".ToLower(),
+				RedirectUri = _options.RedirectUri ?? $"{packageName}://{options.Domain}/android/{packageName}/callback".ToLower(),
 #elif WINDOWS_UWP
-                RedirectUri = options.RedirectUri ?? Windows.Security.Authentication.Web.WebAuthenticationBroker.GetCurrentApplicationCallbackUri().AbsoluteUri,
+                RedirectUri = _options.RedirectUri ?? Windows.Security.Authentication.Web.WebAuthenticationBroker.GetCurrentApplicationCallbackUri().AbsoluteUri,
 #else
-                RedirectUri = options.RedirectUri ?? $"https://{options.Domain}/mobile",
+                RedirectUri = _options.RedirectUri ?? $"https://{options.Domain}/mobile",
 #endif
 
                 // Set correct response mode depending on the platform

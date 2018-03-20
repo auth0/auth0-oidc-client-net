@@ -4,8 +4,10 @@
              xmlns:local="clr-namespace:XamarinFormsTest"
              x:Class="XamarinFormsTest.MainPage">
 
-	<Label Text="Welcome to Xamarin.Forms!" 
-           VerticalOptions="Center" 
-           HorizontalOptions="Center" />
+	<ContentPage.Content>
+        <StackLayout>
+            <Button Text="Login" x:Name="Login" />
+        </StackLayout>
+	</ContentPage.Content>
 
 </ContentPage>
