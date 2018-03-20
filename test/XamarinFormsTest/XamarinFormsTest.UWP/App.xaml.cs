@@ -15,6 +15,9 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Auth0.OidcClient;
 using Auth0.OidcClient.Core;
+using Autofac;
+using Autofac.Extras.CommonServiceLocator;
+using CommonServiceLocator;
 using Xamarin.Forms;
 using Application = Windows.UI.Xaml.Application;
 using Frame = Windows.UI.Xaml.Controls.Frame;
@@ -63,7 +66,18 @@ namespace XamarinFormsTest.UWP
                 rootFrame.NavigationFailed += OnNavigationFailed;
 
                 Xamarin.Forms.Forms.Init(e);
-                DependencyService.Register<Auth0Client>();
+
+                ContainerBuilder builder = new ContainerBuilder();
+                builder.Register(context => new Auth0Client(new Auth0ClientOptions
+                {
+                    Domain = "jerrie.auth0.com",
+                    ClientId = "vV9twaySQzfGesS9Qs6gOgqDsYDdgoKE"
+                })).As<IAuth0Client>();
+
+                IContainer container = builder.Build();
+
+                AutofacServiceLocator asl = new AutofacServiceLocator(container);
+                ServiceLocator.SetLocatorProvider(() => asl);
 
                 if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
                 {

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Auth0.OidcClient.Core;
+using CommonServiceLocator;
 using Xamarin.Forms;
 
 namespace XamarinFormsTest
@@ -16,7 +17,7 @@ namespace XamarinFormsTest
 		{
 			InitializeComponent();
 
-		    _auth0Client = DependencyService.Get<IAuth0Client>();
+		    _auth0Client = ServiceLocator.Current.GetInstance<IAuth0Client>();
 
 		    Login.Clicked += Login_Clicked;
 		}

@@ -14,17 +14,6 @@ namespace Auth0.OidcClient
         private readonly Auth0ClientOptions _options;
         private IdentityModel.OidcClient.OidcClient _oidcClient;
 
-        public Auth0Client()
-        {
-            _options = new Auth0ClientOptions
-            {
-                Domain = "jerrie.auth0.com",
-                ClientId = "vV9twaySQzfGesS9Qs6gOgqDsYDdgoKE"
-            };
-
-            ConfigureOidcClient();
-        }
-
         /// <summary>
         /// Creates a new instance of the Auth0 OIDC Client.
         /// </summary>
@@ -54,13 +43,13 @@ namespace Auth0.OidcClient
 
                 // Set redirect uri depending on platform
 #if __IOS__
-				RedirectUri = _options.RedirectUri ?? $"{Foundation.NSBundle.MainBundle.BundleIdentifier}://{options.Domain}/ios/{Foundation.NSBundle.MainBundle.BundleIdentifier}/callback",
+				RedirectUri = _options.RedirectUri ?? $"{Foundation.NSBundle.MainBundle.BundleIdentifier}://{_options.Domain}/ios/{Foundation.NSBundle.MainBundle.BundleIdentifier}/callback",
 #elif __ANDROID__
-				RedirectUri = _options.RedirectUri ?? $"{packageName}://{options.Domain}/android/{packageName}/callback".ToLower(),
+				RedirectUri = _options.RedirectUri ?? $"{packageName}://{_options.Domain}/android/{packageName}/callback".ToLower(),
 #elif WINDOWS_UWP
                 RedirectUri = _options.RedirectUri ?? Windows.Security.Authentication.Web.WebAuthenticationBroker.GetCurrentApplicationCallbackUri().AbsoluteUri,
 #else
-                RedirectUri = _options.RedirectUri ?? $"https://{options.Domain}/mobile",
+                RedirectUri = _options.RedirectUri ?? $"https://{_options.Domain}/mobile",
 #endif
 
                 // Set correct response mode depending on the platform
