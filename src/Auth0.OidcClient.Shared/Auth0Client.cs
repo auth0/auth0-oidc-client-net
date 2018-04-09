@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
-using Auth0.OidcClient.Core;
 using IdentityModel.OidcClient;
 using IdentityModel.OidcClient.Results;
 

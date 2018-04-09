@@ -3,7 +3,7 @@
 <package>
   <metadata>
     <id>Auth0.OidcClient.iOS</id>
-    <version>1.1.0</version>
+    <version>2.0.0-beta1</version>
     <authors>Auth0</authors>
     <owners>Auth0</owners>
     <licenseUrl>http://opensource.org/licenses/MIT</licenseUrl>
@@ -12,6 +12,9 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Auth0 OIDC Client for Xamarin iOS applications</description>
     <releaseNotes>
+      Version 2.0.0
+      - Support for Xamarin Forms
+      
       Version 1.1.0
       - Internal updates
       
@@ -22,17 +25,12 @@
     <tags>Auth0 OIDC iOS MonoTouch</tags>
     <dependencies>
       <group targetFramework="Xamarin.iOS10">
-        <dependency id="IdentityModel.OidcClient" version="2.1.2" />
-        <dependency id="IdentityModel" version="(,2.7.0]" />
-        <!-- 
-          Constrain IdentityModel to maximum of version 2.7.0
-          2.8.0 brings in ValueTuple which currently breaks Xamarin.
-          I think it is related to this: https://github.com/dotnet/corefx/issues/14235
-        -->
+        <dependency id="Auth0.OidcClient.Core" version="2.0.0-beta1" />
       </group>
     </dependencies>
   </metadata>
   <files>
     <file src="../src/Auth0.OidcClient.Xamarin.iOS/bin/Release/Auth0.OidcClient.dll" target="lib\Xamarin.iOS10" />
+    <file src="../src/Auth0.OidcClient.Xamarin.iOS/bin/Release/Auth0.OidcClient.xml" target="lib\Xamarin.iOS10" />
   </files>
 </package>

@@ -31,6 +31,7 @@
     <DefineConstants>TRACE;WPF</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\Auth0.OidcClient.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="IdentityModel, Version=3.3.1.0, Culture=neutral, processorArchitecture=MSIL">

@@ -2,7 +2,7 @@
 using IdentityModel.OidcClient;
 using IdentityModel.OidcClient.Results;
 
-namespace Auth0.OidcClient.Core
+namespace Auth0.OidcClient
 {
     public interface IAuth0Client
     {
@@ -16,7 +16,7 @@ namespace Auth0.OidcClient.Core
         /// <summary>
         /// Generates an <see cref="IdentityModel.OidcClient.AuthorizeState"/> containing the URL, state, nonce and code challenge which can
         /// be used to redirect the user to the authorization URL, and subsequently process any response by calling
-        /// the <see cref="Auth0.OidcClient.Core.IAuth0Client.ProcessResponseAsync(string,IdentityModel.OidcClient.AuthorizeState)"/> method.
+        /// the <see cref="ProcessResponseAsync"/> method.
         /// </summary>
         /// <param name="extraParameters"></param>
         /// <returns></returns>
@@ -26,7 +26,7 @@ namespace Auth0.OidcClient.Core
         /// Process the response from the Auth0 redirect URI
         /// </summary>
         /// <param name="data">The data containing the full redirect URI.</param>
-        /// <param name="state">The <see cref="IdentityModel.OidcClient.AuthorizeState"/> which was generated when the <see cref="Auth0.OidcClient.Core.IAuth0Client.PrepareLoginAsync(object)"/>
+        /// <param name="state">The <see cref="IdentityModel.OidcClient.AuthorizeState"/> which was generated when the <see cref="PrepareLoginAsync"/>
         /// method was called.</param>
         /// <returns></returns>
         Task<LoginResult> ProcessResponseAsync(string data, AuthorizeState state);
@@ -35,7 +35,7 @@ namespace Auth0.OidcClient.Core
         /// Generates a new set of tokens based on a refresh token. 
         /// </summary>
         /// <param name="refreshToken">The refresh token which was issued during the authorization flow, or subsequent
-        /// calls to <see cref="Auth0.OidcClient.Core.IAuth0Client.RefreshTokenAsync(string)"/>.</param>
+        /// calls to <see cref="RefreshTokenAsync"/>.</param>
         /// <returns></returns>
         Task<RefreshTokenResult> RefreshTokenAsync(string refreshToken);
     }
