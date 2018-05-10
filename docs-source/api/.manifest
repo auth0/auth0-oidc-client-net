@@ -1,5 +1,11 @@
 {
   "Auth0.OidcClient": "Auth0.OidcClient.yml",
+  "Auth0.OidcClient.ActivityMediator": "Auth0.OidcClient.ActivityMediator.yml",
+  "Auth0.OidcClient.ActivityMediator.ActivityMessageReceived": "Auth0.OidcClient.ActivityMediator.yml",
+  "Auth0.OidcClient.ActivityMediator.Cancel": "Auth0.OidcClient.ActivityMediator.yml",
+  "Auth0.OidcClient.ActivityMediator.Instance": "Auth0.OidcClient.ActivityMediator.yml",
+  "Auth0.OidcClient.ActivityMediator.MessageReceivedEventHandler": "Auth0.OidcClient.ActivityMediator.MessageReceivedEventHandler.yml",
+  "Auth0.OidcClient.ActivityMediator.Send(System.String)": "Auth0.OidcClient.ActivityMediator.yml",
   "Auth0.OidcClient.Auth0Client": "Auth0.OidcClient.Auth0Client.yml",
   "Auth0.OidcClient.Auth0Client.#ctor(Auth0.OidcClient.Auth0ClientOptions)": "Auth0.OidcClient.Auth0Client.yml",
   "Auth0.OidcClient.Auth0Client.LoginAsync(System.Object)": "Auth0.OidcClient.Auth0Client.yml",
@@ -14,5 +20,15 @@
   "Auth0.OidcClient.Auth0ClientOptions.Domain": "Auth0.OidcClient.Auth0ClientOptions.yml",
   "Auth0.OidcClient.Auth0ClientOptions.EnableTelemetry": "Auth0.OidcClient.Auth0ClientOptions.yml",
   "Auth0.OidcClient.Auth0ClientOptions.LoadProfile": "Auth0.OidcClient.Auth0ClientOptions.yml",
-  "Auth0.OidcClient.Auth0ClientOptions.Scope": "Auth0.OidcClient.Auth0ClientOptions.yml"
+  "Auth0.OidcClient.Auth0ClientOptions.RedirectUri": "Auth0.OidcClient.Auth0ClientOptions.yml",
+  "Auth0.OidcClient.Auth0ClientOptions.Scope": "Auth0.OidcClient.Auth0ClientOptions.yml",
+  "Auth0.OidcClient.IAuth0Client": "Auth0.OidcClient.IAuth0Client.yml",
+  "Auth0.OidcClient.IAuth0Client.LoginAsync(System.Object)": "Auth0.OidcClient.IAuth0Client.yml",
+  "Auth0.OidcClient.IAuth0Client.PrepareLoginAsync(System.Object)": "Auth0.OidcClient.IAuth0Client.yml",
+  "Auth0.OidcClient.IAuth0Client.ProcessResponseAsync(System.String,AuthorizeState)": "Auth0.OidcClient.IAuth0Client.yml",
+  "Auth0.OidcClient.IAuth0Client.RefreshTokenAsync(System.String)": "Auth0.OidcClient.IAuth0Client.yml",
+  "Auth0.OidcClient.Resource": "Auth0.OidcClient.Resource.yml",
+  "Auth0.OidcClient.Resource.String": "Auth0.OidcClient.Resource.String.yml",
+  "Auth0.OidcClient.Resource.String.ApplicationName": "Auth0.OidcClient.Resource.String.yml",
+  "Auth0.OidcClient.Resource.String.Hello": "Auth0.OidcClient.Resource.String.yml"
 }

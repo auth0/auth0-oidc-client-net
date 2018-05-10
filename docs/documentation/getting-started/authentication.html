@@ -8,7 +8,7 @@
     <title>Authentication </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Authentication ">
-    <meta name="generator" content="docfx 2.20.0.0">
+    <meta name="generator" content="docfx 2.33.1.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
     <link rel="stylesheet" href="../../styles/docfx.vendor.css">
@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="../../styles/main.css">
     <meta property="docfx:navrel" content="../../toc.html">
     <meta property="docfx:tocrel" content="../toc.html">
+    
     
     
   </head>
@@ -68,13 +69,10 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="authentication">Authentication</h1>
 
-<div class="NOTE"><h5>Note</h5><p>You need to ensure that the JWT Signature Algorithm for your client is set to RS256</p>
+<div class="NOTE"><h5>Note</h5><p>You need to ensure that the JWT Signature Algorithm for your Auth0 Application is set to RS256</p>
 </div>
 <h2 id="initialize-auth0client">Initialize Auth0Client</h2>
-<p>To authenticate a user in your application, your need to create a new instance of <a class="xref" href="../../api/Auth0.OidcClient.Auth0Client.html">Auth0Client</a>, passing your Auth0 <strong>Domain</strong> and <strong>Client ID</strong> for your Client. Please see the <a href="https://auth0.com/docs/clients">Clients Documentation</a> on the Auth0 website for more information.</p>
-<p>There are however small differences for each platform.</p>
-<h3 id="for-windows-applications-uwp-wpf-and-windows-forms">For Windows Applications (UWP, WPF and Windows Forms)</h3>
-<p>For Windows applications, you simply pass your Auth0 <strong>Domain</strong> and <strong>Client ID</strong>:</p>
+<p>Create a new instance of <a class="xref" href="../../api/Auth0.OidcClient.Auth0Client.html">Auth0Client</a>, passing the Auth0 <strong>Domain</strong> and <strong>Client ID</strong> for your Auth0 Application. Please see the <a href="https://auth0.com/docs/applications">Applications Documentation</a> on the Auth0 website for more information.</p>
 <pre><code class="lang-csharp">using Auth0.OidcClient;
 
 var client = new Auth0Client(new Auth0ClientOptions
@@ -82,54 +80,17 @@ var client = new Auth0Client(new Auth0ClientOptions
     Domain = &quot;YOUR_AUTH0_DOMAIN&quot;,
     ClientId = &quot;YOUR_AUTH0_CLIENT_ID&quot;
 });
-</code></pre><h3 id="for-ios">For iOS</h3>
-<p>For iOS applications, you need to pass your Auth0 <strong>Domain</strong> and <strong>Client ID</strong>, as well as the instance of the view controller from which you are running the code:</p>
-<pre><code class="lang-csharp">using Auth0.OidcClient;
-
-var client = new Auth0Client(new Auth0ClientOptions
-{
-    Domain = &quot;YOUR_AUTH0_DOMAIN&quot;,
-    ClientId = &quot;YOUR_AUTH0_CLIENT_ID&quot;,
-    Controller = this
-});
-</code></pre><h3 id="for-android">For Android</h3>
-<p>For Android applications, you need to pass your Auth0 <strong>Domain</strong> and <strong>Client ID</strong>, as well as the instance of the activity from which you are running the code:</p>
-<pre><code class="lang-csharp">using Auth0.OidcClient;
-
-var client = new Auth0Client(new Auth0ClientOptions
-{
-    Domain = &quot;YOUR_AUTH0_DOMAIN&quot;,
-    ClientId = &quot;YOUR_AUTH0_CLIENT_ID&quot;,
-    Ativity = this
-});
 </code></pre><h2 id="log-the-user-in">Log the user in</h2>
-<p>The way in which you authenticate the user is also different for each platform.</p>
-<h3 id="for-windows-applications-uwp-wpf-and-windows-forms-1">For Windows Applications (UWP, WPF and Windows Forms)</h3>
-<p>For Windows applications, you can authenticate a user by simply calling <a class="xref" href="../../api/Auth0.OidcClient.Auth0Client.html#Auth0_OidcClient_Auth0Client_LoginAsync_System_Object_">LoginAsync(Object)</a>.</p>
+<p>Initiate the authentication flow by calling <a class="xref" href="../../api/Auth0.OidcClient.Auth0Client.html#Auth0_OidcClient_Auth0Client_LoginAsync_System_Object_">LoginAsync(Object)</a>. There are slight nuances to this on some of the platforms, as discussed below.</p>
+<h3 id="for-windows-applications-uwp-wpf-and-windows-forms">For Windows Applications (UWP, WPF and Windows Forms)</h3>
+<p>For Windows applications, you can authenticate a user by calling <a class="xref" href="../../api/Auth0.OidcClient.Auth0Client.html#Auth0_OidcClient_Auth0Client_LoginAsync_System_Object_">LoginAsync(Object)</a>.</p>
 <pre><code class="lang-csharp">var loginResult = await client.LoginAsync();
-</code></pre><h3 id="for-ios-1">For iOS</h3>
-<p>For iOS applications, the process is fairly similar, but you need a few extra steps:</p>
+</code></pre><h3 id="for-ios">For iOS</h3>
+<p>For iOS applications, the process is similar, but you also need to register the URL Scheme.</p>
 <ol>
-<li><p>You initiate the authentication process the same way as for Windows applications, by calling <a class="xref" href="../../api/Auth0.OidcClient.Auth0Client.html#Auth0_OidcClient_Auth0Client_LoginAsync_System_Object_">LoginAsync(Object)</a> inside your view controller:</p>
-<pre><code class="lang-csharp">var loginResult = await client.LoginAsync();
-</code></pre></li>
-<li><p>After a user has logged in, Auth0 will redirect to the callback URL in your application. You need to handle the incoming link to your <code>AppDelegate</code> and resume the login flow of the Auth0 OIDC Client by calling the <code>Send</code> method of the <code>ActivityMediator</code> singleton, passing along the url sent in. This will allow the Auth0 OIDC Client library to complete the authentication process:</p>
-<pre><code class="lang-csharp">using Auth0.OidcClient;
-
-[Register(&quot;AppDelegate&quot;)]
-public class AppDelegate : UIApplicationDelegate
-{
-    public override bool OpenUrl(UIApplication application, NSUrl url, string sourceApplication, NSObject annotation)
-    {
-        ActivityMediator.Instance.Send(url.AbsoluteString);
-
-        return true;
-    }
-}
-</code></pre></li>
-<li><p>Finally, you also need to ensure that you have registered the URL Scheme. To do that follow these steps</p>
+<li><p>Register the URL Scheme as follows:</p>
 <ul>
-<li>Open your application&#39;s <code>Info.plist</code> file in Visual Studio for Mac, and go to the <strong>Advanced</strong> tab. </li>
+<li>Open your application&#39;s <code>Info.plist</code> file in Visual Studio for Mac, and go to the <strong>Advanced</strong> tab.</li>
 <li>Under <strong>URL Types</strong>, click the <strong>Add URL Type</strong> button</li>
 <li><p>Set the <strong>Identifier</strong> as <code>Auth0</code>, the <strong>URL Schemes</strong> the same as your application&#39;s <strong>Bundle Identifier</strong>, and the <strong>Role</strong> as <code>None</code></p>
 <p>This is an example of the XML representation of your <code>info.plist</code> file after you have added the URL Type:</p>
@@ -149,9 +110,12 @@ public class AppDelegate : UIApplicationDelegate
 </code></pre></li>
 </ul>
 </li>
+<li><p>Initiate the authentication process the same way as for Windows applications, by calling <a class="xref" href="../../api/Auth0.OidcClient.Auth0Client.html#Auth0_OidcClient_Auth0Client_LoginAsync_System_Object_">LoginAsync(Object)</a> inside your view controller:</p>
+<pre><code class="lang-csharp">var loginResult = await client.LoginAsync();
+</code></pre></li>
 </ol>
-<h3 id="for-android-1">For Android</h3>
-<p>For Android the entire login process is a bit more manual, but still fairly simple.</p>
+<h3 id="for-android">For Android</h3>
+<p>For Android, the entire login process is a bit more manual but still fairly simple.</p>
 <ol>
 <li><p>First you need to call <a class="xref" href="../../api/Auth0.OidcClient.Auth0Client.html#Auth0_OidcClient_Auth0Client_PrepareLoginAsync_System_Object_">PrepareLoginAsync(Object)</a>. This will return an <code>AuthorizeState</code> instance:</p>
 <pre><code>authorizeState = await _client.PrepareLoginAsync();
@@ -186,7 +150,7 @@ public class MainActivity : Activity
 </code></pre></li>
 </ol>
 <h2 id="the-login-result">The Login Result</h2>
-<p>The returned login result will indicate whether authentication was successful, and if so contain the tokens and claims of the user.</p>
+<p>The returned login result will indicate whether authentication was successful and if so contain the tokens and claims of the user.</p>
 <h3 id="authentication-error">Authentication Error</h3>
 <p>You can check the <code>IsError</code> property of the result to see whether the login has failed. The <code>ErrorMessage</code> will contain more information regarding the error which occurred.</p>
 <pre><code class="lang-csharp">var loginResult = await client.LoginAsync();
@@ -206,13 +170,13 @@ if (!loginResult.IsError)
 }
 </code></pre><h3 id="obtaining-the-user-information">Obtaining the User Information</h3>
 <p>On successful login, the login result will contain the user information in the <code>User</code> property, which is a <a href="https://msdn.microsoft.com/en-us/library/system.security.claims.claimsprincipal(v=vs.110).aspx">ClaimsPrincipal</a>.</p>
-<p>To obtain information about the user, you can query the claims. You can for example obtain the user&#39;s name and email address from the <code>name</code> and <code>email</code> claims:</p>
+<p>To obtain information about the user, you can query the claims. You can, for example, obtain the user&#39;s name and email address from the <code>name</code> and <code>email</code> claims:</p>
 <pre><code class="lang-csharp">if (!loginResult.IsError)
 {
     Debug.WriteLine($&quot;name: {loginResult.User.FindFirst(c =&gt; c.Type == &quot;name&quot;)?.Value}&quot;);
     Debug.WriteLine($&quot;email: {loginResult.User.FindFirst(c =&gt; c.Type == &quot;email&quot;)?.Value}&quot;);
 }
-</code></pre><div class="NOTE"><h5>Note</h5><p>The exact claims returned will depend on the scopes that were requested. For more information see <a class="xref" href="../advanced-scenarios/scopes.html">Using Scopes</a>.</p>
+</code></pre><div class="NOTE"><h5>Note</h5><p>The exact claims returned will depend on the scopes requested. For more information see <a class="xref" href="../advanced-scenarios/scopes.html">Using Scopes</a>.</p>
 </div>
 <p>You can obtain a list of all the claims contained in the <code>id_token</code> by iterating through the <code>Claims</code> collection:</p>
 <pre><code class="lang-csharp">if (!loginResult.IsError)
@@ -230,7 +194,7 @@ if (!loginResult.IsError)
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/auth0/auth0-oidc-client-net/blob/master/docs-source/documentation/getting-started/authentication.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/auth0/auth0-oidc-client-net/blob/v2/docs-source/documentation/getting-started/authentication.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

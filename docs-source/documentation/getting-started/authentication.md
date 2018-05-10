@@ -1,17 +1,11 @@
 # Authentication
 
 > [!Note]
-> You need to ensure that the JWT Signature Algorithm for your client is set to RS256
+> You need to ensure that the JWT Signature Algorithm for your Auth0 Application is set to RS256
 
-## Initialize Auth0Client 
+## Initialize Auth0Client
 
-To authenticate a user in your application, your need to create a new instance of @Auth0.OidcClient.Auth0Client, passing your Auth0 **Domain** and **Client ID** for your Client. Please see the [Clients Documentation](https://auth0.com/docs/clients) on the Auth0 website for more information.
-
-There are however small differences for each platform.
-
-### For Windows Applications (UWP, WPF and Windows Forms)
-
-For Windows applications, you simply pass your Auth0 **Domain** and **Client ID**:
+Create a new instance of @Auth0.OidcClient.Auth0Client, passing the Auth0 **Domain** and **Client ID** for your Auth0 Application. Please see the [Applications Documentation](https://auth0.com/docs/applications) on the Auth0 website for more information.
 
 ```csharp
 using Auth0.OidcClient;
@@ -23,43 +17,13 @@ var client = new Auth0Client(new Auth0ClientOptions
 });
 ```
 
-### For iOS
-
-For iOS applications, you need to pass your Auth0 **Domain** and **Client ID**, as well as the instance of the view controller from which you are running the code:
-
-```csharp
-using Auth0.OidcClient;
-
-var client = new Auth0Client(new Auth0ClientOptions
-{
-    Domain = "YOUR_AUTH0_DOMAIN",
-    ClientId = "YOUR_AUTH0_CLIENT_ID",
-    Controller = this
-});
-```
-
-### For Android
-
-For Android applications, you need to pass your Auth0 **Domain** and **Client ID**, as well as the instance of the activity from which you are running the code:
-
-```csharp
-using Auth0.OidcClient;
-
-var client = new Auth0Client(new Auth0ClientOptions
-{
-    Domain = "YOUR_AUTH0_DOMAIN",
-    ClientId = "YOUR_AUTH0_CLIENT_ID",
-    Ativity = this
-});
-```
-
 ## Log the user in
 
-The way in which you authenticate the user is also different for each platform.
+Initiate the authentication flow by calling @Auth0.OidcClient.Auth0Client.LoginAsync(System.Object). There are slight nuances to this on some of the platforms, as discussed below.
 
 ### For Windows Applications (UWP, WPF and Windows Forms)
 
-For Windows applications, you can authenticate a user by simply calling @Auth0.OidcClient.Auth0Client.LoginAsync(System.Object).
+For Windows applications, you can authenticate a user by calling @Auth0.OidcClient.Auth0Client.LoginAsync(System.Object).
 
 ```csharp
 var loginResult = await client.LoginAsync();
@@ -67,34 +31,11 @@ var loginResult = await client.LoginAsync();
 
 ### For iOS
 
-For iOS applications, the process is fairly similar, but you need a few extra steps:
+For iOS applications, the process is similar, but you also need to register the URL Scheme.
 
-1. You initiate the authentication process the same way as for Windows applications, by calling @Auth0.OidcClient.Auth0Client.LoginAsync(System.Object) inside your view controller:
+1. Register the URL Scheme as follows:
 
-    ```csharp
-    var loginResult = await client.LoginAsync();
-    ```
-
-2. After a user has logged in, Auth0 will redirect to the callback URL in your application. You need to handle the incoming link to your `AppDelegate` and resume the login flow of the Auth0 OIDC Client by calling the `Send` method of the `ActivityMediator` singleton, passing along the url sent in. This will allow the Auth0 OIDC Client library to complete the authentication process:
-
-    ```csharp
-    using Auth0.OidcClient;
-
-    [Register("AppDelegate")]
-    public class AppDelegate : UIApplicationDelegate
-    {
-        public override bool OpenUrl(UIApplication application, NSUrl url, string sourceApplication, NSObject annotation)
-        {
-            ActivityMediator.Instance.Send(url.AbsoluteString);
-
-            return true;
-        }
-    }
-    ```
-
-3. Finally, you also need to ensure that you have registered the URL Scheme. To do that follow these steps
-
-    * Open your application's `Info.plist` file in Visual Studio for Mac, and go to the **Advanced** tab. 
+    * Open your application's `Info.plist` file in Visual Studio for Mac, and go to the **Advanced** tab.
     * Under **URL Types**, click the **Add URL Type** button
     * Set the **Identifier** as `Auth0`, the **URL Schemes** the same as your application's **Bundle Identifier**, and the **Role** as `None`
 
@@ -116,9 +57,15 @@ For iOS applications, the process is fairly similar, but you need a few extra st
     </array>
     ```
 
+2. Initiate the authentication process the same way as for Windows applications, by calling @Auth0.OidcClient.Auth0Client.LoginAsync(System.Object) inside your view controller:
+
+    ```csharp
+    var loginResult = await client.LoginAsync();
+    ```
+
 ### For Android
 
-For Android the entire login process is a bit more manual, but still fairly simple.
+For Android, the entire login process is a bit more manual but still fairly simple.
 
 1. First you need to call @Auth0.OidcClient.Auth0Client.PrepareLoginAsync(System.Object). This will return an `AuthorizeState` instance:
 
@@ -167,7 +114,7 @@ For Android the entire login process is a bit more manual, but still fairly simp
 
 ## The Login Result
 
-The returned login result will indicate whether authentication was successful, and if so contain the tokens and claims of the user.
+The returned login result will indicate whether authentication was successful and if so contain the tokens and claims of the user.
 
 ### Authentication Error
 
@@ -200,7 +147,7 @@ if (!loginResult.IsError)
 
 On successful login, the login result will contain the user information in the `User` property, which is a [ClaimsPrincipal](https://msdn.microsoft.com/en-us/library/system.security.claims.claimsprincipal(v=vs.110).aspx).
 
-To obtain information about the user, you can query the claims. You can for example obtain the user's name and email address from the `name` and `email` claims:
+To obtain information about the user, you can query the claims. You can, for example, obtain the user's name and email address from the `name` and `email` claims:
 
 ```csharp
 if (!loginResult.IsError)
@@ -211,7 +158,7 @@ if (!loginResult.IsError)
 ```
 
 > [!Note]
-> The exact claims returned will depend on the scopes that were requested. For more information see @scopes.
+> The exact claims returned will depend on the scopes requested. For more information see @scopes.
 
 You can obtain a list of all the claims contained in the `id_token` by iterating through the `Claims` collection:
 
