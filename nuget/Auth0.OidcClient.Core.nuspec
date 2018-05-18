@@ -3,7 +3,7 @@
 <package>
   <metadata>
     <id>Auth0.OidcClient.Core</id>
-    <version>2.0.0-beta1</version>
+    <version>2.0.0-rc1</version>
     <authors>Auth0</authors>
     <owners>Auth0</owners>
     <licenseUrl>http://opensource.org/licenses/MIT</licenseUrl>
@@ -19,7 +19,7 @@
     <tags>Auth0 OIDC Android MonoAndroid</tags>
     <dependencies>
       <group targetFramework=".NETStandard1.4">
-        <dependency id="IdentityModel.OidcClient" version="2.5.1" />
+        <dependency id="IdentityModel.OidcClient" version="2.6.0" />
       </group>
     </dependencies>
   </metadata>
