@@ -3,7 +3,7 @@
 <package>
   <metadata>
     <id>Auth0.OidcClient.Android</id>
-    <version>2.0.0-beta1</version>
+    <version>2.0.0-rc1</version>
     <authors>Auth0</authors>
     <owners>Auth0</owners>
     <licenseUrl>http://opensource.org/licenses/MIT</licenseUrl>
@@ -28,8 +28,8 @@
     <tags>Auth0 OIDC Android MonoAndroid</tags>
     <dependencies>
       <group targetFramework="MonoAndroid10">
-        <dependency id="Auth0.OidcClient.Core" version="2.0.0-beta1" />
-        <dependency id="Plugin.CurrentActivity" version="1.0.1"/>
+        <dependency id="Auth0.OidcClient.Core" version="2.0.0-rc1" />
+        <dependency id="Plugin.CurrentActivity" version="2.1.0.2"/>
       </group>
     </dependencies>
   </metadata>
