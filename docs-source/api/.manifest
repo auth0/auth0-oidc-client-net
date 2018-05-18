@@ -25,7 +25,7 @@
   "Auth0.OidcClient.IAuth0Client": "Auth0.OidcClient.IAuth0Client.yml",
   "Auth0.OidcClient.IAuth0Client.LoginAsync(System.Object)": "Auth0.OidcClient.IAuth0Client.yml",
   "Auth0.OidcClient.IAuth0Client.PrepareLoginAsync(System.Object)": "Auth0.OidcClient.IAuth0Client.yml",
-  "Auth0.OidcClient.IAuth0Client.ProcessResponseAsync(System.String,AuthorizeState)": "Auth0.OidcClient.IAuth0Client.yml",
+  "Auth0.OidcClient.IAuth0Client.ProcessResponseAsync(System.String,IdentityModel.OidcClient.AuthorizeState)": "Auth0.OidcClient.IAuth0Client.yml",
   "Auth0.OidcClient.IAuth0Client.RefreshTokenAsync(System.String)": "Auth0.OidcClient.IAuth0Client.yml",
   "Auth0.OidcClient.Resource": "Auth0.OidcClient.Resource.yml",
   "Auth0.OidcClient.Resource.String": "Auth0.OidcClient.Resource.String.yml",

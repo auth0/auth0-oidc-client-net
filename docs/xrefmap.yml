@@ -290,11 +290,11 @@ references:
   isSpec: "True"
   fullName: Auth0.OidcClient.IAuth0Client.PrepareLoginAsync
   nameWithType: IAuth0Client.PrepareLoginAsync
-- uid: Auth0.OidcClient.IAuth0Client.ProcessResponseAsync(System.String,AuthorizeState)
+- uid: Auth0.OidcClient.IAuth0Client.ProcessResponseAsync(System.String,IdentityModel.OidcClient.AuthorizeState)
   name: ProcessResponseAsync(String, AuthorizeState)
-  href: api/Auth0.OidcClient.IAuth0Client.html#Auth0_OidcClient_IAuth0Client_ProcessResponseAsync_System_String_AuthorizeState_
-  commentId: M:Auth0.OidcClient.IAuth0Client.ProcessResponseAsync(System.String,AuthorizeState)
-  fullName: Auth0.OidcClient.IAuth0Client.ProcessResponseAsync(System.String, AuthorizeState)
+  href: api/Auth0.OidcClient.IAuth0Client.html#Auth0_OidcClient_IAuth0Client_ProcessResponseAsync_System_String_IdentityModel_OidcClient_AuthorizeState_
+  commentId: M:Auth0.OidcClient.IAuth0Client.ProcessResponseAsync(System.String,IdentityModel.OidcClient.AuthorizeState)
+  fullName: Auth0.OidcClient.IAuth0Client.ProcessResponseAsync(System.String, IdentityModel.OidcClient.AuthorizeState)
   nameWithType: IAuth0Client.ProcessResponseAsync(String, AuthorizeState)
 - uid: Auth0.OidcClient.IAuth0Client.ProcessResponseAsync*
   name: ProcessResponseAsync

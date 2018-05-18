@@ -109,7 +109,7 @@
     ClientId = &quot;YOUR CLIENT ID&quot;,
     Activity = this
 });
-</code></pre><p>This was required because the OIDC Client needs to call <a href="https://developer.xamarin.com/api/member/Android.Content.Context.StartActivity/">StartActivity</a> on the current <code>Activity</code> to launch the web browser. With Version 2.0, we are now using the <a href="https://www.nuget.org/packages/Plugin.CurrentActivity">Current Activity Plugin for Xamarin.Android</a> to determine the current activity, so there is no requirement to pass this to <code>Auth0ClientOptions</code> anymore.</p>
+</code></pre><p>This was required because the Auth0 OIDC Client called <a href="https://developer.xamarin.com/api/member/Android.Content.Context.StartActivity/p/Android.Content.Intent/">StartActivity</a> on the current <code>Activity</code> to launch the web browser. With Version 2.0, we are now using the static <code>Application.Context</code> property to launch the browser activity, so there is no requirement to pass this to <code>Auth0ClientOptions</code> anymore. Removing this dependency also allow developers to more easily use the Auth0 OIDC Client in Xamarin Forms applications.</p>
 <p>Update the instantiation of <code>Auth0ClientOptions</code> to remove the assignment of the <code>Activity</code> property, which has been removed:</p>
 <pre><code class="lang-cs">_client = new Auth0Client(new Auth0ClientOptions
 {
