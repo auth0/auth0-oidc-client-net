@@ -20,7 +20,7 @@ namespace WpfSystemBrowserTestApp
             {
                 Domain = "jerrie.auth0.com",
                 ClientId = "vV9twaySQzfGesS9Qs6gOgqDsYDdgoKE",
-                Scope = "openid profile offline_access",
+                Scope = "openid profile email",
                 Browser = new SystemWebBrowser(),
                 RedirectUri = "http://127.0.0.1:7890/"
             });
