@@ -29,7 +29,6 @@
     <dependencies>
       <group targetFramework="MonoAndroid10">
         <dependency id="Auth0.OidcClient.Core" version="2.0.0-rc1" />
-        <dependency id="Plugin.CurrentActivity" version="2.1.0.2"/>
       </group>
     </dependencies>
   </metadata>
