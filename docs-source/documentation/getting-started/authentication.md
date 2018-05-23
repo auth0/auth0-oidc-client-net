@@ -57,7 +57,24 @@ For iOS applications, the process is similar, but you also need to register the 
     </array>
     ```
 
-2. Initiate the authentication process the same way as for Windows applications, by calling @Auth0.OidcClient.Auth0Client.LoginAsync(System.Object) inside your view controller:
+2. After a user has logged in, Auth0 will redirect to the callback URL in your application. You need to handle the incoming link to your `AppDelegate` and resume the login flow of the Auth0 OIDC Client by calling the `Send` method of the `ActivityMediator` singleton, passing along the url sent in. This will allow the Auth0 OIDC Client library to complete the authentication process:
+
+    ```csharp
+    using Auth0.OidcClient;
+
+    [Register("AppDelegate")]
+    public class AppDelegate : UIApplicationDelegate
+    {
+        public override bool OpenUrl(UIApplication application, NSUrl url, string sourceApplication, NSObject annotation)
+        {
+            ActivityMediator.Instance.Send(url.AbsoluteString);
+
+            return true;
+        }
+    }
+    ```
+
+3. Initiate the authentication flow by calling @Auth0.OidcClient.Auth0Client.LoginAsync(System.Object) inside your view controller.
 
     ```csharp
     var loginResult = await client.LoginAsync();
@@ -65,26 +82,9 @@ For iOS applications, the process is similar, but you also need to register the 
 
 ### For Android
 
-For Android, the entire login process is a bit more manual but still fairly simple.
+On Android, you need to handle the Intent which will be activated when Auth0 redirects back to your application after a user has authenticated.
 
-1. First you need to call @Auth0.OidcClient.Auth0Client.PrepareLoginAsync(System.Object). This will return an `AuthorizeState` instance:
-
-    ```
-    authorizeState = await _client.PrepareLoginAsync();
-    ```
-
-    You will need to store the instance of `AuthorizeState`, as you will need it in step 3 below.
-
-2. The `AuthorizeState` instance will contain a `StartUrl` property with the authorization URL where the user should be redirected to log in. You will need to create a new intent which will open the system browser and send the user to this URL:
-
-    ```csharp
-    var uri = Android.Net.Uri.Parse(authorizeState.StartUrl);
-    var intent = new Intent(Intent.ActionView, uri);
-    intent.AddFlags(ActivityFlags.NoHistory);
-    StartActivity(intent);
-    ```
-
-3. Finally, after the user has authenticated, they will be redirected back to your application at the **Callback URL** that was registered before. You will need to register an intent which will handle this callback URL.
+1. Register an intent which will handle the callback URL.
 
     ```csharp
     [Activity(Label = "AndroidSample", MainLauncher = true, Icon = "@drawable/icon",
@@ -101,14 +101,63 @@ For Android, the entire login process is a bit more manual but still fairly simp
     }
     ```
 
-    Now write code to handle the intent. You can do this by overriding the `OnNewIntent` method. Inside the method you need to call @Auth0.OidcClient.Auth0Client.ProcessResponseAsync(System.String,IdentityModel.OidcClient.AuthorizeState), passing along the `DataString` from the intent, as well as the `AuthorizeState` which was previously stored when you called `PrepareLoginAsync`:
+    Replace `YOUR_ANDROID_PACKAGE_NAME` in the code sample above with the actual Package Name for your application, such as `com.mycompany.myapplication`. Also, ensure that all the text for the `DataScheme`, `DataHost`, and `DataPathPrefix` is in lower case. Also, set `LaunchMode = LaunchMode.SingleTask` for the Activity, otherwise the system will create a new instance of the activity every time the Callback URL gets called.
+
+    Now write code to handle the intent. You can do this by overriding the `OnNewIntent` method. Inside the method you need to call the `Send` method on the `ActivityMediator` to complete the authentication cycle:
 
     ```csharp
     protected override async void OnNewIntent(Intent intent)
     {
         base.OnNewIntent(intent);
 
-        var loginResult = await client.ProcessResponseAsync(intent.DataString, authorizeState);
+        ActivityMediator.Instance.Send(intent.DataString);
+    }
+    ```
+
+2. Initiate the authentication flow by calling @Auth0.OidcClient.Auth0Client.LoginAsync(System.Object) inside your Activity. Below is the full sample code for a basic implementation of an Android Activity using the Auth0 OIDC Client:
+
+    ```csharp
+    [Activity(Label = "AndroidSample", MainLauncher = true, Icon = "@drawable/icon",
+        LaunchMode = LaunchMode.SingleTask)]
+    [IntentFilter(
+        new[] { Intent.ActionView },
+        Categories = new[] { Intent.CategoryDefault, Intent.CategoryBrowsable },
+        DataScheme = "YOUR_ANDROID_PACKAGE_NAME",
+        DataHost = "YOUR_AUTH0_DOMAIN",
+        DataPathPrefix = "/android/YOUR_ANDROID_PACKAGE_NAME/callback")]
+    public class MainActivity : Activity
+    {
+        private Auth0Client _client;
+        private Button _loginButton;
+
+        protected override void OnNewIntent(Intent intent)
+        {
+            base.OnNewIntent(intent);
+
+            ActivityMediator.Instance.Send(intent.DataString);
+        }
+
+        protected override void OnCreate(Bundle bundle)
+        {
+            base.OnCreate(bundle);
+
+            SetContentView(Resource.Layout.Main);
+
+            _loginButton = FindViewById<Button>(Resource.Id.LoginButton);
+
+            _client = new Auth0Client(new Auth0ClientOptions
+            {
+                Domain = Resources.GetString(Resource.String.auth0_domain),
+                ClientId = Resources.GetString(Resource.String.auth0_client_id)
+            });
+
+            _loginButton.Click += LoginButtonOnClick;
+        }
+
+        private async void LoginButtonOnClick(object sender, EventArgs eventArgs)
+        {
+            var loginResult = await _client.LoginAsync();
+        }
     }
     ```
 

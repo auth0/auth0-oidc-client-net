@@ -72,7 +72,6 @@
 <p>Version 2.0 of the Auth0 OIDC Client has introduced significant changes for iOS and Android applications to add support for Xamarin Forms. To achieve this, references platform-specific constructs, such as <code>UIViewController</code> (iOS) and <code>Activity</code> (Android), has been removed. This also means that the way you integrate the Auth0 OIDC Client into your application has changed.</p>
 <p>If you have previously used version 1.x of this library in your iOS and Android application, then please refer to the sections below for the changes you need to make to your applications.</p>
 <h2 id="migrating-ios-applications">Migrating iOS applications</h2>
-<h3 id="1-remove-reference-to-the-uiviewcontroller">1. Remove reference to the UIViewController</h3>
 <p>For iOS applications, in Version 1.x, you had to pass an instance of <code>UIViewController</code> to <code>Auth0ClientOptions</code>:</p>
 <pre><code class="lang-csharp">_client = new Auth0Client(new Auth0ClientOptions
 {
@@ -80,28 +79,14 @@
     ClientId = &quot;YOUR CLIENT ID&quot;,
     Controller = this
 });
-</code></pre><p>This was required for the OIDC Client to know which <code>UIViewController</code> had to be displayed after the authentication flow has been completed. In Version 2.0, we are now using <code>SFAuthenticationSession</code> to handle the authentication flow. </p>
-<p>After the authentication flow has been completed, the previous <code>UIViewController</code> will automatically be displayed again, so there is no need to pass a reference to the <code>UIViewController</code> anymore.</p>
+</code></pre><p>In Version 2.0, this is not required anymore as we automatically detect the controller initiating the authentication flow. Removing this dependency also allow developers to more easily use the Auth0 OIDC Client in Xamarin Forms applications.</p>
 <p>Update the instantiation of <code>Auth0ClientOptions</code> to remove the assignment of the <code>Controller</code> property, which has been removed:</p>
 <pre><code class="lang-cs">_client = new Auth0Client(new Auth0ClientOptions
 {
     Domain = &quot;YOUR DOMAIN&quot;,
     ClientId = &quot;YOUR CLIENT ID&quot;
 });
-</code></pre><h3 id="2-remove-the-openurl-method">2. Remove the OpenUrl method</h3>
-<p>Previously, it was necessary to add an <code>OpenUrl</code> method to your <code>UIApplicationDelegate</code> which would pass control back to the Auth0 OIDC Client through the <code>ActivityMediator</code> class. For example:</p>
-<pre><code class="lang-csharp">public class AppDelegate : UIApplicationDelegate
-{
-    public override bool OpenUrl(UIApplication application, NSUrl url, string sourceApplication, NSObject annotation)
-    {
-        ActivityMediator.Instance.Send(url.AbsoluteString);
-
-        return true;
-    }
-}
-</code></pre><p>The introduction of <code>SFAuthenticationSession</code> made this unnecessary, so the <code>ActivityMediator</code> class has also been removed. You will, therefore, need to remove the <code>OpenUrl</code> method from your Application Delegate.</p>
-<h2 id="migrating-android-applications">Migrating Android applications</h2>
-<h3 id="1-remove-reference-to-the-activity">1. Remove reference to the Activity</h3>
+</code></pre><h2 id="migrating-android-applications">Migrating Android applications</h2>
 <p>For Android applications, in Version 1.x, you had to pass an instance of the current <code>Activity</code> to <code>Auth0ClientOptions</code>:</p>
 <pre><code class="lang-csharp">_client = new Auth0Client(new Auth0ClientOptions
 {
