@@ -7,6 +7,63 @@ references:
   commentId: N:Auth0.OidcClient
   fullName: Auth0.OidcClient
   nameWithType: Auth0.OidcClient
+- uid: Auth0.OidcClient.ActivityMediator
+  name: ActivityMediator
+  href: api/Auth0.OidcClient.ActivityMediator.html
+  commentId: T:Auth0.OidcClient.ActivityMediator
+  fullName: Auth0.OidcClient.ActivityMediator
+  nameWithType: ActivityMediator
+- uid: Auth0.OidcClient.ActivityMediator.ActivityMessageReceived
+  name: ActivityMessageReceived
+  href: api/Auth0.OidcClient.ActivityMediator.html#Auth0_OidcClient_ActivityMediator_ActivityMessageReceived
+  commentId: E:Auth0.OidcClient.ActivityMediator.ActivityMessageReceived
+  fullName: Auth0.OidcClient.ActivityMediator.ActivityMessageReceived
+  nameWithType: ActivityMediator.ActivityMessageReceived
+- uid: Auth0.OidcClient.ActivityMediator.Cancel
+  name: Cancel()
+  href: api/Auth0.OidcClient.ActivityMediator.html#Auth0_OidcClient_ActivityMediator_Cancel
+  commentId: M:Auth0.OidcClient.ActivityMediator.Cancel
+  fullName: Auth0.OidcClient.ActivityMediator.Cancel()
+  nameWithType: ActivityMediator.Cancel()
+- uid: Auth0.OidcClient.ActivityMediator.Cancel*
+  name: Cancel
+  href: api/Auth0.OidcClient.ActivityMediator.html#Auth0_OidcClient_ActivityMediator_Cancel_
+  commentId: Overload:Auth0.OidcClient.ActivityMediator.Cancel
+  isSpec: "True"
+  fullName: Auth0.OidcClient.ActivityMediator.Cancel
+  nameWithType: ActivityMediator.Cancel
+- uid: Auth0.OidcClient.ActivityMediator.Instance
+  name: Instance
+  href: api/Auth0.OidcClient.ActivityMediator.html#Auth0_OidcClient_ActivityMediator_Instance
+  commentId: P:Auth0.OidcClient.ActivityMediator.Instance
+  fullName: Auth0.OidcClient.ActivityMediator.Instance
+  nameWithType: ActivityMediator.Instance
+- uid: Auth0.OidcClient.ActivityMediator.Instance*
+  name: Instance
+  href: api/Auth0.OidcClient.ActivityMediator.html#Auth0_OidcClient_ActivityMediator_Instance_
+  commentId: Overload:Auth0.OidcClient.ActivityMediator.Instance
+  isSpec: "True"
+  fullName: Auth0.OidcClient.ActivityMediator.Instance
+  nameWithType: ActivityMediator.Instance
+- uid: Auth0.OidcClient.ActivityMediator.MessageReceivedEventHandler
+  name: ActivityMediator.MessageReceivedEventHandler
+  href: api/Auth0.OidcClient.ActivityMediator.MessageReceivedEventHandler.html
+  commentId: T:Auth0.OidcClient.ActivityMediator.MessageReceivedEventHandler
+  fullName: Auth0.OidcClient.ActivityMediator.MessageReceivedEventHandler
+  nameWithType: ActivityMediator.MessageReceivedEventHandler
+- uid: Auth0.OidcClient.ActivityMediator.Send(System.String)
+  name: Send(String)
+  href: api/Auth0.OidcClient.ActivityMediator.html#Auth0_OidcClient_ActivityMediator_Send_System_String_
+  commentId: M:Auth0.OidcClient.ActivityMediator.Send(System.String)
+  fullName: Auth0.OidcClient.ActivityMediator.Send(System.String)
+  nameWithType: ActivityMediator.Send(String)
+- uid: Auth0.OidcClient.ActivityMediator.Send*
+  name: Send
+  href: api/Auth0.OidcClient.ActivityMediator.html#Auth0_OidcClient_ActivityMediator_Send_
+  commentId: Overload:Auth0.OidcClient.ActivityMediator.Send
+  isSpec: "True"
+  fullName: Auth0.OidcClient.ActivityMediator.Send
+  nameWithType: ActivityMediator.Send
 - uid: Auth0.OidcClient.Auth0Client
   name: Auth0Client
   href: api/Auth0.OidcClient.Auth0Client.html
@@ -23,6 +80,7 @@ references:
   name: Auth0Client
   href: api/Auth0.OidcClient.Auth0Client.html#Auth0_OidcClient_Auth0Client__ctor_
   commentId: Overload:Auth0.OidcClient.Auth0Client.#ctor
+  isSpec: "True"
   fullName: Auth0.OidcClient.Auth0Client.Auth0Client
   nameWithType: Auth0Client.Auth0Client
 - uid: Auth0.OidcClient.Auth0Client.LoginAsync(System.Object)
@@ -35,6 +93,7 @@ references:
   name: LoginAsync
   href: api/Auth0.OidcClient.Auth0Client.html#Auth0_OidcClient_Auth0Client_LoginAsync_
   commentId: Overload:Auth0.OidcClient.Auth0Client.LoginAsync
+  isSpec: "True"
   fullName: Auth0.OidcClient.Auth0Client.LoginAsync
   nameWithType: Auth0Client.LoginAsync
 - uid: Auth0.OidcClient.Auth0Client.PrepareLoginAsync(System.Object)
@@ -47,6 +106,7 @@ references:
   name: PrepareLoginAsync
   href: api/Auth0.OidcClient.Auth0Client.html#Auth0_OidcClient_Auth0Client_PrepareLoginAsync_
   commentId: Overload:Auth0.OidcClient.Auth0Client.PrepareLoginAsync
+  isSpec: "True"
   fullName: Auth0.OidcClient.Auth0Client.PrepareLoginAsync
   nameWithType: Auth0Client.PrepareLoginAsync
 - uid: Auth0.OidcClient.Auth0Client.ProcessResponseAsync(System.String,IdentityModel.OidcClient.AuthorizeState)
@@ -59,6 +119,7 @@ references:
   name: ProcessResponseAsync
   href: api/Auth0.OidcClient.Auth0Client.html#Auth0_OidcClient_Auth0Client_ProcessResponseAsync_
   commentId: Overload:Auth0.OidcClient.Auth0Client.ProcessResponseAsync
+  isSpec: "True"
   fullName: Auth0.OidcClient.Auth0Client.ProcessResponseAsync
   nameWithType: Auth0Client.ProcessResponseAsync
 - uid: Auth0.OidcClient.Auth0Client.RefreshTokenAsync(System.String)
@@ -71,6 +132,7 @@ references:
   name: RefreshTokenAsync
   href: api/Auth0.OidcClient.Auth0Client.html#Auth0_OidcClient_Auth0Client_RefreshTokenAsync_
   commentId: Overload:Auth0.OidcClient.Auth0Client.RefreshTokenAsync
+  isSpec: "True"
   fullName: Auth0.OidcClient.Auth0Client.RefreshTokenAsync
   nameWithType: Auth0Client.RefreshTokenAsync
 - uid: Auth0.OidcClient.Auth0ClientOptions
@@ -89,6 +151,7 @@ references:
   name: Auth0ClientOptions
   href: api/Auth0.OidcClient.Auth0ClientOptions.html#Auth0_OidcClient_Auth0ClientOptions__ctor_
   commentId: Overload:Auth0.OidcClient.Auth0ClientOptions.#ctor
+  isSpec: "True"
   fullName: Auth0.OidcClient.Auth0ClientOptions.Auth0ClientOptions
   nameWithType: Auth0ClientOptions.Auth0ClientOptions
 - uid: Auth0.OidcClient.Auth0ClientOptions.Browser
@@ -101,6 +164,7 @@ references:
   name: Browser
   href: api/Auth0.OidcClient.Auth0ClientOptions.html#Auth0_OidcClient_Auth0ClientOptions_Browser_
   commentId: Overload:Auth0.OidcClient.Auth0ClientOptions.Browser
+  isSpec: "True"
   fullName: Auth0.OidcClient.Auth0ClientOptions.Browser
   nameWithType: Auth0ClientOptions.Browser
 - uid: Auth0.OidcClient.Auth0ClientOptions.ClientId
@@ -113,6 +177,7 @@ references:
   name: ClientId
   href: api/Auth0.OidcClient.Auth0ClientOptions.html#Auth0_OidcClient_Auth0ClientOptions_ClientId_
   commentId: Overload:Auth0.OidcClient.Auth0ClientOptions.ClientId
+  isSpec: "True"
   fullName: Auth0.OidcClient.Auth0ClientOptions.ClientId
   nameWithType: Auth0ClientOptions.ClientId
 - uid: Auth0.OidcClient.Auth0ClientOptions.ClientSecret
@@ -125,6 +190,7 @@ references:
   name: ClientSecret
   href: api/Auth0.OidcClient.Auth0ClientOptions.html#Auth0_OidcClient_Auth0ClientOptions_ClientSecret_
   commentId: Overload:Auth0.OidcClient.Auth0ClientOptions.ClientSecret
+  isSpec: "True"
   fullName: Auth0.OidcClient.Auth0ClientOptions.ClientSecret
   nameWithType: Auth0ClientOptions.ClientSecret
 - uid: Auth0.OidcClient.Auth0ClientOptions.Domain
@@ -137,6 +203,7 @@ references:
   name: Domain
   href: api/Auth0.OidcClient.Auth0ClientOptions.html#Auth0_OidcClient_Auth0ClientOptions_Domain_
   commentId: Overload:Auth0.OidcClient.Auth0ClientOptions.Domain
+  isSpec: "True"
   fullName: Auth0.OidcClient.Auth0ClientOptions.Domain
   nameWithType: Auth0ClientOptions.Domain
 - uid: Auth0.OidcClient.Auth0ClientOptions.EnableTelemetry
@@ -149,6 +216,7 @@ references:
   name: EnableTelemetry
   href: api/Auth0.OidcClient.Auth0ClientOptions.html#Auth0_OidcClient_Auth0ClientOptions_EnableTelemetry_
   commentId: Overload:Auth0.OidcClient.Auth0ClientOptions.EnableTelemetry
+  isSpec: "True"
   fullName: Auth0.OidcClient.Auth0ClientOptions.EnableTelemetry
   nameWithType: Auth0ClientOptions.EnableTelemetry
 - uid: Auth0.OidcClient.Auth0ClientOptions.LoadProfile
@@ -161,8 +229,22 @@ references:
   name: LoadProfile
   href: api/Auth0.OidcClient.Auth0ClientOptions.html#Auth0_OidcClient_Auth0ClientOptions_LoadProfile_
   commentId: Overload:Auth0.OidcClient.Auth0ClientOptions.LoadProfile
+  isSpec: "True"
   fullName: Auth0.OidcClient.Auth0ClientOptions.LoadProfile
   nameWithType: Auth0ClientOptions.LoadProfile
+- uid: Auth0.OidcClient.Auth0ClientOptions.RedirectUri
+  name: RedirectUri
+  href: api/Auth0.OidcClient.Auth0ClientOptions.html#Auth0_OidcClient_Auth0ClientOptions_RedirectUri
+  commentId: P:Auth0.OidcClient.Auth0ClientOptions.RedirectUri
+  fullName: Auth0.OidcClient.Auth0ClientOptions.RedirectUri
+  nameWithType: Auth0ClientOptions.RedirectUri
+- uid: Auth0.OidcClient.Auth0ClientOptions.RedirectUri*
+  name: RedirectUri
+  href: api/Auth0.OidcClient.Auth0ClientOptions.html#Auth0_OidcClient_Auth0ClientOptions_RedirectUri_
+  commentId: Overload:Auth0.OidcClient.Auth0ClientOptions.RedirectUri
+  isSpec: "True"
+  fullName: Auth0.OidcClient.Auth0ClientOptions.RedirectUri
+  nameWithType: Auth0ClientOptions.RedirectUri
 - uid: Auth0.OidcClient.Auth0ClientOptions.Scope
   name: Scope
   href: api/Auth0.OidcClient.Auth0ClientOptions.html#Auth0_OidcClient_Auth0ClientOptions_Scope
@@ -173,8 +255,91 @@ references:
   name: Scope
   href: api/Auth0.OidcClient.Auth0ClientOptions.html#Auth0_OidcClient_Auth0ClientOptions_Scope_
   commentId: Overload:Auth0.OidcClient.Auth0ClientOptions.Scope
+  isSpec: "True"
   fullName: Auth0.OidcClient.Auth0ClientOptions.Scope
   nameWithType: Auth0ClientOptions.Scope
+- uid: Auth0.OidcClient.IAuth0Client
+  name: IAuth0Client
+  href: api/Auth0.OidcClient.IAuth0Client.html
+  commentId: T:Auth0.OidcClient.IAuth0Client
+  fullName: Auth0.OidcClient.IAuth0Client
+  nameWithType: IAuth0Client
+- uid: Auth0.OidcClient.IAuth0Client.LoginAsync(System.Object)
+  name: LoginAsync(Object)
+  href: api/Auth0.OidcClient.IAuth0Client.html#Auth0_OidcClient_IAuth0Client_LoginAsync_System_Object_
+  commentId: M:Auth0.OidcClient.IAuth0Client.LoginAsync(System.Object)
+  fullName: Auth0.OidcClient.IAuth0Client.LoginAsync(System.Object)
+  nameWithType: IAuth0Client.LoginAsync(Object)
+- uid: Auth0.OidcClient.IAuth0Client.LoginAsync*
+  name: LoginAsync
+  href: api/Auth0.OidcClient.IAuth0Client.html#Auth0_OidcClient_IAuth0Client_LoginAsync_
+  commentId: Overload:Auth0.OidcClient.IAuth0Client.LoginAsync
+  isSpec: "True"
+  fullName: Auth0.OidcClient.IAuth0Client.LoginAsync
+  nameWithType: IAuth0Client.LoginAsync
+- uid: Auth0.OidcClient.IAuth0Client.PrepareLoginAsync(System.Object)
+  name: PrepareLoginAsync(Object)
+  href: api/Auth0.OidcClient.IAuth0Client.html#Auth0_OidcClient_IAuth0Client_PrepareLoginAsync_System_Object_
+  commentId: M:Auth0.OidcClient.IAuth0Client.PrepareLoginAsync(System.Object)
+  fullName: Auth0.OidcClient.IAuth0Client.PrepareLoginAsync(System.Object)
+  nameWithType: IAuth0Client.PrepareLoginAsync(Object)
+- uid: Auth0.OidcClient.IAuth0Client.PrepareLoginAsync*
+  name: PrepareLoginAsync
+  href: api/Auth0.OidcClient.IAuth0Client.html#Auth0_OidcClient_IAuth0Client_PrepareLoginAsync_
+  commentId: Overload:Auth0.OidcClient.IAuth0Client.PrepareLoginAsync
+  isSpec: "True"
+  fullName: Auth0.OidcClient.IAuth0Client.PrepareLoginAsync
+  nameWithType: IAuth0Client.PrepareLoginAsync
+- uid: Auth0.OidcClient.IAuth0Client.ProcessResponseAsync(System.String,IdentityModel.OidcClient.AuthorizeState)
+  name: ProcessResponseAsync(String, AuthorizeState)
+  href: api/Auth0.OidcClient.IAuth0Client.html#Auth0_OidcClient_IAuth0Client_ProcessResponseAsync_System_String_IdentityModel_OidcClient_AuthorizeState_
+  commentId: M:Auth0.OidcClient.IAuth0Client.ProcessResponseAsync(System.String,IdentityModel.OidcClient.AuthorizeState)
+  fullName: Auth0.OidcClient.IAuth0Client.ProcessResponseAsync(System.String, IdentityModel.OidcClient.AuthorizeState)
+  nameWithType: IAuth0Client.ProcessResponseAsync(String, AuthorizeState)
+- uid: Auth0.OidcClient.IAuth0Client.ProcessResponseAsync*
+  name: ProcessResponseAsync
+  href: api/Auth0.OidcClient.IAuth0Client.html#Auth0_OidcClient_IAuth0Client_ProcessResponseAsync_
+  commentId: Overload:Auth0.OidcClient.IAuth0Client.ProcessResponseAsync
+  isSpec: "True"
+  fullName: Auth0.OidcClient.IAuth0Client.ProcessResponseAsync
+  nameWithType: IAuth0Client.ProcessResponseAsync
+- uid: Auth0.OidcClient.IAuth0Client.RefreshTokenAsync(System.String)
+  name: RefreshTokenAsync(String)
+  href: api/Auth0.OidcClient.IAuth0Client.html#Auth0_OidcClient_IAuth0Client_RefreshTokenAsync_System_String_
+  commentId: M:Auth0.OidcClient.IAuth0Client.RefreshTokenAsync(System.String)
+  fullName: Auth0.OidcClient.IAuth0Client.RefreshTokenAsync(System.String)
+  nameWithType: IAuth0Client.RefreshTokenAsync(String)
+- uid: Auth0.OidcClient.IAuth0Client.RefreshTokenAsync*
+  name: RefreshTokenAsync
+  href: api/Auth0.OidcClient.IAuth0Client.html#Auth0_OidcClient_IAuth0Client_RefreshTokenAsync_
+  commentId: Overload:Auth0.OidcClient.IAuth0Client.RefreshTokenAsync
+  isSpec: "True"
+  fullName: Auth0.OidcClient.IAuth0Client.RefreshTokenAsync
+  nameWithType: IAuth0Client.RefreshTokenAsync
+- uid: Auth0.OidcClient.Resource
+  name: Resource
+  href: api/Auth0.OidcClient.Resource.html
+  commentId: T:Auth0.OidcClient.Resource
+  fullName: Auth0.OidcClient.Resource
+  nameWithType: Resource
+- uid: Auth0.OidcClient.Resource.String
+  name: Resource.String
+  href: api/Auth0.OidcClient.Resource.String.html
+  commentId: T:Auth0.OidcClient.Resource.String
+  fullName: Auth0.OidcClient.Resource.String
+  nameWithType: Resource.String
+- uid: Auth0.OidcClient.Resource.String.ApplicationName
+  name: ApplicationName
+  href: api/Auth0.OidcClient.Resource.String.html#Auth0_OidcClient_Resource_String_ApplicationName
+  commentId: F:Auth0.OidcClient.Resource.String.ApplicationName
+  fullName: Auth0.OidcClient.Resource.String.ApplicationName
+  nameWithType: Resource.String.ApplicationName
+- uid: Auth0.OidcClient.Resource.String.Hello
+  name: Hello
+  href: api/Auth0.OidcClient.Resource.String.html#Auth0_OidcClient_Resource_String_Hello
+  commentId: F:Auth0.OidcClient.Resource.String.Hello
+  fullName: Auth0.OidcClient.Resource.String.Hello
+  nameWithType: Resource.String.Hello
 - uid: scopes
   name: Using Scopes
   href: documentation/advanced-scenarios/scopes.html

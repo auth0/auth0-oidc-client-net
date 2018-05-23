@@ -2,10 +2,10 @@
 using Android.Content;
 using Android.OS;
 using Android.Widget;
-using Auth0.OidcClient;
 using IdentityModel.OidcClient;
 using System;
 using System.Text;
+using Auth0.OidcClient;
 
 namespace XamarinAndroidTestApp
 {
@@ -22,14 +22,39 @@ namespace XamarinAndroidTestApp
         private Auth0Client _client;
         private Button _loginButton;
         private TextView _userDetailsTextView;
-        //private bool _authenticating = false;
-        private AuthorizeState authorizeState;
 
-        protected override async void OnNewIntent(Intent intent)
+        protected override void OnNewIntent(Intent intent)
         {
             base.OnNewIntent(intent);
 
-            var loginResult = await _client.ProcessResponseAsync(intent.DataString, authorizeState);
+            ActivityMediator.Instance.Send(intent.DataString);
+        }
+
+        protected override void OnCreate(Bundle bundle)
+        {
+            base.OnCreate(bundle);
+
+            SetContentView(Resource.Layout.Main);
+
+            _loginButton = FindViewById<Button>(Resource.Id.LoginButton);
+            _userDetailsTextView = FindViewById<TextView>(Resource.Id.UserDetailsTextView);
+
+            _client = new Auth0Client(new Auth0ClientOptions
+            {
+                Domain = Resources.GetString(Resource.String.auth0_domain),
+                ClientId = Resources.GetString(Resource.String.auth0_client_id)
+            });
+
+            _loginButton.Click += LoginButtonOnClick;
+            _userDetailsTextView.Text = String.Empty;
+        }
+
+        private async void LoginButtonOnClick(object sender, EventArgs eventArgs)
+        {
+            _userDetailsTextView.Text = "";
+
+            // Call the login method
+            var loginResult = await _client.LoginAsync();
 
             var sb = new StringBuilder();
             if (loginResult.IsError)
@@ -52,87 +77,6 @@ namespace XamarinAndroidTestApp
             }
 
             _userDetailsTextView.Text = sb.ToString();
-            /*
-            // If we are receiving an intent and we are busy authenticating, then we need to close the authentication
-            // loop by Send-ing the data string of the intent with the ActivityMediator. 
-            // The internal process is that the DataString will contain a code which the Auth0 OIDC client will exchange 
-            // for the tokens. It will also complete the task which was await-ed when you called LoginAsync() so your code
-            // will resume from that point on
-            if (_authenticating)
-            {
-                _authenticating = false;
-                ActivityMediator.Instance.Send(intent.DataString);
-            }
-            */
-        }
-
-        protected override void OnResume()
-        {
-            base.OnResume();
-
-            /*
-            // If we are resuming and the _authenticating flag is still set, it means that the intent was not fired, so 
-            // possible the user pressed the Back button. In this case we have to cancel the authentication process
-            // by calling the Cancel() method on the ActivityMediator. This will also complete the task which was await-ed when 
-            // you called LoginAsync() so your code will resume from that point on.
-            if (_authenticating)
-            {
-                _authenticating = false;
-                ActivityMediator.Instance.Cancel();
-            }
-            */
-        }
-
-        protected override void OnCreate(Bundle bundle)
-        {
-            base.OnCreate(bundle);
-
-            SetContentView(Resource.Layout.Main);
-
-            _loginButton = FindViewById<Button>(Resource.Id.LoginButton);
-            _userDetailsTextView = FindViewById<TextView>(Resource.Id.UserDetailsTextView);
-
-            _client = new Auth0Client(new Auth0ClientOptions
-            {
-                Domain = Resources.GetString(Resource.String.auth0_domain),
-                ClientId = Resources.GetString(Resource.String.auth0_client_id),
-                Activity = this
-            });
-
-            _loginButton.Click += LoginButtonOnClick;
-            _userDetailsTextView.Text = String.Empty;
-        }
-
-        private async void LoginButtonOnClick(object sender, EventArgs eventArgs)
-        {
-            _userDetailsTextView.Text = "";
-
-            //// Set a flag we're authenticating
-            //_authenticating = true;
-
-            //// Call the login method
-            //var loginResult = await _client.LoginAsync();
-
-            authorizeState = await _client.PrepareLoginAsync();
-
-            var uri = Android.Net.Uri.Parse(authorizeState.StartUrl);
-            var intent = new Intent(Intent.ActionView, uri);
-            intent.AddFlags(ActivityFlags.NoHistory);
-            StartActivity(intent);
-
-            //---
-            //var customTabs = new CustomTabsActivityManager(this);
-
-            //// build custom tab
-            //var builder = new CustomTabsIntent.Builder(customTabs.Session)
-            //   .SetToolbarColor(Color.Argb(255, 52, 152, 219))
-            //   .SetShowTitle(true)
-            //   .EnableUrlBarHiding();
-
-            //var customTabsIntent = builder.Build();
-            //customTabsIntent.Intent.AddFlags(ActivityFlags.NoHistory);
-
-            //customTabsIntent.LaunchUrl(this, Android.Net.Uri.Parse(authorizeState.StartUrl));
         }
     }
 }

@@ -1,4 +1,6 @@
 - name: Documentation
   href: documentation/
+- name: Migrate to V2
+  href: documentation/migration/v2.md
 - name: API Reference
   href: api/

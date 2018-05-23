@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+
+<package>
+  <metadata>
+    <id>Auth0.OidcClient.Core</id>
+    <version>2.0.0</version>
+    <authors>Auth0</authors>
+    <owners>Auth0</owners>
+    <licenseUrl>http://opensource.org/licenses/MIT</licenseUrl>
+    <projectUrl>https://github.com/auth0/auth0-oidc-client-net</projectUrl>
+    <iconUrl>http://secure.gravatar.com/avatar/805765c256ff8617fcad483b5476faf2</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Auth0 OIDC Client for Native applications</description>
+    <releaseNotes>
+      Version 2.0.0
+      - Initial release with support for Xamarin Forms
+    </releaseNotes>
+    <copyright>Copyright 2017</copyright>
+    <tags>Auth0 OIDC Android MonoAndroid</tags>
+    <dependencies>
+      <group targetFramework="net452">
+        <dependency id="IdentityModel.OidcClient" version="2.6.0" />
+      </group>
+      <group targetFramework="netstandard1.4">
+        <dependency id="IdentityModel.OidcClient" version="2.6.0" />
+      </group>
+      <group targetFramework="netstandard2.0">
+        <dependency id="IdentityModel.OidcClient" version="2.6.0" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="..\src\Auth0.OidcClient.Core\bin\Release\net452\Auth0.OidcClient.Core.dll" target="lib\net452" />
+    <file src="..\src\Auth0.OidcClient.Core\bin\Release\net452\Auth0.OidcClient.Core.xml" target="lib\net452" />
+    <file src="..\src\Auth0.OidcClient.Core\bin\Release\netstandard1.4\Auth0.OidcClient.Core.dll" target="lib\netstandard1.4" />
+    <file src="..\src\Auth0.OidcClient.Core\bin\Release\netstandard1.4\Auth0.OidcClient.Core.xml" target="lib\netstandard1.4" />
+    <file src="..\src\Auth0.OidcClient.Core\bin\Release\netstandard2.0\Auth0.OidcClient.Core.dll" target="lib\netstandard2.0" />
+    <file src="..\src\Auth0.OidcClient.Core\bin\Release\netstandard2.0\Auth0.OidcClient.Core.xml" target="lib\netstandard2.0" />
+  </files>
+</package>

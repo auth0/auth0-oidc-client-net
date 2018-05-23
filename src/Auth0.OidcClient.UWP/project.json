@@ -1,10 +1,10 @@
 ﻿{
   "dependencies": {
-    "IdentityModel.OidcClient": "2.1.2",
-    "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.2"
+    "IdentityModel.OidcClient": "2.6.0",
+    "Microsoft.NETCore.UniversalWindowsPlatform": "6.1.4"
   },
   "frameworks": {
-    "uap10.0": {}
+    "uap10.0.10240": {}
   },
   "runtimes": {
     "win10-arm": {},

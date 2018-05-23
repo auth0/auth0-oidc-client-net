@@ -1,9 +1,6 @@
 ﻿using System;
-
 using UIKit;
 using Auth0.OidcClient;
-using IdentityModel.OidcClient;
-using Foundation;
 using System.Text;
 
 namespace XamariniOSTestApp
@@ -37,8 +34,7 @@ namespace XamariniOSTestApp
 		    _client = new Auth0Client(new Auth0ClientOptions
 		    {
 		        Domain = "jerrie.auth0.com",
-		        ClientId = "vV9twaySQzfGesS9Qs6gOgqDsYDdgoKE",
-		        Controller = this
+		        ClientId = "vV9twaySQzfGesS9Qs6gOgqDsYDdgoKE"
 		    });
 
 			var loginResult = await _client.LoginAsync(null);

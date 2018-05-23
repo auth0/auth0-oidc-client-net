@@ -3,16 +3,15 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
-using IdentityModel.Client;
 using IdentityModel.OidcClient;
 using IdentityModel.OidcClient.Results;
 
 namespace Auth0.OidcClient
 {
-    public class Auth0Client
+    public class Auth0Client : IAuth0Client
     {
         private readonly Auth0ClientOptions _options;
-        private readonly IdentityModel.OidcClient.OidcClient _oidcClient;
+        private IdentityModel.OidcClient.OidcClient _oidcClient;
 
         /// <summary>
         /// Creates a new instance of the Auth0 OIDC Client.
@@ -22,36 +21,43 @@ namespace Auth0.OidcClient
         {
             _options = options;
 
-            var authority = $"https://{options.Domain}";
+            ConfigureOidcClient();
+        }
+
+        private void ConfigureOidcClient()
+        {
+            var authority = $"https://{_options.Domain}";
 #if __ANDROID__
-            string packageName = options.Activity.Application.ApplicationInfo.PackageName;
+            string packageName = Android.App.Application.Context.PackageName;
 #endif
             var oidcClientOptions = new OidcClientOptions
             {
                 Authority = authority,
-                ClientId = options.ClientId,
-                ClientSecret = options.ClientSecret,
-                Scope = options.Scope,
-                LoadProfile = options.LoadProfile,
-#if __IOS__
-				RedirectUri = $"{Foundation.NSBundle.MainBundle.BundleIdentifier}://{options.Domain}/ios/{Foundation.NSBundle.MainBundle.BundleIdentifier}/callback",
-				Browser = new PlatformWebView(options.Controller),
-#elif __ANDROID__
-				RedirectUri = options.RedirectUri ?? $"{packageName}://{options.Domain}/android/{packageName}/callback".ToLower(),
-                Browser = new PlatformWebView(options.Activity),
-#elif WINDOWS_UWP
-                RedirectUri = Windows.Security.Authentication.Web.WebAuthenticationBroker.GetCurrentApplicationCallbackUri().AbsoluteUri,
-                Browser = options.Browser ?? new PlatformWebView(),
-#else
-                RedirectUri = options.RedirectUri ?? $"https://{options.Domain}/mobile",
-                Browser = options.Browser ?? new PlatformWebView(),
-#endif
+                ClientId = _options.ClientId,
+                ClientSecret = _options.ClientSecret,
+                Scope = _options.Scope,
+                LoadProfile = _options.LoadProfile,
+                Browser = _options.Browser ?? new PlatformWebView(),
                 Flow = OidcClientOptions.AuthenticationFlow.AuthorizationCode,
+
+                // Set redirect uri depending on platform
+#if __IOS__
+				RedirectUri = _options.RedirectUri ?? $"{Foundation.NSBundle.MainBundle.BundleIdentifier}://{_options.Domain}/ios/{Foundation.NSBundle.MainBundle.BundleIdentifier}/callback",
+#elif __ANDROID__
+				RedirectUri = _options.RedirectUri ?? $"{packageName}://{_options.Domain}/android/{packageName}/callback".ToLower(),
+#elif WINDOWS_UWP
+                RedirectUri = _options.RedirectUri ?? Windows.Security.Authentication.Web.WebAuthenticationBroker.GetCurrentApplicationCallbackUri().AbsoluteUri,
+#else
+                RedirectUri = _options.RedirectUri ?? $"https://{_options.Domain}/mobile",
+#endif
+
+                // Set correct response mode depending on the platform
 #if WINDOWS_UWP
                 ResponseMode = OidcClientOptions.AuthorizeResponseMode.FormPost,
 #else
                 ResponseMode = OidcClientOptions.AuthorizeResponseMode.Redirect,
 #endif
+
                 Policy =
                 {
                     RequireAuthorizationCodeHash = false,

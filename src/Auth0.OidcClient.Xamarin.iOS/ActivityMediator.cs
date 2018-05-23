@@ -23,6 +23,11 @@
 
         public event MessageReceivedEventHandler ActivityMessageReceived;
 
+        public void Cancel()
+        {
+            ActivityMessageReceived?.Invoke("UserCancel");
+        }
+
         public void Send(string response)
         {
             ActivityMessageReceived?.Invoke(response);

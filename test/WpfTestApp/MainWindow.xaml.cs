@@ -20,7 +20,7 @@ namespace WpfTestApp
             {
                 Domain = "jerrie.auth0.com",
                 ClientId = "vV9twaySQzfGesS9Qs6gOgqDsYDdgoKE",
-                Scope = "openid offline_access"
+                Scope = "openid profile email"
             });
 
             var loginResult = await client.LoginAsync();

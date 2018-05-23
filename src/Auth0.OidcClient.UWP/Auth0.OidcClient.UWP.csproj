@@ -35,6 +35,7 @@
     <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\Auth0.OidcClient.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <PlatformTarget>x86</PlatformTarget>
@@ -57,6 +58,7 @@
     <PlatformTarget>x86</PlatformTarget>
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <ErrorReport>prompt</ErrorReport>
+    <DocumentationFile>bin\x86\Release\Auth0.OidcClient.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
     <PlatformTarget>ARM</PlatformTarget>
@@ -110,6 +112,12 @@
     <Compile Include="PlatformWebView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Auth0.OidcClient.UWP.rd.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Auth0.OidcClient.Core\Auth0.OidcClient.Core.csproj">
+      <Project>{1F79DB59-F3A8-45B7-972B-ECD15259D1C9}</Project>
+      <Name>Auth0.OidcClient.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="..\Auth0.OidcClient.Shared\Auth0.OidcClient.Shared.projitems" Label="Shared" />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
