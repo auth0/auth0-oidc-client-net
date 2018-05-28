@@ -5,7 +5,8 @@ Please review the [Auth0 Quickstarts](https://auth0.com/docs/quickstart/native) 
 You can also find the following sample applications related to the Quickstarts mentioned above:
 
 * [UWP Sample Application](https://github.com/auth0-community/auth0-uwp-oidc-samples/tree/master/Quickstart/00-Starter-Seed)
-* [Windows Presentation Foundation](https://github.com/auth0-community/auth0-WinFormsWPF-oidc-samples/tree/master/Quickstart/00-Starter-Seed/WPF/WPFSample)
-* [Windows Forms](https://github.com/auth0-community/auth0-WinFormsWPF-oidc-samples/tree/master/Quickstart/00-Starter-Seed/WinForms/WindowsFormsSample)
+* [Windows Presentation Foundation](https://github.com/auth0-community/auth0-WinFormsWPF-oidc-samples/tree/master/Quickstart/00-Starter-Seed/WPF)
+* [Windows Forms](https://github.com/auth0-community/auth0-WinFormsWPF-oidc-samples/tree/master/Quickstart/00-Starter-Seed/WinForms)
 * [Xamarin (iOS)](https://github.com/auth0-community/auth0-xamarin-oidc-samples/tree/master/Quickstart/01-Login/iOS)
 * [Xamarin (Android)](https://github.com/auth0-community/auth0-xamarin-oidc-samples/tree/master/Quickstart/01-Login/Android)
+* [Xamarin Forms](https://github.com/auth0-community/auth0-xamarin-oidc-samples/tree/master/Samples/Forms)

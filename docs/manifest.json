@@ -9,10 +9,10 @@
       "output": {
         ".html": {
           "relative_path": "api/Auth0.OidcClient.ActivityMediator.MessageReceivedEventHandler.html",
-          "hash": "h8FdJXDXGkZwy3I2SAv2bw=="
+          "hash": "w/0kknnp6901aX5Pvc5RkQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -21,10 +21,10 @@
       "output": {
         ".html": {
           "relative_path": "api/Auth0.OidcClient.ActivityMediator.html",
-          "hash": "mx8rTeUxIooDxNpU9DOvYQ=="
+          "hash": "WaJMCADsmFPE2s2CVrvvqw=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -33,10 +33,10 @@
       "output": {
         ".html": {
           "relative_path": "api/Auth0.OidcClient.Auth0Client.html",
-          "hash": "GOO6p2WdoER4otPJ1zgbhA=="
+          "hash": "Xm+4UELX++wptDPqlNsVrA=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -45,22 +45,10 @@
       "output": {
         ".html": {
           "relative_path": "api/Auth0.OidcClient.Auth0ClientOptions.html",
-          "hash": "7zgep3JGnaQXqGeXIZN2qw=="
+          "hash": "FW1LT//3rtN15lu644oa0w=="
         }
       },
-      "is_incremental": true,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Auth0.OidcClient.IAuth0Client.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Auth0.OidcClient.IAuth0Client.html",
-          "hash": "iHwesNzJAyy+zOUCoJiJ4A=="
-        }
-      },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -69,10 +57,10 @@
       "output": {
         ".html": {
           "relative_path": "api/Auth0.OidcClient.Resource.String.html",
-          "hash": "k3VBE6N7OSjITPZYWZN4IQ=="
+          "hash": "BRkCEbcR/+fTC1845nDwbA=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -81,10 +69,10 @@
       "output": {
         ".html": {
           "relative_path": "api/Auth0.OidcClient.Resource.html",
-          "hash": "HSsGEQfKJu1Id0TfsMW6ng=="
+          "hash": "joWpZY6X+4bP44EpHnRK/w=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -93,10 +81,10 @@
       "output": {
         ".html": {
           "relative_path": "api/Auth0.OidcClient.html",
-          "hash": "6PgE1eJ6/v4A9TRhYdGiqg=="
+          "hash": "imtTQPZJwqKQuHz5/SHuUw=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -108,7 +96,7 @@
           "hash": "8slsNCkDhJaK1tgYoZardg=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -117,7 +105,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "aI0j9ZPjNJvqKVWhdmZMkA=="
+          "hash": "O0KJEWRWw6OAAUpKXRYV6A=="
         }
       },
       "is_incremental": false,
@@ -132,7 +120,7 @@
           "hash": "2cRBE0ZG6EEZzZMkMQ6/vg=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -144,7 +132,7 @@
           "hash": "+cey0x9trrIMmOpt0FITMA=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -156,7 +144,7 @@
           "hash": "l5RR76hJom7vHT8evVKh+g=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -201,10 +189,10 @@
       "output": {
         ".html": {
           "relative_path": "documentation/intro.html",
-          "hash": "DNlxb2lT8BIK3M40tUqiAQ=="
+          "hash": "P+d6eQiwPb8F3zFiYdCQWw=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -225,10 +213,10 @@
       "output": {
         ".html": {
           "relative_path": "documentation/samples.html",
-          "hash": "369pIK4+3MnX8fNdbahP+A=="
+          "hash": "sUcMzmZHdScGyls86mQ0wg=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -263,7 +251,7 @@
           "hash": "h4UQKGrW9Mi4eFC9z9Az1A=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -291,17 +279,17 @@
           "details": "Processor TocDocumentProcessor cannot suppport incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
           "incrementalPhase": "build"
         },
-        "ResourceDocumentProcessor": {
-          "can_incremental": false,
-          "details": "Processor ResourceDocumentProcessor cannot suppport incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+        "ConceptualDocumentProcessor": {
+          "can_incremental": true,
           "incrementalPhase": "build"
         },
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": true,
           "incrementalPhase": "build"
         },
-        "ConceptualDocumentProcessor": {
-          "can_incremental": true,
+        "ResourceDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor ResourceDocumentProcessor cannot suppport incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
           "incrementalPhase": "build"
         }
       }
