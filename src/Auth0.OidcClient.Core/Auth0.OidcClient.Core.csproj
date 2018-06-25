@@ -16,7 +16,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="IdentityModel.OidcClient" Version="2.6.0" />
+    <PackageReference Include="IdentityModel.OidcClient" Version="2.7.0" />
   </ItemGroup>
 
 </Project>
