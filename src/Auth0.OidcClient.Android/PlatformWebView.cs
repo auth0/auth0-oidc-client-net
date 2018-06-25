@@ -51,7 +51,8 @@ namespace Auth0.OidcClient
             // Launch browser
             var uri = Android.Net.Uri.Parse(options.StartUrl);
             var intent = new Intent(Intent.ActionView, uri);
-            intent.AddFlags(ActivityFlags.NoHistory);
+            intent.AddFlags(ActivityFlags.NoHistory)
+                .AddFlags(ActivityFlags.NewTask);
             Application.Context.StartActivity(intent);
 
             // Return task which will be completed when intent is triggered
