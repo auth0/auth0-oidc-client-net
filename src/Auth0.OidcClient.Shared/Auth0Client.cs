@@ -106,7 +106,11 @@ namespace Auth0.OidcClient
         /// <returns></returns>
         public Task<LoginResult> LoginAsync(object extraParameters = null)
         {
-            return _oidcClient.LoginAsync(extraParameters: AppendTelemetry(extraParameters));
+            var loginRequest = new LoginRequest
+            {
+                FrontChannelExtraParameters = AppendTelemetry(extraParameters)
+            };
+            return _oidcClient.LoginAsync(loginRequest);
         }
 
         private Dictionary<string, string> ObjectToDictionary(object values)
