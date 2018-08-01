@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using IdentityModel.Client;
 using IdentityModel.OidcClient;
+using IdentityModel.OidcClient.Browser;
 using IdentityModel.OidcClient.Results;
 
 namespace Auth0.OidcClient
@@ -30,6 +32,18 @@ namespace Auth0.OidcClient
 #if __ANDROID__
             string packageName = Android.App.Application.Context.PackageName;
 #endif
+
+            // Determine redirect uri depending on platform
+#if __IOS__
+			string redirectUri = $"{Foundation.NSBundle.MainBundle.BundleIdentifier}://{_options.Domain}/ios/{Foundation.NSBundle.MainBundle.BundleIdentifier}/callback";
+#elif __ANDROID__
+			string redirectUri = $"{packageName}://{_options.Domain}/android/{packageName}/callback".ToLower();
+#elif WINDOWS_UWP
+            string redirectUri = Windows.Security.Authentication.Web.WebAuthenticationBroker.GetCurrentApplicationCallbackUri().AbsoluteUri;
+#else
+            string redirectUri = $"https://{_options.Domain}/mobile";
+#endif
+
             var oidcClientOptions = new OidcClientOptions
             {
                 Authority = authority,
@@ -40,16 +54,8 @@ namespace Auth0.OidcClient
                 Browser = _options.Browser ?? new PlatformWebView(),
                 Flow = OidcClientOptions.AuthenticationFlow.AuthorizationCode,
 
-                // Set redirect uri depending on platform
-#if __IOS__
-				RedirectUri = _options.RedirectUri ?? $"{Foundation.NSBundle.MainBundle.BundleIdentifier}://{_options.Domain}/ios/{Foundation.NSBundle.MainBundle.BundleIdentifier}/callback",
-#elif __ANDROID__
-				RedirectUri = _options.RedirectUri ?? $"{packageName}://{_options.Domain}/android/{packageName}/callback".ToLower(),
-#elif WINDOWS_UWP
-                RedirectUri = _options.RedirectUri ?? Windows.Security.Authentication.Web.WebAuthenticationBroker.GetCurrentApplicationCallbackUri().AbsoluteUri,
-#else
-                RedirectUri = _options.RedirectUri ?? $"https://{_options.Domain}/mobile",
-#endif
+				RedirectUri = _options.RedirectUri ?? redirectUri,
+                PostLogoutRedirectUri = _options.PostLogoutRedirectUri ?? redirectUri,
 
                 // Set correct response mode depending on the platform
 #if WINDOWS_UWP
@@ -57,7 +63,6 @@ namespace Auth0.OidcClient
 #else
                 ResponseMode = OidcClientOptions.AuthorizeResponseMode.Redirect,
 #endif
-
                 Policy =
                 {
                     RequireAuthorizationCodeHash = false,
@@ -129,6 +134,24 @@ namespace Auth0.OidcClient
                 }
 
             return dictionary;
+        }
+
+        public async Task LogoutAsync()
+        {
+            var logoutUrl = $"https://{_options.Domain}/v2/logout";
+
+            Dictionary<string, string> dictionary = new Dictionary<string, string>();
+            dictionary.Add("client_id", _oidcClient.Options.ClientId);
+            dictionary.Add("returnTo", _oidcClient.Options.PostLogoutRedirectUri);
+
+            string endSessionUrl = new RequestUrl(logoutUrl).Create(dictionary);
+            var logoutRequest = new LogoutRequest();
+
+            BrowserResult browserResult = await _oidcClient.Options.Browser.InvokeAsync(new BrowserOptions(endSessionUrl, _oidcClient.Options.PostLogoutRedirectUri ?? string.Empty)
+            {
+                Timeout = TimeSpan.FromSeconds((double) logoutRequest.BrowserTimeout),
+                DisplayMode = logoutRequest.BrowserDisplayMode
+            });
         }
 
         /// <summary>

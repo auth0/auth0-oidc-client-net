@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using Windows.Foundation.Collections;
 using Windows.Security.Authentication.Web;
 using IdentityModel.OidcClient;
 using IdentityModel.OidcClient.Browser;
@@ -17,6 +18,7 @@ namespace Auth0.OidcClient
 
         private async Task<BrowserResult> InvokeAsyncCore(BrowserOptions options, bool silentMode)
         {
+            bool isLogout = false;
             var wabOptions = WebAuthenticationOptions.None;
 
             if (options.ResponseMode == OidcClientOptions.AuthorizeResponseMode.FormPost)
@@ -32,19 +34,38 @@ namespace Auth0.OidcClient
                 wabOptions |= WebAuthenticationOptions.SilentMode;
             }
 
-            WebAuthenticationResult wabResult;
+            WebAuthenticationResult wabResult = null;
 
             try
             {
-                if (string.Equals(options.EndUrl, WebAuthenticationBroker.GetCurrentApplicationCallbackUri().AbsoluteUri, StringComparison.Ordinal))
+                // Check for logout
+                Uri startUri = new Uri(options.StartUrl);
+                if (startUri.AbsolutePath.StartsWith("/v2/logout", StringComparison.OrdinalIgnoreCase))
                 {
-                    wabResult = await WebAuthenticationBroker.AuthenticateAsync(
-                        wabOptions, new Uri(options.StartUrl));
+                    isLogout = true;
+
+                    // See http://www.cloudidentity.com/blog/2014/11/21/getting-rid-of-residual-cookies-in-windows-store-apps/
+                    try
+                    {
+                        await WebAuthenticationBroker.AuthenticateAsync(WebAuthenticationOptions.SilentMode, new Uri(options.StartUrl));
+                    }
+                    catch (Exception)
+                    {
+                        // timeout. That's expected
+                    }
                 }
                 else
                 {
-                    wabResult = await WebAuthenticationBroker.AuthenticateAsync(
-                        wabOptions, new Uri(options.StartUrl), new Uri(options.EndUrl));
+                    if (string.Equals(options.EndUrl, WebAuthenticationBroker.GetCurrentApplicationCallbackUri().AbsoluteUri, StringComparison.Ordinal))
+                    {
+                        wabResult = await WebAuthenticationBroker.AuthenticateAsync(
+                            wabOptions, new Uri(options.StartUrl));
+                    }
+                    else
+                    {
+                        wabResult = await WebAuthenticationBroker.AuthenticateAsync(
+                            wabOptions, new Uri(options.StartUrl), new Uri(options.EndUrl));
+                    }
                 }
             }
             catch (Exception ex)
@@ -56,6 +77,24 @@ namespace Auth0.OidcClient
                 };
             }
 
+            if (wabResult == null ) 
+            {
+                if (isLogout)
+                {
+                    return new BrowserResult
+                    {
+                        ResultType = BrowserResultType.Success,
+                        Response = String.Empty
+                    };
+                }
+
+                return new BrowserResult
+                {
+                    ResultType = BrowserResultType.UnknownError,
+                    Error = "Invalid response from WebAuthenticationBroker"
+                };
+            }
+
             if (wabResult.ResponseStatus == WebAuthenticationStatus.Success)
             {
                 return new BrowserResult
@@ -64,29 +103,29 @@ namespace Auth0.OidcClient
                     Response = wabResult.ResponseData
                 };
             }
-            else if (wabResult.ResponseStatus == WebAuthenticationStatus.ErrorHttp)
+
+            if (wabResult.ResponseStatus == WebAuthenticationStatus.ErrorHttp)
             {
                 return new BrowserResult
                 {
                     ResultType = BrowserResultType.HttpError,
-                    Error = string.Concat(wabResult.ResponseErrorDetail.ToString())
+                    Error = wabResult.ResponseErrorDetail.ToString()
                 };
             }
-            else if (wabResult.ResponseStatus == WebAuthenticationStatus.UserCancel)
+
+            if (wabResult.ResponseStatus == WebAuthenticationStatus.UserCancel)
             {
                 return new BrowserResult
                 {
                     ResultType = BrowserResultType.UserCancel
                 };
             }
-            else
+
+            return new BrowserResult
             {
-                return new BrowserResult
-                {
-                    ResultType = BrowserResultType.UnknownError,
-                    Error = "Invalid response from WebAuthenticationBroker"
-                };
-            }
+                ResultType = BrowserResultType.UnknownError,
+                Error = "Invalid response from WebAuthenticationBroker"
+            };
         }
 
         public async Task<BrowserResult> InvokeAsync(BrowserOptions options)

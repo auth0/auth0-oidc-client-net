@@ -7,20 +7,22 @@ namespace WindowsFormsTestApp
 {
     public partial class Form1 : Form
     {
+        private Auth0Client _auth0Client;
+
         public Form1()
         {
             InitializeComponent();
-        }
 
-        private async void button1_Click(object sender, EventArgs e)
-        {
-            var client = new Auth0Client(new Auth0ClientOptions
+            _auth0Client = new Auth0Client(new Auth0ClientOptions
             {
                 Domain = "jerrie.auth0.com",
                 ClientId = "vV9twaySQzfGesS9Qs6gOgqDsYDdgoKE"
             });
+        }
 
-            var loginResult = await client.LoginAsync();
+        private async void button1_Click(object sender, EventArgs e)
+        {
+            var loginResult = await _auth0Client.LoginAsync();
 
             if (loginResult.IsError)
             {
@@ -40,6 +42,11 @@ namespace WindowsFormsTestApp
                     Debug.WriteLine($"{claim.Type} = {claim.Value}");
                 }
             }
+        }
+
+        private async void button2_Click(object sender, EventArgs e)
+        {
+            await _auth0Client.LogoutAsync();
         }
     }
 }

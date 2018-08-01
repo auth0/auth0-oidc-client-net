@@ -9,23 +9,26 @@ namespace WpfSystemBrowserTestApp
     /// </summary>
     public partial class MainWindow : Window
     {
+        private Auth0Client _auth0Client;
+
         public MainWindow()
         {
             InitializeComponent();
-        }
 
-        private async void button_Click(object sender, RoutedEventArgs e)
-        {
-            var client = new Auth0Client(new Auth0ClientOptions
+            _auth0Client = new Auth0Client(new Auth0ClientOptions
             {
                 Domain = "jerrie.auth0.com",
                 ClientId = "vV9twaySQzfGesS9Qs6gOgqDsYDdgoKE",
                 Scope = "openid profile email",
                 Browser = new SystemWebBrowser(),
-                RedirectUri = "http://127.0.0.1:7890/"
+                RedirectUri = "http://127.0.0.1:7890/",
+                PostLogoutRedirectUri = "http://127.0.0.1:7890/"
             });
+        }
 
-            var loginResult = await client.LoginAsync();
+        private async void button_Click(object sender, RoutedEventArgs e)
+        {
+            var loginResult = await _auth0Client.LoginAsync();
 
             if (loginResult.IsError)
             {
@@ -47,5 +50,9 @@ namespace WpfSystemBrowserTestApp
             }
         }
 
+        private async void LogoutButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            await _auth0Client.LogoutAsync();
+        }
     }
 }

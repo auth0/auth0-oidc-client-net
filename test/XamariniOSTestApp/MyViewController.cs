@@ -21,9 +21,15 @@ namespace XamariniOSTestApp
 			UserDetailsTextView.Text = String.Empty;
 
 			LoginButton.TouchUpInside += LoginButton_TouchUpInside;
+            LogoutButton.TouchUpInside += LogoutButtonOnTouchUpInside;
 		}
 
-		public override void DidReceiveMemoryWarning()
+	    private async void LogoutButtonOnTouchUpInside(object sender, EventArgs e)
+	    {
+	        await _client.LogoutAsync();
+	    }
+
+	    public override void DidReceiveMemoryWarning()
 		{
 			base.DidReceiveMemoryWarning();
 			// Release any cached data, images, etc that aren't in use.

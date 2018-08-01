@@ -66,7 +66,10 @@ namespace XamarinAndroidTestApp
 			public const int LoginButton = 2131034112;
 			
 			// aapt resource value: 0x7f050001
-			public const int UserDetailsTextView = 2131034113;
+			public const int LogoutButton = 2131034113;
+			
+			// aapt resource value: 0x7f050002
+			public const int UserDetailsTextView = 2131034114;
 			
 			static Id()
 			{
@@ -107,10 +110,13 @@ namespace XamarinAndroidTestApp
 			public const int Login = 2130968578;
 			
 			// aapt resource value: 0x7f040003
-			public const int auth0_client_id = 2130968579;
+			public const int Logout = 2130968579;
 			
 			// aapt resource value: 0x7f040004
-			public const int auth0_domain = 2130968580;
+			public const int auth0_client_id = 2130968580;
+			
+			// aapt resource value: 0x7f040005
+			public const int auth0_domain = 2130968581;
 			
 			static String()
 			{

@@ -9,21 +9,23 @@ namespace WpfTestApp
     /// </summary>
     public partial class MainWindow : Window
     {
+        private readonly Auth0Client _auth0Client;
+
         public MainWindow()
         {
             InitializeComponent();
-        }
 
-        private async void button_Click(object sender, RoutedEventArgs e)
-        {
-            var client = new Auth0Client(new Auth0ClientOptions
+            _auth0Client = new Auth0Client(new Auth0ClientOptions
             {
                 Domain = "jerrie.auth0.com",
                 ClientId = "vV9twaySQzfGesS9Qs6gOgqDsYDdgoKE",
                 Scope = "openid profile email"
             });
+        }
 
-            var loginResult = await client.LoginAsync();
+        private async void button_Click(object sender, RoutedEventArgs e)
+        {
+            var loginResult = await _auth0Client.LoginAsync();
 
             if (loginResult.IsError)
             {
@@ -43,6 +45,11 @@ namespace WpfTestApp
                     Debug.WriteLine($"{claim.Type} = {claim.Value}");
                 }
             }
+        }
+
+        private async void LogoutButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            await _auth0Client.LogoutAsync();
         }
     }
 }
