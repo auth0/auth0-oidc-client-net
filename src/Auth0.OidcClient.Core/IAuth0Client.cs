@@ -14,6 +14,12 @@ namespace Auth0.OidcClient
         Task<LoginResult> LoginAsync(object extraParameters = null);
 
         /// <summary>
+        /// Launches a browser to log the user out and clear the Auth0 SSO Cookie
+        /// </summary>
+        /// <returns></returns>
+        Task LogoutAsync();
+
+        /// <summary>
         /// Generates an <see cref="IdentityModel.OidcClient.AuthorizeState"/> containing the URL, state, nonce and code challenge which can
         /// be used to redirect the user to the authorization URL, and subsequently process any response by calling
         /// the <see cref="ProcessResponseAsync"/> method.

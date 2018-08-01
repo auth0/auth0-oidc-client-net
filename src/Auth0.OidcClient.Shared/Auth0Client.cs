@@ -136,6 +136,10 @@ namespace Auth0.OidcClient
             return dictionary;
         }
 
+        /// <summary>
+        /// Launches a browser to log the user out and clear the Auth0 SSO Cookie
+        /// </summary>
+        /// <returns></returns>
         public async Task LogoutAsync()
         {
             var logoutUrl = $"https://{_options.Domain}/v2/logout";
