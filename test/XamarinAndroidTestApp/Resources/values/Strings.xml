@@ -2,6 +2,7 @@
 
 <resources>
   <string name="Login">Login</string>
+  <string name="Logout">Logout</string>
   <string name="ApplicationName">XamarinAndroidTestApp</string>
   <string name="auth0_client_id">vV9twaySQzfGesS9Qs6gOgqDsYDdgoKE</string>
   <string name="auth0_domain">jerrie.auth0.com</string>

@@ -49,6 +49,14 @@ namespace Auth0.OidcClient
         /// </summary>
         public string Scope { get; set; }
 
+        /// <summary>
+        /// Allow overriding of the Post Logout Redirect URI
+        /// </summary>
+        /// <remarks>
+        /// This should only be done in exceptional circumstances
+        /// </remarks>
+        public string PostLogoutRedirectUri { get; set; }
+
 		/// <summary>
 		/// Allow overriding of the Redirect URI
 		/// </summary>

@@ -6,6 +6,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        <Button x:Name="button" Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="10,10,0,0" Click="button_Click"/>
+        <Button x:Name="loginButton" Content="Login" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="10,10,0,0" Click="button_Click"/>
+        <Button x:Name="logoutButton" Content="Logout" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="100,10,0,0" Click="LogoutButton_OnClick"/>
     </Grid>
 </Window>

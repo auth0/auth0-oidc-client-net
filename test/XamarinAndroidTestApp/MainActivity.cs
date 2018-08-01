@@ -21,6 +21,7 @@ namespace XamarinAndroidTestApp
     {
         private Auth0Client _client;
         private Button _loginButton;
+        private Button _logoutButton;
         private TextView _userDetailsTextView;
 
         protected override void OnNewIntent(Intent intent)
@@ -37,6 +38,7 @@ namespace XamarinAndroidTestApp
             SetContentView(Resource.Layout.Main);
 
             _loginButton = FindViewById<Button>(Resource.Id.LoginButton);
+            _logoutButton = FindViewById<Button>(Resource.Id.LogoutButton);
             _userDetailsTextView = FindViewById<TextView>(Resource.Id.UserDetailsTextView);
 
             _client = new Auth0Client(new Auth0ClientOptions
@@ -46,7 +48,13 @@ namespace XamarinAndroidTestApp
             });
 
             _loginButton.Click += LoginButtonOnClick;
+            _logoutButton.Click += LogoutButtonOnClick;
             _userDetailsTextView.Text = String.Empty;
+        }
+
+        private async void LogoutButtonOnClick(object sender, EventArgs e)
+        {
+            await _client.LogoutAsync();
         }
 
         private async void LoginButtonOnClick(object sender, EventArgs eventArgs)

@@ -12,22 +12,24 @@ namespace UwpTestApp
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        private Auth0Client _auth0Client;
+
         public MainPage()
         {
             this.InitializeComponent();
+
+            _auth0Client = new Auth0Client(new Auth0ClientOptions
+            {
+                Domain = "jerrie.auth0.com",
+                ClientId = "vV9twaySQzfGesS9Qs6gOgqDsYDdgoKE"
+            });
         }
 
         private async void button_Click(object sender, RoutedEventArgs e)
         {
             resultTextBox.Text = "";
 
-            var client = new Auth0Client(new Auth0ClientOptions
-            {
-                Domain = "jerrie.auth0.com",
-                ClientId = "vV9twaySQzfGesS9Qs6gOgqDsYDdgoKE"
-            });
-
-            var loginResult = await client.LoginAsync();
+            var loginResult = await _auth0Client.LoginAsync();
 
             // Display error
             if (loginResult.IsError)
@@ -54,6 +56,11 @@ namespace UwpTestApp
             }
 
             resultTextBox.Text = sb.ToString();
+        }
+
+        private async void LogoutButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            await _auth0Client.LogoutAsync();
         }
     }
 }
