@@ -9,4 +9,5 @@ You can also find the following sample applications related to the Quickstarts m
 * [Windows Forms](https://github.com/auth0-community/auth0-WinFormsWPF-oidc-samples/tree/master/Quickstart/00-Starter-Seed/WinForms)
 * [Xamarin (iOS)](https://github.com/auth0-community/auth0-xamarin-oidc-samples/tree/master/Quickstart/01-Login/iOS)
 * [Xamarin (Android)](https://github.com/auth0-community/auth0-xamarin-oidc-samples/tree/master/Quickstart/01-Login/Android)
-* [Xamarin Forms](https://github.com/auth0-community/auth0-xamarin-oidc-samples/tree/master/Samples/Forms)
+* [Xamarin Forms (Shared Project)](https://github.com/auth0-community/auth0-xamarin-oidc-samples/tree/master/Samples/Forms)
+* [Xamarin Forms (Net Standard)](https://github.com/auth0-community/auth0-xamarin-oidc-samples/tree/master/Samples/Forms_NS)
