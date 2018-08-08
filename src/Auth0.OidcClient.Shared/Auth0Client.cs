@@ -140,7 +140,13 @@ namespace Auth0.OidcClient
         /// Launches a browser to log the user out and clear the Auth0 SSO Cookie
         /// </summary>
         /// <returns></returns>
-        public async Task LogoutAsync()
+        public Task LogoutAsync()
+        {
+            return LogoutAsync(false);
+        }
+
+        /// <inheritdoc />
+        public async Task LogoutAsync(bool federated)
         {
             var logoutUrl = $"https://{_options.Domain}/v2/logout";
 
@@ -149,6 +155,8 @@ namespace Auth0.OidcClient
             dictionary.Add("returnTo", _oidcClient.Options.PostLogoutRedirectUri);
 
             string endSessionUrl = new RequestUrl(logoutUrl).Create(dictionary);
+            if (federated)
+                endSessionUrl += "&federated";
             var logoutRequest = new LogoutRequest();
 
             BrowserResult browserResult = await _oidcClient.Options.Browser.InvokeAsync(new BrowserOptions(endSessionUrl, _oidcClient.Options.PostLogoutRedirectUri ?? string.Empty)
