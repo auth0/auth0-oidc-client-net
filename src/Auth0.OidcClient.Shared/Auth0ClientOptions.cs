@@ -1,4 +1,5 @@
-﻿using IdentityModel.OidcClient.Browser;
+using System.Net.Http;
+using IdentityModel.OidcClient.Browser;
 
 namespace Auth0.OidcClient
 {
@@ -48,6 +49,30 @@ namespace Auth0.OidcClient
         /// The scopes you want to request.
         /// </summary>
         public string Scope { get; set; }
+
+        /// <summary>
+        /// Allow overriding the RetryMessageHandler
+        /// <example>
+        /// var handler = new HttpClientHandler();
+        /// var options = new Auth0ClientOptions
+        /// {
+        ///    RefreshTokenMessageHandler = handler
+        /// };
+        /// </example>
+        /// </summary>
+        public HttpMessageHandler RefreshTokenMessageHandler { get; set; }
+
+        /// <summary>
+        /// Allow overriding the BackchannelHandler
+        /// <example>
+        /// var handler = new HttpClientHandler();
+        /// var options = new Auth0ClientOptions
+        /// {
+        ///    BackchannelHandler = handler
+        /// };
+        /// </example>
+        /// </summary>
+        public HttpMessageHandler BackchannelHandler { get; set; }
 
         /// <summary>
         /// Allow overriding of the Post Logout Redirect URI
