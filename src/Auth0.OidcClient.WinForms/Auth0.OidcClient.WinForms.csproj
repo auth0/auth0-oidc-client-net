@@ -67,7 +67,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="IdentityModel.OidcClient">
-      <Version>2.7.0</Version>
+      <Version>2.8.1</Version>
     </PackageReference>
   </ItemGroup>
   <Import Project="..\Auth0.OidcClient.Shared\Auth0.OidcClient.Shared.projitems" Label="Shared" />
