@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using IdentityModel.OidcClient;
+using IdentityModel.OidcClient.Browser;
 using IdentityModel.OidcClient.Results;
 
 namespace Auth0.OidcClient
@@ -17,14 +18,14 @@ namespace Auth0.OidcClient
         /// Launches a browser to log the user out and clear the Auth0 SSO Cookie
         /// </summary>
         /// <returns></returns>
-        Task LogoutAsync();
+        Task<BrowserResultType> LogoutAsync();
 
         /// <summary>
         /// Launches a browser to log the user out and clear the Auth0 SSO Cookie
         /// </summary>
         /// <param name="federated">Indicates whether the user should also be logged out of their identity provider.</param>
         /// <returns></returns>
-        Task LogoutAsync(bool federated);
+        Task<BrowserResultType> LogoutAsync(bool federated);
 
         /// <summary>
         /// Generates an <see cref="IdentityModel.OidcClient.AuthorizeState"/> containing the URL, state, nonce and code challenge which can
