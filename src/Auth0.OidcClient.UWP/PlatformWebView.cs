@@ -100,6 +100,10 @@ namespace Auth0.OidcClient
                 return new BrowserResult
                 {
                     ResultType = BrowserResultType.Success,
+                    
+                    // Windows IoT Core adds a \0 char at the end of the ResponseData
+                    // when doing response_mode=form_post, so we remove it here
+                    // to avoid breaking the response processor.
                     Response = wabResult.ResponseData?.Replace("\0", string.Empty)
                 };
             }
