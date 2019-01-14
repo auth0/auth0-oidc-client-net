@@ -100,7 +100,7 @@ namespace Auth0.OidcClient
                 return new BrowserResult
                 {
                     ResultType = BrowserResultType.Success,
-                    Response = wabResult.ResponseData
+                    Response = wabResult.ResponseData?.Replace("\0", string.Empty)
                 };
             }
 
