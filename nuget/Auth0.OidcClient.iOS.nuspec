@@ -3,7 +3,7 @@
 <package>
   <metadata>
     <id>Auth0.OidcClient.iOS</id>
-    <version>2.3.0</version>
+    <version>2.3.1</version>
     <authors>Auth0</authors>
     <owners>Auth0</owners>
     <licenseUrl>http://opensource.org/licenses/MIT</licenseUrl>
@@ -12,6 +12,9 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Auth0 OIDC Client for Xamarin iOS applications</description>
     <releaseNotes>
+      Version 2.3.1
+      - Handle null-terminated POST bodies
+
       Version 2.3.0
       - Add support for federated logout
 
@@ -35,7 +38,7 @@
     <tags>Auth0 OIDC iOS MonoTouch</tags>
     <dependencies>
       <group targetFramework="Xamarin.iOS10">
-        <dependency id="Auth0.OidcClient.Core" version="2.3.0" />
+        <dependency id="Auth0.OidcClient.Core" version="2.3.1" />
       </group>
     </dependencies>
   </metadata>
