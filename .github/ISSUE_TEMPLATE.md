@@ -23,7 +23,7 @@ Description of the bug or feature request and why it's a problem. Consider inclu
 Please provide the following:
 
 - Version of auth0-oidc-client-net being used
-- Version of the platform or framework used, if applicable
+- Version of the .NET Framework and what type of application (UWP, WinForms etc)
 - Relevant environmental versions (language version, server software, OS version)
 - Browser version, if applicable
 - Additional modules/plugins/add-ons that might be affecting your instance
