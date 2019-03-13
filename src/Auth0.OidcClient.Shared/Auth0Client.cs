@@ -137,13 +137,13 @@ namespace Auth0.OidcClient
         /// Launches a browser to log the user out and clear the Auth0 SSO Cookie
         /// </summary>
         /// <returns></returns>
-        public Task LogoutAsync()
+        public Task<BrowserResultType> LogoutAsync()
         {
             return LogoutAsync(false);
         }
 
         /// <inheritdoc />
-        public async Task LogoutAsync(bool federated)
+        public async Task<BrowserResultType> LogoutAsync(bool federated)
         {
             var logoutUrl = $"https://{_options.Domain}/v2/logout";
 
@@ -161,6 +161,8 @@ namespace Auth0.OidcClient
                 Timeout = TimeSpan.FromSeconds(logoutRequest.BrowserTimeout),
                 DisplayMode = logoutRequest.BrowserDisplayMode
             });
+
+            return browserResult.ResultType;
         }
 
         /// <summary>
