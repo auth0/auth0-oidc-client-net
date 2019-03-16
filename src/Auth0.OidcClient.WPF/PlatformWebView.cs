@@ -16,7 +16,7 @@ namespace Auth0.OidcClient
         /// Constructor which lets you pass in your WPF window and window closing property
         /// </summary>
         /// <param name="windowFactory"> </param>
-        /// <param name="shouldCloseWindow"> Determines whether the window closes or not after sucessgul login</param>
+        /// <param name="shouldCloseWindow"> Determines whether the window closes or not after sucessful login</param>
         
         /// Example Usage:
         /// Window ReturnWindow()
