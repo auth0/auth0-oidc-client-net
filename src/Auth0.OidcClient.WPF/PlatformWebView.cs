@@ -10,13 +10,15 @@ namespace Auth0.OidcClient
     public class PlatformWebView : IBrowser
     {
         private readonly Func<Window> _windowFactory;
+        private readonly bool _shouldCloseWindow;
 
-        public PlatformWebView(Func<Window> windowFactory)
+        public PlatformWebView(Func<Window> windowFactory, bool shouldCloseWindow = true)
         {
             _windowFactory = windowFactory;
+            _shouldCloseWindow = shouldCloseWindow;
         }
 
-        public PlatformWebView(string title = "Authenticating ...", int width = 1024, int height = 768)
+        public PlatformWebView(string title = "Authenticating ...", int width = 1024, int height = 768, bool shouldCloseWindow = true)
             : this(() => new Window
             {
                 Name = "WebAuthentication",
@@ -24,7 +26,10 @@ namespace Auth0.OidcClient
                 Width = width,
                 Height = height
             })
-        { }
+        {
+            _shouldCloseWindow = shouldCloseWindow;
+        }
+
         public async Task<BrowserResult> InvokeAsync(BrowserOptions options)
         {
             var window = _windowFactory.Invoke();
@@ -68,7 +73,10 @@ namespace Auth0.OidcClient
             }
             finally
             {
-                window.Close();
+                if (_shouldCloseWindow)
+                {
+                    window.Close();
+                }
             }
         }
     }
