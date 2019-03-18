@@ -8,32 +8,32 @@ using UIKit;
 
 namespace Auth0.OidcClient
 {
-	public class PlatformWebView : SFSafariViewControllerDelegate, IBrowser
+    public class PlatformWebView : SFSafariViewControllerDelegate, IBrowser
     {
         private SFAuthenticationSession _sfAuthenticationSession;
         private ASWebAuthenticationSession _asWebAuthenticationSession;
         private SFSafariViewController _safari;
 
         public override void DidFinish(SFSafariViewController controller)
-	    {
-	        ActivityMediator.Instance.Send("UserCancel");
-	    }
+        {
+            ActivityMediator.Instance.Send("UserCancel");
+        }
 
         public Task<BrowserResult> InvokeAsync(BrowserOptions options)
-		{
-			if (string.IsNullOrWhiteSpace(options.StartUrl))
-			{
-				throw new ArgumentException("Missing StartUrl", nameof(options));
-			}
+        {
+            if (string.IsNullOrWhiteSpace(options.StartUrl))
+            {
+                throw new ArgumentException("Missing StartUrl", nameof(options));
+            }
 
-			if (string.IsNullOrWhiteSpace(options.EndUrl))
-			{
-				throw new ArgumentException("Missing EndUrl", nameof(options));
-			}
+            if (string.IsNullOrWhiteSpace(options.EndUrl))
+            {
+                throw new ArgumentException("Missing EndUrl", nameof(options));
+            }
 
-			// must be able to wait for the authentication session to be finished to continue
-			// with setting the task result
-			var tcs = new TaskCompletionSource<BrowserResult>();
+            // must be able to wait for the authentication session to be finished to continue
+            // with setting the task result
+            var tcs = new TaskCompletionSource<BrowserResult>();
 
             // For iOS 12, we use ASWebAuthenticationSession
             if (UIDevice.CurrentDevice.CheckSystemVersion(12, 0))
@@ -72,13 +72,13 @@ namespace Auth0.OidcClient
             }
             // For iOS 11, we use SFAuthenticationSession
             else if (UIDevice.CurrentDevice.CheckSystemVersion(11, 0))
-		    {
-		        // create the authentication session
-		        _sfAuthenticationSession = new SFAuthenticationSession(
-		            new NSUrl(options.StartUrl),
-		            options.EndUrl,
-		            (callbackUrl, error) =>
-		            {
+            {
+                // create the authentication session
+                _sfAuthenticationSession = new SFAuthenticationSession(
+                    new NSUrl(options.StartUrl),
+                    options.EndUrl,
+                    (callbackUrl, error) =>
+                    {
                         var browserResult = new BrowserResult();
 
                         if (error != null)
@@ -93,71 +93,71 @@ namespace Auth0.OidcClient
                             tcs.SetResult(browserResult);
                         }
                         else
-		                {
-		                    tcs.SetResult(new BrowserResult
-		                    {
-		                        ResultType = BrowserResultType.Success,
-		                        Response = callbackUrl.AbsoluteString
-		                    });
-		                }
-		            });
+                        {
+                            tcs.SetResult(new BrowserResult
+                            {
+                                ResultType = BrowserResultType.Success,
+                                Response = callbackUrl.AbsoluteString
+                            });
+                        }
+                    });
 
-		        // launch authentication session
-		        _sfAuthenticationSession.Start();
-		    }
+                // launch authentication session
+                _sfAuthenticationSession.Start();
+            }
             else // For pre-iOS 11, we use a normal SFSafariViewController
             {
-		        // create Safari controller
-		        _safari = new SFSafariViewController(new NSUrl(options.StartUrl))
-		        {
-		            Delegate = this
-		        };
+                // create Safari controller
+                _safari = new SFSafariViewController(new NSUrl(options.StartUrl))
+                {
+                    Delegate = this
+                };
 
-		        ActivityMediator.MessageReceivedEventHandler callback = null;
-		        callback = async (response) =>
-		        {
-		            // remove handler
-		            ActivityMediator.Instance.ActivityMessageReceived -= callback;
+                ActivityMediator.MessageReceivedEventHandler callback = null;
+                callback = async (response) =>
+                {
+                    // remove handler
+                    ActivityMediator.Instance.ActivityMessageReceived -= callback;
 
-		            if (response == "UserCancel")
-		            {
-		                tcs.SetResult(new BrowserResult
-		                {
-		                    ResultType = BrowserResultType.UserCancel
-		                });
-		            }
-		            else
-		            {
-		                // Close Safari
-		                await _safari.DismissViewControllerAsync(true);
+                    if (response == "UserCancel")
+                    {
+                        tcs.SetResult(new BrowserResult
+                        {
+                            ResultType = BrowserResultType.UserCancel
+                        });
+                    }
+                    else
+                    {
+                        // Close Safari
+                        await _safari.DismissViewControllerAsync(true);
 
-		                // set result
-		                tcs.SetResult(new BrowserResult
-		                {
-		                    Response = response,
-		                    ResultType = BrowserResultType.Success
-		                });
-		            }
-		        };
+                        // set result
+                        tcs.SetResult(new BrowserResult
+                        {
+                            Response = response,
+                            ResultType = BrowserResultType.Success
+                        });
+                    }
+                };
 
-		        // attach handler
-		        ActivityMediator.Instance.ActivityMessageReceived += callback;
+                // attach handler
+                ActivityMediator.Instance.ActivityMessageReceived += callback;
 
-		        // https://forums.xamarin.com/discussion/24689/how-to-acces-the-current-view-uiviewcontroller-from-an-external-service
-		        var window = UIApplication.SharedApplication.KeyWindow;
-		        var vc = window.RootViewController;
-		        while (vc.PresentedViewController != null)
-		        {
-		            vc = vc.PresentedViewController;
-		        }
+                // https://forums.xamarin.com/discussion/24689/how-to-acces-the-current-view-uiviewcontroller-from-an-external-service
+                var window = UIApplication.SharedApplication.KeyWindow;
+                var vc = window.RootViewController;
+                while (vc.PresentedViewController != null)
+                {
+                    vc = vc.PresentedViewController;
+                }
 
                 // launch Safari
                 vc.PresentViewController(_safari, true, null);
             }
 
-		    // Result for this task will be set in the authentication session
+            // Result for this task will be set in the authentication session
             // completion handler
-			return tcs.Task;
-		}
-	}
+            return tcs.Task;
+        }
+    }
 }
