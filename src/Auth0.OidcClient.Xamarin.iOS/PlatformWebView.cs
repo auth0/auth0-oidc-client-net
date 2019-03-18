@@ -35,7 +35,7 @@ namespace Auth0.OidcClient
 			// with setting the task result
 			var tcs = new TaskCompletionSource<BrowserResult>();
 
-            // For iOS 11, we use the new SFAuthenticationSession
+            // For iOS 12, we use ASWebAuthenticationSession
             if (UIDevice.CurrentDevice.CheckSystemVersion(12, 0))
             {
                 // create the authentication session
@@ -70,7 +70,7 @@ namespace Auth0.OidcClient
                 // launch authentication session
                 _asWebAuthenticationSession.Start();
             }
-            // For iOS 11, we use the new SFAuthenticationSession
+            // For iOS 11, we use SFAuthenticationSession
             else if (UIDevice.CurrentDevice.CheckSystemVersion(11, 0))
 		    {
 		        // create the authentication session
