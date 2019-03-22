@@ -18,11 +18,11 @@ namespace Auth0.OidcClient
         /// <param name="windowFactory"> </param>
         /// <param name="shouldCloseWindow"> Determines whether the window closes or not after sucessful login</param>
         /// <example> 
-        /// This sample shows how to call the <see cref="PlatformWebView(Func{Window}, bool)"/> constructor.
+        /// This sample shows how to call the <see cref="PlatformWebView(Func&lt;Window&gt;, bool)"/> constructor.
         /// <code>
         /// Window ReturnWindow()
         /// {
-        ///     return window; // your WPF applciation window where you want the login to pop up
+        ///     return window; // your WPF application window where you want the login to pop up
         /// }
         /// Func<Window> windowFunc = ReturnWindow;
         /// PlatformWebView platformWebView = new PlatformWebView(windowFunc, shouldCloseWindow: false); // specify false if you want the window to remain open
