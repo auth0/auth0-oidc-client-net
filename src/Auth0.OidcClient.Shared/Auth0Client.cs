@@ -87,12 +87,12 @@ namespace Auth0.OidcClient
             var dictionary = ObjectToDictionary(values);
 
             if (_options.EnableTelemetry)
-                dictionary.Add("auth0Client", CreateTelemetry());
+                dictionary.Add("auth0Client", CreateAgentString());
 
             return dictionary;
         }
 
-        private string CreateTelemetry()
+        private string CreateAgentString()
         {
 #if __ANDROID__
             string platform = "xamarin-android";
@@ -105,13 +105,10 @@ namespace Auth0.OidcClient
 #elif WINDOWS_UWP
             var platform = "uwp";
 #endif
-            var version = GetType().GetTypeInfo().Assembly.GetCustomAttribute<AssemblyFileVersionAttribute>()
-                .Version;
+            var sdkVersion = typeof(Auth0Client).GetTypeInfo().Assembly.GetName().Version;
 
-            var telemetryString = $"{{\"name\":\"oidc-net\",\"version\":\"{version}\",\"platform\":\"{platform}\"}}";
-            var telemetryBytes = Encoding.UTF8.GetBytes(telemetryString);
-
-            return Convert.ToBase64String(telemetryBytes);
+            var agentJson = $"{{\"name\":\"oidc-net\",\"version\":\"{sdkVersion.Major}.{sdkVersion.Minor}.{sdkVersion.Revision}\",\"env\":{{\"platform\":\"{platform}\"}}}}";
+            return Convert.ToBase64String(Encoding.UTF8.GetBytes(agentJson));
         }
 
         /// <summary>
@@ -150,17 +147,17 @@ namespace Auth0.OidcClient
         /// Launches a browser to log the user out and clear the Auth0 SSO Cookie
         /// </summary>
         /// <returns></returns>
-        public Task LogoutAsync()
+        public Task<BrowserResultType> LogoutAsync()
         {
             return LogoutAsync(false);
         }
 
         /// <inheritdoc />
-        public async Task LogoutAsync(bool federated)
+        public async Task<BrowserResultType> LogoutAsync(bool federated)
         {
             var logoutUrl = $"https://{_options.Domain}/v2/logout";
 
-            Dictionary<string, string> dictionary = new Dictionary<string, string>();
+            var dictionary = new Dictionary<string, string>();
             dictionary.Add("client_id", _oidcClient.Options.ClientId);
             dictionary.Add("returnTo", _oidcClient.Options.PostLogoutRedirectUri);
 
@@ -171,9 +168,11 @@ namespace Auth0.OidcClient
 
             BrowserResult browserResult = await _oidcClient.Options.Browser.InvokeAsync(new BrowserOptions(endSessionUrl, _oidcClient.Options.PostLogoutRedirectUri ?? string.Empty)
             {
-                Timeout = TimeSpan.FromSeconds((double) logoutRequest.BrowserTimeout),
+                Timeout = TimeSpan.FromSeconds(logoutRequest.BrowserTimeout),
                 DisplayMode = logoutRequest.BrowserDisplayMode
             });
+
+            return browserResult.ResultType;
         }
 
         /// <summary>

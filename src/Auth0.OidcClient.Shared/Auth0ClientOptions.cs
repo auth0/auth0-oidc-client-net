@@ -1,8 +1,12 @@
+﻿using System;
 using System.Net.Http;
 using IdentityModel.OidcClient.Browser;
 
 namespace Auth0.OidcClient
 {
+    /// <summary>
+    /// Specifies the options for an instance of the <see cref="Auth0Client"/> class.
+    /// </summary>
     public class Auth0ClientOptions
     {
         /// <summary>
@@ -90,6 +94,10 @@ namespace Auth0.OidcClient
 		/// </remarks>
 		public string RedirectUri { get; set; }
 
+        /// <summary>
+        /// Create a new instance of the <see cref="Auth0ClientOptions"/> class used to configure the options for
+        /// passing to the constructor of <see cref="Auth0Client"/>.
+        /// </summary>
         public Auth0ClientOptions()
         {
             EnableTelemetry = true;

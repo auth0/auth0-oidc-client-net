@@ -1,5 +1,7 @@
 # Auth0 OIDC Client for .NET
 
+[![Build status](https://dev.azure.com/Auth0SDK/Auth0%20OIDC%20Client.NET/_apis/build/status/Auth0%20OIDC%20Client.NET-.NET%20Desktop-CI)](https://dev.azure.com/Auth0SDK/Auth0%20OIDC%20Client.NET/_build/latest?definitionId=2)
+
 OIDC Client for .NET Desktop and Mobile applications. This library makes use of the the [IdentityModel/IdentityModel.OidcClient2](https://github.com/IdentityModel/IdentityModel.OidcClient2) library.
 
 For information on how to use this library, please refer to the relevant Quickstarts:
