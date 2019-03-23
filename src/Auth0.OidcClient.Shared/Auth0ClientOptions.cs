@@ -56,6 +56,7 @@ namespace Auth0.OidcClient
 
         /// <summary>
         /// Allow overriding the RetryMessageHandler
+        /// </summary>
         /// <example>
         /// var handler = new HttpClientHandler();
         /// var options = new Auth0ClientOptions
@@ -63,11 +64,11 @@ namespace Auth0.OidcClient
         ///    RefreshTokenMessageHandler = handler
         /// };
         /// </example>
-        /// </summary>
         public HttpMessageHandler RefreshTokenMessageHandler { get; set; }
 
         /// <summary>
         /// Allow overriding the BackchannelHandler
+        /// </summary>
         /// <example>
         /// var handler = new HttpClientHandler();
         /// var options = new Auth0ClientOptions
@@ -75,7 +76,6 @@ namespace Auth0.OidcClient
         ///    BackchannelHandler = handler
         /// };
         /// </example>
-        /// </summary>
         public HttpMessageHandler BackchannelHandler { get; set; }
 
         /// <summary>
