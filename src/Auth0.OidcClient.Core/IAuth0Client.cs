@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using IdentityModel.OidcClient;
 using IdentityModel.OidcClient.Browser;
 using IdentityModel.OidcClient.Results;
@@ -49,8 +50,17 @@ namespace Auth0.OidcClient
         /// Generates a new set of tokens based on a refresh token. 
         /// </summary>
         /// <param name="refreshToken">The refresh token which was issued during the authorization flow, or subsequent
-        /// calls to <see cref="RefreshTokenAsync"/>.</param>
+        /// calls to <see cref="OidcClient.RefreshTokenAsync"/>.</param>
         /// <returns></returns>
         Task<RefreshTokenResult> RefreshTokenAsync(string refreshToken);
+
+        /// <summary>
+        /// Generates a new set of tokens based on a refresh token. 
+        /// </summary>
+        /// <param name="extraParameters">Additional parameters to pass to the refresh token endpoint</param>
+        /// <param name="refreshToken">The refresh token which was issued during the authorization flow, or subsequent
+        /// calls to <see cref="OidcClient.RefreshTokenAsync"/>.</param>
+        /// <returns></returns>
+        Task<RefreshTokenResult> RefreshTokenAsync(string refreshToken, object extraParameters);
     }
 }

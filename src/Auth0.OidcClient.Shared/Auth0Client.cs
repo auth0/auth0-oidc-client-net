@@ -69,6 +69,16 @@ namespace Auth0.OidcClient
                     RequireAccessTokenHash = false
                 }
             };
+
+            if (_options.RefreshTokenMessageHandler != null)
+            {
+                oidcClientOptions.RefreshTokenInnerHttpHandler = _options.RefreshTokenMessageHandler;
+            }
+            if (_options.BackchannelHandler != null)
+            {
+                oidcClientOptions.BackchannelHandler = _options.BackchannelHandler;
+            }
+
             _oidcClient = new IdentityModel.OidcClient.OidcClient(oidcClientOptions);
         }
 
@@ -193,11 +203,23 @@ namespace Auth0.OidcClient
         /// Generates a new set of tokens based on a refresh token. 
         /// </summary>
         /// <param name="refreshToken">The refresh token which was issued during the authorization flow, or subsequent
-        /// calls to <see cref="RefreshTokenAsync"/>.</param>
+        /// calls to <see cref="OidcClient.RefreshTokenAsync"/>.</param>
         /// <returns></returns>
         public Task<RefreshTokenResult> RefreshTokenAsync(string refreshToken)
         {
-            return _oidcClient.RefreshTokenAsync(refreshToken);
+            return RefreshTokenAsync(refreshToken, null);
+        }
+
+        /// <summary>
+        /// Generates a new set of tokens based on a refresh token. 
+        /// </summary>
+        /// <param name="refreshToken">The refresh token which was issued during the authorization flow, or subsequent
+        /// calls to <see cref="OidcClient.RefreshTokenAsync"/>.</param>
+        /// <param name="extraParameters">Additional parameters to send to the refresh endpoint</param>
+        /// <returns></returns>
+        public Task<RefreshTokenResult> RefreshTokenAsync(string refreshToken, object extraParameters)
+        {
+            return _oidcClient.RefreshTokenAsync(refreshToken, extraParameters);
         }
     }
 }
