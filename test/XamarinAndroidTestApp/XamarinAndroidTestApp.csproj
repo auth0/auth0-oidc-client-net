@@ -81,10 +81,6 @@
       <Project>{a18a146b-fb5a-4ab8-8f1c-501e58aa7d4d}</Project>
       <Name>Auth0.OidcClient.Android</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\src\Auth0.OidcClient.Core\Auth0.OidcClient.Core.csproj">
-      <Project>{1f79db59-f3a8-45b7-972b-ecd15259d1c9}</Project>
-      <Name>Auth0.OidcClient.Core</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="IdentityModel.OidcClient">

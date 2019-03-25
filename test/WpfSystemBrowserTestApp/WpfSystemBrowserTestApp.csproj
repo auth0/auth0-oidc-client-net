@@ -94,10 +94,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Auth0.OidcClient.Core\Auth0.OidcClient.Core.csproj">
-      <Project>{1f79db59-f3a8-45b7-972b-ecd15259d1c9}</Project>
-      <Name>Auth0.OidcClient.Core</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\src\Auth0.OidcClient.WPF\Auth0.OidcClient.WPF.csproj">
       <Project>{f5f9bbd8-0bc0-415c-9df1-d830699b00c4}</Project>
       <Name>Auth0.OidcClient.WPF</Name>

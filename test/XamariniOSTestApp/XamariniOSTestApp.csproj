@@ -112,10 +112,6 @@
     <Reference Include="Xamarin.iOS" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Auth0.OidcClient.Core\Auth0.OidcClient.Core.csproj">
-      <Project>{1F79DB59-F3A8-45B7-972B-ECD15259D1C9}</Project>
-      <Name>Auth0.OidcClient.Core</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\src\Auth0.OidcClient.Xamarin.iOS\Auth0.OidcClient.Xamarin.iOS.csproj">
       <Project>{d6cd228a-d8fa-4250-b770-ccc9ccd5698b}</Project>
       <Name>Auth0.OidcClient.Xamarin.iOS</Name>

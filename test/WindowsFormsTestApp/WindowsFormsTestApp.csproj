@@ -118,10 +118,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Auth0.OidcClient.Core\Auth0.OidcClient.Core.csproj">
-      <Project>{1f79db59-f3a8-45b7-972b-ecd15259d1c9}</Project>
-      <Name>Auth0.OidcClient.Core</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\src\Auth0.OidcClient.WinForms\Auth0.OidcClient.WinForms.csproj">
       <Project>{34085d04-7e7b-4a5e-8377-d3995983919e}</Project>
       <Name>Auth0.OidcClient.WinForms</Name>

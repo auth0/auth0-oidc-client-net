@@ -48,12 +48,6 @@
     <Compile Include="PlatformWebView.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Auth0.OidcClient.Core\Auth0.OidcClient.Core.csproj">
-      <Project>{1F79DB59-F3A8-45B7-972B-ECD15259D1C9}</Project>
-      <Name>Auth0.OidcClient.Core</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <PackageReference Include="IdentityModel.OidcClient">
       <Version>2.9.0</Version>
     </PackageReference>

@@ -10,7 +10,7 @@ using IdentityModel.OidcClient.Results;
 
 namespace Auth0.OidcClient
 {
-    public class Auth0Client : IAuth0Client
+    public class Auth0Client
     {
         private readonly Auth0ClientOptions _options;
         private IdentityModel.OidcClient.OidcClient _oidcClient;
