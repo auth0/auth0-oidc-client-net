@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26430.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Auth0.OidcClient.Shared", "src\Auth0.OidcClient.Shared\Auth0.OidcClient.Shared.shproj", "{5D8121D2-4ED5-41B9-8B89-8A5CA8E851BA}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{F4F201D8-5C51-4060-8D16-D4515DB497F8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Auth0.OidcClient.UWP", "src\Auth0.OidcClient.UWP\Auth0.OidcClient.UWP.csproj", "{5FFFF5D6-D6DF-4351-B58D-3311BD0671F7}"
@@ -33,12 +31,6 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Auth0.OidcClient.Core", "src\Auth0.OidcClient.Core\Auth0.OidcClient.Core.csproj", "{9FBA8910-8228-44E7-B6AF-4641BFD7A64A}"
 EndProject
 Global
-	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		src\Auth0.OidcClient.Shared\Auth0.OidcClient.Shared.projitems*{34085d04-7e7b-4a5e-8377-d3995983919e}*SharedItemsImports = 4
-		src\Auth0.OidcClient.Shared\Auth0.OidcClient.Shared.projitems*{5d8121d2-4ed5-41b9-8b89-8a5ca8e851ba}*SharedItemsImports = 13
-		src\Auth0.OidcClient.Shared\Auth0.OidcClient.Shared.projitems*{5ffff5d6-d6df-4351-b58d-3311bd0671f7}*SharedItemsImports = 4
-		src\Auth0.OidcClient.Shared\Auth0.OidcClient.Shared.projitems*{f5f9bbd8-0bc0-415c-9df1-d830699b00c4}*SharedItemsImports = 4
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Ad-Hoc|Any CPU = Ad-Hoc|Any CPU
 		Ad-Hoc|ARM = Ad-Hoc|ARM

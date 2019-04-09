@@ -53,6 +53,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Auth0Client.cs" />
     <Compile Include="PlatformWebView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -88,7 +89,6 @@
       <Version>2.9.0</Version>
     </PackageReference>
   </ItemGroup>
-  <Import Project="..\Auth0.OidcClient.Shared\Auth0.OidcClient.Shared.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
