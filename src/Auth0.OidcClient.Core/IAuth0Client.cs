@@ -27,7 +27,7 @@ namespace Auth0.OidcClient
         /// <summary>
         /// Launches a browser to log the user out and clear the Auth0 SSO Cookie.
         /// </summary>
-        /// <param name="federated">Wether to log the user out of their federated identity provider.</param>
+        /// <param name="federated">Whether to log the user out of their federated identity provider.</param>
         /// <returns>A <see cref="BrowserResultType"/> indicating whether the logout was successful.</returns>
         Task<BrowserResultType> LogoutAsync(bool federated);
 
