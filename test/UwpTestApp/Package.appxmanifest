@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" IgnorableNamespaces="uap mp">
-  <Identity Name="e2787c3f-97ee-4dbd-b932-f3034873dd17" Publisher="CN=jerriepelser" Version="1.0.0.0" />
+  <Identity Name="e2787c3f-97ee-4dbd-b932-f3034873dd17" Publisher="CN=Auth0" Version="1.0.0.0" />
   <mp:PhoneIdentity PhoneProductId="e2787c3f-97ee-4dbd-b932-f3034873dd17" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>UwpSampleApp</DisplayName>
-    <PublisherDisplayName>jerri</PublisherDisplayName>
+    <PublisherDisplayName>Auth0</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
   <Dependencies>
