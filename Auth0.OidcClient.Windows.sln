@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26430.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Auth0.OidcClient.Shared", "src\Auth0.OidcClient.Shared\Auth0.OidcClient.Shared.shproj", "{5D8121D2-4ED5-41B9-8B89-8A5CA8E851BA}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{F4F201D8-5C51-4060-8D16-D4515DB497F8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Auth0.OidcClient.UWP", "src\Auth0.OidcClient.UWP\Auth0.OidcClient.UWP.csproj", "{5FFFF5D6-D6DF-4351-B58D-3311BD0671F7}"
@@ -30,13 +28,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfTestApp", "test\WpfTestA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfSystemBrowserTestApp", "test\WpfSystemBrowserTestApp\WpfSystemBrowserTestApp.csproj", "{FAA15C74-E2EC-44C9-9CD9-C5204D84FCC5}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Auth0.OidcClient.Core", "src\Auth0.OidcClient.Core\Auth0.OidcClient.Core.csproj", "{9FBA8910-8228-44E7-B6AF-4641BFD7A64A}"
+EndProject
 Global
-	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		src\Auth0.OidcClient.Shared\Auth0.OidcClient.Shared.projitems*{34085d04-7e7b-4a5e-8377-d3995983919e}*SharedItemsImports = 4
-		src\Auth0.OidcClient.Shared\Auth0.OidcClient.Shared.projitems*{5d8121d2-4ed5-41b9-8b89-8a5ca8e851ba}*SharedItemsImports = 13
-		src\Auth0.OidcClient.Shared\Auth0.OidcClient.Shared.projitems*{5ffff5d6-d6df-4351-b58d-3311bd0671f7}*SharedItemsImports = 4
-		src\Auth0.OidcClient.Shared\Auth0.OidcClient.Shared.projitems*{f5f9bbd8-0bc0-415c-9df1-d830699b00c4}*SharedItemsImports = 4
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Ad-Hoc|Any CPU = Ad-Hoc|Any CPU
 		Ad-Hoc|ARM = Ad-Hoc|ARM
@@ -414,6 +408,54 @@ Global
 		{FAA15C74-E2EC-44C9-9CD9-C5204D84FCC5}.Release|x64.Build.0 = Release|Any CPU
 		{FAA15C74-E2EC-44C9-9CD9-C5204D84FCC5}.Release|x86.ActiveCfg = Release|Any CPU
 		{FAA15C74-E2EC-44C9-9CD9-C5204D84FCC5}.Release|x86.Build.0 = Release|Any CPU
+		{9FBA8910-8228-44E7-B6AF-4641BFD7A64A}.Ad-Hoc|Any CPU.ActiveCfg = Debug|Any CPU
+		{9FBA8910-8228-44E7-B6AF-4641BFD7A64A}.Ad-Hoc|Any CPU.Build.0 = Debug|Any CPU
+		{9FBA8910-8228-44E7-B6AF-4641BFD7A64A}.Ad-Hoc|ARM.ActiveCfg = Debug|Any CPU
+		{9FBA8910-8228-44E7-B6AF-4641BFD7A64A}.Ad-Hoc|ARM.Build.0 = Debug|Any CPU
+		{9FBA8910-8228-44E7-B6AF-4641BFD7A64A}.Ad-Hoc|iPhone.ActiveCfg = Debug|Any CPU
+		{9FBA8910-8228-44E7-B6AF-4641BFD7A64A}.Ad-Hoc|iPhone.Build.0 = Debug|Any CPU
+		{9FBA8910-8228-44E7-B6AF-4641BFD7A64A}.Ad-Hoc|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{9FBA8910-8228-44E7-B6AF-4641BFD7A64A}.Ad-Hoc|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{9FBA8910-8228-44E7-B6AF-4641BFD7A64A}.Ad-Hoc|x64.ActiveCfg = Debug|Any CPU
+		{9FBA8910-8228-44E7-B6AF-4641BFD7A64A}.Ad-Hoc|x64.Build.0 = Debug|Any CPU
+		{9FBA8910-8228-44E7-B6AF-4641BFD7A64A}.Ad-Hoc|x86.ActiveCfg = Debug|Any CPU
+		{9FBA8910-8228-44E7-B6AF-4641BFD7A64A}.Ad-Hoc|x86.Build.0 = Debug|Any CPU
+		{9FBA8910-8228-44E7-B6AF-4641BFD7A64A}.AppStore|Any CPU.ActiveCfg = Debug|Any CPU
+		{9FBA8910-8228-44E7-B6AF-4641BFD7A64A}.AppStore|Any CPU.Build.0 = Debug|Any CPU
+		{9FBA8910-8228-44E7-B6AF-4641BFD7A64A}.AppStore|ARM.ActiveCfg = Debug|Any CPU
+		{9FBA8910-8228-44E7-B6AF-4641BFD7A64A}.AppStore|ARM.Build.0 = Debug|Any CPU
+		{9FBA8910-8228-44E7-B6AF-4641BFD7A64A}.AppStore|iPhone.ActiveCfg = Debug|Any CPU
+		{9FBA8910-8228-44E7-B6AF-4641BFD7A64A}.AppStore|iPhone.Build.0 = Debug|Any CPU
+		{9FBA8910-8228-44E7-B6AF-4641BFD7A64A}.AppStore|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{9FBA8910-8228-44E7-B6AF-4641BFD7A64A}.AppStore|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{9FBA8910-8228-44E7-B6AF-4641BFD7A64A}.AppStore|x64.ActiveCfg = Debug|Any CPU
+		{9FBA8910-8228-44E7-B6AF-4641BFD7A64A}.AppStore|x64.Build.0 = Debug|Any CPU
+		{9FBA8910-8228-44E7-B6AF-4641BFD7A64A}.AppStore|x86.ActiveCfg = Debug|Any CPU
+		{9FBA8910-8228-44E7-B6AF-4641BFD7A64A}.AppStore|x86.Build.0 = Debug|Any CPU
+		{9FBA8910-8228-44E7-B6AF-4641BFD7A64A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9FBA8910-8228-44E7-B6AF-4641BFD7A64A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9FBA8910-8228-44E7-B6AF-4641BFD7A64A}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{9FBA8910-8228-44E7-B6AF-4641BFD7A64A}.Debug|ARM.Build.0 = Debug|Any CPU
+		{9FBA8910-8228-44E7-B6AF-4641BFD7A64A}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{9FBA8910-8228-44E7-B6AF-4641BFD7A64A}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{9FBA8910-8228-44E7-B6AF-4641BFD7A64A}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{9FBA8910-8228-44E7-B6AF-4641BFD7A64A}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{9FBA8910-8228-44E7-B6AF-4641BFD7A64A}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{9FBA8910-8228-44E7-B6AF-4641BFD7A64A}.Debug|x64.Build.0 = Debug|Any CPU
+		{9FBA8910-8228-44E7-B6AF-4641BFD7A64A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{9FBA8910-8228-44E7-B6AF-4641BFD7A64A}.Debug|x86.Build.0 = Debug|Any CPU
+		{9FBA8910-8228-44E7-B6AF-4641BFD7A64A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9FBA8910-8228-44E7-B6AF-4641BFD7A64A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9FBA8910-8228-44E7-B6AF-4641BFD7A64A}.Release|ARM.ActiveCfg = Release|Any CPU
+		{9FBA8910-8228-44E7-B6AF-4641BFD7A64A}.Release|ARM.Build.0 = Release|Any CPU
+		{9FBA8910-8228-44E7-B6AF-4641BFD7A64A}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{9FBA8910-8228-44E7-B6AF-4641BFD7A64A}.Release|iPhone.Build.0 = Release|Any CPU
+		{9FBA8910-8228-44E7-B6AF-4641BFD7A64A}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{9FBA8910-8228-44E7-B6AF-4641BFD7A64A}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{9FBA8910-8228-44E7-B6AF-4641BFD7A64A}.Release|x64.ActiveCfg = Release|Any CPU
+		{9FBA8910-8228-44E7-B6AF-4641BFD7A64A}.Release|x64.Build.0 = Release|Any CPU
+		{9FBA8910-8228-44E7-B6AF-4641BFD7A64A}.Release|x86.ActiveCfg = Release|Any CPU
+		{9FBA8910-8228-44E7-B6AF-4641BFD7A64A}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -423,5 +465,8 @@ Global
 		{A800695B-C5D8-4331-A80F-CE1CE8D842B3} = {F4F201D8-5C51-4060-8D16-D4515DB497F8}
 		{004EB46A-7001-4158-BEA4-40C21F863BBF} = {F4F201D8-5C51-4060-8D16-D4515DB497F8}
 		{FAA15C74-E2EC-44C9-9CD9-C5204D84FCC5} = {F4F201D8-5C51-4060-8D16-D4515DB497F8}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {744659EA-2472-4D8F-9878-971408862356}
 	EndGlobalSection
 EndGlobal

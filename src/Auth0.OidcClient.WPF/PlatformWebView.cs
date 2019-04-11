@@ -24,7 +24,7 @@ namespace Auth0.OidcClient
         /// {
         ///     return window; // your WPF application window where you want the login to pop up
         /// }
-        /// Func<Window> windowFunc = ReturnWindow;
+        /// Func&lt;Window&gt; windowFunc = ReturnWindow;
         /// PlatformWebView platformWebView = new PlatformWebView(windowFunc, shouldCloseWindow: false); // specify false if you want the window to remain open
         /// </code>
         /// </example>
