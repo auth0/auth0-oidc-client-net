@@ -1,4 +1,6 @@
-﻿namespace Auth0.OidcClient
+﻿using static Android.App.Application;
+
+namespace Auth0.OidcClient
 {
     /// <summary>
     /// Primary class for performing authentication and authorization operations with Auth0 using the
@@ -6,8 +8,6 @@
     /// </summary>
     public class Auth0Client : Auth0ClientBase
     {
-        private readonly string _redirectUri;
-
         /// <summary>
         /// Creates a new instance of the Auth0 OIDC Client.
         /// </summary>
@@ -15,11 +15,8 @@
         public Auth0Client(Auth0ClientOptions options)
             : base(options, "xamarin-android")
         {
-            var packageName = Android.App.Application.Context.PackageName;
-            _redirectUri = $"{packageName}://{options.Domain}/android/{packageName}/callback".ToLower();
+            options.Browser = options.Browser ?? new PlatformWebView();
+            options.RedirectUri = $"{Context.PackageName}://{options.Domain}/android/{Context.PackageName}/callback".ToLower();
         }
-
-        /// <inheritdoc />
-        public override string RedirectUri => _redirectUri;
     }
 }
