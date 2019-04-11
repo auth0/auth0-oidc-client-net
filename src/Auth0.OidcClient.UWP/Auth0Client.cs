@@ -1,5 +1,4 @@
 ﻿using Windows.Security.Authentication.Web;
-using static IdentityModel.OidcClient.OidcClientOptions;
 
 namespace Auth0.OidcClient
 {
@@ -14,11 +13,10 @@ namespace Auth0.OidcClient
         /// </summary>
         /// <param name="options">The <see cref="Auth0ClientOptions"/> specifying the configuration for the Auth0 OIDC Client.</param>
         public Auth0Client(Auth0ClientOptions options)
-            : base(options, "uwp", AuthorizeResponseMode.FormPost)
+            : base(options, "uwp", true)
         {
+            options.Browser = options.Browser ?? new PlatformWebView();
+            options.RedirectUri = options.RedirectUri ?? WebAuthenticationBroker.GetCurrentApplicationCallbackUri().AbsoluteUri;
         }
-
-        /// <inheritdoc />
-        public override string RedirectUri => WebAuthenticationBroker.GetCurrentApplicationCallbackUri().AbsoluteUri;
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace Auth0.OidcClient
+﻿using static Foundation.NSBundle;
+
+namespace Auth0.OidcClient
 {
     /// <summary>
     /// Primary class for performing authentication and authorization operations with Auth0 using the
@@ -6,8 +8,6 @@
     /// </summary>
     public class Auth0Client : Auth0ClientBase
     {
-        private readonly string _redirectUri;
-
         /// <summary>
         /// Creates a new instance of the Auth0 OIDC Client.
         /// </summary>
@@ -15,11 +15,8 @@
         public Auth0Client(Auth0ClientOptions options)
             : base(options, "xamarin-ios")
         {
-            var bundleIdentifier = Foundation.NSBundle.MainBundle.BundleIdentifier;
-            _redirectUri = $"{bundleIdentifier}://{options.Domain}/ios/{bundleIdentifier}/callback";
+            options.Browser = options.Browser ?? new PlatformWebView();
+            options.RedirectUri = options.RedirectUri ?? $"{MainBundle.BundleIdentifier}://{options.Domain}/ios/{MainBundle.BundleIdentifier}/callback";
         }
-
-        /// <inheritdoc />
-        public override string RedirectUri => _redirectUri;
     }
 }

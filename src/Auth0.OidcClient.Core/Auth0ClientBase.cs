@@ -19,6 +19,7 @@ namespace Auth0.OidcClient
     {
         private readonly Auth0ClientOptions _options;
         private readonly string _userAgent;
+        private readonly bool _formPost;
         private IdentityModel.OidcClient.OidcClient _oidcClient;
 
         /// <summary>
@@ -26,21 +27,13 @@ namespace Auth0.OidcClient
         /// </summary>
         /// <param name="options">The <see cref="Auth0ClientOptions"/> specifying the configuration for the Auth0 OIDC Client.</param>
         /// <param name="platformName">The platform name that forms part of the user-agent when communicating with Auth0 servers.</param>
-        /// <param name="responseMode">Optional <see cref="AuthorizeResponseMode"/> authorization should operate in, defaults to <see cref="AuthorizeResponseMode.Redirect"/></param>
-        public Auth0ClientBase(Auth0ClientOptions options, string platformName, AuthorizeResponseMode responseMode = AuthorizeResponseMode.Redirect)
+        /// <param name="formPost">Optionally whether to use a form post instead of a redirect using authentication.</param>
+        public Auth0ClientBase(Auth0ClientOptions options, string platformName, bool formPost = false)
         {
             _options = options;
             _userAgent = CreateAgentString(platformName);
-
-            var clientOptions = CreateOidcClientOptions();
-            clientOptions.ResponseMode = responseMode;
-            _oidcClient = new IdentityModel.OidcClient.OidcClient(clientOptions);
+            _formPost = formPost;
         }
-
-        /// <summary>
-        /// The Url that should be used to redirect back to this app when the browser experience completes.
-        /// </summary>
-        public virtual string RedirectUri { get { return $"https://{_options.Domain}/mobile"; } }
 
         /// <inheritdoc/>
         public Task<LoginResult> LoginAsync(object extraParameters = null)
@@ -49,7 +42,7 @@ namespace Auth0.OidcClient
             {
                 FrontChannelExtraParameters = AppendTelemetry(extraParameters)
             };
-            return _oidcClient.LoginAsync(loginRequest);
+            return OidcClient.LoginAsync(loginRequest);
         }
 
         /// <inheritdoc/>
@@ -58,13 +51,23 @@ namespace Auth0.OidcClient
             return LogoutAsync(false);
         }
 
+        private IdentityModel.OidcClient.OidcClient OidcClient
+        {
+            get
+            {
+                if (_oidcClient == null)
+                    _oidcClient = new IdentityModel.OidcClient.OidcClient(CreateOidcClientOptions(_options));
+                return _oidcClient;
+            }
+        }
+
         /// <inheritdoc/>
         public async Task<BrowserResultType> LogoutAsync(bool federated)
         {
             var logoutParameters = new Dictionary<string, string>
             {
-                { "client_id", _oidcClient.Options.ClientId },
-                { "returnTo", _oidcClient.Options.PostLogoutRedirectUri }
+                { "client_id", OidcClient.Options.ClientId },
+                { "returnTo", OidcClient.Options.PostLogoutRedirectUri }
             };
 
             string endSessionUrl = new RequestUrl($"https://{_options.Domain}/v2/logout").Create(logoutParameters);
@@ -72,13 +75,13 @@ namespace Auth0.OidcClient
                 endSessionUrl += "&federated";
 
             var logoutRequest = new LogoutRequest();
-            var browserOptions = new BrowserOptions(endSessionUrl, _oidcClient.Options.PostLogoutRedirectUri ?? string.Empty)
+            var browserOptions = new BrowserOptions(endSessionUrl, OidcClient.Options.PostLogoutRedirectUri ?? string.Empty)
             {
                 Timeout = TimeSpan.FromSeconds(logoutRequest.BrowserTimeout),
                 DisplayMode = logoutRequest.BrowserDisplayMode
             };
 
-            var browserResult = await _oidcClient.Options.Browser.InvokeAsync(browserOptions);
+            var browserResult = await OidcClient.Options.Browser.InvokeAsync(browserOptions);
 
             return browserResult.ResultType;
         }
@@ -86,13 +89,13 @@ namespace Auth0.OidcClient
         /// <inheritdoc/>
         public Task<AuthorizeState> PrepareLoginAsync(object extraParameters = null)
         {
-            return _oidcClient.PrepareLoginAsync(AppendTelemetry(extraParameters));
+            return OidcClient.PrepareLoginAsync(AppendTelemetry(extraParameters));
         }
 
         /// <inheritdoc/>
         public Task<LoginResult> ProcessResponseAsync(string data, AuthorizeState state)
         {
-            return _oidcClient.ProcessResponseAsync(data, state);
+            return OidcClient.ProcessResponseAsync(data, state);
         }
 
         /// <inheritdoc/>
@@ -104,23 +107,23 @@ namespace Auth0.OidcClient
         /// <inheritdoc/>
         public Task<RefreshTokenResult> RefreshTokenAsync(string refreshToken, object extraParameters)
         {
-            return _oidcClient.RefreshTokenAsync(refreshToken, extraParameters);
+            return OidcClient.RefreshTokenAsync(refreshToken, extraParameters);
         }
 
-        private OidcClientOptions CreateOidcClientOptions()
+        private OidcClientOptions CreateOidcClientOptions(Auth0ClientOptions options)
         {
             var oidcClientOptions = new OidcClientOptions
             {
-                Authority = $"https://{_options.Domain}",
-                ClientId = _options.ClientId,
-                ClientSecret = _options.ClientSecret,
-                Scope = _options.Scope,
-                LoadProfile = _options.LoadProfile,
-                Browser = _options.Browser,
+                Authority = $"https://{options.Domain}",
+                ClientId = options.ClientId,
+                ClientSecret = options.ClientSecret,
+                Scope = options.Scope,
+                LoadProfile = options.LoadProfile,
+                Browser = options.Browser,
                 Flow = AuthenticationFlow.AuthorizationCode,
-
-                RedirectUri = _options.RedirectUri ?? RedirectUri,
-                PostLogoutRedirectUri = _options.PostLogoutRedirectUri ?? RedirectUri,
+                ResponseMode = _formPost ? AuthorizeResponseMode.FormPost : AuthorizeResponseMode.Redirect,
+                RedirectUri = options.RedirectUri ?? $"https://{_options.Domain}/mobile",
+                PostLogoutRedirectUri = options.PostLogoutRedirectUri,
 
                 Policy = {
                     RequireAuthorizationCodeHash = false,
@@ -128,11 +131,11 @@ namespace Auth0.OidcClient
                 }
             };
 
-            if (_options.RefreshTokenMessageHandler != null)
-                oidcClientOptions.RefreshTokenInnerHttpHandler = _options.RefreshTokenMessageHandler;
+            if (options.RefreshTokenMessageHandler != null)
+                oidcClientOptions.RefreshTokenInnerHttpHandler = options.RefreshTokenMessageHandler;
 
-            if (_options.BackchannelHandler != null)
-                oidcClientOptions.BackchannelHandler = _options.BackchannelHandler;
+            if (options.BackchannelHandler != null)
+                oidcClientOptions.BackchannelHandler = options.BackchannelHandler;
 
             return oidcClientOptions;
         }
