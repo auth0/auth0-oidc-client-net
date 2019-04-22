@@ -11,7 +11,7 @@
         /// </summary>
         /// <param name="options">The <see cref="Auth0ClientOptions"/> specifying the configuration for the Auth0 OIDC Client.</param>
         public Auth0Client(Auth0ClientOptions options)
-            : base(options, "wpf")
+            : base(options, "winforms")
         {
             options.Browser = options.Browser ?? new PlatformWebView();
         }
