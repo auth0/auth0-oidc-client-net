@@ -1,7 +1,6 @@
-﻿using System;
-using System.Diagnostics;
+﻿using Auth0.OidcClient;
+using System;
 using System.Windows.Forms;
-using Auth0.OidcClient;
 
 namespace WindowsFormsTestApp
 {
@@ -9,9 +8,12 @@ namespace WindowsFormsTestApp
     {
         private Auth0Client _auth0Client;
 
+        private Action<string> writeLine;
+        
         public Form1()
         {
             InitializeComponent();
+            writeLine = (s) => outputTextBox.Text += s + "\r\n";
 
             _auth0Client = new Auth0Client(new Auth0ClientOptions
             {
@@ -20,33 +22,39 @@ namespace WindowsFormsTestApp
             });
         }
 
-        private async void button1_Click(object sender, EventArgs e)
+        private async void LoginButton_Click(object sender, EventArgs e)
         {
+            writeLine("Starting login...");
+
             var loginResult = await _auth0Client.LoginAsync();
 
             if (loginResult.IsError)
             {
-                Debug.WriteLine($"An error occurred during login: {loginResult.Error}");
+                writeLine($"An error occurred during login: {loginResult.Error}");
             }
             else
             {
-                Debug.WriteLine($"id_token: {loginResult.IdentityToken}");
-                Debug.WriteLine($"access_token: {loginResult.AccessToken}");
-                Debug.WriteLine($"refresh_token: {loginResult.RefreshToken}");
+                writeLine($"id_token: {loginResult.IdentityToken}");
+                writeLine($"access_token: {loginResult.AccessToken}");
+                writeLine($"refresh_token: {loginResult.RefreshToken}");
 
-                Debug.WriteLine($"name: {loginResult.User.FindFirst(c => c.Type == "name")?.Value}");
-                Debug.WriteLine($"email: {loginResult.User.FindFirst(c => c.Type == "email")?.Value}");
+                writeLine($"name: {loginResult.User.FindFirst(c => c.Type == "name")?.Value}");
+                writeLine($"email: {loginResult.User.FindFirst(c => c.Type == "email")?.Value}");
 
                 foreach (var claim in loginResult.User.Claims)
                 {
-                    Debug.WriteLine($"{claim.Type} = {claim.Value}");
+                    writeLine($"{claim.Type} = {claim.Value}");
                 }
             }
         }
 
-        private async void button2_Click(object sender, EventArgs e)
+        private async void LogoutButton_Click(object sender, EventArgs e)
         {
-            await _auth0Client.LogoutAsync();
+            writeLine("Starting logout...");
+
+            var result = await _auth0Client.LogoutAsync();
+
+            writeLine(result.ToString());
         }
     }
 }
