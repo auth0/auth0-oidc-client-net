@@ -44,13 +44,18 @@ namespace Auth0.OidcClient
 		            options.EndUrl,
 		            (callbackUrl, error) =>
 		            {
+                        var browserResult = new BrowserResult();
+
 		                if (error != null)
 		                {
-		                    tcs.SetResult(new BrowserResult
-		                    {
-		                        ResultType = BrowserResultType.UserCancel,
-		                        Error = error.ToString()
-		                    });
+                            if (error.Code == (long)ASWebAuthenticationSessionErrorCode.CanceledLogin)
+                                browserResult.ResultType = BrowserResultType.UserCancel;
+                            else
+                                browserResult.ResultType = BrowserResultType.UnknownError;
+
+                            browserResult.Error = error.ToString();
+
+                            tcs.SetResult(browserResult);
 		                }
 		                else
 		                {
@@ -74,13 +79,18 @@ namespace Auth0.OidcClient
                     options.EndUrl,
                     (callbackUrl, error) =>
                     {
+                        var browserResult = new BrowserResult();
+
                         if (error != null)
                         {
-                            tcs.SetResult(new BrowserResult
-                            {
-                                ResultType = BrowserResultType.UserCancel,
-                                Error = error.ToString()
-                            });
+                            if (error.Code == (long)SFAuthenticationError.CanceledLogin)
+                                browserResult.ResultType = BrowserResultType.UserCancel;
+                            else
+                                browserResult.ResultType = BrowserResultType.UnknownError;
+
+                            browserResult.Error = error.ToString();
+
+                            tcs.SetResult(browserResult);
                         }
                         else
                         {
