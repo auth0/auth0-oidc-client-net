@@ -10,10 +10,28 @@ namespace Auth0.OidcClient
     public class PlatformWebView : IBrowser
     {
         private readonly Func<Window> _windowFactory;
+        private readonly bool _shouldCloseWindow;
 
-        public PlatformWebView(Func<Window> windowFactory)
+        /// <summary>
+        /// Constructor which lets you pass in your WPF window and window closing property
+        /// </summary>
+        /// <param name="windowFactory"> </param>
+        /// <param name="shouldCloseWindow"> Determines whether the window closes or not after sucessful login</param>
+        /// <example> 
+        /// This sample shows how to call the <see cref="PlatformWebView(Func&lt;Window&gt;, bool)"/> constructor.
+        /// <code>
+        /// Window ReturnWindow()
+        /// {
+        ///     return window; // your WPF application window where you want the login to pop up
+        /// }
+        /// Func&lt;Window&gt; windowFunc = ReturnWindow;
+        /// PlatformWebView platformWebView = new PlatformWebView(windowFunc, shouldCloseWindow: false); // specify false if you want the window to remain open
+        /// </code>
+        /// </example>
+        public PlatformWebView(Func<Window> windowFactory, bool shouldCloseWindow = true)
         {
             _windowFactory = windowFactory;
+            _shouldCloseWindow = shouldCloseWindow;
         }
 
         public PlatformWebView(string title = "Authenticating ...", int width = 1024, int height = 768)
@@ -24,13 +42,18 @@ namespace Auth0.OidcClient
                 Width = width,
                 Height = height
             })
-        { }
+        {
+            _shouldCloseWindow = true;
+        }
+
         public async Task<BrowserResult> InvokeAsync(BrowserOptions options)
         {
             var window = _windowFactory.Invoke();
+
             try
             {
                 var grid = new Grid();
+
                 window.Content = grid;
                 var browser = new WebBrowser();
 
@@ -64,11 +87,19 @@ namespace Auth0.OidcClient
 
                 await signal.WaitAsync();
 
+                if (!_shouldCloseWindow)
+                {
+                    grid.Children.Clear();
+                }
+
                 return result;
             }
             finally
             {
-                window.Close();
+                if (_shouldCloseWindow)
+                {
+                    window.Close();
+                }
             }
         }
     }

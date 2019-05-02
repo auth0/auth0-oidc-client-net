@@ -20,8 +20,8 @@ namespace UwpTestApp
 
             _auth0Client = new Auth0Client(new Auth0ClientOptions
             {
-                Domain = "jerrie.auth0.com",
-                ClientId = "vV9twaySQzfGesS9Qs6gOgqDsYDdgoKE"
+                Domain = "auth0-dotnet-integration-tests.auth0.com",
+                ClientId = "qmss9A66stPWTOXjR6X1OeA0DLadoNP2"
             });
         }
 
