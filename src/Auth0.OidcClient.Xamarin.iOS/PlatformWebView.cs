@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using AuthenticationServices;
 using Foundation;
 using IdentityModel.OidcClient.Browser;
 using SafariServices;
@@ -7,9 +8,10 @@ using UIKit;
 
 namespace Auth0.OidcClient
 {
-	public class PlatformWebView : SFSafariViewControllerDelegate, IBrowser
+    public class PlatformWebView : SFSafariViewControllerDelegate, IBrowser
     {
-        private SFAuthenticationSession _authSession;
+        private SFAuthenticationSession _sfWebAuthenticationSession;
+        private ASWebAuthenticationSession _asWebAuthenticationSession;
         private SFSafariViewController _safari;
 
         public override void DidFinish(SFSafariViewController controller)
@@ -33,22 +35,27 @@ namespace Auth0.OidcClient
 			// with setting the task result
 			var tcs = new TaskCompletionSource<BrowserResult>();
 
-            // For iOS 11, we use the new SFAuthenticationSession
-            if (UIDevice.CurrentDevice.CheckSystemVersion(11, 0))
+            // For iOS 12, we use ASWebAuthenticationSession
+            if (UIDevice.CurrentDevice.CheckSystemVersion(12, 0))
 		    {
 		        // create the authentication session
-		        _authSession = new SFAuthenticationSession(
+		        _asWebAuthenticationSession = new ASWebAuthenticationSession(
 		            new NSUrl(options.StartUrl),
 		            options.EndUrl,
 		            (callbackUrl, error) =>
 		            {
+                        var browserResult = new BrowserResult();
+
 		                if (error != null)
 		                {
-		                    tcs.SetResult(new BrowserResult
-		                    {
-		                        ResultType = BrowserResultType.UserCancel,
-		                        Error = error.ToString()
-		                    });
+                            if (error.Code == (long)ASWebAuthenticationSessionErrorCode.CanceledLogin)
+                                browserResult.ResultType = BrowserResultType.UserCancel;
+                            else
+                                browserResult.ResultType = BrowserResultType.UnknownError;
+
+                            browserResult.Error = error.ToString();
+
+                            tcs.SetResult(browserResult);
 		                }
 		                else
 		                {
@@ -60,9 +67,44 @@ namespace Auth0.OidcClient
 		                }
 		            });
 
-		        // launch authentication session
-		        _authSession.Start();
+                // launch authentication session
+                _asWebAuthenticationSession.Start();
 		    }
+            // For iOS 11, we use SFAuthenticationSession
+            else if (UIDevice.CurrentDevice.CheckSystemVersion(11, 0))
+            {
+                // create the authentication session
+                _sfWebAuthenticationSession = new SFAuthenticationSession(
+                    new NSUrl(options.StartUrl),
+                    options.EndUrl,
+                    (callbackUrl, error) =>
+                    {
+                        var browserResult = new BrowserResult();
+
+                        if (error != null)
+                        {
+                            if (error.Code == (long)SFAuthenticationError.CanceledLogin)
+                                browserResult.ResultType = BrowserResultType.UserCancel;
+                            else
+                                browserResult.ResultType = BrowserResultType.UnknownError;
+
+                            browserResult.Error = error.ToString();
+
+                            tcs.SetResult(browserResult);
+                        }
+                        else
+                        {
+                            tcs.SetResult(new BrowserResult
+                            {
+                                ResultType = BrowserResultType.Success,
+                                Response = callbackUrl.AbsoluteString
+                            });
+                        }
+                    });
+
+                // launch authentication session
+                _sfWebAuthenticationSession.Start();
+            }
             else // For pre-iOS 11, we use a normal SFSafariViewController
             {
 		        // create Safari controller
