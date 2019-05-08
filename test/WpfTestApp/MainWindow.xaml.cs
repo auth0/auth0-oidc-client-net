@@ -23,7 +23,7 @@ namespace WpfTestApp
             });
         }
 
-        private async void button_Click(object sender, RoutedEventArgs e)
+        private async void LoginButton_Click(object sender, RoutedEventArgs e)
         {
             var loginResult = await _auth0Client.LoginAsync();
 

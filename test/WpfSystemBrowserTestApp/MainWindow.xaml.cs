@@ -4,9 +4,6 @@ using Auth0.OidcClient;
 
 namespace WpfSystemBrowserTestApp
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         private Auth0Client _auth0Client;
@@ -26,7 +23,7 @@ namespace WpfSystemBrowserTestApp
             });
         }
 
-        private async void button_Click(object sender, RoutedEventArgs e)
+        private async void LoginButton_Click(object sender, RoutedEventArgs e)
         {
             var loginResult = await _auth0Client.LoginAsync();
 

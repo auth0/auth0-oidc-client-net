@@ -3,8 +3,6 @@ using Windows.UI.Xaml.Controls;
 using System.Text;
 using Auth0.OidcClient;
 
-// The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
-
 namespace UwpTestApp
 {
     /// <summary>
@@ -16,7 +14,7 @@ namespace UwpTestApp
 
         public MainPage()
         {
-            this.InitializeComponent();
+            InitializeComponent();
 
             _auth0Client = new Auth0Client(new Auth0ClientOptions
             {
@@ -25,7 +23,7 @@ namespace UwpTestApp
             });
         }
 
-        private async void button_Click(object sender, RoutedEventArgs e)
+        private async void LoginButton_Click(object sender, RoutedEventArgs e)
         {
             resultTextBox.Text = "";
 
@@ -39,7 +37,7 @@ namespace UwpTestApp
             }
 
             // Display result
-            StringBuilder sb = new StringBuilder();
+            var sb = new StringBuilder();
 
             sb.AppendLine("Tokens");
             sb.AppendLine("------");

@@ -3,11 +3,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WpfSystemBrowserTestApp"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        <Button x:Name="button" Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="10,10,0,0" Click="button_Click"/>
+        <Button x:Name="loginButton" Content="Login" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="10,10,0,0" Click="LoginButton_Click"/>
         <Button x:Name="logoutButton" Content="Logout" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="100,10,0,0" Click="LogoutButton_OnClick"/>
     </Grid>
 </Window>

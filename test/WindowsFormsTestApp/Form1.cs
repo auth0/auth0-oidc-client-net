@@ -7,7 +7,6 @@ namespace WindowsFormsTestApp
     public partial class Form1 : Form
     {
         private Auth0Client _auth0Client;
-
         private Action<string> writeLine;
         
         public Form1()
