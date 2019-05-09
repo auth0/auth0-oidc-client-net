@@ -1,26 +1,29 @@
-﻿using System;
-using System.Diagnostics;
-using System.Windows.Forms;
+﻿using System.Diagnostics;
+using System.Windows;
 using Auth0.OidcClient;
 
-namespace WindowsFormsTestApp
+namespace WpfTestApp
 {
-    public partial class Form1 : Form
+    /// <summary>
+    /// Interaction logic for MainWindow.xaml
+    /// </summary>
+    public partial class MainWindow : Window
     {
-        private Auth0Client _auth0Client;
+        private readonly Auth0Client _auth0Client;
 
-        public Form1()
+        public MainWindow()
         {
             InitializeComponent();
 
             _auth0Client = new Auth0Client(new Auth0ClientOptions
             {
                 Domain = "auth0-dotnet-integration-tests.auth0.com",
-                ClientId = "qmss9A66stPWTOXjR6X1OeA0DLadoNP2"
+                ClientId = "qmss9A66stPWTOXjR6X1OeA0DLadoNP2",
+                Scope = "openid profile email"
             });
         }
 
-        private async void button1_Click(object sender, EventArgs e)
+        private async void LoginButton_Click(object sender, RoutedEventArgs e)
         {
             var loginResult = await _auth0Client.LoginAsync();
 
@@ -44,7 +47,7 @@ namespace WindowsFormsTestApp
             }
         }
 
-        private async void button2_Click(object sender, EventArgs e)
+        private async void LogoutButton_OnClick(object sender, RoutedEventArgs e)
         {
             await _auth0Client.LogoutAsync();
         }
