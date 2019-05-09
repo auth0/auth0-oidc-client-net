@@ -5,8 +5,8 @@ The Auth0 OIDC Client allows you to add authentication for your .NET Client appl
 * Universal Windows Platform
 * Windows Presentation Foundation (.NET 4.52 and higher)
 * Windows Forms (.NET 4.52 and higher)
-* Xamarin (iOS)
-* Xamarin (Android)
+* iOS (uses Xamarin)
+* Android (uses Xamarin)
 
 ## Quick Start
 
@@ -35,13 +35,13 @@ Install-Package Auth0.OidcClient.WPF
 Install-Package Auth0.OidcClient.WinForms
 ```
 
-**Xamarin (iOS)**
+**iOS (uses Xamarin)**
 
 ```text
 Install-Package Auth0.OidcClient.iOS
 ```
 
-**Xamarin (Android)**
+**Android (uses Xamarin)**
 
 ```text
 Install-Package Auth0.OidcClient.Android

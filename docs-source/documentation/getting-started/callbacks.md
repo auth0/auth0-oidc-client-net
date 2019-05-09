@@ -48,7 +48,7 @@ For example:
 https://contoso.auth0.com/mobile
 ```
 
-## Windows Forms
+## Windows Forms (WinForms)
 
 Use the following callback URL:
 
@@ -62,7 +62,7 @@ For example:
 https://contoso.auth0.com/mobile
 ```
 
-## Xamarin (iOS)
+## iOS (uses Xamarin)
 
 For iOS your Callback URL needs to be in the following format:
 
@@ -76,7 +76,7 @@ Where `YOUR_BUNDLE_IDENTIFIER` is the Bundle Identifier of your application. So 
 com.contoso.myapp://contoso.auth0.com/ios/com.contoso.myapp/callback
 ```
 
-## Xamarin (Android)
+## Android (uses Xamarin)
 
 For Android your Callback URL needs to be in the following format:
 

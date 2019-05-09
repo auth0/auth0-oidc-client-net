@@ -7,8 +7,8 @@ NuGet packages are available for the following platforms:
 * Universal Windows Platform
 * Windows Presentation Foundation
 * Windows Forms
-* Xamarin (iOS)
-* Xamarin (Android)
+* iOS (uses Xamarin)
+* Android (uses Xamarin)
 
 ## Universal Windows Platform (UWP)
 
@@ -28,13 +28,13 @@ Install-Package Auth0.OidcClient.WPF
 Install-Package Auth0.OidcClient.WinForms
 ```
 
-## Xamarin (iOS)
+## iOS (uses Xamarin)
 
 ```text
 Install-Package Auth0.OidcClient.iOS
 ```
 
-## Xamarin (Android)
+## Android (uses Xamarin)
 
 ```text
 Install-Package Auth0.OidcClient.Android
