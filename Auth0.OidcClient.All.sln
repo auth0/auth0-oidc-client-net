@@ -29,7 +29,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPF", "test\WPF\WPF.csproj"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Auth0.OidcClient.Android", "src\Auth0.OidcClient.Android\Auth0.OidcClient.Android.csproj", "{A18A146B-FB5A-4AB8-8F1C-501E58AA7D4D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Auth0.OidcClient.Xamarin.iOS", "src\Auth0.OidcClient.Xamarin.iOS\Auth0.OidcClient.Xamarin.iOS.csproj", "{D6CD228A-D8FA-4250-B770-CCC9CCD5698B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Auth0.OidcClient.iOS", "src\Auth0.OidcClient.iOS\Auth0.OidcClient.iOS.csproj", "{D6CD228A-D8FA-4250-B770-CCC9CCD5698B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Android", "test\Android\Android.csproj", "{59F6811C-4F4F-4EFD-B46D-F1434830200C}"
 EndProject
