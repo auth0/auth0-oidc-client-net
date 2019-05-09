@@ -43,7 +43,7 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="../src/Auth0.OidcClient.Xamarin.iOS/bin/Release/Auth0.OidcClient.dll" target="lib\Xamarin.iOS10" />
-    <file src="../src/Auth0.OidcClient.Xamarin.iOS/bin/Release/Auth0.OidcClient.xml" target="lib\Xamarin.iOS10" />
+    <file src="../src/Auth0.OidcClient.iOS/bin/Release/Auth0.OidcClient.dll" target="lib\Xamarin.iOS10" />
+    <file src="../src/Auth0.OidcClient.iOS/bin/Release/Auth0.OidcClient.xml" target="lib\Xamarin.iOS10" />
   </files>
 </package>
