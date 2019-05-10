@@ -14,52 +14,42 @@ namespace Auth0.OidcClient
             _enableWindowsAuthentication = enableWindowsAuthentication;
         }
 
+        private async Task<BrowserResult> InvokeLogoutAsync(Uri logoutUri)
+        {
+            try
+            {
+                await WebAuthenticationBroker.AuthenticateAsync(WebAuthenticationOptions.SilentMode, logoutUri);
+            }
+            catch
+            {
+            }
+
+            return new BrowserResult
+            {
+                ResultType = BrowserResultType.Success,
+                Response = String.Empty
+            };
+        }
+
         private async Task<BrowserResult> InvokeAsyncCore(BrowserOptions options, bool silentMode)
         {
-            bool isLogout = false;
-            var wabOptions = WebAuthenticationOptions.None;
+            var startUri = new Uri(options.StartUrl);
+            if (startUri.AbsolutePath.StartsWith("/v2/logout", StringComparison.OrdinalIgnoreCase))
+                return await InvokeLogoutAsync(startUri);
 
-            if (_enableWindowsAuthentication)
-            {
-                wabOptions |= WebAuthenticationOptions.UseCorporateNetwork;
-            }
-            if (silentMode)
-            {
-                wabOptions |= WebAuthenticationOptions.SilentMode;
-            }
+            WebAuthenticationOptions webAuthOptions = ConfigureWebAuthOptions(silentMode);
 
             WebAuthenticationResult wabResult = null;
 
             try
             {
-                // Check for logout
-                Uri startUri = new Uri(options.StartUrl);
-                if (startUri.AbsolutePath.StartsWith("/v2/logout", StringComparison.OrdinalIgnoreCase))
+                if (string.Equals(options.EndUrl, WebAuthenticationBroker.GetCurrentApplicationCallbackUri().AbsoluteUri, StringComparison.Ordinal))
                 {
-                    isLogout = true;
-
-                    // See http://www.cloudidentity.com/blog/2014/11/21/getting-rid-of-residual-cookies-in-windows-store-apps/
-                    try
-                    {
-                        await WebAuthenticationBroker.AuthenticateAsync(WebAuthenticationOptions.SilentMode, new Uri(options.StartUrl));
-                    }
-                    catch (Exception)
-                    {
-                        // timeout. That's expected
-                    }
+                    wabResult = await WebAuthenticationBroker.AuthenticateAsync(webAuthOptions, new Uri(options.StartUrl));
                 }
                 else
                 {
-                    if (string.Equals(options.EndUrl, WebAuthenticationBroker.GetCurrentApplicationCallbackUri().AbsoluteUri, StringComparison.Ordinal))
-                    {
-                        wabResult = await WebAuthenticationBroker.AuthenticateAsync(
-                            wabOptions, new Uri(options.StartUrl));
-                    }
-                    else
-                    {
-                        wabResult = await WebAuthenticationBroker.AuthenticateAsync(
-                            wabOptions, new Uri(options.StartUrl), new Uri(options.EndUrl));
-                    }
+                    wabResult = await WebAuthenticationBroker.AuthenticateAsync(webAuthOptions, new Uri(options.StartUrl), new Uri(options.EndUrl));
                 }
             }
             catch (Exception ex)
@@ -71,59 +61,50 @@ namespace Auth0.OidcClient
                 };
             }
 
-            if (wabResult == null ) 
+            switch (wabResult.ResponseStatus)
             {
-                if (isLogout)
-                {
+                case WebAuthenticationStatus.Success:
                     return new BrowserResult
                     {
                         ResultType = BrowserResultType.Success,
-                        Response = String.Empty
+                        // Windows IoT Core adds a \0 char at the end of the ResponseData
+                        // when doing response_mode=form_post, so we remove it here
+                        // to avoid breaking the response processor.
+                        Response = wabResult.ResponseData?.Replace("\0", string.Empty)
                     };
-                }
 
-                return new BrowserResult
-                {
-                    ResultType = BrowserResultType.UnknownError,
-                    Error = "Invalid response from WebAuthenticationBroker"
-                };
+                case WebAuthenticationStatus.ErrorHttp:
+                    return new BrowserResult
+                    {
+                        ResultType = BrowserResultType.HttpError,
+                        Error = wabResult.ResponseErrorDetail.ToString()
+                    };
+
+                case WebAuthenticationStatus.UserCancel:
+                    return new BrowserResult
+                    {
+                        ResultType = BrowserResultType.UserCancel
+                    };
+
+                default:
+                    return new BrowserResult
+                    {
+                        ResultType = BrowserResultType.UnknownError,
+                        Error = "Invalid response from WebAuthenticationBroker"
+                    };
             }
+        }
 
-            if (wabResult.ResponseStatus == WebAuthenticationStatus.Success)
-            {
-                return new BrowserResult
-                {
-                    ResultType = BrowserResultType.Success,
-                    
-                    // Windows IoT Core adds a \0 char at the end of the ResponseData
-                    // when doing response_mode=form_post, so we remove it here
-                    // to avoid breaking the response processor.
-                    Response = wabResult.ResponseData?.Replace("\0", string.Empty)
-                };
-            }
+        private WebAuthenticationOptions ConfigureWebAuthOptions(bool silentMode)
+        {
+            var wabOptions = WebAuthenticationOptions.None;
 
-            if (wabResult.ResponseStatus == WebAuthenticationStatus.ErrorHttp)
-            {
-                return new BrowserResult
-                {
-                    ResultType = BrowserResultType.HttpError,
-                    Error = wabResult.ResponseErrorDetail.ToString()
-                };
-            }
+            if (_enableWindowsAuthentication)
+                wabOptions |= WebAuthenticationOptions.UseCorporateNetwork;
+            if (silentMode)
+                wabOptions |= WebAuthenticationOptions.SilentMode;
 
-            if (wabResult.ResponseStatus == WebAuthenticationStatus.UserCancel)
-            {
-                return new BrowserResult
-                {
-                    ResultType = BrowserResultType.UserCancel
-                };
-            }
-
-            return new BrowserResult
-            {
-                ResultType = BrowserResultType.UnknownError,
-                Error = "Invalid response from WebAuthenticationBroker"
-            };
+            return wabOptions;
         }
 
         public async Task<BrowserResult> InvokeAsync(BrowserOptions options)
