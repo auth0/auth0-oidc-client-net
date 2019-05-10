@@ -3,14 +3,11 @@ using Windows.UI.Xaml.Controls;
 using System.Text;
 using Auth0.OidcClient;
 
-namespace UwpTestApp
+namespace UWPTestApp
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
     public sealed partial class MainPage : Page
     {
-        private Auth0Client _auth0Client;
+        private readonly Auth0Client _auth0Client;
 
         public MainPage()
         {

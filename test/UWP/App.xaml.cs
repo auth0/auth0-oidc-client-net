@@ -5,7 +5,7 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 
-namespace UwpTestApp
+namespace UWPTestApp
 {
     /// <summary>
     /// Provides application-specific behavior to supplement the default Application class.
@@ -32,7 +32,6 @@ namespace UwpTestApp
 #if DEBUG
             if (System.Diagnostics.Debugger.IsAttached)
             {
-                this.DebugSettings.EnableFrameRateCounter = true;
                 System.Diagnostics.Debug.WriteLine(Windows.Security.Authentication.Web.WebAuthenticationBroker.GetCurrentApplicationCallbackUri());
             }
 #endif
