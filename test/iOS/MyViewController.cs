@@ -3,7 +3,7 @@ using UIKit;
 using Auth0.OidcClient;
 using System.Text;
 
-namespace XamariniOSTestApp
+namespace iOSTestApp
 {
 	public partial class MyViewController : UIViewController
 	{

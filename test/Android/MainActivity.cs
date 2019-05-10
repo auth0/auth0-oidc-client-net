@@ -2,21 +2,20 @@
 using Android.Content;
 using Android.OS;
 using Android.Widget;
-using IdentityModel.OidcClient;
+using Auth0.OidcClient;
 using System;
 using System.Text;
-using Auth0.OidcClient;
 
-namespace XamarinAndroidTestApp
+namespace AndroidTestApp
 {
-    [Activity(Label = "XamarinAndroidTestApp", MainLauncher = true, Icon = "@drawable/icon",
+    [Activity(Label = "AndroidTestApp", MainLauncher = true, Icon = "@drawable/icon",
         LaunchMode = Android.Content.PM.LaunchMode.SingleTask)]
     [IntentFilter(
         new[] { Intent.ActionView },
         Categories = new[] { Intent.CategoryDefault, Intent.CategoryBrowsable },
-        DataScheme = "xamarinandroidtestapp.xamarinandroidtestapp",
+        DataScheme = "androidtestapp.androidtestapp",
         DataHost = "@string/auth0_domain",
-        DataPathPrefix = "/android/xamarinandroidtestapp.xamarinandroidtestapp/callback")]
+        DataPathPrefix = "/android/androidtestapp.androidtestapp/callback")]
     public class MainActivity : Activity
     {
         private Auth0Client _client;

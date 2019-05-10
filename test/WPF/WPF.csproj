@@ -7,8 +7,8 @@
     <ProjectGuid>{004EB46A-7001-4158-BEA4-40C21F863BBF}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>WpfTestApp</RootNamespace>
-    <AssemblyName>WpfTestApp</AssemblyName>
+    <RootNamespace>WPFTestApp</RootNamespace>
+    <AssemblyName>WPFTestApp</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
