@@ -1,9 +1,7 @@
-﻿using System;
+﻿using IdentityModel.OidcClient.Browser;
+using System;
 using System.Threading.Tasks;
-using Windows.Foundation.Collections;
 using Windows.Security.Authentication.Web;
-using IdentityModel.OidcClient;
-using IdentityModel.OidcClient.Browser;
 
 namespace Auth0.OidcClient
 {
@@ -21,10 +19,6 @@ namespace Auth0.OidcClient
             bool isLogout = false;
             var wabOptions = WebAuthenticationOptions.None;
 
-            if (options.ResponseMode == OidcClientOptions.AuthorizeResponseMode.FormPost)
-            {
-                wabOptions |= WebAuthenticationOptions.UseHttpPost;
-            }
             if (_enableWindowsAuthentication)
             {
                 wabOptions |= WebAuthenticationOptions.UseCorporateNetwork;

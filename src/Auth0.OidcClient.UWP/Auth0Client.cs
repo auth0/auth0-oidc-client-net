@@ -13,7 +13,7 @@ namespace Auth0.OidcClient
         /// </summary>
         /// <param name="options">The <see cref="Auth0ClientOptions"/> specifying the configuration for the Auth0 OIDC Client.</param>
         public Auth0Client(Auth0ClientOptions options)
-            : base(options, "uwp", true)
+            : base(options, "uwp")
         {
             options.Browser = options.Browser ?? new PlatformWebView();
             options.RedirectUri = options.RedirectUri ?? WebAuthenticationBroker.GetCurrentApplicationCallbackUri().AbsoluteUri;

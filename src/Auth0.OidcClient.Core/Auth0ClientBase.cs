@@ -27,12 +27,10 @@ namespace Auth0.OidcClient
         /// </summary>
         /// <param name="options">The <see cref="Auth0ClientOptions"/> specifying the configuration for the Auth0 OIDC Client.</param>
         /// <param name="platformName">The platform name that forms part of the user-agent when communicating with Auth0 servers.</param>
-        /// <param name="formPost">Optionally whether to use a form post instead of a redirect using authentication.</param>
-        public Auth0ClientBase(Auth0ClientOptions options, string platformName, bool formPost = false)
+        public Auth0ClientBase(Auth0ClientOptions options, string platformName)
         {
             _options = options;
             _userAgent = CreateAgentString(platformName);
-            _formPost = formPost;
         }
 
         /// <inheritdoc/>
