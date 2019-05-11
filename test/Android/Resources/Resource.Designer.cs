@@ -9,9 +9,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: global::Android.Runtime.ResourceDesignerAttribute("XamarinAndroidTestApp.Resource", IsApplication=true)]
+[assembly: global::Android.Runtime.ResourceDesignerAttribute("AndroidTestApp.Resource", IsApplication=true)]
 
-namespace XamarinAndroidTestApp
+namespace AndroidTestApp
 {
 	
 	
@@ -26,8 +26,8 @@ namespace XamarinAndroidTestApp
 		
 		public static void UpdateIdValues()
 		{
-			global::Auth0.OidcClient.Resource.String.ApplicationName = global::XamarinAndroidTestApp.Resource.String.ApplicationName;
-			global::Auth0.OidcClient.Resource.String.Hello = global::XamarinAndroidTestApp.Resource.String.Hello;
+			global::Auth0.OidcClient.Resource.String.ApplicationName = global::AndroidTestApp.Resource.String.ApplicationName;
+			global::Auth0.OidcClient.Resource.String.Hello = global::AndroidTestApp.Resource.String.Hello;
 		}
 		
 		public partial class Attribute

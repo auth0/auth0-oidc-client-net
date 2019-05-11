@@ -4,12 +4,12 @@ using System.Windows.Forms;
 
 namespace WindowsFormsTestApp
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
         private Auth0Client _auth0Client;
         private Action<string> writeLine;
         
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
             writeLine = (s) => outputTextBox.Text += s + "\r\n";

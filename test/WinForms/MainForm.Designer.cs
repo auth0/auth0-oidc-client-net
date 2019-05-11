@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsTestApp
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -65,7 +65,7 @@
             this.outputTextBox.Size = new System.Drawing.Size(259, 208);
             this.outputTextBox.TabIndex = 2;
             // 
-            // Form1
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -74,7 +74,7 @@
             this.Controls.Add(this.logoutButton);
             this.Controls.Add(this.loginButton);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Name = "Form1";
+            this.Name = "MainForm";
             this.Text = "WinForms Test";
             this.ResumeLayout(false);
             this.PerformLayout();

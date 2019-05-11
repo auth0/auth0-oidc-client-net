@@ -3,14 +3,11 @@ using Windows.UI.Xaml.Controls;
 using System.Text;
 using Auth0.OidcClient;
 
-namespace UwpTestApp
+namespace UWPTestApp
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
     public sealed partial class MainPage : Page
     {
-        private Auth0Client _auth0Client;
+        private readonly Auth0Client _auth0Client;
 
         public MainPage()
         {
@@ -49,16 +46,16 @@ namespace UwpTestApp
             sb.AppendLine("Claims");
             sb.AppendLine("------");
             foreach (var claim in loginResult.User.Claims)
-            {
                 sb.AppendLine($"{claim.Type}: {claim.Value}");
-            }
 
             resultTextBox.Text = sb.ToString();
         }
 
         private async void LogoutButton_OnClick(object sender, RoutedEventArgs e)
         {
-            await _auth0Client.LogoutAsync();
+            resultTextBox.Text = "Logging out...";
+            var result = await _auth0Client.LogoutAsync();
+            resultTextBox.Text += "\n" + result.ToString();
         }
     }
 }

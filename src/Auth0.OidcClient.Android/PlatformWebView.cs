@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace Auth0.OidcClient
 {
-
     class PlatformWebView : IBrowser
     {
         public Task<BrowserResult> InvokeAsync(BrowserOptions options)
