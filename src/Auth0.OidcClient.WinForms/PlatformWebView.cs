@@ -1,9 +1,11 @@
-﻿using System;
+﻿// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
+// Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
+
+using IdentityModel.OidcClient.Browser;
+using System;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using IdentityModel.OidcClient;
-using IdentityModel.OidcClient.Browser;
 
 namespace Auth0.OidcClient
 {
@@ -25,8 +27,6 @@ namespace Auth0.OidcClient
                 Height = height
             })
         { }
-
-        //public event EventHandler<HiddenModeFailedEventArgs> HiddenModeFailed;
 
         public async Task<BrowserResult> InvokeAsync(BrowserOptions options)
         {
@@ -58,17 +58,10 @@ namespace Auth0.OidcClient
 
                 browser.DocumentCompleted += (o, e) =>
                 {
-                    if (e.Url.ToString().StartsWith(options.EndUrl))
+                    if (e.Url.AbsoluteUri.StartsWith(options.EndUrl))
                     {
                         result.ResultType = BrowserResultType.Success;
-                        if (options.ResponseMode == OidcClientOptions.AuthorizeResponseMode.FormPost)
-                        {
-                            //result.Response = Encoding.UTF8.GetString(e.PostData ?? new byte[] { });
-                        }
-                        else
-                        {
-                            result.Response = e.Url.ToString();
-                        }
+                        result.Response = e.Url.ToString();
                         signal.Release();
                     }
                 };
@@ -76,34 +69,10 @@ namespace Auth0.OidcClient
                 form.Controls.Add(browser);
                 browser.Show();
 
-                System.Threading.Timer timer = null;
-                if (options.DisplayMode != DisplayMode.Visible)
-                {
-                    //result.ResultType = InvokeResultType.Timeout;
-                    //timer = new System.Threading.Timer((o) =>
-                    //{
-                    //    var args = new HiddenModeFailedEventArgs(result);
-                    //    HiddenModeFailed?.Invoke(this, args);
-                    //    if (args.Cancel)
-                    //    {
-                    //        browser.Stop();
-                    //        form.Invoke(new Action(() => form.Close()));
-                    //    }
-                    //    else
-                    //    {
-                    //        form.Invoke(new Action(() => form.Show()));
-                    //    }
-                    //}, null, (int)options.InvisibleModeTimeout.TotalSeconds * 1000, Timeout.Infinite);
-                }
-                else
-                {
-                    form.Show();
-                }
-
+                form.Show();
                 browser.Navigate(options.StartUrl);
 
                 await signal.WaitAsync();
-                if (timer != null) timer.Change(Timeout.Infinite, Timeout.Infinite);
 
                 form.Hide();
                 browser.Hide();
