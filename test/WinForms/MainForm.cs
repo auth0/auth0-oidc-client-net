@@ -23,6 +23,7 @@ namespace WindowsFormsTestApp
 
         private async void LoginButton_Click(object sender, EventArgs e)
         {
+            outputTextBox.Text = "";
             writeLine("Starting login...");
 
             var loginResult = await _auth0Client.LoginAsync();
@@ -49,6 +50,7 @@ namespace WindowsFormsTestApp
 
         private async void LogoutButton_Click(object sender, EventArgs e)
         {
+            outputTextBox.Text = "";
             writeLine("Starting logout...");
 
             var result = await _auth0Client.LogoutAsync();
