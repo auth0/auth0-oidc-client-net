@@ -53,9 +53,7 @@ namespace Auth0.OidcClient
         {
             get
             {
-                if (_oidcClient == null)
-                    _oidcClient = new IdentityModel.OidcClient.OidcClient(CreateOidcClientOptions(_options));
-                return _oidcClient;
+                return _oidcClient ?? (_oidcClient = new IdentityModel.OidcClient.OidcClient(CreateOidcClientOptions(_options)));
             }
         }
 
@@ -68,7 +66,7 @@ namespace Auth0.OidcClient
                 { "returnTo", OidcClient.Options.PostLogoutRedirectUri }
             };
 
-            string endSessionUrl = new RequestUrl($"https://{_options.Domain}/v2/logout").Create(logoutParameters);
+            var endSessionUrl = new RequestUrl($"https://{_options.Domain}/v2/logout").Create(logoutParameters);
             if (federated)
                 endSessionUrl += "&federated";
 

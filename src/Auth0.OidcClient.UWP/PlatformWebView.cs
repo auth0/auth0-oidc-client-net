@@ -14,6 +14,30 @@ namespace Auth0.OidcClient
             _enableWindowsAuthentication = enableWindowsAuthentication;
         }
 
+        public async Task<BrowserResult> InvokeAsync(BrowserOptions options)
+        {
+            if (string.IsNullOrWhiteSpace(options.StartUrl)) throw new ArgumentException("Missing StartUrl", nameof(options));
+
+            var startUri = new Uri(options.StartUrl);
+            if (startUri.AbsolutePath.StartsWith("/v2/logout", StringComparison.OrdinalIgnoreCase))
+                return await InvokeLogoutAsync(startUri);
+
+            try
+            {
+                var authOptions = ConfigureWebAuthOptions(options.DisplayMode);
+                var authResult = await WebAuthenticationBroker.AuthenticateAsync(authOptions, startUri, new Uri(options.EndUrl));
+                return CreateBrowserResult(authResult);
+            }
+            catch (Exception ex)
+            {
+                return new BrowserResult
+                {
+                    ResultType = BrowserResultType.UnknownError,
+                    Error = ex.ToString()
+                };
+            }
+        }
+
         private async Task<BrowserResult> InvokeLogoutAsync(Uri logoutUri)
         {
             try
@@ -31,37 +55,9 @@ namespace Auth0.OidcClient
             };
         }
 
-        private async Task<BrowserResult> InvokeAsyncCore(BrowserOptions options, bool silentMode)
+        private static BrowserResult CreateBrowserResult(WebAuthenticationResult authResult)
         {
-            var startUri = new Uri(options.StartUrl);
-            if (startUri.AbsolutePath.StartsWith("/v2/logout", StringComparison.OrdinalIgnoreCase))
-                return await InvokeLogoutAsync(startUri);
-
-            WebAuthenticationOptions webAuthOptions = ConfigureWebAuthOptions(silentMode);
-
-            WebAuthenticationResult wabResult = null;
-
-            try
-            {
-                if (string.Equals(options.EndUrl, WebAuthenticationBroker.GetCurrentApplicationCallbackUri().AbsoluteUri, StringComparison.Ordinal))
-                {
-                    wabResult = await WebAuthenticationBroker.AuthenticateAsync(webAuthOptions, new Uri(options.StartUrl));
-                }
-                else
-                {
-                    wabResult = await WebAuthenticationBroker.AuthenticateAsync(webAuthOptions, new Uri(options.StartUrl), new Uri(options.EndUrl));
-                }
-            }
-            catch (Exception ex)
-            {
-                return new BrowserResult
-                {
-                    ResultType = BrowserResultType.UnknownError,
-                    Error = ex.ToString()
-                };
-            }
-
-            switch (wabResult.ResponseStatus)
+            switch (authResult.ResponseStatus)
             {
                 case WebAuthenticationStatus.Success:
                     return new BrowserResult
@@ -70,14 +66,14 @@ namespace Auth0.OidcClient
                         // Windows IoT Core adds a \0 char at the end of the ResponseData
                         // when doing response_mode=form_post, so we remove it here
                         // to avoid breaking the response processor.
-                        Response = wabResult.ResponseData?.Replace("\0", string.Empty)
+                        Response = authResult.ResponseData?.Replace("\0", string.Empty)
                     };
 
                 case WebAuthenticationStatus.ErrorHttp:
                     return new BrowserResult
                     {
                         ResultType = BrowserResultType.HttpError,
-                        Error = wabResult.ResponseErrorDetail.ToString()
+                        Error = authResult.ResponseErrorDetail.ToString()
                     };
 
                 case WebAuthenticationStatus.UserCancel:
@@ -95,42 +91,24 @@ namespace Auth0.OidcClient
             }
         }
 
-        private WebAuthenticationOptions ConfigureWebAuthOptions(bool silentMode)
+        private WebAuthenticationOptions ConfigureWebAuthOptions(DisplayMode mode)
         {
-            var wabOptions = WebAuthenticationOptions.None;
+            var options = WebAuthenticationOptions.None;
 
             if (_enableWindowsAuthentication)
-                wabOptions |= WebAuthenticationOptions.UseCorporateNetwork;
-            if (silentMode)
-                wabOptions |= WebAuthenticationOptions.SilentMode;
+                options |= WebAuthenticationOptions.UseCorporateNetwork;
 
-            return wabOptions;
-        }
-
-        public async Task<BrowserResult> InvokeAsync(BrowserOptions options)
-        {
-            if (string.IsNullOrWhiteSpace(options.StartUrl)) throw new ArgumentException("Missing StartUrl", nameof(options));
-            if (string.IsNullOrWhiteSpace(options.EndUrl)) throw new ArgumentException("Missing EndUrl", nameof(options));
-
-            switch (options.DisplayMode)
+            switch (mode)
             {
                 case DisplayMode.Visible:
-                    return await InvokeAsyncCore(options, false);
+                    return options;
 
                 case DisplayMode.Hidden:
-                    var result = await InvokeAsyncCore(options, true);
-                    if (result.ResultType == BrowserResultType.Success)
-                    {
-                        return result;
-                    }
-                    else
-                    {
-                        result.ResultType = BrowserResultType.Timeout;
-                        return result;
-                    }
-            }
+                    return options | WebAuthenticationOptions.SilentMode;
 
-            throw new ArgumentException("Invalid DisplayMode", nameof(options));
+                default:
+                    throw new ArgumentException("Invalid DisplayMode", nameof(options));
+            }
         }
     }
 }

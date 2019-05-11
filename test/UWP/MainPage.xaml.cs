@@ -46,16 +46,16 @@ namespace UWPTestApp
             sb.AppendLine("Claims");
             sb.AppendLine("------");
             foreach (var claim in loginResult.User.Claims)
-            {
                 sb.AppendLine($"{claim.Type}: {claim.Value}");
-            }
 
             resultTextBox.Text = sb.ToString();
         }
 
         private async void LogoutButton_OnClick(object sender, RoutedEventArgs e)
         {
-            await _auth0Client.LogoutAsync();
+            resultTextBox.Text = "Logging out...";
+            var result = await _auth0Client.LogoutAsync();
+            resultTextBox.Text += "\n" + result.ToString();
         }
     }
 }
