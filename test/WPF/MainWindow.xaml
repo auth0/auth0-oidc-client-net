@@ -8,5 +8,6 @@
     <Grid>
         <Button x:Name="loginButton" Content="Login" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="10,10,0,0" Click="LoginButton_Click"/>
         <Button x:Name="logoutButton" Content="Logout" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="100,10,0,0" Click="LogoutButton_OnClick"/>
+        <TextBox x:Name="outputText" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,40,10,10" IsReadOnly="True" />
     </Grid>
 </Window>

@@ -1,19 +1,18 @@
-﻿using System.Diagnostics;
+﻿using System;
 using System.Windows;
 using Auth0.OidcClient;
 
 namespace WpfTestApp
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         private readonly Auth0Client _auth0Client;
+        private readonly Action<string> writeLine;
 
         public MainWindow()
         {
             InitializeComponent();
+            writeLine = (text) => outputText.Text += text + "\n";
 
             _auth0Client = new Auth0Client(new Auth0ClientOptions
             {
@@ -25,31 +24,37 @@ namespace WpfTestApp
 
         private async void LoginButton_Click(object sender, RoutedEventArgs e)
         {
+            outputText.Text = "";
+            writeLine("Logging in...");
             var loginResult = await _auth0Client.LoginAsync();
 
             if (loginResult.IsError)
             {
-                Debug.WriteLine($"An error occurred during login: {loginResult.Error}");
+                writeLine($"An error occurred during login: {loginResult.Error}");
             }
             else
             {
-                Debug.WriteLine($"id_token: {loginResult.IdentityToken}");
-                Debug.WriteLine($"access_token: {loginResult.AccessToken}");
-                Debug.WriteLine($"refresh_token: {loginResult.RefreshToken}");
+                writeLine($"id_token: {loginResult.IdentityToken}");
+                writeLine($"access_token: {loginResult.AccessToken}");
+                writeLine($"refresh_token: {loginResult.RefreshToken}");
 
-                Debug.WriteLine($"name: {loginResult.User.FindFirst(c => c.Type == "name")?.Value}");
-                Debug.WriteLine($"email: {loginResult.User.FindFirst(c => c.Type == "email")?.Value}");
+                writeLine($"name: {loginResult.User.FindFirst(c => c.Type == "name")?.Value}");
+                writeLine($"email: {loginResult.User.FindFirst(c => c.Type == "email")?.Value}");
 
                 foreach (var claim in loginResult.User.Claims)
                 {
-                    Debug.WriteLine($"{claim.Type} = {claim.Value}");
+                    writeLine($"{claim.Type} = {claim.Value}");
                 }
             }
         }
 
         private async void LogoutButton_OnClick(object sender, RoutedEventArgs e)
         {
-            await _auth0Client.LogoutAsync();
+            outputText.Text = "";
+            writeLine("Logging out...");
+
+            var logoutResult = await _auth0Client.LogoutAsync();
+            writeLine(logoutResult.ToString());
         }
     }
 }

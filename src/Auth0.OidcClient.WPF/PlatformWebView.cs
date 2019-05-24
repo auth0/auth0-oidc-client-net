@@ -13,7 +13,7 @@ namespace Auth0.OidcClient
         private readonly bool _shouldCloseWindow;
 
         /// <summary>
-        /// Constructor which lets you pass in your WPF window and window closing property
+        /// Constructor which lets you pass in your WPF window and window closing choice.
         /// </summary>
         /// <param name="windowFactory"> </param>
         /// <param name="shouldCloseWindow"> Determines whether the window closes or not after sucessful login</param>
@@ -43,64 +43,52 @@ namespace Auth0.OidcClient
                 Height = height
             })
         {
-            _shouldCloseWindow = true;
         }
 
         public async Task<BrowserResult> InvokeAsync(BrowserOptions options)
         {
             var window = _windowFactory.Invoke();
+            var result = new BrowserResult
+            {
+                ResultType = BrowserResultType.UserCancel
+            };
 
             try
             {
-                var grid = new Grid();
-
-                window.Content = grid;
                 var browser = new WebBrowser();
-
                 var signal = new SemaphoreSlim(0, 1);
-
-                var result = new BrowserResult
-                {
-                    ResultType = BrowserResultType.UserCancel
-                };
 
                 window.Closed += (o, e) =>
                 {
                     signal.Release();
                 };
-                browser.LoadCompleted += (sender, args) =>
+
+                browser.LoadCompleted += (s, e) =>
                 {
-                    if (args.Uri.ToString().StartsWith(options.EndUrl))
+                    if (e.Uri.ToString().StartsWith(options.EndUrl))
                     {
                         result.ResultType = BrowserResultType.Success;
-
-                        result.Response = args.Uri.ToString();
-
+                        result.Response = e.Uri.ToString();
                         signal.Release();
                     }
                 };
 
-                grid.Children.Add(browser);
+                window.Content = browser;
                 window.Show();
 
                 browser.Navigate(options.StartUrl);
 
                 await signal.WaitAsync();
-
-                if (!_shouldCloseWindow)
-                {
-                    grid.Children.Clear();
-                }
-
-                return result;
             }
             finally
             {
                 if (_shouldCloseWindow)
-                {
                     window.Close();
-                }
+                else
+                    window.Content = null;
             }
+
+            return result;
         }
     }
 }
