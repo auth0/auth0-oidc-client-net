@@ -106,6 +106,11 @@ namespace Auth0.OidcClient
             return OidcClient.RefreshTokenAsync(refreshToken, extraParameters);
         }
 
+        public Task<UserInfoResult> GetUserInfoAsync(string accessToken)
+        {
+            return OidcClient.GetUserInfoAsync(accessToken);
+        }
+
         private OidcClientOptions CreateOidcClientOptions(Auth0ClientOptions options)
         {
             var oidcClientOptions = new OidcClientOptions

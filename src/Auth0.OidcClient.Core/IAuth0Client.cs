@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Threading;
+using System.Threading.Tasks;
 using IdentityModel.OidcClient;
 using IdentityModel.OidcClient.Browser;
 using IdentityModel.OidcClient.Results;
@@ -65,5 +66,16 @@ namespace Auth0.OidcClient
         /// <param name="extraParameters">Additional parameters to send to the refresh endpoint.</param>
         /// <returns>A <see cref="RefreshTokenResult"/> with the refreshed tokens.</returns>
         Task<RefreshTokenResult> RefreshTokenAsync(string refreshToken, object extraParameters);
+
+        /// <summary>
+        /// Gets the user claims from the userinfo endpoint.
+        /// </summary>
+        /// <param name="accessToken">The access token.</param>
+        /// <returns>
+        /// User claims
+        /// </returns>
+        /// <exception cref="ArgumentNullException">accessToken</exception>
+        /// <exception cref="InvalidOperationException">No userinfo endpoint specified</exception>
+        Task<UserInfoResult> GetUserInfoAsync(string accessToken);
     }
 }
