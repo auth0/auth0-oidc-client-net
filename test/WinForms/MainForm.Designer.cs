@@ -46,7 +46,7 @@
             // logoutButton
             // 
             this.logoutButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.logoutButton.Location = new System.Drawing.Point(197, 9);
+            this.logoutButton.Location = new System.Drawing.Point(319, 9);
             this.logoutButton.Name = "logoutButton";
             this.logoutButton.Size = new System.Drawing.Size(75, 23);
             this.logoutButton.TabIndex = 1;
@@ -62,14 +62,14 @@
             this.outputTextBox.Location = new System.Drawing.Point(13, 41);
             this.outputTextBox.Multiline = true;
             this.outputTextBox.Name = "outputTextBox";
-            this.outputTextBox.Size = new System.Drawing.Size(259, 208);
+            this.outputTextBox.Size = new System.Drawing.Size(381, 352);
             this.outputTextBox.TabIndex = 2;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.ClientSize = new System.Drawing.Size(406, 405);
             this.Controls.Add(this.outputTextBox);
             this.Controls.Add(this.logoutButton);
             this.Controls.Add(this.loginButton);
