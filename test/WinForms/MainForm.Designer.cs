@@ -31,6 +31,7 @@
             this.loginButton = new System.Windows.Forms.Button();
             this.logoutButton = new System.Windows.Forms.Button();
             this.outputTextBox = new System.Windows.Forms.TextBox();
+            this.userInfoButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // loginButton
@@ -62,14 +63,26 @@
             this.outputTextBox.Location = new System.Drawing.Point(13, 41);
             this.outputTextBox.Multiline = true;
             this.outputTextBox.Name = "outputTextBox";
+            this.outputTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.outputTextBox.Size = new System.Drawing.Size(381, 352);
             this.outputTextBox.TabIndex = 2;
+            // 
+            // userInfoButton
+            // 
+            this.userInfoButton.Location = new System.Drawing.Point(166, 9);
+            this.userInfoButton.Name = "userInfoButton";
+            this.userInfoButton.Size = new System.Drawing.Size(75, 23);
+            this.userInfoButton.TabIndex = 3;
+            this.userInfoButton.Text = "User info";
+            this.userInfoButton.UseVisualStyleBackColor = true;
+            this.userInfoButton.Click += new System.EventHandler(this.UserInfoButton_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(406, 405);
+            this.Controls.Add(this.userInfoButton);
             this.Controls.Add(this.outputTextBox);
             this.Controls.Add(this.logoutButton);
             this.Controls.Add(this.loginButton);
@@ -86,6 +99,7 @@
         private System.Windows.Forms.Button loginButton;
         private System.Windows.Forms.Button logoutButton;
         private System.Windows.Forms.TextBox outputTextBox;
+        private System.Windows.Forms.Button userInfoButton;
     }
 }
 

@@ -7,7 +7,8 @@
         Title="MainWindow" Height="350" Width="525">
     <Grid>
         <Button x:Name="loginButton" Content="Login" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="10,10,0,0" Click="LoginButton_Click"/>
-        <Button x:Name="logoutButton" Content="Logout" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="100,10,0,0" Click="LogoutButton_OnClick"/>
-        <TextBox x:Name="outputText" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,40,10,10" IsReadOnly="True" />
+        <Button x:Name="userInfoButton" Content="User info" HorizontalAlignment="Center" VerticalAlignment="Top" Width="75" Margin="0,10,0,0" Click="UserInfoButton_Click"/>
+        <Button x:Name="logoutButton" Content="Logout" HorizontalAlignment="Right" VerticalAlignment="Top" Width="75" Margin="0,10,10,0" Click="LogoutButton_OnClick"/>
+        <TextBox x:Name="outputText" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,40,10,10" IsReadOnly="True" HorizontalScrollBarVisibility="Auto"/>
     </Grid>
 </Window>

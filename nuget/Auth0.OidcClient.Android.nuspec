@@ -14,7 +14,8 @@
     <releaseNotes>
       Version 2.4.0
       - Added support to get the user claims from the userinfo endpoint
-      
+      - Updated dependency on IdentityModel.OidcClient to v2.9.0
+
       Version 2.3.1
       - Handle null-terminated POST bodies
 
