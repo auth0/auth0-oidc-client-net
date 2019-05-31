@@ -41,7 +41,7 @@
       Version 1.0.0
       - Initial version of Package
     </releaseNotes>
-    <copyright>Copyright 2017</copyright>
+    <copyright>Copyright 2017-2019 Auth0, Inc.</copyright>
     <tags>Auth0 OIDC WinForms</tags>
     <dependencies>
       <group targetFramework="net452">
