@@ -106,6 +106,12 @@ namespace Auth0.OidcClient
             return OidcClient.RefreshTokenAsync(refreshToken, extraParameters);
         }
 
+        /// <inheritdoc/>
+        public Task<UserInfoResult> GetUserInfoAsync(string accessToken)
+        {
+            return OidcClient.GetUserInfoAsync(accessToken);
+        }
+
         private OidcClientOptions CreateOidcClientOptions(Auth0ClientOptions options)
         {
             var oidcClientOptions = new OidcClientOptions
@@ -119,7 +125,7 @@ namespace Auth0.OidcClient
                 Flow = AuthenticationFlow.AuthorizationCode,
                 ResponseMode = _formPost ? AuthorizeResponseMode.FormPost : AuthorizeResponseMode.Redirect,
                 RedirectUri = options.RedirectUri ?? $"https://{_options.Domain}/mobile",
-                PostLogoutRedirectUri = options.PostLogoutRedirectUri,
+                PostLogoutRedirectUri = options.PostLogoutRedirectUri ?? $"https://{_options.Domain}/mobile",
 
                 Policy = {
                     RequireAuthorizationCodeHash = false,

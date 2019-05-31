@@ -7,8 +7,9 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" >
-        <Button x:Name="loginButton" Content="Login" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" Click="LoginButton_Click"/>
-        <Button x:Name="logoutButton" Content="Logout" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="80,10,0,0" Click="LogoutButton_OnClick"/>
+        <Button x:Name="loginButton" Content="Login" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10" Click="LoginButton_Click"/>
+        <Button x:Name="userInfoButton" Content="User info" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10" Click="UserInfoButton_Click"/>
+        <Button x:Name="logoutButton" Content="Logout" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10" Click="LogoutButton_OnClick"/>
         <TextBlock x:Name="textBlock_Copy" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Result:" VerticalAlignment="Top" Margin="10,54,0,0"/>
         <TextBox x:Name="resultTextBox" TextWrapping="Wrap" Text="" Margin="10,79,10,10"/>
     </Grid>
