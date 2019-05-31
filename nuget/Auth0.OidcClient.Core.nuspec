@@ -14,6 +14,7 @@
     <releaseNotes>
       Version 2.4.0
       - Added support to get the user claims from the userinfo endpoint
+      - Updated dependency on IdentityModel.OidcClient to v2.9.0
 
       Version 2.3.1
       - Handle null-terminated POST bodies
@@ -35,13 +36,13 @@
     <tags>Auth0 OIDC Android MonoAndroid</tags>
     <dependencies>
       <group targetFramework="net452">
-        <dependency id="IdentityModel.OidcClient" version="2.7.0" />
+        <dependency id="IdentityModel.OidcClient" version="2.9.0" />
       </group>
       <group targetFramework="netstandard1.4">
-        <dependency id="IdentityModel.OidcClient" version="2.7.0" />
+        <dependency id="IdentityModel.OidcClient" version="2.9.0" />
       </group>
       <group targetFramework="netstandard2.0">
-        <dependency id="IdentityModel.OidcClient" version="2.7.0" />
+        <dependency id="IdentityModel.OidcClient" version="2.9.0" />
       </group>
     </dependencies>
   </metadata>

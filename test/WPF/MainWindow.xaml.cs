@@ -8,6 +8,7 @@ namespace WpfTestApp
     {
         private readonly Auth0Client _auth0Client;
         private readonly Action<string> writeLine;
+        private string accessToken;
 
         public MainWindow()
         {
@@ -34,6 +35,8 @@ namespace WpfTestApp
             }
             else
             {
+                accessToken = loginResult.AccessToken;
+
                 writeLine($"id_token: {loginResult.IdentityToken}");
                 writeLine($"access_token: {loginResult.AccessToken}");
                 writeLine($"refresh_token: {loginResult.RefreshToken}");
@@ -54,7 +57,34 @@ namespace WpfTestApp
             writeLine("Logging out...");
 
             var logoutResult = await _auth0Client.LogoutAsync();
-            writeLine(logoutResult.ToString());
+            accessToken = null;
+            writeLine(logoutResult.ToString());            
+        }
+
+        private async void UserInfoButton_Click(object sender, RoutedEventArgs e)
+        {
+            outputText.Text = "";
+            writeLine("Getting user info...");
+            if (string.IsNullOrEmpty(accessToken))
+            {
+                writeLine("You need to be logged in to get user info");
+            }
+            else
+            {
+                var userInfoResult = await _auth0Client.GetUserInfoAsync(accessToken);
+
+                if (userInfoResult.IsError)
+                {
+                    writeLine($"An error occurred getting user info: {userInfoResult.Error}");
+                }
+                else
+                {
+                    foreach (var claim in userInfoResult.Claims)
+                    {
+                        writeLine($"{claim.Type} = {claim.Value}");
+                    }
+                }
+            }            
         }
     }
 }

@@ -8,7 +8,8 @@ namespace WindowsFormsTestApp
     {
         private Auth0Client _auth0Client;
         private Action<string> writeLine;
-        
+        private string accessToken;
+
         public MainForm()
         {
             InitializeComponent();
@@ -34,6 +35,8 @@ namespace WindowsFormsTestApp
             }
             else
             {
+                accessToken = loginResult.AccessToken;
+
                 writeLine($"id_token: {loginResult.IdentityToken}");
                 writeLine($"access_token: {loginResult.AccessToken}");
                 writeLine($"refresh_token: {loginResult.RefreshToken}");
@@ -54,8 +57,34 @@ namespace WindowsFormsTestApp
             writeLine("Starting logout...");
 
             var result = await _auth0Client.LogoutAsync();
+            accessToken = null;
+            writeLine(result.ToString());            
+        }
 
-            writeLine(result.ToString());
+        private async void UserInfoButton_Click(object sender, EventArgs e)
+        {
+            outputTextBox.Text = "";
+            writeLine("Getting user info...");
+            if (string.IsNullOrEmpty(accessToken))
+            {
+                writeLine("You need to be logged in to get user info");
+            }
+            else
+            {
+                var userInfoResult = await _auth0Client.GetUserInfoAsync(accessToken);
+
+                if (userInfoResult.IsError)
+                {
+                    writeLine($"An error occurred getting user info: {userInfoResult.Error}");
+                }
+                else
+                {
+                    foreach (var claim in userInfoResult.Claims)
+                    {
+                        writeLine($"{claim.Type} = {claim.Value}");
+                    }
+                }
+            }
         }
     }
 }

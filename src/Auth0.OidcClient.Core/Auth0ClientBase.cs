@@ -106,6 +106,7 @@ namespace Auth0.OidcClient
             return OidcClient.RefreshTokenAsync(refreshToken, extraParameters);
         }
 
+        /// <inheritdoc/>
         public Task<UserInfoResult> GetUserInfoAsync(string accessToken)
         {
             return OidcClient.GetUserInfoAsync(accessToken);
