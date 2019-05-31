@@ -47,8 +47,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ActivityMediator.cs" />
+    <Compile Include="AndroidWebViewBase.cs" />
     <Compile Include="Auth0Client.cs" />
-    <Compile Include="PlatformWebView.cs" />
+    <Compile Include="ChromeCustomTabsWebView.cs" />
+    <Compile Include="SystemBrowserWebView.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -64,6 +66,9 @@
   <ItemGroup>
     <PackageReference Include="IdentityModel.OidcClient">
       <Version>2.9.0</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Android.Support.CustomTabs">
+      <Version>28.0.0.1</Version>
     </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />

@@ -25,7 +25,6 @@ namespace AndroidTestApp
         protected override void OnNewIntent(Intent intent)
         {
             base.OnNewIntent(intent);
-
             ActivityMediator.Instance.Send(intent.DataString);
         }
 
@@ -55,9 +54,7 @@ namespace AndroidTestApp
         private async void LogoutButtonOnClick(object sender, EventArgs e)
         {
             _userDetailsTextView.Text = "Starting Logout process...";
-
             var logoutResult = await _client.LogoutAsync();
-
             _userDetailsTextView.Text = logoutResult == BrowserResultType.Success
                 ? "Logout completed successfully"
                 : $"Logout failed - ${logoutResult}";
@@ -66,29 +63,26 @@ namespace AndroidTestApp
         private async void LoginButtonOnClick(object sender, EventArgs eventArgs)
         {
             _userDetailsTextView.Text = "Starting Login process...";
-
-            // Call the login method
             var loginResult = await _client.LoginAsync();
+            _userDetailsTextView.Text = BuildLoginResultMessage(loginResult);
+        }
+
+        private static string BuildLoginResultMessage(IdentityModel.OidcClient.LoginResult loginResult)
+        {
+            if (loginResult.IsError)
+                return $"Login failed - {loginResult.Error}";
 
             var sb = new StringBuilder();
-            if (loginResult.IsError)
-            {
-                sb.AppendLine($"Login failed - {loginResult.Error}");
-            }
-            else
-            {
-                sb.AppendLine("-- Claims --");
-                foreach (var claim in loginResult.User.Claims)
-                    sb.AppendLine($"{claim.Type} = {claim.Value}");
+            sb.AppendLine("-- Claims --");
+            foreach (var claim in loginResult.User.Claims)
+                sb.AppendLine($"{claim.Type} = {claim.Value}");
 
-                sb.AppendLine();
+            sb.AppendLine();
+            sb.AppendLine($"ID Token: {loginResult.IdentityToken}");
+            sb.AppendLine($"Access Token: {loginResult.AccessToken}");
+            sb.AppendLine($"Refresh Token: {loginResult.RefreshToken}");
 
-                sb.AppendLine($"ID Token: {loginResult.IdentityToken}");
-                sb.AppendLine($"Access Token: {loginResult.AccessToken}");
-                sb.AppendLine($"Refresh Token: {loginResult.RefreshToken}");
-            }
-
-            _userDetailsTextView.Text = sb.ToString();
+            return sb.ToString();
         }
     }
 }
