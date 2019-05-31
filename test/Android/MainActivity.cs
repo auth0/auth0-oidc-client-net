@@ -17,16 +17,10 @@ namespace AndroidTestApp
         DataScheme = "androidtestapp.androidtestapp",
         DataHost = "@string/auth0_domain",
         DataPathPrefix = "/android/androidtestapp.androidtestapp/callback")]
-    public class MainActivity : Activity
+    public class MainActivity : Auth0ClientActivity
     {
         private Auth0Client _client;
         private TextView _userDetailsTextView;
-
-        protected override void OnNewIntent(Intent intent)
-        {
-            base.OnNewIntent(intent);
-            ActivityMediator.Instance.Send(intent.DataString);
-        }
 
         protected override void OnCreate(Bundle bundle)
         {

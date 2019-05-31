@@ -49,6 +49,7 @@
     <Compile Include="ActivityMediator.cs" />
     <Compile Include="AndroidWebViewBase.cs" />
     <Compile Include="Auth0Client.cs" />
+    <Compile Include="Auth0ClientActivity.cs" />
     <Compile Include="ChromeCustomTabsWebView.cs" />
     <Compile Include="SystemBrowserWebView.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
