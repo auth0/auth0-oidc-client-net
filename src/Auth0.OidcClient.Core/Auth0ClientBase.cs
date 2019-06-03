@@ -19,7 +19,6 @@ namespace Auth0.OidcClient
     {
         private readonly Auth0ClientOptions _options;
         private readonly string _userAgent;
-        private readonly bool _formPost;
         private IdentityModel.OidcClient.OidcClient _oidcClient;
 
         /// <summary>
@@ -123,7 +122,7 @@ namespace Auth0.OidcClient
                 LoadProfile = options.LoadProfile,
                 Browser = options.Browser,
                 Flow = AuthenticationFlow.AuthorizationCode,
-                ResponseMode = _formPost ? AuthorizeResponseMode.FormPost : AuthorizeResponseMode.Redirect,
+                ResponseMode = AuthorizeResponseMode.Redirect,
                 RedirectUri = options.RedirectUri ?? $"https://{_options.Domain}/mobile",
                 PostLogoutRedirectUri = options.PostLogoutRedirectUri ?? $"https://{_options.Domain}/mobile",
 
