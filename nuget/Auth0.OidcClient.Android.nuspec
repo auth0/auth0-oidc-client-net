@@ -13,7 +13,10 @@
     <description>Auth0 OIDC Client for Xamarin Android applications</description>
     <releaseNotes>
       Version 2.4.0
-      - Added support to get the user claims from the userinfo endpoint
+      - Add support to get the user claims from the userinfo endpoint
+      - Add support for ChromeCustomTabs browser and made it default
+      - Add new Auth0ClientActivity class to help in wiring up ActivityMediator
+      - Renamed old PlatformView browser SystemBrowserWebView
       - Updated dependency on IdentityModel.OidcClient to v2.9.0
 
       Version 2.3.1
@@ -41,7 +44,7 @@
       Version 1.0.0
       - Initial version of Package
     </releaseNotes>
-    <copyright>Copyright 2017</copyright>
+    <copyright>Copyright 2017-2019 Auth0, Inc.</copyright>
     <tags>Auth0 OIDC Android MonoAndroid</tags>
     <dependencies>
       <group targetFramework="MonoAndroid10">

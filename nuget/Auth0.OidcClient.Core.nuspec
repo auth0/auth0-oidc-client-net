@@ -32,7 +32,7 @@
       Version 2.0.0
       - Initial release with support for Xamarin Forms
     </releaseNotes>
-    <copyright>Copyright 2017</copyright>
+    <copyright>Copyright 2017-2019 Auth0, Inc.</copyright>
     <tags>Auth0 OIDC Android MonoAndroid</tags>
     <dependencies>
       <group targetFramework="net452">

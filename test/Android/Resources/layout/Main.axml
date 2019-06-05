@@ -15,7 +15,7 @@
         android:text="@string/Logout" />
     <TextView
         android:id="@+id/UserDetailsTextView"
-        android:text="Text"
+		android:scrollbars="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 </LinearLayout>
