@@ -13,6 +13,7 @@
     <description>Auth0 OIDC Client for Windows Forms applications</description>
     <releaseNotes>
       Version 2.4.0
+      - Add return code status for Logout
       - Added support to get the user claims from the userinfo endpoint
       - Updated dependency on IdentityModel.OidcClient to v2.9.0
 
