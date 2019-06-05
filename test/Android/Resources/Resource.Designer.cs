@@ -26,105 +26,8 @@ namespace AndroidTestApp
 		
 		public static void UpdateIdValues()
 		{
-			global::Auth0.OidcClient.Resource.Attribute.font = global::AndroidTestApp.Resource.Attribute.font;
-			global::Auth0.OidcClient.Resource.Attribute.fontProviderAuthority = global::AndroidTestApp.Resource.Attribute.fontProviderAuthority;
-			global::Auth0.OidcClient.Resource.Attribute.fontProviderCerts = global::AndroidTestApp.Resource.Attribute.fontProviderCerts;
-			global::Auth0.OidcClient.Resource.Attribute.fontProviderFetchStrategy = global::AndroidTestApp.Resource.Attribute.fontProviderFetchStrategy;
-			global::Auth0.OidcClient.Resource.Attribute.fontProviderFetchTimeout = global::AndroidTestApp.Resource.Attribute.fontProviderFetchTimeout;
-			global::Auth0.OidcClient.Resource.Attribute.fontProviderPackage = global::AndroidTestApp.Resource.Attribute.fontProviderPackage;
-			global::Auth0.OidcClient.Resource.Attribute.fontProviderQuery = global::AndroidTestApp.Resource.Attribute.fontProviderQuery;
-			global::Auth0.OidcClient.Resource.Attribute.fontStyle = global::AndroidTestApp.Resource.Attribute.fontStyle;
-			global::Auth0.OidcClient.Resource.Attribute.fontWeight = global::AndroidTestApp.Resource.Attribute.fontWeight;
-			global::Auth0.OidcClient.Resource.Boolean.abc_action_bar_embed_tabs = global::AndroidTestApp.Resource.Boolean.abc_action_bar_embed_tabs;
-			global::Auth0.OidcClient.Resource.Color.notification_action_color_filter = global::AndroidTestApp.Resource.Color.notification_action_color_filter;
-			global::Auth0.OidcClient.Resource.Color.notification_icon_bg_color = global::AndroidTestApp.Resource.Color.notification_icon_bg_color;
-			global::Auth0.OidcClient.Resource.Color.ripple_material_light = global::AndroidTestApp.Resource.Color.ripple_material_light;
-			global::Auth0.OidcClient.Resource.Color.secondary_text_default_material_light = global::AndroidTestApp.Resource.Color.secondary_text_default_material_light;
-			global::Auth0.OidcClient.Resource.Dimension.compat_button_inset_horizontal_material = global::AndroidTestApp.Resource.Dimension.compat_button_inset_horizontal_material;
-			global::Auth0.OidcClient.Resource.Dimension.compat_button_inset_vertical_material = global::AndroidTestApp.Resource.Dimension.compat_button_inset_vertical_material;
-			global::Auth0.OidcClient.Resource.Dimension.compat_button_padding_horizontal_material = global::AndroidTestApp.Resource.Dimension.compat_button_padding_horizontal_material;
-			global::Auth0.OidcClient.Resource.Dimension.compat_button_padding_vertical_material = global::AndroidTestApp.Resource.Dimension.compat_button_padding_vertical_material;
-			global::Auth0.OidcClient.Resource.Dimension.compat_control_corner_material = global::AndroidTestApp.Resource.Dimension.compat_control_corner_material;
-			global::Auth0.OidcClient.Resource.Dimension.notification_action_icon_size = global::AndroidTestApp.Resource.Dimension.notification_action_icon_size;
-			global::Auth0.OidcClient.Resource.Dimension.notification_action_text_size = global::AndroidTestApp.Resource.Dimension.notification_action_text_size;
-			global::Auth0.OidcClient.Resource.Dimension.notification_big_circle_margin = global::AndroidTestApp.Resource.Dimension.notification_big_circle_margin;
-			global::Auth0.OidcClient.Resource.Dimension.notification_content_margin_start = global::AndroidTestApp.Resource.Dimension.notification_content_margin_start;
-			global::Auth0.OidcClient.Resource.Dimension.notification_large_icon_height = global::AndroidTestApp.Resource.Dimension.notification_large_icon_height;
-			global::Auth0.OidcClient.Resource.Dimension.notification_large_icon_width = global::AndroidTestApp.Resource.Dimension.notification_large_icon_width;
-			global::Auth0.OidcClient.Resource.Dimension.notification_main_column_padding_top = global::AndroidTestApp.Resource.Dimension.notification_main_column_padding_top;
-			global::Auth0.OidcClient.Resource.Dimension.notification_media_narrow_margin = global::AndroidTestApp.Resource.Dimension.notification_media_narrow_margin;
-			global::Auth0.OidcClient.Resource.Dimension.notification_right_icon_size = global::AndroidTestApp.Resource.Dimension.notification_right_icon_size;
-			global::Auth0.OidcClient.Resource.Dimension.notification_right_side_padding_top = global::AndroidTestApp.Resource.Dimension.notification_right_side_padding_top;
-			global::Auth0.OidcClient.Resource.Dimension.notification_small_icon_background_padding = global::AndroidTestApp.Resource.Dimension.notification_small_icon_background_padding;
-			global::Auth0.OidcClient.Resource.Dimension.notification_small_icon_size_as_large = global::AndroidTestApp.Resource.Dimension.notification_small_icon_size_as_large;
-			global::Auth0.OidcClient.Resource.Dimension.notification_subtext_size = global::AndroidTestApp.Resource.Dimension.notification_subtext_size;
-			global::Auth0.OidcClient.Resource.Dimension.notification_top_pad = global::AndroidTestApp.Resource.Dimension.notification_top_pad;
-			global::Auth0.OidcClient.Resource.Dimension.notification_top_pad_large_text = global::AndroidTestApp.Resource.Dimension.notification_top_pad_large_text;
-			global::Auth0.OidcClient.Resource.Drawable.notification_action_background = global::AndroidTestApp.Resource.Drawable.notification_action_background;
-			global::Auth0.OidcClient.Resource.Drawable.notification_bg = global::AndroidTestApp.Resource.Drawable.notification_bg;
-			global::Auth0.OidcClient.Resource.Drawable.notification_bg_low = global::AndroidTestApp.Resource.Drawable.notification_bg_low;
-			global::Auth0.OidcClient.Resource.Drawable.notification_bg_low_normal = global::AndroidTestApp.Resource.Drawable.notification_bg_low_normal;
-			global::Auth0.OidcClient.Resource.Drawable.notification_bg_low_pressed = global::AndroidTestApp.Resource.Drawable.notification_bg_low_pressed;
-			global::Auth0.OidcClient.Resource.Drawable.notification_bg_normal = global::AndroidTestApp.Resource.Drawable.notification_bg_normal;
-			global::Auth0.OidcClient.Resource.Drawable.notification_bg_normal_pressed = global::AndroidTestApp.Resource.Drawable.notification_bg_normal_pressed;
-			global::Auth0.OidcClient.Resource.Drawable.notification_icon_background = global::AndroidTestApp.Resource.Drawable.notification_icon_background;
-			global::Auth0.OidcClient.Resource.Drawable.notification_template_icon_bg = global::AndroidTestApp.Resource.Drawable.notification_template_icon_bg;
-			global::Auth0.OidcClient.Resource.Drawable.notification_template_icon_low_bg = global::AndroidTestApp.Resource.Drawable.notification_template_icon_low_bg;
-			global::Auth0.OidcClient.Resource.Drawable.notification_tile_bg = global::AndroidTestApp.Resource.Drawable.notification_tile_bg;
-			global::Auth0.OidcClient.Resource.Drawable.notify_panel_notification_icon_bg = global::AndroidTestApp.Resource.Drawable.notify_panel_notification_icon_bg;
-			global::Auth0.OidcClient.Resource.Id.action_container = global::AndroidTestApp.Resource.Id.action_container;
-			global::Auth0.OidcClient.Resource.Id.action_divider = global::AndroidTestApp.Resource.Id.action_divider;
-			global::Auth0.OidcClient.Resource.Id.action_image = global::AndroidTestApp.Resource.Id.action_image;
-			global::Auth0.OidcClient.Resource.Id.action_text = global::AndroidTestApp.Resource.Id.action_text;
-			global::Auth0.OidcClient.Resource.Id.actions = global::AndroidTestApp.Resource.Id.actions;
-			global::Auth0.OidcClient.Resource.Id.async = global::AndroidTestApp.Resource.Id.async;
-			global::Auth0.OidcClient.Resource.Id.blocking = global::AndroidTestApp.Resource.Id.blocking;
-			global::Auth0.OidcClient.Resource.Id.chronometer = global::AndroidTestApp.Resource.Id.chronometer;
-			global::Auth0.OidcClient.Resource.Id.forever = global::AndroidTestApp.Resource.Id.forever;
-			global::Auth0.OidcClient.Resource.Id.icon = global::AndroidTestApp.Resource.Id.icon;
-			global::Auth0.OidcClient.Resource.Id.icon_group = global::AndroidTestApp.Resource.Id.icon_group;
-			global::Auth0.OidcClient.Resource.Id.info = global::AndroidTestApp.Resource.Id.info;
-			global::Auth0.OidcClient.Resource.Id.italic = global::AndroidTestApp.Resource.Id.italic;
-			global::Auth0.OidcClient.Resource.Id.line1 = global::AndroidTestApp.Resource.Id.line1;
-			global::Auth0.OidcClient.Resource.Id.line3 = global::AndroidTestApp.Resource.Id.line3;
-			global::Auth0.OidcClient.Resource.Id.normal = global::AndroidTestApp.Resource.Id.normal;
-			global::Auth0.OidcClient.Resource.Id.notification_background = global::AndroidTestApp.Resource.Id.notification_background;
-			global::Auth0.OidcClient.Resource.Id.notification_main_column = global::AndroidTestApp.Resource.Id.notification_main_column;
-			global::Auth0.OidcClient.Resource.Id.notification_main_column_container = global::AndroidTestApp.Resource.Id.notification_main_column_container;
-			global::Auth0.OidcClient.Resource.Id.right_icon = global::AndroidTestApp.Resource.Id.right_icon;
-			global::Auth0.OidcClient.Resource.Id.right_side = global::AndroidTestApp.Resource.Id.right_side;
-			global::Auth0.OidcClient.Resource.Id.text = global::AndroidTestApp.Resource.Id.text;
-			global::Auth0.OidcClient.Resource.Id.text2 = global::AndroidTestApp.Resource.Id.text2;
-			global::Auth0.OidcClient.Resource.Id.time = global::AndroidTestApp.Resource.Id.time;
-			global::Auth0.OidcClient.Resource.Id.title = global::AndroidTestApp.Resource.Id.title;
-			global::Auth0.OidcClient.Resource.Integer.status_bar_notification_info_maxnum = global::AndroidTestApp.Resource.Integer.status_bar_notification_info_maxnum;
-			global::Auth0.OidcClient.Resource.Layout.notification_action = global::AndroidTestApp.Resource.Layout.notification_action;
-			global::Auth0.OidcClient.Resource.Layout.notification_action_tombstone = global::AndroidTestApp.Resource.Layout.notification_action_tombstone;
-			global::Auth0.OidcClient.Resource.Layout.notification_template_custom_big = global::AndroidTestApp.Resource.Layout.notification_template_custom_big;
-			global::Auth0.OidcClient.Resource.Layout.notification_template_icon_group = global::AndroidTestApp.Resource.Layout.notification_template_icon_group;
-			global::Auth0.OidcClient.Resource.Layout.notification_template_part_chronometer = global::AndroidTestApp.Resource.Layout.notification_template_part_chronometer;
-			global::Auth0.OidcClient.Resource.Layout.notification_template_part_time = global::AndroidTestApp.Resource.Layout.notification_template_part_time;
 			global::Auth0.OidcClient.Resource.String.ApplicationName = global::AndroidTestApp.Resource.String.ApplicationName;
 			global::Auth0.OidcClient.Resource.String.Hello = global::AndroidTestApp.Resource.String.Hello;
-			global::Auth0.OidcClient.Resource.String.status_bar_notification_info_overflow = global::AndroidTestApp.Resource.String.status_bar_notification_info_overflow;
-			global::Auth0.OidcClient.Resource.Style.TextAppearance_Compat_Notification = global::AndroidTestApp.Resource.Style.TextAppearance_Compat_Notification;
-			global::Auth0.OidcClient.Resource.Style.TextAppearance_Compat_Notification_Info = global::AndroidTestApp.Resource.Style.TextAppearance_Compat_Notification_Info;
-			global::Auth0.OidcClient.Resource.Style.TextAppearance_Compat_Notification_Line2 = global::AndroidTestApp.Resource.Style.TextAppearance_Compat_Notification_Line2;
-			global::Auth0.OidcClient.Resource.Style.TextAppearance_Compat_Notification_Time = global::AndroidTestApp.Resource.Style.TextAppearance_Compat_Notification_Time;
-			global::Auth0.OidcClient.Resource.Style.TextAppearance_Compat_Notification_Title = global::AndroidTestApp.Resource.Style.TextAppearance_Compat_Notification_Title;
-			global::Auth0.OidcClient.Resource.Style.Widget_Compat_NotificationActionContainer = global::AndroidTestApp.Resource.Style.Widget_Compat_NotificationActionContainer;
-			global::Auth0.OidcClient.Resource.Style.Widget_Compat_NotificationActionText = global::AndroidTestApp.Resource.Style.Widget_Compat_NotificationActionText;
-			global::Auth0.OidcClient.Resource.Styleable.FontFamily = global::AndroidTestApp.Resource.Styleable.FontFamily;
-			global::Auth0.OidcClient.Resource.Styleable.FontFamily_fontProviderAuthority = global::AndroidTestApp.Resource.Styleable.FontFamily_fontProviderAuthority;
-			global::Auth0.OidcClient.Resource.Styleable.FontFamily_fontProviderCerts = global::AndroidTestApp.Resource.Styleable.FontFamily_fontProviderCerts;
-			global::Auth0.OidcClient.Resource.Styleable.FontFamily_fontProviderFetchStrategy = global::AndroidTestApp.Resource.Styleable.FontFamily_fontProviderFetchStrategy;
-			global::Auth0.OidcClient.Resource.Styleable.FontFamily_fontProviderFetchTimeout = global::AndroidTestApp.Resource.Styleable.FontFamily_fontProviderFetchTimeout;
-			global::Auth0.OidcClient.Resource.Styleable.FontFamily_fontProviderPackage = global::AndroidTestApp.Resource.Styleable.FontFamily_fontProviderPackage;
-			global::Auth0.OidcClient.Resource.Styleable.FontFamily_fontProviderQuery = global::AndroidTestApp.Resource.Styleable.FontFamily_fontProviderQuery;
-			global::Auth0.OidcClient.Resource.Styleable.FontFamilyFont = global::AndroidTestApp.Resource.Styleable.FontFamilyFont;
-			global::Auth0.OidcClient.Resource.Styleable.FontFamilyFont_font = global::AndroidTestApp.Resource.Styleable.FontFamilyFont_font;
-			global::Auth0.OidcClient.Resource.Styleable.FontFamilyFont_fontStyle = global::AndroidTestApp.Resource.Styleable.FontFamilyFont_fontStyle;
-			global::Auth0.OidcClient.Resource.Styleable.FontFamilyFont_fontWeight = global::AndroidTestApp.Resource.Styleable.FontFamilyFont_fontWeight;
 		}
 		
 		public partial class Attribute
@@ -336,29 +239,32 @@ namespace AndroidTestApp
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f09000a
-			public const int LoginButton = 2131296266;
-			
 			// aapt resource value: 0x7f09000b
-			public const int LogoutButton = 2131296267;
-			
-			// aapt resource value: 0x7f09000c
-			public const int UserDetailsTextView = 2131296268;
+			public const int LoginButton = 2131296267;
 			
 			// aapt resource value: 0x7f09000d
-			public const int action_container = 2131296269;
+			public const int LogoutButton = 2131296269;
 			
-			// aapt resource value: 0x7f090019
-			public const int action_divider = 2131296281;
+			// aapt resource value: 0x7f09000c
+			public const int UserButton = 2131296268;
 			
 			// aapt resource value: 0x7f09000e
-			public const int action_image = 2131296270;
+			public const int UserDetailsTextView = 2131296270;
 			
 			// aapt resource value: 0x7f09000f
-			public const int action_text = 2131296271;
+			public const int action_container = 2131296271;
 			
-			// aapt resource value: 0x7f09001a
-			public const int actions = 2131296282;
+			// aapt resource value: 0x7f09001b
+			public const int action_divider = 2131296283;
+			
+			// aapt resource value: 0x7f090010
+			public const int action_image = 2131296272;
+			
+			// aapt resource value: 0x7f090011
+			public const int action_text = 2131296273;
+			
+			// aapt resource value: 0x7f09001c
+			public const int actions = 2131296284;
 			
 			// aapt resource value: 0x7f090005
 			public const int async = 2131296261;
@@ -366,20 +272,20 @@ namespace AndroidTestApp
 			// aapt resource value: 0x7f090006
 			public const int blocking = 2131296262;
 			
-			// aapt resource value: 0x7f090018
-			public const int chronometer = 2131296280;
+			// aapt resource value: 0x7f09001a
+			public const int chronometer = 2131296282;
 			
 			// aapt resource value: 0x7f090007
 			public const int forever = 2131296263;
 			
-			// aapt resource value: 0x7f090011
-			public const int icon = 2131296273;
+			// aapt resource value: 0x7f090013
+			public const int icon = 2131296275;
 			
-			// aapt resource value: 0x7f09001b
-			public const int icon_group = 2131296283;
+			// aapt resource value: 0x7f09001d
+			public const int icon_group = 2131296285;
 			
-			// aapt resource value: 0x7f090014
-			public const int info = 2131296276;
+			// aapt resource value: 0x7f090016
+			public const int info = 2131296278;
 			
 			// aapt resource value: 0x7f090008
 			public const int italic = 2131296264;
@@ -390,23 +296,26 @@ namespace AndroidTestApp
 			// aapt resource value: 0x7f090001
 			public const int line3 = 2131296257;
 			
+			// aapt resource value: 0x7f09000a
+			public const int linearLayout1 = 2131296266;
+			
 			// aapt resource value: 0x7f090009
 			public const int normal = 2131296265;
 			
-			// aapt resource value: 0x7f090016
-			public const int notification_background = 2131296278;
+			// aapt resource value: 0x7f090018
+			public const int notification_background = 2131296280;
+			
+			// aapt resource value: 0x7f090014
+			public const int notification_main_column = 2131296276;
 			
 			// aapt resource value: 0x7f090012
-			public const int notification_main_column = 2131296274;
+			public const int notification_main_column_container = 2131296274;
 			
-			// aapt resource value: 0x7f090010
-			public const int notification_main_column_container = 2131296272;
+			// aapt resource value: 0x7f090017
+			public const int right_icon = 2131296279;
 			
 			// aapt resource value: 0x7f090015
-			public const int right_icon = 2131296277;
-			
-			// aapt resource value: 0x7f090013
-			public const int right_side = 2131296275;
+			public const int right_side = 2131296277;
 			
 			// aapt resource value: 0x7f090002
 			public const int text = 2131296258;
@@ -414,8 +323,8 @@ namespace AndroidTestApp
 			// aapt resource value: 0x7f090003
 			public const int text2 = 2131296259;
 			
-			// aapt resource value: 0x7f090017
-			public const int time = 2131296279;
+			// aapt resource value: 0x7f090019
+			public const int time = 2131296281;
 			
 			// aapt resource value: 0x7f090004
 			public const int title = 2131296260;
@@ -496,10 +405,16 @@ namespace AndroidTestApp
 			public const int Logout = 2130968580;
 			
 			// aapt resource value: 0x7f040005
-			public const int auth0_client_id = 2130968581;
+			public const int UserInfo = 2130968581;
 			
 			// aapt resource value: 0x7f040006
-			public const int auth0_domain = 2130968582;
+			public const int auth0_client_id = 2130968582;
+			
+			// aapt resource value: 0x7f040007
+			public const int auth0_domain = 2130968583;
+			
+			// aapt resource value: 0x7f040008
+			public const int auth0_scope = 2130968584;
 			
 			// aapt resource value: 0x7f040000
 			public const int status_bar_notification_info_overflow = 2130968576;

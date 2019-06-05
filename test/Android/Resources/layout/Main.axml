@@ -1,21 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <Button
-        android:id="@+id/LoginButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/Login" />
-    <Button
-        android:id="@+id/LogoutButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/Logout" />
-    <TextView
-        android:id="@+id/UserDetailsTextView"
-		android:scrollbars="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
+	<LinearLayout
+		android:orientation="horizontal"
+		android:minWidth="25px"
+		android:minHeight="25px"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:id="@+id/linearLayout1">
+		<Button
+			android:id="@+id/LoginButton"
+			android:layout_width="wrap_content"
+			android:layout_height="match_parent"
+			android:text="@string/Login" />
+		<Button
+			android:id="@+id/UserButton"
+			android:layout_width="wrap_content"
+			android:layout_height="match_parent"
+			android:text="@string/UserInfo" />
+		<Button
+			android:id="@+id/LogoutButton"
+			android:layout_width="wrap_content"
+			android:layout_height="match_parent"
+			android:text="@string/Logout" />
+	</LinearLayout>
+	<TextView
+		android:id="@+id/UserDetailsTextView"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent" />
 </LinearLayout>
