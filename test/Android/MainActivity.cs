@@ -27,14 +27,12 @@ namespace AndroidTestApp
         {
             base.OnCreate(bundle);
 
-            var clientOptions = new Auth0ClientOptions
+            _auth0Client = new Auth0Client(new Auth0ClientOptions
             {
                 Domain = Resources.GetString(Resource.String.auth0_domain),
-                ClientId = Resources.GetString(Resource.String.auth0_client_id),
-                Scope = Resources.GetString(Resource.String.auth0_scope)
-            };
-
-            _auth0Client = new Auth0Client(clientOptions);
+                ClientId = "qmss9A66stPWTOXjR6X1OeA0DLadoNP2",
+                Scope = "openid profile email"
+            });
 
             SetContentView(Resource.Layout.Main);
             FindViewById<Button>(Resource.Id.LoginButton).Click += LoginButtonOnClick;
@@ -42,9 +40,6 @@ namespace AndroidTestApp
 
             _userDetailsTextView = FindViewById<TextView>(Resource.Id.UserDetailsTextView);
             _userDetailsTextView.MovementMethod = new ScrollingMovementMethod();
-            _userDetailsTextView.Text = $"App ID is {clientOptions.ClientId}\n" +
-                $"Ensure Allowed Callback URLs includes\n\n{clientOptions.RedirectUri}\n\n" +
-                $"and Allowed Logout URLs includes\n\n{clientOptions.PostLogoutRedirectUri}";
 
             writeLine = (s) => _userDetailsTextView.Text += s + "\n";
             clearText = () => _userDetailsTextView.Text = "";
@@ -55,7 +50,7 @@ namespace AndroidTestApp
             clearText();
             writeLine("Starting login...");
 
-            var loginResult = await _auth0Client.LoginAsync(null);
+            var loginResult = await _auth0Client.LoginAsync();
 
             if (loginResult.IsError)
             {
