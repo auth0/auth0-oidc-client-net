@@ -2,35 +2,26 @@
 {
     public class ActivityMediator
     {
-        public delegate void MessageReceivedEventHandler(string message);
-
         private static ActivityMediator _instance;
+
+        private ActivityMediator() { }
 
         public static ActivityMediator Instance
         {
-            get
-            {
-                if (_instance == null)
-                    _instance = new ActivityMediator();
-
-                return _instance;
-            }
+            get { return _instance ?? (_instance = new ActivityMediator()); }
         }
 
-        private ActivityMediator()
-        {
-        }
-
+        public delegate void MessageReceivedEventHandler(string message);
         public event MessageReceivedEventHandler ActivityMessageReceived;
-
-        public void Cancel()
-        {
-            ActivityMessageReceived?.Invoke("UserCancel");
-        }
 
         public void Send(string response)
         {
             ActivityMessageReceived?.Invoke(response);
+        }
+
+        public void Cancel()
+        {
+            Send("UserCancel");
         }
     }
 }
