@@ -37,7 +37,7 @@ namespace iOSTestApp
             clearText();
             writeLine("Starting login...");
 
-            var loginResult = await _auth0Client.LoginAsync(null);
+            var loginResult = await _auth0Client.LoginAsync();
 
             if (loginResult.IsError)
             {
