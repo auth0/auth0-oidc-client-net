@@ -51,6 +51,7 @@
     <Compile Include="Auth0Client.cs" />
     <Compile Include="Auth0ClientActivity.cs" />
     <Compile Include="ChromeCustomTabsWebView.cs" />
+    <Compile Include="PlatformWebView.cs" />
     <Compile Include="SystemBrowserWebView.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
