@@ -4,9 +4,7 @@ using Android.OS;
 using Android.Text.Method;
 using Android.Widget;
 using Auth0.OidcClient;
-using IdentityModel.OidcClient.Browser;
 using System;
-using System.Text;
 
 namespace AndroidTestApp
 {
@@ -19,8 +17,11 @@ namespace AndroidTestApp
         DataPathPrefix = "/android/androidtestapp.androidtestapp/callback")]
     public class MainActivity : Auth0ClientActivity
     {
-        private Auth0Client _client;
+        private Auth0Client _auth0Client;
+        private Action<string> writeLine;
+        private Action clearText;
         private TextView _userDetailsTextView;
+        private string accessToken;
 
         protected override void OnCreate(Bundle bundle)
         {
@@ -29,9 +30,11 @@ namespace AndroidTestApp
             var clientOptions = new Auth0ClientOptions
             {
                 Domain = Resources.GetString(Resource.String.auth0_domain),
-                ClientId = Resources.GetString(Resource.String.auth0_client_id)
+                ClientId = Resources.GetString(Resource.String.auth0_client_id),
+                Scope = Resources.GetString(Resource.String.auth0_scope)
             };
-            _client = new Auth0Client(clientOptions);
+
+            _auth0Client = new Auth0Client(clientOptions);
 
             SetContentView(Resource.Layout.Main);
             FindViewById<Button>(Resource.Id.LoginButton).Click += LoginButtonOnClick;
@@ -39,44 +42,75 @@ namespace AndroidTestApp
 
             _userDetailsTextView = FindViewById<TextView>(Resource.Id.UserDetailsTextView);
             _userDetailsTextView.MovementMethod = new ScrollingMovementMethod();
-
             _userDetailsTextView.Text = $"App ID is {clientOptions.ClientId}\n" +
                 $"Ensure Allowed Callback URLs includes\n\n{clientOptions.RedirectUri}\n\n" +
                 $"and Allowed Logout URLs includes\n\n{clientOptions.PostLogoutRedirectUri}";
-        }
 
-        private async void LogoutButtonOnClick(object sender, EventArgs e)
-        {
-            _userDetailsTextView.Text = "Starting Logout process...";
-            var logoutResult = await _client.LogoutAsync();
-            _userDetailsTextView.Text = logoutResult == BrowserResultType.Success
-                ? "Logout completed successfully"
-                : $"Logout failed - ${logoutResult}";
+            writeLine = (s) => _userDetailsTextView.Text += s + "\n";
+            clearText = () => _userDetailsTextView.Text = "";
         }
 
         private async void LoginButtonOnClick(object sender, EventArgs eventArgs)
         {
-            _userDetailsTextView.Text = "Starting Login process...";
-            var loginResult = await _client.LoginAsync();
-            _userDetailsTextView.Text = BuildLoginResultMessage(loginResult);
+            clearText();
+            writeLine("Starting login...");
+
+            var loginResult = await _auth0Client.LoginAsync(null);
+
+            if (loginResult.IsError)
+            {
+                writeLine($"An error occurred during login: {loginResult.Error}");
+                return;
+            }
+
+            accessToken = loginResult.AccessToken;
+
+            writeLine($"id_token: {loginResult.IdentityToken}");
+            writeLine($"access_token: {loginResult.AccessToken}");
+            writeLine($"refresh_token: {loginResult.RefreshToken}");
+
+            writeLine($"name: {loginResult.User.FindFirst(c => c.Type == "name")?.Value}");
+            writeLine($"email: {loginResult.User.FindFirst(c => c.Type == "email")?.Value}");
+
+            foreach (var claim in loginResult.User.Claims)
+            {
+                writeLine($"{claim.Type} = {claim.Value}");
+            }
         }
 
-        private static string BuildLoginResultMessage(IdentityModel.OidcClient.LoginResult loginResult)
+        private async void LogoutButtonOnClick(object sender, EventArgs e)
         {
-            if (loginResult.IsError)
-                return $"Login failed - {loginResult.Error}";
+            clearText();
+            writeLine("Starting logout...");
 
-            var sb = new StringBuilder();
-            sb.AppendLine("-- Claims --");
-            foreach (var claim in loginResult.User.Claims)
-                sb.AppendLine($"{claim.Type} = {claim.Value}");
+            var result = await _auth0Client.LogoutAsync();
+            accessToken = null;
+            writeLine(result.ToString());
+        }
 
-            sb.AppendLine();
-            sb.AppendLine($"ID Token: {loginResult.IdentityToken}");
-            sb.AppendLine($"Access Token: {loginResult.AccessToken}");
-            sb.AppendLine($"Refresh Token: {loginResult.RefreshToken}");
+        private async void UserButtonOnClick(object sender, EventArgs e)
+        {
+            clearText();
 
-            return sb.ToString();
+            if (string.IsNullOrEmpty(accessToken))
+            {
+                writeLine("You need to be logged in to get user info");
+                return;
+            }
+
+            writeLine("Getting user info...");
+            var userInfoResult = await _auth0Client.GetUserInfoAsync(accessToken);
+
+            if (userInfoResult.IsError)
+            {
+                writeLine($"An error occurred getting user info: {userInfoResult.Error}");
+                return;
+            }
+
+            foreach (var claim in userInfoResult.Claims)
+            {
+                writeLine($"{claim.Type} = {claim.Value}");
+            }
         }
     }
 }
