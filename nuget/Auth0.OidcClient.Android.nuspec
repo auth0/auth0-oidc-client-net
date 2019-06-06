@@ -13,12 +13,14 @@
     <description>Auth0 OIDC Client for Xamarin Android applications</description>
     <releaseNotes>
       Version 2.4.0
-      - Add return code status for Logout
-      - Add support to get the user claims from the userinfo endpoint
       - Add support for ChromeCustomTabs browser and made it default
       - Add new Auth0ClientActivity class to help in wiring up ActivityMediator
-      - Renamed old PlatformView browser SystemBrowserWebView
-      - Updated dependency on IdentityModel.OidcClient to v2.9.0
+      - Move system browser integration to SystemBrowser class
+      - Add return code status for Logout (thanks @jsauve)
+      - Add support to get the user claims from the userinfo endpoint (thanks @OrihuelaConde)
+      - Add default for logout redirect
+      - Update dependency on IdentityModel.OidcClient to v2.9.0
+      - Update Android target to SDK 26/v8.0
 
       Version 2.3.1
       - Handle null-terminated POST bodies

@@ -13,9 +13,12 @@
     <description>Auth0 OIDC Client for Xamarin iOS applications</description>
     <releaseNotes>
       Version 2.4.0
-      - Add return code status for Logout
-      - Added support to get the user claims from the userinfo endpoint
-      - Updated dependency on IdentityModel.OidcClient to v2.9.0
+      - Add ASWebAuthenticationSession for iOS 12+ (thanks @jsauve)
+      - Browser integrations split out to allow developer to choose which
+      - Add return code status for Logout (thanks @jsauve)
+      - Add support to get the user claims from the userinfo endpoint (thanks @OrihuelaConde)
+      - Add default for logout redirect
+      - Update dependency on IdentityModel.OidcClient to v2.9.0
 
       Version 2.3.1
       - Handle null-terminated POST bodies
