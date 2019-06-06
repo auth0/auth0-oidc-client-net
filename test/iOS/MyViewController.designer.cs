@@ -7,7 +7,6 @@
 using Foundation;
 using System;
 using System.CodeDom.Compiler;
-using UIKit;
 
 namespace iOSTestApp
 {
@@ -16,15 +15,19 @@ namespace iOSTestApp
     {
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIButton LoginButton { get; set; }
+        UIKit.UIBarButtonItem LoginButton { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIButton LogoutButton { get; set; }
+        UIKit.UIBarButtonItem LogoutButton { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UITextView UserDetailsTextView { get; set; }
+        UIKit.UITextView TextView { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIBarButtonItem UserInfoButton { get; set; }
 
         void ReleaseDesignerOutlets ()
         {
@@ -38,9 +41,14 @@ namespace iOSTestApp
                 LogoutButton = null;
             }
 
-            if (UserDetailsTextView != null) {
-                UserDetailsTextView.Dispose ();
-                UserDetailsTextView = null;
+            if (TextView != null) {
+                TextView.Dispose ();
+                TextView = null;
+            }
+
+            if (UserInfoButton != null) {
+                UserInfoButton.Dispose ();
+                UserInfoButton = null;
             }
         }
     }

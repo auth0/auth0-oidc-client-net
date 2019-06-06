@@ -11,11 +11,13 @@ namespace iOSTestApp
         private Action clearText;
         private string accessToken;
 
-        public MyViewController()
-            : base("MyViewController", null)
+        public MyViewController(IntPtr handle) : base(handle)
         {
-            writeLine = (s) => UserDetailsTextView.Text += s + "\r\n";
-            clearText = () => UserDetailsTextView.Text = "";
+        }
+
+        public override void ViewDidLoad()
+        {
+            base.ViewDidLoad();
 
             _auth0Client = new Auth0Client(new Auth0ClientOptions
             {
@@ -23,16 +25,16 @@ namespace iOSTestApp
                 ClientId = "qmss9A66stPWTOXjR6X1OeA0DLadoNP2",
                 Scope = "openid profile email"
             });
+
+            LoginButton.Clicked += Login;
+            UserInfoButton.Clicked += UserInfo;
+            LogoutButton.Clicked += Logout;
+
+            writeLine = (s) => TextView.Text += s + "\r\n";
+            clearText = () => TextView.Text = "";
         }
 
-        public override void ViewDidLoad()
-        {
-            base.ViewDidLoad();
-            LoginButton.TouchUpInside += LoginButton_TouchUpInside;
-            LogoutButton.TouchUpInside += LogoutButtonOnTouchUpInside;
-        }
-
-        private async void LoginButton_TouchUpInside(object sender, EventArgs e)
+        private async void Login(object sender, EventArgs e)
         {
             clearText();
             writeLine("Starting login...");
@@ -60,7 +62,7 @@ namespace iOSTestApp
             }
         }
 
-        private async void LogoutButtonOnTouchUpInside(object sender, EventArgs e)
+        private async void Logout(object sender, EventArgs e)
         {
             clearText();
             writeLine("Starting logout...");
@@ -70,7 +72,7 @@ namespace iOSTestApp
             writeLine(result.ToString());
         }
 
-        private async void UserInfoButton_Click(object sender, EventArgs e)
+        private async void UserInfo(object sender, EventArgs e)
         {
             clearText();
 
