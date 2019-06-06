@@ -4,7 +4,7 @@ using Android.Support.CustomTabs;
 
 namespace Auth0.OidcClient
 {
-    public class ChromeCustomTabsWebView : AndroidWebViewBase
+    public class ChromeCustomTabsBrowser : AndroidWebViewBase
     {
         protected override void LaunchBrowser(Android.Net.Uri uri)
         {

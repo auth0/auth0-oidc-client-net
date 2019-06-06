@@ -3,7 +3,7 @@ using Android.Content;
 
 namespace Auth0.OidcClient
 {
-    public class SystemBrowserWebView : AndroidWebViewBase
+    public class SystemBrowser : AndroidWebViewBase
     {
         protected override void LaunchBrowser(Android.Net.Uri uri)
         {
