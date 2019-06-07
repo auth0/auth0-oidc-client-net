@@ -47,7 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ActivityMediator.cs" />
-    <Compile Include="AndroidWebViewBase.cs" />
+    <Compile Include="AndroidBrowserBase.cs" />
     <Compile Include="Auth0Client.cs" />
     <Compile Include="Auth0ClientActivity.cs" />
     <Compile Include="ChromeCustomTabsBrowser.cs" />

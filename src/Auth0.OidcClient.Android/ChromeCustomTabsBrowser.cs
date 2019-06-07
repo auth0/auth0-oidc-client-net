@@ -7,7 +7,7 @@ namespace Auth0.OidcClient
     /// <summary>
     /// Implements browser integration using Chrome Custom Tabs.
     /// </summary>
-    public class ChromeCustomTabsBrowser : AndroidWebViewBase
+    public class ChromeCustomTabsBrowser : AndroidBrowserBase
     {
         protected override void OpenBrowser(Android.Net.Uri uri)
         {

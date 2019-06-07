@@ -6,7 +6,7 @@ namespace Auth0.OidcClient
     /// <summary>
     /// Implements browser integration using the a regular web browser.
     /// </summary>
-    public class SystemBrowser : AndroidWebViewBase
+    public class SystemBrowser : AndroidBrowserBase
     {
         protected override void OpenBrowser(Android.Net.Uri uri)
         {

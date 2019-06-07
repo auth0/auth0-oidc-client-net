@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 namespace Auth0.OidcClient
 {
     /// <summary>
-    /// Provides common IBrowser callback logic that resolves to a Task.
+    /// Provides common IBrowser logic for Android.
     /// </summary>
-    public abstract class AndroidWebViewBase : IBrowser
+    public abstract class AndroidBrowserBase : IBrowser
     {
         /// <inheritdoc/>
         public Task<BrowserResult> InvokeAsync(BrowserOptions options)
