@@ -4,14 +4,19 @@ using Android.Support.CustomTabs;
 
 namespace Auth0.OidcClient
 {
+    /// <summary>
+    /// Implements browser integration using Chrome Custom Tabs.
+    /// </summary>
     public class ChromeCustomTabsBrowser : AndroidWebViewBase
     {
-        protected override void LaunchBrowser(Android.Net.Uri uri)
+        protected override void OpenBrowser(Android.Net.Uri uri)
         {
-            var builder = new CustomTabsIntent.Builder();
-            var customTabsIntent = builder.Build();
-            customTabsIntent.Intent.AddFlags(ActivityFlags.NoHistory);
-            customTabsIntent.LaunchUrl(Application.Context, uri);
+            using (var builder = new CustomTabsIntent.Builder())
+            using (var customTabsIntent = builder.Build())
+            {
+                customTabsIntent.Intent.AddFlags(ActivityFlags.NoHistory);
+                customTabsIntent.LaunchUrl(Application.Context, uri);
+            }
         }
     }
 }

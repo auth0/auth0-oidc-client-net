@@ -15,7 +15,7 @@ namespace Auth0.OidcClient
         public Auth0Client(Auth0ClientOptions options)
             : base(options, "xamarin-android")
         {
-            options.Browser = options.Browser ?? new PlatformWebView();
+            options.Browser = options.Browser ?? new ChromeCustomTabsBrowser();
             var callbackUrl = $"{Context.PackageName}://{options.Domain}/android/{Context.PackageName}/callback".ToLower();
             options.RedirectUri = callbackUrl;
             options.PostLogoutRedirectUri = options.PostLogoutRedirectUri ?? callbackUrl;

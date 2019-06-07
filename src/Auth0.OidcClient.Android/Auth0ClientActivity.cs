@@ -3,6 +3,10 @@ using Android.Content;
 
 namespace Auth0.OidcClient
 {
+    /// <summary>
+    /// Base class for automatically wiring up the necessary callback hooks required
+    /// to facilitate communication with the Browser implementations.
+    /// </summary>
     public class Auth0ClientActivity : Activity
     {
         protected override void OnResume()
