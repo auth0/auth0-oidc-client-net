@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ActivityMediator.cs" />
+    <Compile Include="AutoSelectBrowser.cs" />
     <Compile Include="IOSBrowserBase.cs" />
     <Compile Include="Auth0Client.cs" />
     <Compile Include="ASWebAuthenticationSessionBrowser.cs" />

@@ -4,6 +4,9 @@ using System.Threading.Tasks;
 
 namespace Auth0.OidcClient
 {
+    /// <summary>
+    /// Provides common IBrowser logic for iOS.
+    /// </summary>
     public abstract class IOSBrowserBase : IBrowser
     {
         public Task<BrowserResult> InvokeAsync(BrowserOptions options)
