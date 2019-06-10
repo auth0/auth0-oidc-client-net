@@ -22,7 +22,7 @@ namespace Auth0.OidcClient
 
         protected abstract Task<BrowserResult> Launch(BrowserOptions options);
 
-        protected static BrowserResult Canceled()
+        internal static BrowserResult Canceled()
         {
             return new BrowserResult
             {
@@ -30,7 +30,7 @@ namespace Auth0.OidcClient
             };
         }
 
-        protected static BrowserResult UnknownError(string error)
+        internal static BrowserResult UnknownError(string error)
         {
             return new BrowserResult
             {
@@ -39,7 +39,7 @@ namespace Auth0.OidcClient
             };
         }
 
-        protected static BrowserResult Success(string response)
+        internal static BrowserResult Success(string response)
         {
             return new BrowserResult
             {
