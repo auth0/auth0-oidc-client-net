@@ -19,6 +19,7 @@
         - Assign an instance of ChromeCustomTabBrowser (will fall back if needed)
         - Assign an instance of SystemBrowser (for old not-recommended behavior)
       - Add new Auth0ClientActivity class to help in wiring up ActivityMediator
+        - Alternatively call ActivityMediator.Instance.Cancel() from your OnResume
       - Move system browser integration to SystemBrowser class
       - Add return code status for Logout (thanks @jsauve)
       - Add support to get the user claims from the userinfo endpoint (thanks @OrihuelaConde)
