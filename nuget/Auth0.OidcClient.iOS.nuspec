@@ -14,6 +14,9 @@
     <releaseNotes>
       Version 2.4.0
       - Add ASWebAuthenticationSession for iOS 12+ (thanks @jsauve)
+      - PlatformWebView class is deprecated. When it comes to config.Browser either:
+        - Leave it null to auto-switch based on iOS version (recommended)
+        - Assign an instance of SFSafariViewBrowser for old iOS 9 style promptless
       - Browser integrations split out to allow developer to choose which
       - Add return code status for Logout (thanks @jsauve)
       - Add support to get the user claims from the userinfo endpoint (thanks @OrihuelaConde)

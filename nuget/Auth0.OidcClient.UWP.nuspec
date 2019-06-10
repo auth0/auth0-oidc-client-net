@@ -14,6 +14,9 @@
     <releaseNotes>
       Version 2.4.0
       - Add return code status for Logout (thanks @jsauve)
+      - PlatformWebView class is deprecated. When it comes to config.Browser either:
+        - Leave it null for ongoing best default (recommended)
+        - Assign an instance of WebAuthenticationBrokerBrowser passing true to enable Windows auth
       - Add support to get the user claims from the userinfo endpoint (thanks @OrihuelaConde)
       - Add default for logout redirect
       - Update dependency on IdentityModel.OidcClient to v2.9.0
