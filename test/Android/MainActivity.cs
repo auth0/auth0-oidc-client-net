@@ -37,6 +37,7 @@ namespace AndroidTestApp
             SetContentView(Resource.Layout.Main);
             FindViewById<Button>(Resource.Id.LoginButton).Click += LoginButtonOnClick;
             FindViewById<Button>(Resource.Id.LogoutButton).Click += LogoutButtonOnClick;
+            FindViewById<Button>(Resource.Id.UserButton).Click += UserButtonOnClick;
 
             _userDetailsTextView = FindViewById<TextView>(Resource.Id.UserDetailsTextView);
             _userDetailsTextView.MovementMethod = new ScrollingMovementMethod();
