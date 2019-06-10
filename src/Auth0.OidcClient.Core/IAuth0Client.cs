@@ -72,7 +72,7 @@ namespace Auth0.OidcClient
         /// </summary>
         /// <param name="accessToken">The access token.</param>
         /// <returns>
-        /// User claims
+        /// <returns>A <see cref="UserInfoResult"/> with the user information and claims.</returns>
         /// </returns>
         /// <exception cref="ArgumentNullException">accessToken</exception>
         /// <exception cref="InvalidOperationException">No userinfo endpoint specified</exception>

@@ -1,26 +1,9 @@
-﻿using IdentityModel.OidcClient.Browser;
-using System.Threading.Tasks;
-using UIKit;
+﻿using System;
 
 namespace Auth0.OidcClient
 {
-    /// <summary>
-    /// Implements the Browser interface using the best available option for the current iOS version.
-    /// </summary>
-    public class PlatformWebView : IOSBrowserBase
+    [Obsolete("It is recommended you leave Browser unassigned to accept the library default of AutoSelectBrowser.")]
+    public class PlatformWebView : AutoSelectBrowser
     {
-        protected override Task<BrowserResult> Launch(BrowserOptions options)
-        {
-            // For iOS 12+ use ASWebAuthenticationSession
-            if (UIDevice.CurrentDevice.CheckSystemVersion(12, 0))
-                return ASWebAuthenticationSessionBrowser.Start(options);
-
-            // For iOS 11 use SFAuthenticationSession
-            if (UIDevice.CurrentDevice.CheckSystemVersion(11, 0))
-                return SFAuthenticationSessionBrowser.Start(options);
-
-            // For iOS 10 and earlier use SFSafariViewController
-            return SFSafariViewControllerBrowser.Start(options);
-        }
     }
 }

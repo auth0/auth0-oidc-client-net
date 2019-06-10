@@ -1,6 +1,5 @@
-﻿using System;
+﻿using IdentityModel.OidcClient.Browser;
 using System.Net.Http;
-using IdentityModel.OidcClient.Browser;
 
 namespace Auth0.OidcClient
 {
@@ -10,7 +9,8 @@ namespace Auth0.OidcClient
     public class Auth0ClientOptions
     {
         /// <summary>
-        /// The <see cref="IBrowser"/> implementation which is responsible for displaying the Auth0 Login screen
+        /// The <see cref="IBrowser"/> implementation responsible for displaying the Auth0 Login screen. Leave this
+        /// unassigned to accept the recommended implementation for platform.
         /// </summary>
         public IBrowser Browser { get; set; }
 
@@ -33,11 +33,11 @@ namespace Auth0.OidcClient
         public string Domain { get; set; }
 
         /// <summary>
-        /// Indicates whether telemetry information should be sent to Auth0.
+        /// Indicates whether basic telemetry information should be included with requests to Auth0.
         /// </summary>
         /// <remarks>
-        /// Telemetry simply contains information about the version of the Auth0 OIDC Client being used. No information about your
-        /// application or users are being sent to Auth0.
+        /// The telemetry information is like a browser user agent and includes operating system
+        /// details only to let Auth0 guide engineering resources based on platform popularity.
         /// </remarks>
         public bool EnableTelemetry { get; set; }
 
@@ -55,7 +55,7 @@ namespace Auth0.OidcClient
         public string Scope { get; set; }
 
         /// <summary>
-        /// Allow overriding the RetryMessageHandler
+        /// Allow overriding the RetryMessageHandler.
         /// </summary>
         /// <example>
         /// var handler = new HttpClientHandler();
@@ -67,7 +67,7 @@ namespace Auth0.OidcClient
         public HttpMessageHandler RefreshTokenMessageHandler { get; set; }
 
         /// <summary>
-        /// Allow overriding the BackchannelHandler
+        /// Allow overriding the BackchannelHandler.
         /// </summary>
         /// <example>
         /// var handler = new HttpClientHandler();
@@ -79,15 +79,15 @@ namespace Auth0.OidcClient
         public HttpMessageHandler BackchannelHandler { get; set; }
 
         /// <summary>
-        /// Allow overriding of the Post Logout Redirect URI
+        /// Override the Redirect URI used to return from logout.
         /// </summary>
         /// <remarks>
-        /// This should only be done in exceptional circumstances
+        /// This should only be done in exceptional circumstances.
         /// </remarks>
         public string PostLogoutRedirectUri { get; set; }
 
 		/// <summary>
-		/// Allow overriding of the Redirect URI
+		/// Override the the Redirect URI used to return from login.
 		/// </summary>
 		/// <remarks>
 		/// This should only be done in exceptional circumstances

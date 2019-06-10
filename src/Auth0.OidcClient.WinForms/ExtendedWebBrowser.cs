@@ -34,20 +34,7 @@ namespace Auth0.OidcClient
             base.DetachSink();
         }
 
-        internal event EventHandler<BeforeNavigate2EventArgs> BeforeNavigate2;
         internal event EventHandler<NavigateErrorEventArgs> NavigateError;
-
-        private void OnBeforeNavigate2(object pDisp, ref object url, ref object flags, ref object targetFrameName,
-            ref object postData, ref object headers, ref bool cancel)
-        {
-            var handler = BeforeNavigate2;
-            if (handler != null)
-            {
-                var args = new BeforeNavigate2EventArgs((string)url, (string)targetFrameName, (byte[])postData, (string)headers);
-                handler(this, args);
-                cancel = args.Cancel;
-            }
-        }
 
         private void OnNavigateError(object pDisp, ref object url, ref object frame, ref object statusCode, ref bool cancel)
         {
@@ -60,46 +47,19 @@ namespace Auth0.OidcClient
             }
         }
 
-        internal class BeforeNavigate2EventArgs : EventArgs
-        {
-            private readonly string _url;
-            private readonly string _targetFrameName;
-            private readonly byte[] _postData;
-            private readonly string _headers;
-
-            public BeforeNavigate2EventArgs(string url, string targetFrameName, byte[] postData, string headers)
-            {
-                _url = url;
-                _targetFrameName = targetFrameName;
-                _postData = postData;
-                _headers = headers;
-                Cancel = false;
-            }
-
-            public string Url { get { return _url; } }
-            public string TargetFrameName { get { return _targetFrameName; } }
-            public byte[] PostData { get { return _postData; } }
-            public string Headers { get { return _headers; } }
-            public bool Cancel { get; set; }
-        }
-
         internal class NavigateErrorEventArgs : EventArgs
         {
-            private readonly string _url;
-            private readonly string _frame;
-            private int _statusCode;
-
             public NavigateErrorEventArgs(string url, string frame, int statusCode)
             {
-                _url = url;
-                _frame = frame;
-                _statusCode = statusCode;
+                Url = url;
+                Frame = frame;
+                StatusCode = statusCode;
                 Cancel = false;
             }
 
-            public string Url { get { return _url; } }
-            public string Frame { get { return _frame; } }
-            public int StatusCode { get { return _statusCode; } }
+            public string Url { get; }
+            public string Frame { get; }
+            public int StatusCode { get; }
             public bool Cancel { get; set; }
         }
 
@@ -109,17 +69,6 @@ namespace Auth0.OidcClient
         [TypeLibType(TypeLibTypeFlags.FHidden)]
         private interface DWebBrowserEvents2
         {
-            [PreserveSig]
-            [MethodImpl(MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
-            [DispId(250)]
-            void BeforeNavigate2([In] [MarshalAs(UnmanagedType.IDispatch)] object pDisp,
-                             [In] [MarshalAs(UnmanagedType.Struct)] ref object URL,
-                             [In] [MarshalAs(UnmanagedType.Struct)] ref object Flags,
-                             [In] [MarshalAs(UnmanagedType.Struct)] ref object TargetFrameName,
-                             [In] [MarshalAs(UnmanagedType.Struct)] ref object PostData,
-                             [In] [MarshalAs(UnmanagedType.Struct)] ref object Headers,
-                             [In] [Out] ref bool Cancel);
-
             [PreserveSig]
             [MethodImpl(MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
             [DispId(271)]
@@ -140,15 +89,7 @@ namespace Auth0.OidcClient
                 this.parent = parent;
             }
 
-            public void BeforeNavigate2(object pDisp, ref object URL, ref object Flags,
-                ref object TargetFrameName, ref object PostData, ref object Headers, ref bool Cancel)
-            {
-                parent.OnBeforeNavigate2(pDisp, ref URL, ref Flags, ref TargetFrameName,
-                    ref PostData, ref Headers, ref Cancel);
-            }
-
-            public void NavigateError(object pDisp, ref object URL, ref object Frame,
-                ref object StatusCode, ref bool Cancel)
+            public void NavigateError(object pDisp, ref object URL, ref object Frame, ref object StatusCode, ref bool Cancel)
             {
                 parent.OnNavigateError(pDisp, ref URL, ref Frame, ref StatusCode, ref Cancel);
             }

@@ -4,8 +4,12 @@ using System.Threading.Tasks;
 
 namespace Auth0.OidcClient
 {
-    public abstract class AndroidWebViewBase : IBrowser
+    /// <summary>
+    /// Provides common IBrowser logic for Android.
+    /// </summary>
+    public abstract class AndroidBrowserBase : IBrowser
     {
+        /// <inheritdoc/>
         public Task<BrowserResult> InvokeAsync(BrowserOptions options)
         {
             if (string.IsNullOrWhiteSpace(options.StartUrl))
@@ -30,11 +34,15 @@ namespace Auth0.OidcClient
 
             ActivityMediator.Instance.ActivityMessageReceived += Callback;
 
-            LaunchBrowser(Android.Net.Uri.Parse(options.StartUrl));
+            OpenBrowser(Android.Net.Uri.Parse(options.StartUrl));
 
             return tcs.Task;
         }
 
-        protected abstract void LaunchBrowser(Android.Net.Uri uri);
+        /// <summary>
+        /// Open a web browser with the given uri.
+        /// </summary>
+        /// <param name="uri">The uri address to open in the browser.</param>
+        protected abstract void OpenBrowser(Android.Net.Uri uri);
     }
 }
