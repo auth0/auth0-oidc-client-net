@@ -15,7 +15,7 @@ namespace Auth0.OidcClient
         public Auth0Client(Auth0ClientOptions options)
             : base(options, "uwp")
         {
-            options.Browser = options.Browser ?? new PlatformWebView();
+            options.Browser = options.Browser ?? new WebAuthenticationBrokerBrowser();
             options.RedirectUri = options.RedirectUri ?? WebAuthenticationBroker.GetCurrentApplicationCallbackUri().AbsoluteUri;
         }
     }
