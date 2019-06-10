@@ -7,7 +7,7 @@ using UIKit;
 namespace Auth0.OidcClient
 {
     /// <summary>
-    /// Implements the Browser interface using SFSafariViewController for support on iOS 10 and earlier.
+    /// Implements the <see cref="IBrowser"/> interface using <see cref="SFSafariViewController"/> for support on iOS 10 and earlier.
     /// </summary>
     public class SFSafariViewControllerBrowser : IOSBrowserBase
     {

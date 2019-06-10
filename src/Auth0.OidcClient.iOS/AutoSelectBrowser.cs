@@ -5,7 +5,7 @@ using UIKit;
 namespace Auth0.OidcClient
 {
     /// <summary>
-    /// Implements the Browser interface using the best available option for the current iOS version.
+    /// Implements the <see cref="IBrowser"/> interface using the best available option for the current iOS version.
     /// </summary>
     public class AutoSelectBrowser : IOSBrowserBase
     {

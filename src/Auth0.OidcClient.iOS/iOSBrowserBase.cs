@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 namespace Auth0.OidcClient
 {
     /// <summary>
-    /// Provides common IBrowser logic for iOS.
+    /// Provides common <see cref="IBrowser"/> logic for iOS platform.
     /// </summary>
     public abstract class IOSBrowserBase : IBrowser
     {

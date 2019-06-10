@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 namespace Auth0.OidcClient
 {
     /// <summary>
-    /// Implements the Browser interface using SFAuthenticationSession for support on iOS 11.
+    /// Implements the Browser <see cref="IBrowser"/> using <see cref="SFAuthenticationSession"/> for support on iOS 11.
     /// </summary>
     public class SFAuthenticationSessionBrowser : IOSBrowserBase
     {

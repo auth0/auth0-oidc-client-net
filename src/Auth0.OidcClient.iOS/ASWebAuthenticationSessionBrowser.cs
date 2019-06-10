@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 namespace Auth0.OidcClient
 {
     /// <summary>
-    /// Implements the Browser interface using ASWebAuthenticationSession for support on iOS 12+.
+    /// Implements the <see cref="IBrowser"/> interface using <see cref="ASWebAuthenticationSession"/> for support on iOS 12+.
     /// </summary>
     public class ASWebAuthenticationSessionBrowser : IOSBrowserBase
     {
