@@ -17,6 +17,7 @@ namespace Auth0.OidcClient
             _enableWindowsAuthentication = enableWindowsAuthentication;
         }
 
+        /// <inheritdoc />
         public async Task<BrowserResult> InvokeAsync(BrowserOptions options)
         {
             if (string.IsNullOrWhiteSpace(options.StartUrl)) throw new ArgumentException("Missing StartUrl", nameof(options));

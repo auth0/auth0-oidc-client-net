@@ -31,6 +31,7 @@ namespace Auth0.OidcClient
             })
         { }
 
+        /// <inheritdoc />
         public async Task<BrowserResult> InvokeAsync(BrowserOptions options)
         {
             using (var form = _formFactory.Invoke())
@@ -46,12 +47,12 @@ namespace Auth0.OidcClient
                     ResultType = BrowserResultType.UserCancel
                 };
 
-                form.FormClosed += (o, e) =>
+                form.FormClosed += (s, e) =>
                 {
                     signal.Release();
                 };
 
-                browser.NavigateError += (o, e) =>
+                browser.NavigateError += (s, e) =>
                 {
                     e.Cancel = true;
                     result.ResultType = BrowserResultType.HttpError;
@@ -59,7 +60,7 @@ namespace Auth0.OidcClient
                     signal.Release();
                 };
 
-                browser.DocumentCompleted += (o, e) =>
+                browser.DocumentCompleted += (s, e) =>
                 {
                     if (e.Url.AbsoluteUri.StartsWith(options.EndUrl))
                     {
@@ -69,16 +70,21 @@ namespace Auth0.OidcClient
                     }
                 };
 
-                form.Controls.Add(browser);
-                browser.Show();
+                try
+                {
+                    form.Controls.Add(browser);
+                    browser.Show();
+                    form.Show();
 
-                form.Show();
-                browser.Navigate(options.StartUrl);
+                    browser.Navigate(options.StartUrl);
 
-                await signal.WaitAsync();
-
-                form.Hide();
-                browser.Hide();
+                    await signal.WaitAsync();
+                }
+                finally
+                {
+                    form.Hide();
+                    browser.Hide();
+                }
 
                 return result;
             }

@@ -11,7 +11,7 @@ namespace Auth0.OidcClient
         {
         }
 
-        public PlatformWebView(string title = "Authenticating ...", int width = 1024, int height = 768)
+        public PlatformWebView(string title = "Authenticating...", int width = 1024, int height = 768)
             : base(title, width, height)
         {
         }
