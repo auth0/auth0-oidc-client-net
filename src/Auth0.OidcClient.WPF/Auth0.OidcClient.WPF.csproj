@@ -54,6 +54,7 @@
   <ItemGroup>
     <Compile Include="Auth0Client.cs" />
     <Compile Include="PlatformWebView.cs" />
+    <Compile Include="WebBrowserBrowser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
