@@ -9,8 +9,12 @@ using Windows.UI.Xaml.Controls;
 
 namespace Auth0.OidcClient
 {
+    /// <summary>
+    /// Implements the <see cref="IBrowser"/> interface using the <see cref="WebView"/> control.
+    /// </summary>
     public class WebViewBrowser : IBrowser
     {
+        /// <inheritdoc />
         public Task<BrowserResult> InvokeAsync(BrowserOptions options)
         {
             var tcs = new TaskCompletionSource<BrowserResult>();
