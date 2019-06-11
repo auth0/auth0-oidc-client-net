@@ -29,7 +29,8 @@ namespace Auth0.OidcClient
                 Width = width,
                 Height = height
             })
-        { }
+        {
+        }
 
         /// <inheritdoc />
         public async Task<BrowserResult> InvokeAsync(BrowserOptions options)
