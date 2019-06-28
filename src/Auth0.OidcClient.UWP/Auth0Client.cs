@@ -1,7 +1,4 @@
-﻿using Windows.Security.Authentication.Web;
-using Windows.UI.Xaml;
-
-namespace Auth0.OidcClient
+﻿namespace Auth0.OidcClient
 {
     /// <summary>
     /// Primary class for performing authentication and authorization operations with Auth0 using the
