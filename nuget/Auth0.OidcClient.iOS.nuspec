@@ -3,7 +3,7 @@
 <package>
   <metadata>
     <id>Auth0.OidcClient.iOS</id>
-    <version>2.4.0</version>
+    <version>3.0.0-beta1</version>
     <authors>Auth0</authors>
     <owners>Auth0</owners>
     <licenseUrl>https://opensource.org/licenses/Apache-2.0</licenseUrl>
@@ -12,6 +12,11 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Auth0 OIDC Client for Xamarin iOS applications</description>
     <releaseNotes>
+      Version 3.0.0
+      - Removed deprecated PlatformWebView class (breaking change). Either:
+        - Leave it null to auto-switch based on iOS version (recommended)
+        - Assign an instance of SFSafariViewControllerBrowser for old iOS 9 style promptless
+
       Version 2.4.0
       - Add ASWebAuthenticationSession for iOS 12+ (thanks @jsauve)
       - PlatformWebView class is deprecated. When it comes to config.Browser either:
@@ -49,7 +54,7 @@
     <tags>Auth0 OIDC iOS MonoTouch</tags>
     <dependencies>
       <group targetFramework="Xamarin.iOS10">
-        <dependency id="Auth0.OidcClient.Core" version="2.4.0" />
+        <dependency id="Auth0.OidcClient.Core" version="3.0.0" />
       </group>
     </dependencies>
   </metadata>

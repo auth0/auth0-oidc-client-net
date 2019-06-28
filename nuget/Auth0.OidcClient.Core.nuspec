@@ -3,7 +3,7 @@
 <package>
   <metadata>
     <id>Auth0.OidcClient.Core</id>
-    <version>2.4.0</version>
+    <version>3.0.0-beta1</version>
     <authors>Auth0</authors>
     <owners>Auth0</owners>
     <licenseUrl>https://opensource.org/licenses/Apache-2.0</licenseUrl>
@@ -12,6 +12,9 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Auth0 OIDC Client for Native applications</description>
     <releaseNotes>
+      Version 3.0.0
+      - No changes in Auth0.OidcClient.Core, version bumped for changes to dependant libraries.
+
       Version 2.4.0
       - Add return code status for Logout (thanks @jsauve)
       - Add support to get the user claims from the userinfo endpoint (thanks @OrihuelaConde)
