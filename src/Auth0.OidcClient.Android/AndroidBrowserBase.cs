@@ -1,4 +1,6 @@
-﻿using IdentityModel.OidcClient.Browser;
+﻿using Android.App;
+using Android.Content;
+using IdentityModel.OidcClient.Browser;
 using System;
 using System.Threading.Tasks;
 
@@ -9,6 +11,15 @@ namespace Auth0.OidcClient
     /// </summary>
     public abstract class AndroidBrowserBase : IBrowser
     {
+        protected Context context;
+        protected bool IsNewTask;
+
+        public AndroidBrowserBase(Context context = null)
+        {
+            this.context = context;
+            IsNewTask = context == null;
+        }
+
         /// <inheritdoc/>
         public Task<BrowserResult> InvokeAsync(BrowserOptions options)
         {
@@ -34,7 +45,7 @@ namespace Auth0.OidcClient
 
             ActivityMediator.Instance.ActivityMessageReceived += Callback;
 
-            OpenBrowser(Android.Net.Uri.Parse(options.StartUrl));
+            OpenBrowser(Android.Net.Uri.Parse(options.StartUrl), context ?? Application.Context);
 
             return tcs.Task;
         }
@@ -43,6 +54,6 @@ namespace Auth0.OidcClient
         /// Open a web browser with the given uri.
         /// </summary>
         /// <param name="uri">The uri address to open in the browser.</param>
-        protected abstract void OpenBrowser(Android.Net.Uri uri);
+        protected abstract void OpenBrowser(Android.Net.Uri uri, Context context = null);
     }
 }
