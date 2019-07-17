@@ -31,7 +31,8 @@ namespace AndroidTestApp
             {
                 Domain = Resources.GetString(Resource.String.auth0_domain),
                 ClientId = "qmss9A66stPWTOXjR6X1OeA0DLadoNP2",
-                Scope = "openid profile email"
+                Scope = "openid profile email",
+                Browser = new AutoSelectBrowser(this)
             });
 
             SetContentView(Resource.Layout.Main);
