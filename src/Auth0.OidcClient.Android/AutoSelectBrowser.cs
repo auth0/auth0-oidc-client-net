@@ -3,7 +3,7 @@
 namespace Auth0.OidcClient
 {
     /// <summary>
-    /// Implement recommended browser integration for this platform.
+    /// Implements the <see cref="IBrowser"/> interface using the best available option for the current Android version.
     /// </summary>
     public class AutoSelectBrowser : ChromeCustomTabsBrowser
     {
