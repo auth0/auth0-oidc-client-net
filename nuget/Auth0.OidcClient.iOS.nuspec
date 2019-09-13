@@ -3,7 +3,7 @@
 <package>
   <metadata>
     <id>Auth0.OidcClient.iOS</id>
-    <version>2.4.0</version>
+    <version>2.4.2</version>
     <authors>Auth0</authors>
     <owners>Auth0</owners>
     <licenseUrl>https://opensource.org/licenses/Apache-2.0</licenseUrl>
@@ -12,6 +12,13 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Auth0 OIDC Client for Xamarin iOS applications</description>
     <releaseNotes>
+      Version 2.4.2
+      - Fixes issue which would prevent setting custom uri in Auth0ClientOptions for the Auth0Client constructor.
+      - Made iOS default uri match Android by being lower case.
+      
+      Version 2.4.1
+      - Skipped to bring app versions in line with Android.
+
       Version 2.4.0
       - Add ASWebAuthenticationSession for iOS 12+ (thanks @jsauve)
       - PlatformWebView class is deprecated. When it comes to config.Browser either:

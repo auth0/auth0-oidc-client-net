@@ -17,7 +17,7 @@ namespace Auth0.OidcClient
         {
             options.Browser = options.Browser ?? new AutoSelectBrowser(null);
             var callbackUrl = $"{Context.PackageName}://{options.Domain}/android/{Context.PackageName}/callback".ToLower();
-            options.RedirectUri = callbackUrl;
+            options.RedirectUri = options.RedirectUri ?? callbackUrl;
             options.PostLogoutRedirectUri = options.PostLogoutRedirectUri ?? callbackUrl;
         }
     }

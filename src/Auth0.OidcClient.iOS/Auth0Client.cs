@@ -16,8 +16,8 @@ namespace Auth0.OidcClient
             : base(options, "xamarin-ios")
         {
             options.Browser = options.Browser ?? new AutoSelectBrowser();
-            var callbackUrl = $"{MainBundle.BundleIdentifier}://{options.Domain}/ios/{MainBundle.BundleIdentifier}/callback";
-            options.RedirectUri = callbackUrl;
+            var callbackUrl = $"{MainBundle.BundleIdentifier}://{options.Domain}/ios/{MainBundle.BundleIdentifier}/callback".ToLower();
+            options.RedirectUri = options.RedirectUri ?? callbackUrl;
             options.PostLogoutRedirectUri = options.PostLogoutRedirectUri ?? callbackUrl;
         }
     }
