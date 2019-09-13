@@ -3,7 +3,7 @@
 <package>
   <metadata>
     <id>Auth0.OidcClient.Android</id>
-    <version>2.4.1</version>
+    <version>2.4.2</version>
     <authors>Auth0</authors>
     <owners>Auth0</owners>
     <licenseUrl>https://opensource.org/licenses/Apache-2.0</licenseUrl>
@@ -12,6 +12,9 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Auth0 OIDC Client for Xamarin Android applications</description>
     <releaseNotes>
+      Version 2.4.2
+      - Fixes issue which would prevent setting custom uri in Auth0ClientOptions for the Auth0Client constructor.
+
       Version 2.4.1
        - Fixes "FLAG_ACTIVITY_NEW_TASK" error on Android SDK9 however you for best integration 
          you should add 'Browser = new AutoSelectBrowser(this)` to your config creation from your view.
