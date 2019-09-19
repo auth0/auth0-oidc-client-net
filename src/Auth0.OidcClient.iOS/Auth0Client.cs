@@ -17,7 +17,7 @@ namespace Auth0.OidcClient
         {
             options.Browser = options.Browser ?? new AutoSelectBrowser();
             var callbackUrl = $"{MainBundle.BundleIdentifier}://{options.Domain}/ios/{MainBundle.BundleIdentifier}/callback";
-            options.RedirectUri = callbackUrl;
+            options.RedirectUri = options.RedirectUri ?? callbackUrl;
             options.PostLogoutRedirectUri = options.PostLogoutRedirectUri ?? callbackUrl;
         }
     }

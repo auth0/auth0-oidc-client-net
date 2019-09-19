@@ -92,7 +92,6 @@ namespace AndroidTestApp
 			global::Auth0.OidcClient.Resource.Id.notification_main_column_container = global::AndroidTestApp.Resource.Id.notification_main_column_container;
 			global::Auth0.OidcClient.Resource.Id.right_icon = global::AndroidTestApp.Resource.Id.right_icon;
 			global::Auth0.OidcClient.Resource.Id.right_side = global::AndroidTestApp.Resource.Id.right_side;
-			global::Auth0.OidcClient.Resource.Id.tag_transition_group = global::AndroidTestApp.Resource.Id.tag_transition_group;
 			global::Auth0.OidcClient.Resource.Id.text = global::AndroidTestApp.Resource.Id.text;
 			global::Auth0.OidcClient.Resource.Id.text2 = global::AndroidTestApp.Resource.Id.text2;
 			global::Auth0.OidcClient.Resource.Id.time = global::AndroidTestApp.Resource.Id.time;
@@ -122,9 +121,6 @@ namespace AndroidTestApp
 			global::Auth0.OidcClient.Resource.Styleable.FontFamily_fontProviderPackage = global::AndroidTestApp.Resource.Styleable.FontFamily_fontProviderPackage;
 			global::Auth0.OidcClient.Resource.Styleable.FontFamily_fontProviderQuery = global::AndroidTestApp.Resource.Styleable.FontFamily_fontProviderQuery;
 			global::Auth0.OidcClient.Resource.Styleable.FontFamilyFont = global::AndroidTestApp.Resource.Styleable.FontFamilyFont;
-			global::Auth0.OidcClient.Resource.Styleable.FontFamilyFont_android_font = global::AndroidTestApp.Resource.Styleable.FontFamilyFont_android_font;
-			global::Auth0.OidcClient.Resource.Styleable.FontFamilyFont_android_fontStyle = global::AndroidTestApp.Resource.Styleable.FontFamilyFont_android_fontStyle;
-			global::Auth0.OidcClient.Resource.Styleable.FontFamilyFont_android_fontWeight = global::AndroidTestApp.Resource.Styleable.FontFamilyFont_android_fontWeight;
 			global::Auth0.OidcClient.Resource.Styleable.FontFamilyFont_font = global::AndroidTestApp.Resource.Styleable.FontFamilyFont_font;
 			global::Auth0.OidcClient.Resource.Styleable.FontFamilyFont_fontStyle = global::AndroidTestApp.Resource.Styleable.FontFamilyFont_fontStyle;
 			global::Auth0.OidcClient.Resource.Styleable.FontFamilyFont_fontWeight = global::AndroidTestApp.Resource.Styleable.FontFamilyFont_fontWeight;
