@@ -10,28 +10,17 @@ using System.Windows.Forms;
 namespace Auth0.OidcClient
 {
     /// <summary>
-    /// Implements the <see cref="IBrowser"/> interface using the <see cref="ExtendedWebBrowser"/> control.
+    /// Implements the <see cref="IBrowser"/> interface using <see cref="ExtendedWebBrowser"/>.
     /// </summary>
     public class WebBrowserBrowser : IBrowser
     {
         private readonly Func<Form> _formFactory;
 
-        /// <summary>
-        /// Creates a new instance of <see cref="WebBrowserBrowser"/> with a specified function to create the <see cref="Form"/>
-        /// used to host the <see cref="WebBrowser"/> control.
-        /// </summary>
-        /// <param name="formFactory">The function used to create the <see cref="Form"/> that will host the <see cref="WebBrowser"/> control.</param>
         public WebBrowserBrowser(Func<Form> formFactory)
         {
             _formFactory = formFactory;
         }
 
-        /// <summary>
-        /// Creates a new instance of <see cref="WebBrowserBrowser"/> allowing parts of the <see cref="Form"/> container to be set.
-        /// </summary>
-        /// <param name="title">Optional title for the form - defaults to 'Authenticating...'.</param>
-        /// <param name="width">Optional width for the form in pixels. Defaults to 1024.</param>
-        /// <param name="height">Optional height for the form in pixels. Defaults to 768.</param>
         public WebBrowserBrowser(string title = "Authenticating...", int width = 1024, int height = 768)
             : this(() => new Form
             {
@@ -40,8 +29,7 @@ namespace Auth0.OidcClient
                 Width = width,
                 Height = height
             })
-        {
-        }
+        { }
 
         /// <inheritdoc />
         public async Task<BrowserResult> InvokeAsync(BrowserOptions options)
