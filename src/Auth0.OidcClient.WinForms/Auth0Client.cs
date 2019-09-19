@@ -13,7 +13,7 @@
         public Auth0Client(Auth0ClientOptions options)
             : base(options, "winforms")
         {
-            options.Browser = options.Browser ?? new WebViewBrowser();
+            options.Browser = options.Browser ?? new WebBrowserBrowser();
         }
     }
 }
