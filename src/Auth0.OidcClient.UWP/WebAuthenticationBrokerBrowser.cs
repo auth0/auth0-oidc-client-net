@@ -12,6 +12,10 @@ namespace Auth0.OidcClient
     {
         private readonly bool _enableWindowsAuthentication;
 
+        /// <summary>
+        /// Creates a new instance of <see cref="WebAuthenticationBrokerBrowser"/> with optional Windows authentication.
+        /// </summary>
+        /// <param name="enableWindowsAuthentication">Whether Windows authentication should be honored, defaults to <see cref="false"/>.</param>
         public WebAuthenticationBrokerBrowser(bool enableWindowsAuthentication = false)
         {
             _enableWindowsAuthentication = enableWindowsAuthentication;
