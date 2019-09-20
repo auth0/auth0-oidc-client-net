@@ -10,27 +10,29 @@
     <projectUrl>https://github.com/auth0/auth0-oidc-client-net</projectUrl>
     <iconUrl>http://secure.gravatar.com/avatar/805765c256ff8617fcad483b5476faf2</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Auth0 OIDC Client for Xamarin Android applications</description>
+    <description>Auth0 OIDC Client for Xamarin Android apps</description>
     <releaseNotes>
       Version 2.4.2
-      - Fixes issue which would prevent setting custom uri in Auth0ClientOptions for the Auth0Client constructor.
+      - Fixes Auth0ClientOptions RedirectUri so it is actually honored.
+      - Clarified RedirectUri and PostLogoutRedirectUri on Auth0ClientOptions in doc comments
+      - Debug log now helpfully reports what Callback and Logout URLs to whitelist
 
       Version 2.4.1
-       - Fixes "FLAG_ACTIVITY_NEW_TASK" error on Android SDK9 however you for best integration 
-         you should add 'Browser = new AutoSelectBrowser(this)` to your config creation from your view.
-       - ChromeCustomTabs and SystemBrowser now take an optional View in the constructor.
-       - If you pass a View then it will be used as the Context for launching the browser.
-       - If you do not pass a View then the system context is used with the "NEW_TASK" flag.
-       - While both work passing the View provides a better task switching experience.
-      
+      - Fixes "FLAG_ACTIVITY_NEW_TASK" error on Android SDK9 however you for best integration
+      you should add 'Browser = new AutoSelectBrowser(this)` to your config creation from your view.
+      - ChromeCustomTabs and SystemBrowser now take an optional View in the constructor.
+        - If you pass a View then it will be used as the Context for launching the browser.
+        - If you do not pass a View then the system context is used with the "NEW_TASK" flag.
+        - While both work passing the View provides a better task switching experience.
+
       Version 2.4.0
       - Add support for ChromeCustomTabs browser and made it default
       - PlatformWebView class is deprecated. When it comes to config.Browser either:
-        - Leave it null for ongoing best default (recommended)
-        - Assign an instance of ChromeCustomTabBrowser (will fall back if needed)
-        - Assign an instance of SystemBrowser (for old not-recommended behavior)
+      - Leave it null for ongoing best default (recommended)
+      - Assign an instance of ChromeCustomTabBrowser (will fall back if needed)
+      - Assign an instance of SystemBrowser (for old not-recommended behavior)
       - Add new Auth0ClientActivity class to help in wiring up ActivityMediator
-        - Alternatively call ActivityMediator.Instance.Cancel() from your OnResume
+      - Alternatively call ActivityMediator.Instance.Cancel() from your OnResume
       - Move system browser integration to SystemBrowser class
       - Add return code status for Logout (thanks @jsauve)
       - Add support to get the user claims from the userinfo endpoint (thanks @OrihuelaConde)
@@ -50,24 +52,12 @@
       Version 2.1.0
       - Fixed issue with browser not opening when running on Android 6.0
       - Updated dependency on IdentityModel.OidcClient to v2.7.0
-
-      Version 2.0.0
-      - Support for Xamarin Forms
-
-      Version 1.2.0
-      - Allow overriding of RedirectUri
-
-      Version 1.1.0
-      - Internal updates
-
-      Version 1.0.0
-      - Initial version of Package
     </releaseNotes>
     <copyright>Copyright 2017-2019 Auth0, Inc.</copyright>
-    <tags>Auth0 OIDC Android MonoAndroid</tags>
+    <tags>Auth0 OIDC Android Xamarin</tags>
     <dependencies>
       <group targetFramework="MonoAndroid10">
-        <dependency id="Auth0.OidcClient.Core" version="2.4.0" />
+        <dependency id="Auth0.OidcClient.Core" version="2.4.2" />
       </group>
     </dependencies>
   </metadata>

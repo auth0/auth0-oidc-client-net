@@ -10,14 +10,11 @@
     <projectUrl>https://github.com/auth0/auth0-oidc-client-net</projectUrl>
     <iconUrl>http://secure.gravatar.com/avatar/805765c256ff8617fcad483b5476faf2</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Auth0 OIDC Client for Xamarin iOS applications</description>
+    <description>Auth0 OIDC Client for Xamarin iOS apps</description>
     <releaseNotes>
       Version 2.4.2
-      - Fixes issue which would prevent setting custom uri in Auth0ClientOptions for the Auth0Client constructor.
+      - Fixes Auth0ClientOptions RedirectUri so it is actually honored.
       
-      Version 2.4.1
-      - Skipped to bring app versions in line with Android.
-
       Version 2.4.0
       - Add ASWebAuthenticationSession for iOS 12+ (thanks @jsauve)
       - PlatformWebView class is deprecated. When it comes to config.Browser either:
@@ -39,23 +36,13 @@
       - Add support to log the user out and clear the Auth0 SSO cookie
 
       Version 2.1.0
-      - Fixed issue with browser not opening when running on Android 6.0
       - Updated dependency on IdentityModel.OidcClient to v2.7.0
-
-      Version 2.0.0
-      - Support for Xamarin Forms
-
-      Version 1.1.0
-      - Internal updates
-
-      Version 1.0.0
-      - Initial version of Package
     </releaseNotes>
     <copyright>Copyright 2017-2019 Auth0, Inc.</copyright>
-    <tags>Auth0 OIDC iOS MonoTouch</tags>
+    <tags>Auth0 OIDC iOS Xamarin</tags>
     <dependencies>
       <group targetFramework="Xamarin.iOS10">
-        <dependency id="Auth0.OidcClient.Core" version="2.4.0" />
+        <dependency id="Auth0.OidcClient.Core" version="2.4.2" />
       </group>
     </dependencies>
   </metadata>
