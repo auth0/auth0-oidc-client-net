@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
@@ -39,12 +40,16 @@ namespace Auth0.OidcClient
             {
                 FrontChannelExtraParameters = AppendTelemetry(extraParameters)
             };
+
+            Debug.WriteLine($"Using Callback URL ${_options.RedirectUri}. Ensure this is an Allowed Callback URL for application/client ID ${_options.ClientId}.");
             return OidcClient.LoginAsync(loginRequest);
         }
 
         /// <inheritdoc/>
         public Task<BrowserResultType> LogoutAsync()
         {
+            Debug.WriteLine($"Using Callback URL ${_options.PostLogoutRedirectUri}. Ensure this is an Allowed Logout URL for application/client ID ${_options.ClientId}.");
+
             return LogoutAsync(false);
         }
 
