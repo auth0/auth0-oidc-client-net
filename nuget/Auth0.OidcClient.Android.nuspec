@@ -3,7 +3,7 @@
 <package>
   <metadata>
     <id>Auth0.OidcClient.Android</id>
-    <version>2.4.2</version>
+    <version>3.0.0</version>
     <authors>Auth0</authors>
     <owners>Auth0</owners>
     <licenseUrl>https://opensource.org/licenses/Apache-2.0</licenseUrl>
@@ -12,6 +12,12 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Auth0 OIDC Client for Xamarin Android apps</description>
     <releaseNotes>
+      Version 3.0.0
+      - Removed deprecated PlatformWebView class (breaking change). Either:
+        - Leave it null for ongoing best default (recommended)
+        - Assign an instance of ChromeCustomTabBrowser (will fall back if needed)
+        - Assign an instance of SystemBrowser (for old not-recommended behavior)
+        
       Version 2.4.2
       - Fixes Auth0ClientOptions RedirectUri so it is actually honored.
       - Clarified RedirectUri and PostLogoutRedirectUri on Auth0ClientOptions in doc comments
@@ -57,7 +63,7 @@
     <tags>Auth0 OIDC Android Xamarin</tags>
     <dependencies>
       <group targetFramework="MonoAndroid10">
-        <dependency id="Auth0.OidcClient.Core" version="2.4.2" />
+        <dependency id="Auth0.OidcClient.Core" version="3.0.0" />
       </group>
     </dependencies>
   </metadata>

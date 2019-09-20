@@ -3,7 +3,7 @@
 <package>
   <metadata>
     <id>Auth0.OidcClient.WinForms</id>
-    <version>2.4.2</version>
+    <version>3.0.0</version>
     <authors>Auth0</authors>
     <owners>Auth0</owners>
     <licenseUrl>https://opensource.org/licenses/Apache-2.0</licenseUrl>
@@ -12,6 +12,14 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Auth0 OIDC Client for WinForms apps</description>
     <releaseNotes>
+      Version 3.0.0
+      - Add WebViewBrowser class with Edge browser support for improved compatibility (new default).
+      - Now requires .NET Framework 4.6.2 (previously 4.5.2, breaking change).
+      - Removed deprecated PlatformWebView class (breaking change). Either:
+        - Leave it null for ongoing best default (recommended)
+        - Assign an instance of WebBrowserBrowser passing a custom Form function if customization and IE needed
+        - Assign an instance of WebViewBrowser passing a custom Form function if customization and Edge needed
+        
       Version 2.4.2
       - Clarified RedirectUri and PostLogoutRedirectUri on Auth0ClientOptions in doc comments
       - Debug log now helpfully reports what Callback and Logout URLs to whitelist
@@ -41,7 +49,7 @@
     <tags>Auth0 OIDC WinForms</tags>
     <dependencies>
       <group targetFramework="net452">
-        <dependency id="Auth0.OidcClient.Core" version="2.4.2" />
+        <dependency id="Auth0.OidcClient.Core" version="3.0.0" />
       </group>
     </dependencies>
   </metadata>
