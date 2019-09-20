@@ -85,7 +85,7 @@ namespace Auth0.OidcClient
         /// </summary>
         /// <remarks>
         /// Defaults to a platform-specific value you can observe in the debug console window when performing a logout.
-        /// On iOS this is made from the app bundle ID and on Android from a lower-cased version of the package name.
+        /// On iOS this is made from the app bundle ID and on Android from the package name.
         /// Whether you use the default or manually set this value it must be added to the 
         /// Allowed Logout URLs for this application/client to allow the logout process to complete.
         /// </remarks>
@@ -96,7 +96,7 @@ namespace Auth0.OidcClient
         /// </summary>
         /// <remarks>
         /// Defaults to a platform-specific value you can observe in the debug console window when performing a login.
-        /// On iOS this is made from the app bundle ID and on Android from a lower-cased version of the package name.
+        /// On iOS this is made from the app bundle ID and on Android from the package name.
         /// Whether you use the default or manually set this value it must be added to the 
         /// Allowed Callback URLs for this application/client to allow the login process to complete.
         /// </remarks>

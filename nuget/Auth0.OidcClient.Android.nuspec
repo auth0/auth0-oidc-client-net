@@ -13,6 +13,9 @@
     <description>Auth0 OIDC Client for Xamarin Android apps</description>
     <releaseNotes>
       Version 3.0.0
+      - We no longer lower-case your package name. If your package name uses upper-case you MUST:
+        - Modify your IntentFilter attribute and ensure the case matches your package name
+        - Add case-specific versions of your Allowed Callback URL and Allowed Logout URLs for your client via Auth0.com
       - Removed deprecated PlatformWebView class (breaking change). Either:
         - Leave it null for ongoing best default (recommended)
         - Assign an instance of ChromeCustomTabBrowser (will fall back if needed)
