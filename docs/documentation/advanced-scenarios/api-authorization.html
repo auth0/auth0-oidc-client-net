@@ -8,7 +8,7 @@
     <title>API Authorization </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="API Authorization ">
-    <meta name="generator" content="docfx 2.33.1.0">
+    <meta name="generator" content="docfx 2.45.1.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
     <link rel="stylesheet" href="../../styles/docfx.vendor.css">
@@ -20,7 +20,7 @@
     
     
   </head>
-  <body data-spy="scroll" data-target="#affix">
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
       <header>
         
@@ -71,7 +71,7 @@
 
 <p>Auth0&#39;s API authorization features allow you to manage the authorization requirements for server-to-server and client-to-server applications.</p>
 <p>For more information you can refer to the <a href="https://auth0.com/docs/api-auth">Auth0 API Authorization documentation</a></p>
-<p>Using the Auth0 OIDC Client, you can request an <code>access_token</code> for an API by passing the <code>audience</code> in the <code>extraParameters</code> parameter when calling <a class="xref" href="../../api/Auth0.OidcClient.Auth0Client.html#Auth0_OidcClient_Auth0Client_LoginAsync_System_Object_">LoginAsync(Object)</a></p>
+<p>Using the Auth0 OIDC Client, you can request an <code>access_token</code> for an API by passing the <code>audience</code> in the <code>extraParameters</code> parameter when calling @Auth0.OidcClient.Auth0Client.LoginAsync(System.Object)</p>
 <pre><code class="lang-csharp">var client = new Auth0Client(new Auth0ClientOptions
 {
     Domain = &quot;YOUR_AUTH0_DOMAIN&quot;,
@@ -87,7 +87,7 @@ var loginResult = await client.LoginAsync(new { audience = &quot;https://your-ap
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/auth0/auth0-oidc-client-net/blob/v2/docs-source/documentation/advanced-scenarios/api-authorization.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com//auth0/auth0-oidc-client-net/blob/major-3-0/docs-source/documentation/advanced-scenarios/api-authorization.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
