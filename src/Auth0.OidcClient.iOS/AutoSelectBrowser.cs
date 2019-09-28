@@ -9,6 +9,7 @@ namespace Auth0.OidcClient
     /// </summary>
     public class AutoSelectBrowser : IOSBrowserBase
     {
+        /// <inheritdoc/>
         protected override Task<BrowserResult> Launch(BrowserOptions options)
         {
             // For iOS 12+ use ASWebAuthenticationSession

@@ -16,7 +16,7 @@ namespace Auth0.OidcClient
         private readonly bool _shouldCloseWindow;
 
         /// <summary>
-        /// Create a new instance of WebBrowserBrowser with a custom windowFactory and optional window close flag.
+        /// Create a new instance of <see cref="WebBrowserBrowser"/> with a custom Window factory and optional flag to indicate if the window should be closed.
         /// </summary>
         /// <param name="windowFactory">A function that returns a <see cref="Window"/> to be used for hosting the browser.</param>
         /// <param name="shouldCloseWindow"> Whether the Window should be closed or not after completion.</param>
@@ -36,6 +36,12 @@ namespace Auth0.OidcClient
             _shouldCloseWindow = shouldCloseWindow;
         }
 
+        /// <summary>
+        /// Create a new instance of <see cref="WebBrowserBrowser"/> that will create a customized <see cref="Window"/> as needed.
+        /// </summary>
+        /// <param name="title">An optional <see cref="string"/> specifying the title of the form. Defaults to "Authenticating...".</param>
+        /// <param name="width">An optional <see cref="int"/> specifying the width of the form. Defaults to 1024.</param>
+        /// <param name="height">An optional <see cref="int"/> specifying the height of the form. Defaults to 768.</param>
         public WebBrowserBrowser(string title = "Authenticating...", int width = 1024, int height = 768)
             : this(() => new Window
             {
