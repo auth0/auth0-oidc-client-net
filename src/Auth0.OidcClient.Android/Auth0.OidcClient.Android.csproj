@@ -68,7 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="IdentityModel.OidcClient">
-      <Version>2.9.0</Version>
+      <Version>2.9.1</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Android.Support.CustomTabs">
       <Version>28.0.0.1</Version>

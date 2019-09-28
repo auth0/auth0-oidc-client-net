@@ -1,6 +1,6 @@
 ﻿{
   "dependencies": {
-    "IdentityModel.OidcClient": "2.9.0",
+    "IdentityModel.OidcClient": "2.9.1",
     "Microsoft.NETCore.UniversalWindowsPlatform": "6.2.8"
   },
   "frameworks": {
