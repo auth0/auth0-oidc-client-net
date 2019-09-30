@@ -9,14 +9,22 @@
         private ActivityMediator() { }
 
         /// <summary>
-        /// Singleton instance of this class.
+        /// Singleton instance of the <see cref="ActivityMediator"/> class.
         /// </summary>
         public static ActivityMediator Instance
         {
             get { return _instance ?? (_instance = new ActivityMediator()); }
         }
 
+        /// <summary>
+        /// Method signature required for methods subscribing to the ActivityMessageReceived event.
+        /// </summary>
+        /// <param name="message">Message that has been received.</param>
         public delegate void MessageReceivedEventHandler(string message);
+
+        /// <summary>
+        /// Event listener for subscribing to message received events.
+        /// </summary>
         public event MessageReceivedEventHandler ActivityMessageReceived;
 
         /// <summary>

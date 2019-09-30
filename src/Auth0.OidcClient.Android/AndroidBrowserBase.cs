@@ -14,7 +14,12 @@ namespace Auth0.OidcClient
         protected Context context;
         protected bool IsNewTask;
 
-        public AndroidBrowserBase(Context context = null)
+        /// <summary>
+        /// Default constructor for <see cref="AndroidBrowserBase"/> that provides assignment
+        /// of context and IsNewTask when called by subclasses.
+        /// </summary>
+        /// <param name="context">Optional <see cref="Context"/> to provide on subsequent callbacks.</param>
+        protected AndroidBrowserBase(Context context = null)
         {
             this.context = context;
             IsNewTask = context == null;

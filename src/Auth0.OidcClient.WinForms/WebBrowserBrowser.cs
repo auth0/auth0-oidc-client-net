@@ -16,11 +16,22 @@ namespace Auth0.OidcClient
     {
         private readonly Func<Form> _formFactory;
 
+        /// <summary>
+        /// Create an instance of <see cref="WebBrowserBrowser"/> that uses the provided <see cref="Func{Form}"/> to
+        /// determine how to host the <see cref="ExtendedWebBrowser"/> control.
+        /// </summary>
+        /// <param name="formFactory"><see cref="Func{Form}"/> to used to host the <see cref="ExtendedWebBrowser"/> control.</param>
         public WebBrowserBrowser(Func<Form> formFactory)
         {
             _formFactory = formFactory;
         }
 
+        /// <summary>
+        /// Create a new instance of <see cref="WebBrowserBrowser"/> that will create a customized <see cref="Form"/> as needed.
+        /// </summary>
+        /// <param name="title">An optional <see cref="string"/> specifying the title of the form. Defaults to "Authenticating...".</param>
+        /// <param name="width">An optional <see cref="int"/> specifying the width of the form. Defaults to 1024.</param>
+        /// <param name="height">An optional <see cref="int"/> specifying the height of the form. Defaults to 768.</param>
         public WebBrowserBrowser(string title = "Authenticating...", int width = 1024, int height = 768)
             : this(() => new Form
             {
@@ -29,7 +40,8 @@ namespace Auth0.OidcClient
                 Width = width,
                 Height = height
             })
-        { }
+        {
+        }
 
         /// <inheritdoc />
         public async Task<BrowserResult> InvokeAsync(BrowserOptions options)

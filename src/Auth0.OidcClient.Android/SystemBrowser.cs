@@ -12,6 +12,7 @@ namespace Auth0.OidcClient
         {
         }
 
+        /// <inheritdoc/>
         protected override void OpenBrowser(Android.Net.Uri uri, Context context = null)
         {
             var intent = new Intent(Intent.ActionView, uri);

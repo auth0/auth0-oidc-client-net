@@ -4,7 +4,7 @@ using System.Net.Http;
 namespace Auth0.OidcClient
 {
     /// <summary>
-    /// Specifies the options for an instance of the <see cref="Auth0Client"/> class.
+    /// Specifies options that can be passed to <see cref="Auth0ClientBase"/> implementations.
     /// </summary>
     public class Auth0ClientOptions
     {
@@ -103,8 +103,8 @@ namespace Auth0.OidcClient
         public string RedirectUri { get; set; }
 
         /// <summary>
-        /// Create a new instance of the <see cref="Auth0ClientOptions"/> class used to configure the options for
-        /// passing to the constructor of <see cref="Auth0Client"/>.
+        /// Create a new instance of the <see cref="Auth0ClientOptions"/> class used to configure options for
+        /// <see cref="Auth0ClientBase"/> implementations by way of their constructors.
         /// </summary>
         public Auth0ClientOptions()
         {
