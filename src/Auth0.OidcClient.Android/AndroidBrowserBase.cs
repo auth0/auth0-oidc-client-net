@@ -11,7 +11,14 @@ namespace Auth0.OidcClient
     /// </summary>
     public abstract class AndroidBrowserBase : IBrowser
     {
+        /// <summary>
+        /// The <see cref="Context"/> associated with this browser.
+        /// </summary>
         protected Context context;
+
+        /// <summary>
+        /// Whether this browser should launch a new Android Task.
+        /// </summary>
         protected bool IsNewTask;
 
         /// <summary>
@@ -58,7 +65,8 @@ namespace Auth0.OidcClient
         /// <summary>
         /// Open a web browser with the given uri.
         /// </summary>
-        /// <param name="uri">The uri address to open in the browser.</param>
+        /// <param name="uri"><see cref="Uri"/> address to open in the browser.</param>
+        /// <param name="context">Optional <see cref="Context"/> associated with the browser.</param>
         protected abstract void OpenBrowser(Android.Net.Uri uri, Context context = null);
     }
 }
