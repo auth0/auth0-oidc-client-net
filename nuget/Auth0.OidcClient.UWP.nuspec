@@ -3,7 +3,7 @@
 <package>
   <metadata>
     <id>Auth0.OidcClient.UWP</id>
-    <version>2.4.2</version>
+    <version>2.4.3</version>
     <authors>Auth0</authors>
     <owners>Auth0</owners>
     <licenseUrl>https://opensource.org/licenses/Apache-2.0</licenseUrl>
@@ -12,6 +12,11 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Auth0 OIDC Client for Universal Windows Platform (UWP) apps</description>
     <releaseNotes>
+      Version 2.4.3
+      - Improved XML code documentation.
+      - Update IdentityModel.OidcClient2 to 2.9.2
+      - Update Microsoft.NETCore.UniversalWindowsPlatform to 6.2.9      
+      
       Version 2.4.2
       - Clarified RedirectUri and PostLogoutRedirectUri on Auth0ClientOptions in doc comments
       - Debug log now helpfully reports what Callback and Logout URLs to whitelist
@@ -42,7 +47,7 @@
     <tags>Auth0 OIDC UWP Windows10</tags>
     <dependencies>
       <group targetFramework="uap10.0">
-        <dependency id="Auth0.OidcClient.Core" version="2.4.2" />
+        <dependency id="Auth0.OidcClient.Core" version="2.4.3" />
       </group>
     </dependencies>
   </metadata>
