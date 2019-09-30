@@ -11,6 +11,7 @@ namespace Auth0.OidcClient
     /// </summary>
     public class ASWebAuthenticationSessionBrowser : IOSBrowserBase
     {
+        /// <inheritdoc/>
         protected override Task<BrowserResult> Launch(BrowserOptions options)
         {
             return Launch(options);
