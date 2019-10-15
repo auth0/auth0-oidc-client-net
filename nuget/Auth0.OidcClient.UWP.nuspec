@@ -13,6 +13,7 @@
     <description>Auth0 OIDC Client for Universal Windows Platform (UWP) apps</description>
     <releaseNotes>
       Version 3.0.0
+      - Minimum version of UWP is now 10.0.16299 (was 10.0) as we decided to drop .NET Standard 1.4.
       - Removed deprecated PlatformWebView class (breaking change). Either:
         - Leave it null for ongoing best default (recommended)
         - Assign an instance of WebAuthenticationBrokerBrowser passing true to enable Windows auth
