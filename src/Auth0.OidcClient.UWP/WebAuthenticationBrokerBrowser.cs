@@ -13,9 +13,10 @@ namespace Auth0.OidcClient
         private readonly bool _enableWindowsAuthentication;
 
         /// <summary>
-        /// Creates a new instance of <see cref="WebAuthenticationBrokerBrowser"/> with optional Windows authentication.
+        /// Create a new instance of <see cref="WebAuthenticationBrokerBrowser"/> class specifying if
+        /// Windows authentication should be enabled.
         /// </summary>
-        /// <param name="enableWindowsAuthentication">Whether Windows authentication should be honored, defaults to <see cref="false"/>.</param>
+        /// <param name="enableWindowsAuthentication">Whether Windows authentication is enabled (true) or not (false).</param>
         public WebAuthenticationBrokerBrowser(bool enableWindowsAuthentication = false)
         {
             _enableWindowsAuthentication = enableWindowsAuthentication;
@@ -24,7 +25,8 @@ namespace Auth0.OidcClient
         /// <inheritdoc />
         public async Task<BrowserResult> InvokeAsync(BrowserOptions options)
         {
-            if (string.IsNullOrWhiteSpace(options.StartUrl)) throw new ArgumentException("Missing StartUrl", nameof(options));
+            if (string.IsNullOrWhiteSpace(options.StartUrl))
+                throw new ArgumentException("Missing StartUrl", nameof(options));
 
             var startUri = new Uri(options.StartUrl);
             if (startUri.AbsolutePath.StartsWith("/v2/logout", StringComparison.OrdinalIgnoreCase))

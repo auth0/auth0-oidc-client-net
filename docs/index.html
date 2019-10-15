@@ -8,7 +8,7 @@
     <title>Auth0 OIDC Client </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Auth0 OIDC Client ">
-    <meta name="generator" content="docfx 2.33.1.0">
+    <meta name="generator" content="docfx 2.45.1.0">
     
     <link rel="shortcut icon" href="favicon.ico">
     <link rel="stylesheet" href="styles/docfx.vendor.css">
@@ -20,7 +20,7 @@
     
     
   </head>
-  <body data-spy="scroll" data-target="#affix">
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
       <header>
         
@@ -67,8 +67,8 @@
 <li>Universal Windows Platform</li>
 <li>Windows Presentation Foundation (.NET 4.52 and higher)</li>
 <li>Windows Forms (.NET 4.52 and higher)</li>
-<li>Xamarin (iOS)</li>
-<li>Xamarin (Android)</li>
+<li>iOS (uses Xamarin)</li>
+<li>Android (uses Xamarin)</li>
 </ul>
 <h2 id="quick-start">Quick Start</h2>
 <blockquote><p>Before you start, ensure that you have configured the Callback URL in the Clients Settings section in the <a href="https://manage.auth0.com/#/">Auth0 dashboard</a>. See the <a href="documentation/getting-started/callbacks.html">Callback URLs documentation</a> for more information on what Callback URL you need to use for your particular platform.</p>
@@ -82,9 +82,9 @@
 <pre><code class="lang-text">Install-Package Auth0.OidcClient.WPF
 </code></pre><p><strong>Windows Forms</strong></p>
 <pre><code class="lang-text">Install-Package Auth0.OidcClient.WinForms
-</code></pre><p><strong>Xamarin (iOS)</strong></p>
+</code></pre><p><strong>iOS (uses Xamarin)</strong></p>
 <pre><code class="lang-text">Install-Package Auth0.OidcClient.iOS
-</code></pre><p><strong>Xamarin (Android)</strong></p>
+</code></pre><p><strong>Android (uses Xamarin)</strong></p>
 <pre><code class="lang-text">Install-Package Auth0.OidcClient.Android
 </code></pre><h3 id="2-initialize">2. Initialize</h3>
 <pre><code class="lang-csharp">using Auth0.OidcClient;
@@ -95,11 +95,11 @@ var client = new Auth0Client(new Auth0ClientOptions
     ClientId = &quot;YOUR_AUTH0_CLIENT_ID&quot;
 });
 </code></pre><h3 id="3-authenticate">3. Authenticate</h3>
-<p>For Windows clients, you can simply call <a class="xref" href="api/Auth0.OidcClient.Auth0Client.html#Auth0_OidcClient_Auth0Client_LoginAsync_System_Object_">LoginAsync(Object)</a></p>
+<p>For Windows clients, you can simply call @Auth0.OidcClient.Auth0Client.LoginAsync(System.Object)</p>
 <pre><code class="lang-csharp">var loginResult = await client.LoginAsync();
 </code></pre><p>For Android and iOS clients, you need to do some manual work to log a user in. The basic flow is as follows:</p>
 <ol>
-<li>Obtain an <code>AuthorizeState</code> by calling <a class="xref" href="api/Auth0.OidcClient.Auth0Client.html#Auth0_OidcClient_Auth0Client_PrepareLoginAsync_System_Object_">PrepareLoginAsync(Object)</a>. You will need to save the instance of <code>AuthorizeState</code> as you will need it later on.</li>
+<li>Obtain an <code>AuthorizeState</code> by calling @Auth0.OidcClient.Auth0Client.PrepareLoginAsync(System.Object). You will need to save the instance of <code>AuthorizeState</code> as you will need it later on.</li>
 <li>Launch the system browser and direct the user to the <code>StartUrl</code> in the returned <code>AuthorizeState</code>. After the user has logged in, Auth0 will call back to your application on the Callback URL.</li>
 <li>Your application will need to handle the callback. The means either creating an <code>Intent</code> or Android, or handling <code>OpenUrl</code> in your <code>AppDelegate</code> on iOS.</li>
 </ol>
@@ -114,7 +114,7 @@ var client = new Auth0Client(new Auth0ClientOptions
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/auth0/auth0-oidc-client-net/blob/v2/docs-source/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com//auth0/auth0-oidc-client-net/blob/major-3-0/docs-source/index.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

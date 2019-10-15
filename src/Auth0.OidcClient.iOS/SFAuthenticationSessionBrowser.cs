@@ -10,6 +10,7 @@ namespace Auth0.OidcClient
     /// </summary>
     public class SFAuthenticationSessionBrowser : IOSBrowserBase
     {
+        /// <inheritdoc/>
         protected override Task<BrowserResult> Launch(BrowserOptions options)
         {
             return Start(options);

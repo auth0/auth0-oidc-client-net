@@ -9,6 +9,7 @@ namespace Auth0.OidcClient
     /// </summary>
     public abstract class IOSBrowserBase : IBrowser
     {
+        /// <inheritdoc/>
         public Task<BrowserResult> InvokeAsync(BrowserOptions options)
         {
             if (string.IsNullOrWhiteSpace(options.StartUrl))
@@ -20,6 +21,12 @@ namespace Auth0.OidcClient
             return Launch(options);
         }
 
+        /// <summary>
+        /// Launch a browser with the options and URL specified by the <see cref="BrowserOptions"/>.
+        /// </summary>
+        /// <param name="options"></param>
+        /// <returns>A <see cref="Task"/> that will contain a <see cref="BrowserResult"/> with details of
+        /// wether the launch process succeeded or not by way of a <see cref="BrowserResultType"/>.</returns>
         protected abstract Task<BrowserResult> Launch(BrowserOptions options);
 
         internal static BrowserResult Canceled()

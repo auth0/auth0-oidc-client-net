@@ -2,6 +2,7 @@
 using Foundation;
 using IdentityModel.OidcClient.Browser;
 using System.Threading.Tasks;
+using UIKit;
 
 namespace Auth0.OidcClient
 {
@@ -10,6 +11,7 @@ namespace Auth0.OidcClient
     /// </summary>
     public class ASWebAuthenticationSessionBrowser : IOSBrowserBase
     {
+        /// <inheritdoc/>
         protected override Task<BrowserResult> Launch(BrowserOptions options)
         {
             return Launch(options);
@@ -29,9 +31,21 @@ namespace Auth0.OidcClient
                     asWebAuthenticationSession.Dispose();
                 });
 
+            // iOS 13 requires the PresentationContextProvider set
+            if (UIDevice.CurrentDevice.CheckSystemVersion(13, 0))
+                asWebAuthenticationSession.PresentationContextProvider = new PresentationContextProviderToSharedKeyWindow();
+
             asWebAuthenticationSession.Start();
 
             return tcs.Task;
+        }
+
+        class PresentationContextProviderToSharedKeyWindow : NSObject, IASWebAuthenticationPresentationContextProviding
+        {
+            public UIWindow GetPresentationAnchor(ASWebAuthenticationSession session)
+            {
+                return UIApplication.SharedApplication.KeyWindow;
+            }
         }
 
         private static BrowserResult CreateBrowserResult(NSUrl callbackUrl, NSError error)

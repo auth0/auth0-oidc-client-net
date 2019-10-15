@@ -17,6 +17,11 @@
         - Leave it null to auto-switch based on iOS version (recommended)
         - Assign an instance of SFSafariViewControllerBrowser for old iOS 9 style promptless
 
+      Version 2.4.3
+      - Fix iOS 13 compatibility by setting ASWebAuthenticationSession PresentationAnchor.
+      - Improved XML code documentation.
+      - Update IdentityModel.OidcClient2 to 2.9.2
+
       Version 2.4.2
       - Fixes Auth0ClientOptions RedirectUri so it is actually honored.
 

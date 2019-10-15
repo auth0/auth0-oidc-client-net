@@ -17,6 +17,11 @@
         - Leave it null for ongoing best default (recommended)
         - Assign an instance of WebAuthenticationBrokerBrowser passing true to enable Windows auth
 
+      Version 2.4.3
+      - Improved XML code documentation.
+      - Update IdentityModel.OidcClient2 to 2.9.2
+      - Update Microsoft.NETCore.UniversalWindowsPlatform to 6.2.9      
+      
       Version 2.4.2
       - Clarified RedirectUri and PostLogoutRedirectUri on Auth0ClientOptions in doc comments
       - Debug log now helpfully reports what Callback and Logout URLs to whitelist

@@ -20,6 +20,10 @@
         - Assign an instance of WebBrowserBrowser passing a custom Form function if customization and IE needed
         - Assign an instance of WebViewBrowser passing a custom Form function if customization and Edge needed
         
+      Version 2.4.3
+      - Improved XML code documentation.
+      - Update IdentityModel.OidcClient2 to 2.9.2
+
       Version 2.4.2
       - Clarified RedirectUri and PostLogoutRedirectUri on Auth0ClientOptions in doc comments
       - Debug log now helpfully reports what Callback and Logout URLs to whitelist

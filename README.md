@@ -1,6 +1,6 @@
 # Auth0 OIDC Client for .NET
 
-[![Build status](https://dev.azure.com/Auth0SDK/Auth0%20OIDC%20Client.NET/_apis/build/status/Auth0%20OIDC%20Client.NET-.NET%20Desktop-CI)](https://dev.azure.com/Auth0SDK/Auth0%20OIDC%20Client.NET/_build/latest?definitionId=2) [![NuGet version](https://img.shields.io/nuget/v/auth0.oidcclient.core.svg?style=flat)](https://www.nuget.org/packages/Auth0.OidcClient.Core/)
+[![Build Status](https://dev.azure.com/Auth0SDK/Auth0%20OIDC%20Client.NET/_apis/build/status/auth0.auth0-oidc-client-net?branchName=master)](https://dev.azure.com/Auth0SDK/Auth0%20OIDC%20Client.NET/_build/latest?definitionId=4&branchName=master) [![NuGet version](https://img.shields.io/nuget/v/auth0.oidcclient.core.svg?style=flat)](https://www.nuget.org/packages/Auth0.OidcClient.Core/)
 
 OIDC Client for .NET Desktop (WinForms, WPF and UWP) as well as Xamarin-based iOS and Android mobile applications.
 
