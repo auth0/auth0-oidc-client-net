@@ -13,7 +13,10 @@
     <description>Auth0 OIDC Client for native apps</description>
     <releaseNotes>
       Version 3.0.0
-      - .NET Standard 1.4 support has been dropped (affects UWP only)
+      - .NET Standard 2.0 is now the only supported target. This breaking change means:
+        - UWP applications require 10.0.16299 or later (was 10.0)
+        - .NET Framework applications require 4.6.1 or later (was 4.5.2)
+      - IAuth0Client has been simplified - LogoutAsync and RefreshTokenAsync overloads are combined.
       
       Version 2.4.3
       - Improved XML code documentation.
