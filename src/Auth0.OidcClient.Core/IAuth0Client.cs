@@ -22,15 +22,9 @@ namespace Auth0.OidcClient
         /// <summary>
         /// Launches a browser to log the user out and clear the Auth0 SSO Cookie.
         /// </summary>
+        /// <param name="federated">Whether to log the user out of their federated identity provider. Defaults to false.</param>
         /// <returns>A <see cref="BrowserResultType"/> indicating whether the logout was successful.</returns>
-        Task<BrowserResultType> LogoutAsync();
-
-        /// <summary>
-        /// Launches a browser to log the user out and clear the Auth0 SSO Cookie.
-        /// </summary>
-        /// <param name="federated">Whether to log the user out of their federated identity provider.</param>
-        /// <returns>A <see cref="BrowserResultType"/> indicating whether the logout was successful.</returns>
-        Task<BrowserResultType> LogoutAsync(bool federated);
+        Task<BrowserResultType> LogoutAsync(bool federated = false);
 
         /// <summary>
         /// Generates an <see cref="AuthorizeState"/> containing the URL, state, nonce and code challenge which can
@@ -55,17 +49,9 @@ namespace Auth0.OidcClient
         /// </summary>
         /// <param name="refreshToken">The refresh token which was issued during the authorization flow, or subsequent
         /// calls to <see cref="IdentityModel.OidcClient.OidcClient.RefreshTokenAsync"/>.</param>
-        /// <returns>A <see cref="RefreshTokenResult"/> with the refreshed tokens.</returns>
-        Task<RefreshTokenResult> RefreshTokenAsync(string refreshToken);
-
-        /// <summary>
-        /// Generates a new set of tokens based on a refresh token. 
-        /// </summary>
-        /// <param name="refreshToken">The refresh token which was issued during the authorization flow, or subsequent
-        /// calls to <see cref="IdentityModel.OidcClient.OidcClient.RefreshTokenAsync"/>.</param>
         /// <param name="extraParameters">Additional parameters to send to the refresh endpoint.</param>
         /// <returns>A <see cref="RefreshTokenResult"/> with the refreshed tokens.</returns>
-        Task<RefreshTokenResult> RefreshTokenAsync(string refreshToken, object extraParameters);
+        Task<RefreshTokenResult> RefreshTokenAsync(string refreshToken, object extraParameters = null);
 
         /// <summary>
         /// Gets the user claims from the userinfo endpoint.

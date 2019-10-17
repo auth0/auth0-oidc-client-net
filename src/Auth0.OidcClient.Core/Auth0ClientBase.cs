@@ -45,14 +45,6 @@ namespace Auth0.OidcClient
             return OidcClient.LoginAsync(loginRequest);
         }
 
-        /// <inheritdoc/>
-        public Task<BrowserResultType> LogoutAsync()
-        {
-            Debug.WriteLine($"Using Callback URL ${_options.PostLogoutRedirectUri}. Ensure this is an Allowed Logout URL for application/client ID ${_options.ClientId}.");
-
-            return LogoutAsync(false);
-        }
-
         private IdentityModel.OidcClient.OidcClient OidcClient
         {
             get
@@ -62,8 +54,10 @@ namespace Auth0.OidcClient
         }
 
         /// <inheritdoc/>
-        public async Task<BrowserResultType> LogoutAsync(bool federated)
+        public async Task<BrowserResultType> LogoutAsync(bool federated = false)
         {
+            Debug.WriteLine($"Using Callback URL ${_options.PostLogoutRedirectUri}. Ensure this is an Allowed Logout URL for application/client ID ${_options.ClientId}.");
+
             var logoutParameters = new Dictionary<string, string>
             {
                 { "client_id", OidcClient.Options.ClientId },
@@ -99,13 +93,7 @@ namespace Auth0.OidcClient
         }
 
         /// <inheritdoc/>
-        public Task<RefreshTokenResult> RefreshTokenAsync(string refreshToken)
-        {
-            return RefreshTokenAsync(refreshToken, null);
-        }
-
-        /// <inheritdoc/>
-        public Task<RefreshTokenResult> RefreshTokenAsync(string refreshToken, object extraParameters)
+        public Task<RefreshTokenResult> RefreshTokenAsync(string refreshToken, object extraParameters = null)
         {
             return OidcClient.RefreshTokenAsync(refreshToken, extraParameters);
         }
