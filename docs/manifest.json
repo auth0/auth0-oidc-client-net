@@ -9,7 +9,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Auth0.OidcClient.ASWebAuthenticationSessionBrowser.html",
-          "hash": "tOq1Cs9w8kktE0cOLW77nQ=="
+          "hash": "Kp7X0tmufhz9nGXb0u4zCA=="
         }
       },
       "is_incremental": false,
@@ -24,7 +24,7 @@
           "hash": "CH2RK0X7z5gC7xZosBOjYQ=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -36,7 +36,7 @@
           "hash": "+brPVmWc678kUflwAn6m/Q=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -81,7 +81,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Auth0.OidcClient.AutoSelectBrowser.html",
-          "hash": "raxTu4IKqksBeiZPSILRQA=="
+          "hash": "M7Syni09YPOdBlpghpdr0A=="
         }
       },
       "is_incremental": false,
@@ -93,7 +93,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Auth0.OidcClient.ChromeCustomTabsBrowser.html",
-          "hash": "7xITNkcKmIHg+7KAqWpofg=="
+          "hash": "8t4Z/boiKrwoLW0ZGxyeRg=="
         }
       },
       "is_incremental": false,
@@ -120,7 +120,7 @@
           "hash": "uULQzbc20lUTStxTojb5qQ=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -132,7 +132,7 @@
           "hash": "260f8+QsgKTEItxRNgVrig=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -144,7 +144,7 @@
           "hash": "0+cLcIURpMu3m/lrEy/A5A=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -153,7 +153,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Auth0.OidcClient.SFAuthenticationSessionBrowser.html",
-          "hash": "5oU2ke9q5sF5gMqZDIJxrw=="
+          "hash": "HGbmVtkd90fO8spfO7ke2g=="
         }
       },
       "is_incremental": false,
@@ -165,7 +165,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Auth0.OidcClient.SFSafariViewControllerBrowser.html",
-          "hash": "m9j8YZ0aXu5ETOxIj9uChw=="
+          "hash": "QK7auG28l/r+xf4S5r7sKg=="
         }
       },
       "is_incremental": false,
@@ -177,7 +177,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Auth0.OidcClient.SystemBrowser.html",
-          "hash": "Hxf/cUsyITjPBr14U6gV1w=="
+          "hash": "FHMC8uasgnDTYhkeErPgOw=="
         }
       },
       "is_incremental": false,
@@ -228,7 +228,7 @@
           "hash": "CH9W3OmNpxXQirn9GibnIQ=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -252,7 +252,7 @@
           "hash": "9TRgtC0Y8KZPyvfi25jEMg=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -264,7 +264,7 @@
           "hash": "4abuc32mvFncCOdKnLLHBA=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -276,7 +276,7 @@
           "hash": "uWLHtB2bGyJIKgIqQGKv0w=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -300,7 +300,7 @@
           "hash": "Jw5X02Bonalk5CTTF2B6qQ=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -312,7 +312,7 @@
           "hash": "YlRF7Vv1++cw2qM15gvM/g=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -324,7 +324,7 @@
           "hash": "1r976c57Sp9B5Toi01wLKw=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -336,7 +336,7 @@
           "hash": "IYagAkiERedgWz3OAFrBuQ=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -348,7 +348,7 @@
           "hash": "qVnf7RInM9zvDhurYQpziQ=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -383,7 +383,7 @@
           "hash": "U5d5PQ8NUN5UIEFA3YRJzQ=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -402,12 +402,10 @@
   "incremental_info": [
     {
       "status": {
-        "can_incremental": false,
-        "details": "Cannot build incrementally because last build info is missing.",
+        "can_incremental": true,
         "incrementalPhase": "build",
         "total_file_count": 0,
-        "skipped_file_count": 0,
-        "full_build_reason_code": "NoAvailableBuildCache"
+        "skipped_file_count": 0
       },
       "processors": {
         "TocDocumentProcessor": {
@@ -425,23 +423,23 @@
           "skipped_file_count": 0
         },
         "ManagedReferenceDocumentProcessor": {
-          "can_incremental": false,
+          "can_incremental": true,
           "incrementalPhase": "build",
           "total_file_count": 19,
-          "skipped_file_count": 0
+          "skipped_file_count": 7
         },
         "ConceptualDocumentProcessor": {
-          "can_incremental": false,
+          "can_incremental": true,
           "incrementalPhase": "build",
           "total_file_count": 11,
-          "skipped_file_count": 0
+          "skipped_file_count": 11
         }
       }
     },
     {
       "status": {
-        "can_incremental": false,
-        "details": "Cannot support incremental post processing, the reason is: last post processor info is null.",
+        "can_incremental": true,
+        "details": "Can support incremental post processing.",
         "incrementalPhase": "postProcessing",
         "total_file_count": 0,
         "skipped_file_count": 0
