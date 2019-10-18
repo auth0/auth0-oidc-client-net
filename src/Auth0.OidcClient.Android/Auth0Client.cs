@@ -46,6 +46,7 @@ namespace Auth0.OidcClient
         /// that match.
         /// Alternatively set the RedirectUri manually to match your IntentFilter. Please note that DataScheme should be lower-case or Android
         /// will not listen to callbacks.
+        /// </remarks>
         public Auth0Client(Auth0ClientOptions options, Activity activity)
             : base(options, "xamarin-android")
         {

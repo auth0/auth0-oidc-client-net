@@ -111,7 +111,6 @@
   <ItemGroup>
     <Compile Include="Auth0Client.cs" />
     <Compile Include="WebAuthenticationBrokerBrowser.cs" />
-    <Compile Include="PlatformWebView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Auth0.OidcClient.UWP.rd.xml" />
   </ItemGroup>
