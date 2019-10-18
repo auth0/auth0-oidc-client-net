@@ -15,29 +15,24 @@ namespace Auth0.OidcClient
         /// <summary>
         /// Launches a browser to log the user in.
         /// </summary>
-        /// <param name="extraParameters">Any extra parameters that need to be passed to the authorization endpoint.</param>
+        /// <param name="extraParameters">Optional extra parameters that need to be passed to the endpoint.</param>
         /// <returns>A <see cref="LoginResult"/> containing the tokens and claims.</returns>
         Task<LoginResult> LoginAsync(object extraParameters = null);
 
         /// <summary>
         /// Launches a browser to log the user out and clear the Auth0 SSO Cookie.
         /// </summary>
+        /// <param name="federated">Whether to log the user out of their federated identity provider. Defaults to false.</param>
+        /// <param name="extraParameters">Optional extra parameters that need to be passed to the endpoint.</param>
         /// <returns>A <see cref="BrowserResultType"/> indicating whether the logout was successful.</returns>
-        Task<BrowserResultType> LogoutAsync();
-
-        /// <summary>
-        /// Launches a browser to log the user out and clear the Auth0 SSO Cookie.
-        /// </summary>
-        /// <param name="federated">Whether to log the user out of their federated identity provider.</param>
-        /// <returns>A <see cref="BrowserResultType"/> indicating whether the logout was successful.</returns>
-        Task<BrowserResultType> LogoutAsync(bool federated);
+        Task<BrowserResultType> LogoutAsync(bool federated = false, object extraParameters = null);
 
         /// <summary>
         /// Generates an <see cref="AuthorizeState"/> containing the URL, state, nonce and code challenge which can
         /// be used to redirect the user to the authorization URL, and subsequently process any response by calling
         /// the <see cref="ProcessResponseAsync"/> method.
         /// </summary>
-        /// <param name="extraParameters">Additional parameters to send to the login endpoint.</param>
+        /// <param name="extraParameters">Optional extra parameters that need to be passed to the endpoint.</param>
         /// <returns>A <see cref="AuthorizeState"/> with necessary URLs, nonce, state and code verifiers.</returns>
         Task<AuthorizeState> PrepareLoginAsync(object extraParameters = null);
 
@@ -53,29 +48,21 @@ namespace Auth0.OidcClient
         /// <summary>
         /// Generates a new set of tokens based on a refresh token. 
         /// </summary>
-        /// <param name="refreshToken">The refresh token which was issued during the authorization flow, or subsequent
+        /// <param name="refreshToken">Refresh token which was issued during the authorization flow, or subsequent
         /// calls to <see cref="IdentityModel.OidcClient.OidcClient.RefreshTokenAsync"/>.</param>
+        /// <param name="extraParameters">Optional extra parameters that need to be passed to the endpoint.</param>
         /// <returns>A <see cref="RefreshTokenResult"/> with the refreshed tokens.</returns>
-        Task<RefreshTokenResult> RefreshTokenAsync(string refreshToken);
-
-        /// <summary>
-        /// Generates a new set of tokens based on a refresh token. 
-        /// </summary>
-        /// <param name="refreshToken">The refresh token which was issued during the authorization flow, or subsequent
-        /// calls to <see cref="IdentityModel.OidcClient.OidcClient.RefreshTokenAsync"/>.</param>
-        /// <param name="extraParameters">Additional parameters to send to the refresh endpoint.</param>
-        /// <returns>A <see cref="RefreshTokenResult"/> with the refreshed tokens.</returns>
-        Task<RefreshTokenResult> RefreshTokenAsync(string refreshToken, object extraParameters);
+        Task<RefreshTokenResult> RefreshTokenAsync(string refreshToken, object extraParameters = null);
 
         /// <summary>
         /// Gets the user claims from the userinfo endpoint.
         /// </summary>
-        /// <param name="accessToken">The access token.</param>
+        /// <param name="accessToken">Access token to use in obtaining claims.</param>
         /// <returns>
         /// <returns>A <see cref="UserInfoResult"/> with the user information and claims.</returns>
         /// </returns>
-        /// <exception cref="ArgumentNullException">accessToken</exception>
-        /// <exception cref="InvalidOperationException">No userinfo endpoint specified</exception>
+        /// <exception cref="ArgumentNullException">When <paramref name="accessToken"/> is null.</exception>
+        /// <exception cref="InvalidOperationException">When no userinfo endpoint specified.</exception>
         Task<UserInfoResult> GetUserInfoAsync(string accessToken);
     }
 }
