@@ -21,19 +21,26 @@ namespace Auth0.OidcClient
         private readonly Auth0ClientOptions _options;
         private readonly string _userAgent;
         private IdentityModel.OidcClient.OidcClient _oidcClient;
+        private IdentityModel.OidcClient.OidcClient OidcClient
+        {
+            get
+            {
+                return _oidcClient ?? (_oidcClient = new IdentityModel.OidcClient.OidcClient(CreateOidcClientOptions(_options)));
+            }
+        }
 
         /// <summary>
-        /// Creates a new instance of the Auth0 OIDC Client.
+        /// Create a new instance of <see cref="Auth0ClientBase"/>.
         /// </summary>
-        /// <param name="options">The <see cref="Auth0ClientOptions"/> specifying the configuration for the Auth0 OIDC Client.</param>
-        /// <param name="platformName">The platform name that forms part of the user-agent when communicating with Auth0 servers.</param>
-        public Auth0ClientBase(Auth0ClientOptions options, string platformName)
+        /// <param name="options"><see cref="Auth0ClientOptions"/> specifying the configuration options for this client.</param>
+        /// <param name="platformName">Platform name that forms part of the user-agent when communicating with Auth0 servers.</param>
+        protected Auth0ClientBase(Auth0ClientOptions options, string platformName)
         {
             _options = options;
             _userAgent = CreateAgentString(platformName);
         }
 
-        /// <inheritdoc/>
+        /// <inheritdoc />
         public Task<LoginResult> LoginAsync(object extraParameters = null)
         {
             var loginRequest = new LoginRequest
@@ -46,29 +53,13 @@ namespace Auth0.OidcClient
         }
 
         /// <inheritdoc/>
-        public Task<BrowserResultType> LogoutAsync()
+        public async Task<BrowserResultType> LogoutAsync(bool federated = false, object extraParameters = null)
         {
             Debug.WriteLine($"Using Callback URL ${_options.PostLogoutRedirectUri}. Ensure this is an Allowed Logout URL for application/client ID ${_options.ClientId}.");
 
-            return LogoutAsync(false);
-        }
-
-        private IdentityModel.OidcClient.OidcClient OidcClient
-        {
-            get
-            {
-                return _oidcClient ?? (_oidcClient = new IdentityModel.OidcClient.OidcClient(CreateOidcClientOptions(_options)));
-            }
-        }
-
-        /// <inheritdoc/>
-        public async Task<BrowserResultType> LogoutAsync(bool federated)
-        {
-            var logoutParameters = new Dictionary<string, string>
-            {
-                { "client_id", OidcClient.Options.ClientId },
-                { "returnTo", OidcClient.Options.PostLogoutRedirectUri }
-            };
+            var logoutParameters = AppendTelemetry(extraParameters);
+            logoutParameters["client_id"] = OidcClient.Options.ClientId;
+            logoutParameters["returnTo"] = OidcClient.Options.PostLogoutRedirectUri;
 
             var endSessionUrl = new RequestUrl($"https://{_options.Domain}/v2/logout").Create(logoutParameters);
             if (federated)
@@ -99,13 +90,7 @@ namespace Auth0.OidcClient
         }
 
         /// <inheritdoc/>
-        public Task<RefreshTokenResult> RefreshTokenAsync(string refreshToken)
-        {
-            return RefreshTokenAsync(refreshToken, null);
-        }
-
-        /// <inheritdoc/>
-        public Task<RefreshTokenResult> RefreshTokenAsync(string refreshToken, object extraParameters)
+        public Task<RefreshTokenResult> RefreshTokenAsync(string refreshToken, object extraParameters = null)
         {
             return OidcClient.RefreshTokenAsync(refreshToken, extraParameters);
         }
@@ -165,8 +150,7 @@ namespace Auth0.OidcClient
 
         private Dictionary<string, string> ObjectToDictionary(object values)
         {
-            var dictionary = values as Dictionary<string, string>;
-            if (dictionary != null)
+            if (values is Dictionary<string, string> dictionary)
                 return dictionary;
 
             dictionary = new Dictionary<string, string>();
