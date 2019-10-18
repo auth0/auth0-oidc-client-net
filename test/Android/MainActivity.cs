@@ -14,7 +14,7 @@ namespace AndroidTestApp
         Categories = new[] { Intent.CategoryDefault, Intent.CategoryBrowsable },
         DataScheme = "androidtestapp.androidtestapp",
         DataHost = "@string/auth0_domain",
-        DataPathPrefix = "/android/androidtestapp.androidtestapp/callback")]
+        DataPathPrefix = "/android/AndroidTestApp.AndroidTestApp/callback")]
     public class MainActivity : Auth0ClientActivity
     {
         private Auth0Client _auth0Client;
@@ -32,8 +32,7 @@ namespace AndroidTestApp
                 Domain = Resources.GetString(Resource.String.auth0_domain),
                 ClientId = "qmss9A66stPWTOXjR6X1OeA0DLadoNP2",
                 Scope = "openid profile email",
-                Browser = new AutoSelectBrowser(this)
-            });
+            }, this);
 
             SetContentView(Resource.Layout.Main);
             FindViewById<Button>(Resource.Id.LoginButton).Click += LoginButtonOnClick;
