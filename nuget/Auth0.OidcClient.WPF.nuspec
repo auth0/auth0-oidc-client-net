@@ -45,13 +45,13 @@
     <copyright>Copyright 2017-2019 Auth0, Inc.</copyright>
     <tags>Auth0 OIDC WPF</tags>
     <dependencies>
-      <group targetFramework="net452">
+      <group targetFramework="net462">
         <dependency id="Auth0.OidcClient.Core" version="2.4.3" />
       </group>
     </dependencies>
   </metadata>
   <files>
-    <file src="..\src\Auth0.OidcClient.WPF\bin\Release\Auth0.OidcClient.dll" target="lib\net452" />
-    <file src="..\src\Auth0.OidcClient.WPF\bin\Release\Auth0.OidcClient.xml" target="lib\net452" />
+    <file src="..\src\Auth0.OidcClient.WPF\bin\Release\Auth0.OidcClient.dll" target="lib\net462" />
+    <file src="..\src\Auth0.OidcClient.WPF\bin\Release\Auth0.OidcClient.xml" target="lib\net462" />
   </files>
 </package>
