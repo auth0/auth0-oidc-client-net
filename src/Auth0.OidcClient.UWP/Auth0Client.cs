@@ -1,4 +1,5 @@
 ﻿using Windows.Security.Authentication.Web;
+using Windows.UI.Xaml;
 
 namespace Auth0.OidcClient
 {
@@ -15,8 +16,7 @@ namespace Auth0.OidcClient
         public Auth0Client(Auth0ClientOptions options)
             : base(options, "uwp")
         {
-            options.Browser = options.Browser ?? new WebAuthenticationBrokerBrowser();
-            options.RedirectUri = options.RedirectUri ?? WebAuthenticationBroker.GetCurrentApplicationCallbackUri().AbsoluteUri;
+            options.Browser = options.Browser ?? new WebViewBrowser();
         }
     }
 }

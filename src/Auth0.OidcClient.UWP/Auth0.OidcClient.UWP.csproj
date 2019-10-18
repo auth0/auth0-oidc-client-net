@@ -112,6 +112,7 @@
     <Compile Include="Auth0Client.cs" />
     <Compile Include="WebAuthenticationBrokerBrowser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WebViewBrowser.cs" />
     <EmbeddedResource Include="Properties\Auth0.OidcClient.UWP.rd.xml" />
   </ItemGroup>
   <ItemGroup>
