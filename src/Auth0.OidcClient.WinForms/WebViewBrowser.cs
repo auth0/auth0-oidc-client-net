@@ -40,7 +40,7 @@ namespace Auth0.OidcClient
         {
         }
 
-        /// </inheritdoc>
+        /// <inheritdoc />
         public Task<BrowserResult> InvokeAsync(BrowserOptions options)
         {
             var tcs = new TaskCompletionSource<BrowserResult>();
