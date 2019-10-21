@@ -14,7 +14,7 @@ namespace Auth0.OidcClient
         /// <inheritdoc/>
         protected override Task<BrowserResult> Launch(BrowserOptions options)
         {
-            return Launch(options);
+            return Start(options);
         }
 
         internal static Task<BrowserResult> Start(BrowserOptions options)
