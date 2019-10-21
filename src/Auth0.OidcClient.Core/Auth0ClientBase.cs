@@ -84,15 +84,15 @@ namespace Auth0.OidcClient
         }
 
         /// <inheritdoc/>
-        public Task<LoginResult> ProcessResponseAsync(string data, AuthorizeState state)
+        public Task<LoginResult> ProcessResponseAsync(string data, AuthorizeState state, object extraParameters = null)
         {
-            return OidcClient.ProcessResponseAsync(data, state);
+            return OidcClient.ProcessResponseAsync(data, state, AppendTelemetry(extraParameters));
         }
 
         /// <inheritdoc/>
         public Task<RefreshTokenResult> RefreshTokenAsync(string refreshToken, object extraParameters = null)
         {
-            return OidcClient.RefreshTokenAsync(refreshToken, extraParameters);
+            return OidcClient.RefreshTokenAsync(refreshToken, AppendTelemetry(extraParameters));
         }
 
         /// <inheritdoc/>
