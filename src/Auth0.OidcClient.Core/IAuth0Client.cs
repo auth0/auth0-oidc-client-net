@@ -42,8 +42,9 @@ namespace Auth0.OidcClient
         /// <param name="data">The data containing the full redirect URI.</param>
         /// <param name="state">The <see cref="AuthorizeState"/> which was generated when the <see cref="PrepareLoginAsync"/>
         /// method was called.</param>
+        /// <param name="extraParameters">Optional extra parameters that need to be passed to the endpoint.</param>
         /// <returns>A <see cref="LoginResult"/> containing the tokens and claims.</returns>
-        Task<LoginResult> ProcessResponseAsync(string data, AuthorizeState state);
+        Task<LoginResult> ProcessResponseAsync(string data, AuthorizeState state, object extraParameters = null);
 
         /// <summary>
         /// Generates a new set of tokens based on a refresh token. 
