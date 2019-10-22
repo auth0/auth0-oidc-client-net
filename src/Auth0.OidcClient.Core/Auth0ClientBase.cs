@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
@@ -103,12 +104,16 @@ namespace Auth0.OidcClient
 
         private OidcClientOptions CreateOidcClientOptions(Auth0ClientOptions options)
         {
+            var scopes = options.Scope.Split(' ').ToList();
+            if (!scopes.Contains("openid"))
+                scopes.Insert(0, "openid");
+
             var oidcClientOptions = new OidcClientOptions
             {
                 Authority = $"https://{options.Domain}",
                 ClientId = options.ClientId,
                 ClientSecret = options.ClientSecret,
-                Scope = options.Scope,
+                Scope = String.Join(" ", scopes),
                 LoadProfile = options.LoadProfile,
                 Browser = options.Browser,
                 Flow = AuthenticationFlow.AuthorizationCode,
