@@ -30,8 +30,7 @@ namespace AndroidTestApp
             _auth0Client = new Auth0Client(new Auth0ClientOptions
             {
                 Domain = Resources.GetString(Resource.String.auth0_domain),
-                ClientId = "qmss9A66stPWTOXjR6X1OeA0DLadoNP2",
-                Scope = "openid profile email",
+                ClientId = "qmss9A66stPWTOXjR6X1OeA0DLadoNP2"
             }, this);
 
             SetContentView(Resource.Layout.Main);
