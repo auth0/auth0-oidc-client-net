@@ -110,7 +110,7 @@ namespace Auth0.OidcClient
         {
             EnableTelemetry = true;
             LoadProfile = true;
-            Scope = "openid profile";
+            Scope = "openid profile email";
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading;
@@ -49,14 +50,14 @@ namespace Auth0.OidcClient
                 FrontChannelExtraParameters = AppendTelemetry(extraParameters)
             };
 
-            Debug.WriteLine($"Using Callback URL ${_options.RedirectUri}. Ensure this is an Allowed Callback URL for application/client ID ${_options.ClientId}.");
+            Debug.WriteLine($"Using Callback URL '{_options.RedirectUri}'. Ensure this is an Allowed Callback URL for application/client ID {_options.ClientId}.");
             return OidcClient.LoginAsync(loginRequest, cancellationToken);
         }
 
         /// <inheritdoc/>
         public async Task<BrowserResultType> LogoutAsync(bool federated = false, object extraParameters = null, CancellationToken cancellationToken = default)
         {
-            Debug.WriteLine($"Using Callback URL ${_options.PostLogoutRedirectUri}. Ensure this is an Allowed Logout URL for application/client ID ${_options.ClientId}.");
+            Debug.WriteLine($"Using Callback URL '{_options.PostLogoutRedirectUri}'. Ensure this is an Allowed Logout URL for application/client ID {_options.ClientId}.");
 
             var logoutParameters = AppendTelemetry(extraParameters);
             logoutParameters["client_id"] = OidcClient.Options.ClientId;
@@ -104,12 +105,16 @@ namespace Auth0.OidcClient
 
         private OidcClientOptions CreateOidcClientOptions(Auth0ClientOptions options)
         {
+            var scopes = options.Scope.Split(' ').ToList();
+            if (!scopes.Contains("openid"))
+                scopes.Insert(0, "openid");
+
             var oidcClientOptions = new OidcClientOptions
             {
                 Authority = $"https://{options.Domain}",
                 ClientId = options.ClientId,
                 ClientSecret = options.ClientSecret,
-                Scope = options.Scope,
+                Scope = String.Join(" ", scopes),
                 LoadProfile = options.LoadProfile,
                 Browser = options.Browser,
                 Flow = AuthenticationFlow.AuthorizationCode,
