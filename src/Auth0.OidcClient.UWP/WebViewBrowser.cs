@@ -1,5 +1,6 @@
 ﻿using IdentityModel.OidcClient.Browser;
 using System;
+using System.Threading;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Core;
 using Windows.UI.Core;
@@ -15,7 +16,7 @@ namespace Auth0.OidcClient
     public class WebViewBrowser : IBrowser
     {
         /// <inheritdoc />
-        public Task<BrowserResult> InvokeAsync(BrowserOptions options)
+        public Task<BrowserResult> InvokeAsync(BrowserOptions options, CancellationToken cancellationToken = default)
         {
             var tcs = new TaskCompletionSource<BrowserResult>();
             var currentAppView = ApplicationView.GetForCurrentView();

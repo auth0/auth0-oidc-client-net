@@ -42,7 +42,7 @@
     <tags>Auth0 OIDC</tags>
     <dependencies>
       <group targetFramework="netstandard2.0">
-        <dependency id="IdentityModel.OidcClient" version="2.9.1" />
+        <dependency id="IdentityModel.OidcClient" version="3.0.1" />
       </group>
     </dependencies>
   </metadata>

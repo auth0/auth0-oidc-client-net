@@ -13,7 +13,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="IdentityModel.OidcClient" Version="2.9.1" />
+    <PackageReference Include="IdentityModel.OidcClient" Version="3.0.1" />
   </ItemGroup>
 
 </Project>

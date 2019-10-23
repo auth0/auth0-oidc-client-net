@@ -1,5 +1,6 @@
 ﻿using IdentityModel.OidcClient.Browser;
 using System;
+using System.Threading;
 using System.Threading.Tasks;
 using Windows.Security.Authentication.Web;
 
@@ -23,7 +24,7 @@ namespace Auth0.OidcClient
         }
 
         /// <inheritdoc />
-        public async Task<BrowserResult> InvokeAsync(BrowserOptions options)
+        public async Task<BrowserResult> InvokeAsync(BrowserOptions options, CancellationToken cancellationToken = default)
         {
             if (string.IsNullOrWhiteSpace(options.StartUrl))
                 throw new ArgumentException("Missing StartUrl", nameof(options));

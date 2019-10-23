@@ -54,7 +54,7 @@ namespace Auth0.OidcClient
         }
 
         /// <inheritdoc />
-        public async Task<BrowserResult> InvokeAsync(BrowserOptions options)
+        public async Task<BrowserResult> InvokeAsync(BrowserOptions options, CancellationToken cancellationToken = default)
         {
             var window = _windowFactory.Invoke();
             using (var browser = new WebBrowser())

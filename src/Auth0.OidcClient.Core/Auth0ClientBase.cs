@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Reflection;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using IdentityModel.Client;
 using IdentityModel.OidcClient;
@@ -41,7 +42,7 @@ namespace Auth0.OidcClient
         }
 
         /// <inheritdoc />
-        public Task<LoginResult> LoginAsync(object extraParameters = null)
+        public Task<LoginResult> LoginAsync(object extraParameters = null, CancellationToken cancellationToken = default)
         {
             var loginRequest = new LoginRequest
             {
@@ -49,11 +50,11 @@ namespace Auth0.OidcClient
             };
 
             Debug.WriteLine($"Using Callback URL ${_options.RedirectUri}. Ensure this is an Allowed Callback URL for application/client ID ${_options.ClientId}.");
-            return OidcClient.LoginAsync(loginRequest);
+            return OidcClient.LoginAsync(loginRequest, cancellationToken);
         }
 
         /// <inheritdoc/>
-        public async Task<BrowserResultType> LogoutAsync(bool federated = false, object extraParameters = null)
+        public async Task<BrowserResultType> LogoutAsync(bool federated = false, object extraParameters = null, CancellationToken cancellationToken = default)
         {
             Debug.WriteLine($"Using Callback URL ${_options.PostLogoutRedirectUri}. Ensure this is an Allowed Logout URL for application/client ID ${_options.ClientId}.");
 
@@ -72,27 +73,27 @@ namespace Auth0.OidcClient
                 DisplayMode = logoutRequest.BrowserDisplayMode
             };
 
-            var browserResult = await OidcClient.Options.Browser.InvokeAsync(browserOptions);
+            var browserResult = await OidcClient.Options.Browser.InvokeAsync(browserOptions, cancellationToken);
 
             return browserResult.ResultType;
         }
 
         /// <inheritdoc/>
-        public Task<AuthorizeState> PrepareLoginAsync(object extraParameters = null)
+        public Task<AuthorizeState> PrepareLoginAsync(object extraParameters = null, CancellationToken cancellationToken = default)
         {
-            return OidcClient.PrepareLoginAsync(AppendTelemetry(extraParameters));
+            return OidcClient.PrepareLoginAsync(AppendTelemetry(extraParameters), cancellationToken);
         }
 
         /// <inheritdoc/>
-        public Task<LoginResult> ProcessResponseAsync(string data, AuthorizeState state, object extraParameters = null)
+        public Task<LoginResult> ProcessResponseAsync(string data, AuthorizeState state, object extraParameters = null, CancellationToken cancellationToken = default)
         {
-            return OidcClient.ProcessResponseAsync(data, state, AppendTelemetry(extraParameters));
+            return OidcClient.ProcessResponseAsync(data, state, AppendTelemetry(extraParameters), cancellationToken);
         }
 
         /// <inheritdoc/>
-        public Task<RefreshTokenResult> RefreshTokenAsync(string refreshToken, object extraParameters = null)
+        public Task<RefreshTokenResult> RefreshTokenAsync(string refreshToken, object extraParameters = null, CancellationToken cancellationToken = default)
         {
-            return OidcClient.RefreshTokenAsync(refreshToken, AppendTelemetry(extraParameters));
+            return OidcClient.RefreshTokenAsync(refreshToken, AppendTelemetry(extraParameters), cancellationToken);
         }
 
         /// <inheritdoc/>
