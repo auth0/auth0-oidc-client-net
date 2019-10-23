@@ -3,7 +3,7 @@
 <package>
   <metadata>
     <id>Auth0.OidcClient.UWP</id>
-    <version>2.4.3</version>
+    <version>3.0.0</version>
     <authors>Auth0</authors>
     <owners>Auth0</owners>
     <licenseUrl>https://opensource.org/licenses/Apache-2.0</licenseUrl>
@@ -12,7 +12,21 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Auth0 OIDC Client for Universal Windows Platform (UWP) apps</description>
     <releaseNotes>
-      Version 2.4.3
+      Version 3.0.0
+      - Breaking changes! Please visit our migration guide via a link on
+        https://github.com/auth0/auth0-oidc-client-net/blob/master/README.md
+      - Upgrade IdentityModel.OidcClient to 3.0.1
+      - Add CancellationToken support to IAuth0Client/Auth0Client methods (not honored yet)
+      - Combined LogoutAsync and RefreshTokenAsync overloads on IAuth0Client/Auth0Client
+      - Add 'email' to default scopes and force 'openid' to always be included
+      - Add debugger logging statements that show expected callback URLs
+      - Add extraParameters parameter to ParseResponseAsync
+      - Ensure user agent sent on RefreshToken and ProcessResponse
+      - Remove obsolete PlatformWebView class
+      - Support Microsoft Edge and prefer it over Internet Explorer
+      - Min UWP target is now uap10.0.16299 (Fall Creators Edition)
+
+    Version 2.4.3
       - Improved XML code documentation.
       - Update IdentityModel.OidcClient2 to 2.9.2
       - Update Microsoft.NETCore.UniversalWindowsPlatform to 6.2.9      
