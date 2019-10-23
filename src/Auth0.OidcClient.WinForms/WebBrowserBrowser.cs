@@ -44,7 +44,7 @@ namespace Auth0.OidcClient
         }
 
         /// <inheritdoc />
-        public async Task<BrowserResult> InvokeAsync(BrowserOptions options)
+        public async Task<BrowserResult> InvokeAsync(BrowserOptions options, CancellationToken cancellationToken = default)
         {
             using (var form = _formFactory.Invoke())
             using (var browser = new ExtendedWebBrowser()

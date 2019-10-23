@@ -1,6 +1,7 @@
 ﻿using Foundation;
 using IdentityModel.OidcClient.Browser;
 using SafariServices;
+using System.Threading;
 using System.Threading.Tasks;
 using UIKit;
 
@@ -12,7 +13,7 @@ namespace Auth0.OidcClient
     public class SFSafariViewControllerBrowser : IOSBrowserBase
     {
         /// <inheritdoc/>
-        protected override Task<BrowserResult> Launch(BrowserOptions options)
+        protected override Task<BrowserResult> Launch(BrowserOptions options, CancellationToken cancellationToken = default)
         {
             return Start(options);
         }

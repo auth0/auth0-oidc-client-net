@@ -1,5 +1,6 @@
 ﻿using IdentityModel.OidcClient.Browser;
 using System;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Auth0.OidcClient
@@ -10,7 +11,7 @@ namespace Auth0.OidcClient
     public abstract class IOSBrowserBase : IBrowser
     {
         /// <inheritdoc/>
-        public Task<BrowserResult> InvokeAsync(BrowserOptions options)
+        public Task<BrowserResult> InvokeAsync(BrowserOptions options, CancellationToken cancellationToken = default)
         {
             if (string.IsNullOrWhiteSpace(options.StartUrl))
                 throw new ArgumentException("Missing StartUrl", nameof(options));
@@ -18,16 +19,17 @@ namespace Auth0.OidcClient
             if (string.IsNullOrWhiteSpace(options.EndUrl))
                 throw new ArgumentException("Missing EndUrl", nameof(options));
 
-            return Launch(options);
+            return Launch(options, cancellationToken);
         }
 
         /// <summary>
         /// Launch a browser with the options and URL specified by the <see cref="BrowserOptions"/>.
         /// </summary>
-        /// <param name="options"></param>
+        /// <param name="options"><see cref="BrowserOptions"/> specifying the parameters to be used in launching the browser.</param>
+        /// <param name="cancellationToken">Optional <see cref="CancellationToken"/> that could be used to cancel the browser.</param>
         /// <returns>A <see cref="Task"/> that will contain a <see cref="BrowserResult"/> with details of
         /// wether the launch process succeeded or not by way of a <see cref="BrowserResultType"/>.</returns>
-        protected abstract Task<BrowserResult> Launch(BrowserOptions options);
+        protected abstract Task<BrowserResult> Launch(BrowserOptions options, CancellationToken cancellationToken = default);
 
         internal static BrowserResult Canceled()
         {

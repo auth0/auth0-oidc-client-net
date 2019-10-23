@@ -1,6 +1,7 @@
 ﻿using IdentityModel.OidcClient.Browser;
 using Microsoft.Toolkit.Wpf.UI.Controls;
 using System;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 
@@ -43,7 +44,7 @@ namespace Auth0.OidcClient
         }
 
         /// <inheritdoc />
-        public Task<BrowserResult> InvokeAsync(BrowserOptions options)
+        public Task<BrowserResult> InvokeAsync(BrowserOptions options, CancellationToken cancellationToken = default)
         {
             var tcs = new TaskCompletionSource<BrowserResult>();
 
