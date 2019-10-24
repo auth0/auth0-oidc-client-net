@@ -1,4 +1,5 @@
 ﻿using IdentityModel.OidcClient.Browser;
+using System;
 using System.Net.Http;
 
 namespace Auth0.OidcClient
@@ -22,6 +23,8 @@ namespace Auth0.OidcClient
         /// <summary>
         /// Your Auth0 Client Secret.
         /// </summary>
+        [Obsolete("Client Secrets should not be used in non-confidential clients such as native desktop and mobile apps. " +
+            "This property will be removed in a future release.")]
         public string ClientSecret { get; set; }
 
         /// <summary>
