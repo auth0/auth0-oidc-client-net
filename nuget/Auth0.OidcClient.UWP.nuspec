@@ -18,6 +18,7 @@
       - Upgrade IdentityModel.OidcClient to 3.0.1
       - Add CancellationToken support to IAuth0Client/Auth0Client methods (not honored yet)
       - Combined LogoutAsync and RefreshTokenAsync overloads on IAuth0Client/Auth0Client
+      - ClientSecret property is now marked Obsolete to discourage use in native clients
       - Add 'email' to default scopes and force 'openid' to always be included
       - Add debugger logging statements that show expected callback URLs
       - Add extraParameters parameter to ParseResponseAsync

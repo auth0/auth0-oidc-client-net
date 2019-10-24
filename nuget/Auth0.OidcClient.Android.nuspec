@@ -20,6 +20,7 @@
       - Add CancellationToken support to IAuth0Client/Auth0Client methods (not honored yet)
       - Combined LogoutAsync and RefreshTokenAsync overloads on IAuth0Client/Auth0Client
       - Remove obsolete PlatformWebView class
+      - ClientSecret property is now marked Obsolete to discourage use in native clients
       - Add automatic callback URL (IntentFilter) detection
       - Add 'email' to default scopes and force 'openid' to always be included
       - Add debugger logging statements that show expected callback URLs
