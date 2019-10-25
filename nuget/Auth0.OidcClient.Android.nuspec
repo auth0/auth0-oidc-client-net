@@ -6,7 +6,7 @@
     <version>3.0.0</version>
     <authors>Auth0</authors>
     <owners>Auth0</owners>
-    <licence>Apache-2.0</licence>
+    <license>Apache-2.0</license>
     <projectUrl>https://github.com/auth0/auth0-oidc-client-net</projectUrl>
     <iconUrl>http://secure.gravatar.com/avatar/805765c256ff8617fcad483b5476faf2</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
