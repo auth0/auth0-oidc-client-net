@@ -24,7 +24,7 @@ This only affects WPF, WinForms and UWP. Android and iOS are not affected. If yo
 
 #### IAuth0Client Interface
 
-If you implemented the `IAuth0Client` interface you will need to reflect the latest changes.  Each Async method now takes an optional CancellationToken and secondly method overloads for `LogoutAsync` and `RefreshTokenAsync` were combined.  If you implement this interface you will need to support the new signature.
+If you are implementing the `IAuth0Client` interface you will need to reflect the latest changes to the signature.  Each Async method now takes an optional `CancellationToken`. Also, method overloads for `LogoutAsync` and `RefreshTokenAsync` were combined.
 
 If you use the `Auth0Client` class directly you will not need to make any changes. The compiler will be able to utilize the defaults provided for the new parameters.
 
