@@ -36,9 +36,7 @@ This class is now removed across all platforms.  To use default Browser behavior
 
 #### Android 
 
-It is now recommended you pass `this` as the second argument to the `Auth0Client` constructor when creating it from your Activity.
-
-This allows `Auth0Client` to automatically read the `IntentFilter` on your Activity and determine the correct callback uri to use.  Additionally it allows the `ChromeCustomTab` and `SystemBrowser` integrations to avoid needing to request the `NewTask` `ActivityFlag`.
+It is now recommended you pass `this` as the second argument to the `Auth0Client` constructor when creating it from your Activity. This allows `Auth0Client` to automatically read the `IntentFilter` on your Activity and determine the correct callback uri to use.  Additionally it allows the `ChromeCustomTab` and `SystemBrowser` integrations to avoid needing to request the `NewTask` `ActivityFlag`.
 
 #### Windows
 
