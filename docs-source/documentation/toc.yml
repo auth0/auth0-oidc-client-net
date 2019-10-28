@@ -2,6 +2,8 @@
   href: intro.md
 - name: Migration
   items:
+  - name: Version 2.x to 3.0
+    href: migration/v3.md
   - name: Version 1.x to 2.0
     href: migration/v2.md
 - name: Getting Started

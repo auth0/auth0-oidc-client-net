@@ -2,9 +2,9 @@
 
 The Auth0 OIDC Client allows you to add authentication for your .NET Client applications. The Auth0 OIDC Client supports the following platforms:
 
-* Universal Windows Platform
-* Windows Presentation Foundation (.NET 4.52 and higher)
-* Windows Forms (.NET 4.52 and higher)
+* Universal Windows Platform (UWP 10.0.16299 and higher)
+* Windows Presentation Foundation (.NET 4.6.2 and higher)
+* Windows Forms (.NET 4.6.2 and higher)
 * iOS (uses Xamarin)
 * Android (uses Xamarin)
 
