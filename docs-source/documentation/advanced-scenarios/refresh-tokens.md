@@ -3,16 +3,15 @@
 You can request a refresh token by requesting the `offline_access` scope. The login result will contain the refresh token in the `RefreshToken` property:
 
 ```csharp
-var client = new Auth0Client(new Auth0ClientOptions
-{
+var client = new Auth0Client(new Auth0ClientOptions {
     Domain = "YOUR_AUTH0_DOMAIN",
     ClientId = "YOUR_AUTH0_CLIENT_ID",
     Scope = "openid offline_access"
 });
+
 var loginResult = await client.LoginAsync();
 
-if (!loginResult.IsError)
-{
+if (!loginResult.IsError) {
     Debug.WriteLine($"refresh_token: {loginResult.RefreshToken}");
 }
 ```
@@ -22,18 +21,16 @@ if (!loginResult.IsError)
 You can request a Refresh Token by calling @Auth0.OidcClient.Auth0Client.RefreshTokenAsync(System.String), passing along the refresh token which was previously returned in the login result as the 
 
 ```csharp
-var client = new Auth0Client(new Auth0ClientOptions
-{
+var client = new Auth0Client(new Auth0ClientOptions {
     Domain = "YOUR_AUTH0_DOMAIN",
     ClientId = "YOUR_AUTH0_CLIENT_ID",
     Scope = "openid offline_access"
 });
+
 var loginResult = await client.LoginAsync();
 
-if (!loginResult.IsError)
-{
+if (!loginResult.IsError) {
     string refreshToken = loginResult.RefreshToken;
-
     // Save the refresh token somewhere...
 }
 

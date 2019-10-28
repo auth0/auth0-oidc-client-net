@@ -14,8 +14,7 @@
           "cwd": "../src"
         }
       ],
-      "dest": "api",
-      "filter": "auth0OidcClientFilter.yml"
+      "dest": "api"
     }
   ],
   "build": {
@@ -61,7 +60,10 @@
     "dest": "../docs",
     "globalMetadataFiles": [],
     "globalMetadata": {
-      "_appFooter": "Copyright 2017, Auth0"
+      "_appFooter": "Copyright 2017-2019, Auth0 Inc.",
+      "_gitContribute": {
+        "branch": "master"
+      }
     },
     "fileMetadataFiles": [],
     "template": [

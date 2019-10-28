@@ -4,7 +4,7 @@
 
 OIDC Client for .NET Desktop (WinForms, WPF and UWP) as well as Xamarin-based iOS and Android mobile applications.
 
-This library makes use of the the [IdentityModel/IdentityModel.OidcClient2](https://github.com/IdentityModel/IdentityModel.OidcClient2) library and uses code from the [IdentityModel/IdentityModel.OidcClient.Samples](https://github.com/IdentityModel/IdentityModel.OidcClient.Samples) repository to achieve browser integration.
+This library makes use of the the [IdentityModel/IdentityModel.OidcClient](https://github.com/IdentityModel/IdentityModel.OidcClient) library and uses code from the [IdentityModel/IdentityModel.OidcClient.Samples](https://github.com/IdentityModel/IdentityModel.OidcClient.Samples) repository to achieve browser integration.
 
 For information on how to use this library, please refer to the relevant Quickstarts:
 
@@ -12,6 +12,8 @@ For information on how to use this library, please refer to the relevant Quickst
 * [WPF/WinForms](https://auth0.com/docs/quickstart/native/wpf-winforms)
 * [Xamarin](https://auth0.com/docs/quickstart/native/xamarin)
 
+and also to our [docs for this library](https://auth0.github.io/auth0-oidc-client-net/documentation/intro.html).
+
 ## Breaking changes in v3
 
-Version 3 of this library includes many potential breaking changes. Please read [Migrating to Auth0-OIDC-Client-NET v3](Migration-Guide-v3.md).
+Version 3 of this library includes many potential breaking changes depending on your usage. Please read [Migrating to Auth0-OIDC-Client-NET v3](https://auth0.github.io/auth0-oidc-client-net/documentation/migration/v3.html).
