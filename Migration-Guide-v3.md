@@ -6,7 +6,7 @@ Auth0-OIDC-Client-NET has been updated to move forward with the latest in best p
 
 Everyone should migrate to v3. All previous versions are deprecated.
 
-For some users this upgrade will not be breaking. If you do not see compiler errors when taking a dependency on v3 then you should skip to the section Other Considerations.
+For some developers, this upgrade will not be breaking. If you do not see compiler errors when taking a dependency on v3 then you should skip to the section Other Considerations.
 
 ### Breaking Changes
 
