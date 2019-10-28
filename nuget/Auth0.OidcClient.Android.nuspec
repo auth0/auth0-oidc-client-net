@@ -3,15 +3,30 @@
 <package>
   <metadata>
     <id>Auth0.OidcClient.Android</id>
-    <version>2.4.3</version>
+    <version>3.0.0</version>
     <authors>Auth0</authors>
     <owners>Auth0</owners>
-    <licenseUrl>https://opensource.org/licenses/Apache-2.0</licenseUrl>
+    <license type="expression">Apache-2.0</license>
     <projectUrl>https://github.com/auth0/auth0-oidc-client-net</projectUrl>
     <iconUrl>http://secure.gravatar.com/avatar/805765c256ff8617fcad483b5476faf2</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Auth0 OIDC Client for Xamarin Android apps</description>
     <releaseNotes>
+      Version 3.0.0
+      - Breaking changes! Please visit our migration guide via a link on 
+        https://github.com/auth0/auth0-oidc-client-net/blob/master/README.md
+      - Dropped support for net452 and netstandard1.4 - now netstandard2.0 only
+      - Upgrade IdentityModel.OidcClient to 3.0.1
+      - Add CancellationToken support to IAuth0Client/Auth0Client methods (not honored yet)
+      - Combined LogoutAsync and RefreshTokenAsync overloads on IAuth0Client/Auth0Client
+      - Remove obsolete PlatformWebView class
+      - ClientSecret property is now marked Obsolete to discourage use in native clients
+      - Add automatic callback URL (IntentFilter) detection
+      - Add 'email' to default scopes and force 'openid' to always be included
+      - Add debugger logging statements that show expected callback URLs
+      - Add extraParameters parameter to ParseResponseAsync
+      - Ensure user agent sent on RefreshToken and ProcessResponse
+      
       Version 2.4.3
       - Improved XML code documentation.
       - Update IdentityModel.OidcClient2 to 2.9.2
