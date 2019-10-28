@@ -60,7 +60,10 @@
     "dest": "../docs",
     "globalMetadataFiles": [],
     "globalMetadata": {
-      "_appFooter": "Copyright 2017-2019, Auth0 Inc."
+      "_appFooter": "Copyright 2017-2019, Auth0 Inc.",
+      "_gitContribute": {
+        "branch": "master"
+      }
     },
     "fileMetadataFiles": [],
     "template": [

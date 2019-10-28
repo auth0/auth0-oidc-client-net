@@ -91,7 +91,7 @@
       <a class="xref" href="Auth0.OidcClient.AndroidBrowserBase.html#Auth0_OidcClient_AndroidBrowserBase_IsNewTask">AndroidBrowserBase.IsNewTask</a>
     </div>
     <div>
-      <a class="xref" href="Auth0.OidcClient.AndroidBrowserBase.html#Auth0_OidcClient_AndroidBrowserBase_InvokeAsync_BrowserOptions_">AndroidBrowserBase.InvokeAsync(BrowserOptions)</a>
+      <a class="xref" href="Auth0.OidcClient.AndroidBrowserBase.html#Auth0_OidcClient_AndroidBrowserBase_InvokeAsync_BrowserOptions_System_Threading_CancellationToken_">AndroidBrowserBase.InvokeAsync(BrowserOptions, CancellationToken)</a>
     </div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Auth0.OidcClient.html">Auth0.OidcClient</a></h6>
@@ -147,7 +147,8 @@
   </span>
   <a id="Auth0_OidcClient_SystemBrowser_OpenBrowser_" data-uid="Auth0.OidcClient.SystemBrowser.OpenBrowser*"></a>
   <h4 id="Auth0_OidcClient_SystemBrowser_OpenBrowser_Android_Net_Uri_Android_Content_Context_" data-uid="Auth0.OidcClient.SystemBrowser.OpenBrowser(Android.Net.Uri,Android.Content.Context)">OpenBrowser(Uri, Context)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Open a web browser with the given uri.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -166,12 +167,14 @@
       <tr>
         <td><span class="xref">Android.Net.Uri</span></td>
         <td><span class="parametername">uri</span></td>
-        <td></td>
+        <td><p><span class="xref">System.Uri</span> address to open in the browser.</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">Android.Content.Context</span></td>
         <td><span class="parametername">context</span></td>
-        <td></td>
+        <td><p>Optional <span class="xref">Android.Content.Context</span> associated with the browser.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -207,7 +210,7 @@
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
-            Copyright 2017, Auth0
+            Copyright 2017-2019, Auth0 Inc.
             
           </div>
         </div>

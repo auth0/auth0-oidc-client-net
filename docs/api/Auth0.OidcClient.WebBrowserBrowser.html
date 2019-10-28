@@ -187,18 +187,18 @@ var browser = new WebBrowserBrowser(ReturnWindow, shouldCloseWindow: false); // 
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com//auth0/auth0-oidc-client-net/new/master/apiSpec/new?filename=Auth0_OidcClient_WebBrowserBrowser_InvokeAsync_BrowserOptions_.md&amp;value=---%0Auid%3A%20Auth0.OidcClient.WebBrowserBrowser.InvokeAsync(BrowserOptions)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com//auth0/auth0-oidc-client-net/new/master/apiSpec/new?filename=Auth0_OidcClient_WebBrowserBrowser_InvokeAsync_BrowserOptions_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20Auth0.OidcClient.WebBrowserBrowser.InvokeAsync(BrowserOptions%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com//auth0/auth0-oidc-client-net/blob/master/src/Auth0.OidcClient.WPF/WebBrowserBrowser.cs/#L57">View Source</a>
   </span>
   <a id="Auth0_OidcClient_WebBrowserBrowser_InvokeAsync_" data-uid="Auth0.OidcClient.WebBrowserBrowser.InvokeAsync*"></a>
-  <h4 id="Auth0_OidcClient_WebBrowserBrowser_InvokeAsync_BrowserOptions_" data-uid="Auth0.OidcClient.WebBrowserBrowser.InvokeAsync(BrowserOptions)">InvokeAsync(BrowserOptions)</h4>
+  <h4 id="Auth0_OidcClient_WebBrowserBrowser_InvokeAsync_BrowserOptions_System_Threading_CancellationToken_" data-uid="Auth0.OidcClient.WebBrowserBrowser.InvokeAsync(BrowserOptions,System.Threading.CancellationToken)">InvokeAsync(BrowserOptions, CancellationToken)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;BrowserResult&gt; InvokeAsync(BrowserOptions options)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;BrowserResult&gt; InvokeAsync(BrowserOptions options, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -213,6 +213,11 @@ var browser = new WebBrowserBrowser(ReturnWindow, shouldCloseWindow: false); // 
       <tr>
         <td><span class="xref">BrowserOptions</span></td>
         <td><span class="parametername">options</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -262,7 +267,7 @@ var browser = new WebBrowserBrowser(ReturnWindow, shouldCloseWindow: false); // 
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
-            Copyright 2017, Auth0
+            Copyright 2017-2019, Auth0 Inc.
             
           </div>
         </div>

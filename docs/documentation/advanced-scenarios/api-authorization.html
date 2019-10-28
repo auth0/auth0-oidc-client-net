@@ -72,8 +72,7 @@
 <p>Auth0&#39;s API authorization features allow you to manage the authorization requirements for server-to-server and client-to-server applications.</p>
 <p>For more information you can refer to the <a href="https://auth0.com/docs/api-auth">Auth0 API Authorization documentation</a></p>
 <p>Using the Auth0 OIDC Client, you can request an <code>access_token</code> for an API by passing the <code>audience</code> in the <code>extraParameters</code> parameter when calling @Auth0.OidcClient.Auth0Client.LoginAsync(System.Object)</p>
-<pre><code class="lang-csharp">var client = new Auth0Client(new Auth0ClientOptions
-{
+<pre><code class="lang-csharp">var client = new Auth0Client(new Auth0ClientOptions {
     Domain = &quot;YOUR_AUTH0_DOMAIN&quot;,
     ClientId = &quot;YOUR_AUTH0_CLIENT_ID&quot;
 });
@@ -106,7 +105,7 @@ var loginResult = await client.LoginAsync(new { audience = &quot;https://your-ap
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
-            Copyright 2017, Auth0
+            Copyright 2017-2019, Auth0 Inc.
             
           </div>
         </div>
