@@ -1,6 +1,6 @@
 # Migrating to Auth0-OIDC-Client-NET v3
 
-Auth0-OIDC-Client-NET has been updated to move forward with the latest in best practice, browser compatibility and the latest runtimes.
+Auth0-OIDC-Client-NET has been updated to move forward with the latest in best practices, browser compatibility and the latest runtimes.
 
 ## Should I migrate to v3?
 
