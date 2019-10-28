@@ -56,7 +56,6 @@ var options = new Auth0ClientOptions {
 
 If you wish to support Windows Authentication it is necessary to use the `WebAuthenticationBrokerBrowser` and pass `true` to the constructor, e.g.
 
-
 ```csharp
 var options = new Auth0ClientOptions {
   Browser = new WebAuthenticationBrokerBrowser(true)
