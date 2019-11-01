@@ -6,6 +6,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Auth0.OidcClient.Tokens;
 using IdentityModel.Client;
 using IdentityModel.OidcClient;
 using IdentityModel.OidcClient.Browser;
@@ -20,6 +21,7 @@ namespace Auth0.OidcClient
     /// </summary>
     public abstract class Auth0ClientBase : IAuth0Client
     {
+        private readonly IdTokenRequirements _idTokenRequirements;
         private readonly Auth0ClientOptions _options;
         private readonly string _userAgent;
         private IdentityModel.OidcClient.OidcClient _oidcClient;
@@ -39,19 +41,25 @@ namespace Auth0.OidcClient
         protected Auth0ClientBase(Auth0ClientOptions options, string platformName)
         {
             _options = options;
+            _idTokenRequirements = new IdTokenRequirements($"https://{_options.Domain}/", _options.ClientId);
             _userAgent = CreateAgentString(platformName);
         }
 
         /// <inheritdoc />
-        public Task<LoginResult> LoginAsync(object extraParameters = null, CancellationToken cancellationToken = default)
+        public async Task<LoginResult> LoginAsync(object extraParameters = null, CancellationToken cancellationToken = default)
         {
             var loginRequest = new LoginRequest
             {
-                FrontChannelExtraParameters = AppendTelemetry(extraParameters)
+                FrontChannelExtraParameters = AppendTelemetry(extraParameters),
             };
 
             Debug.WriteLine($"Using Callback URL '{_options.RedirectUri}'. Ensure this is an Allowed Callback URL for application/client ID {_options.ClientId}.");
-            return OidcClient.LoginAsync(loginRequest, cancellationToken);
+
+            var result = await OidcClient.LoginAsync(loginRequest, cancellationToken);
+
+            await IdTokenValidator.AssertTokenMeetsRequirements(_idTokenRequirements, result.IdentityToken); // Nonce is created & tested by OidcClient
+
+            return result;
         }
 
         /// <inheritdoc/>
@@ -92,9 +100,11 @@ namespace Auth0.OidcClient
         }
 
         /// <inheritdoc/>
-        public Task<RefreshTokenResult> RefreshTokenAsync(string refreshToken, object extraParameters = null, CancellationToken cancellationToken = default)
+        public async Task<RefreshTokenResult> RefreshTokenAsync(string refreshToken, object extraParameters = null, CancellationToken cancellationToken = default)
         {
-            return OidcClient.RefreshTokenAsync(refreshToken, AppendTelemetry(extraParameters), cancellationToken);
+            var result = await OidcClient.RefreshTokenAsync(refreshToken, AppendTelemetry(extraParameters), cancellationToken);
+            await IdTokenValidator.AssertTokenMeetsRequirements(_idTokenRequirements, result.IdentityToken); // Nonce is created & tested by OidcClient
+            return result;
         }
 
         /// <inheritdoc/>
