@@ -26,6 +26,8 @@ namespace Auth0.OidcClient
         public Auth0Client(Auth0ClientOptions options)
             : base(options, "xamarin-android")
         {
+            options.Browser = options.Browser ?? new AutoSelectBrowser();
+
             var defaultRedirectUri = options.RedirectUri == null || options.PostLogoutRedirectUri == null
                 ? GetConventionCallbackUri(options.Domain) : null;
 
