@@ -12,6 +12,9 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Auth0 OIDC Client for native apps</description>
     <releaseNotes>
+      Version 3.0.1
+      - Bump for version number consistency with other Auth0.OidcClient packages
+
       Version 3.0.0
       - Breaking changes! Please visit our migration guide via a link on
         https://github.com/auth0/auth0-oidc-client-net/blob/master/README.md
