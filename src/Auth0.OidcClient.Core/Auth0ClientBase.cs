@@ -57,7 +57,8 @@ namespace Auth0.OidcClient
 
             var result = await OidcClient.LoginAsync(loginRequest, cancellationToken);
 
-            await IdTokenValidator.AssertTokenMeetsRequirements(_idTokenRequirements, result.IdentityToken); // Nonce is created & tested by OidcClient
+            if (!result.IsError)
+                await IdTokenValidator.AssertTokenMeetsRequirements(_idTokenRequirements, result.IdentityToken); // Nonce is created & tested by OidcClient
 
             return result;
         }
@@ -103,7 +104,10 @@ namespace Auth0.OidcClient
         public async Task<RefreshTokenResult> RefreshTokenAsync(string refreshToken, object extraParameters = null, CancellationToken cancellationToken = default)
         {
             var result = await OidcClient.RefreshTokenAsync(refreshToken, AppendTelemetry(extraParameters), cancellationToken);
-            await IdTokenValidator.AssertTokenMeetsRequirements(_idTokenRequirements, result.IdentityToken); // Nonce is created & tested by OidcClient
+
+            if (!result.IsError)
+                await IdTokenValidator.AssertTokenMeetsRequirements(_idTokenRequirements, result.IdentityToken); // Nonce is created & tested by OidcClient
+
             return result;
         }
 
