@@ -28,7 +28,7 @@ namespace Auth0.OidcClient.Tokens
         public TimeSpan? MaxAge = null;
 
         /// <summary>
-        /// Whether an identity token is required. Defaults to true.
+        /// Whether an ID token is required. Defaults to true.
         /// </summary>
         public bool TokenIsRequired = true;
 
