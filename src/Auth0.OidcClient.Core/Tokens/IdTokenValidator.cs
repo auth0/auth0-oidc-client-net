@@ -80,7 +80,7 @@ namespace Auth0.OidcClient.Tokens
             if (exp == null)
                 throw new IdTokenValidationException("Expiration Time (exp) claim must be an integer present in the ID token.");
             var expiration = exp + required.Leeway.TotalSeconds;
-            if (epochNow >= expiration)
+            if (epochNow > expiration)
                 throw new IdTokenValidationException($"Expiration Time (exp) claim error in the ID token; current time ({epochNow}) is after expiration time ({expiration}).");
 
             // Issued at
