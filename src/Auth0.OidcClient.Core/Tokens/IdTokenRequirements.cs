@@ -23,7 +23,7 @@ namespace Auth0.OidcClient.Tokens
         public string Nonce;
 
         /// <summary>
-        /// Optional maximum age of the user authentication underpinning the token.
+        /// Optional maximum time since the user authenticated, in seconds.
         /// </summary>
         public TimeSpan? MaxAge = null;
 
