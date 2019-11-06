@@ -34,7 +34,7 @@ namespace Auth0.OidcClient.Tokens
 
         /// <summary>
         /// Amount of leeway to allow in validating date and time claims in order to allow some clock variance
-        /// between the issuer and the validation systems. Defaults to 60 seconds.
+        /// between the issuer and the application. Defaults to 60 seconds.
         /// </summary>
         public TimeSpan Leeway = TimeSpan.FromSeconds(60);
 
