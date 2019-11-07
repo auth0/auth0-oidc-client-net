@@ -3,12 +3,19 @@ using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Auth0.OidcClient.Tokens
 {
     internal class AsymmetricSignatureVerifier : ISignatureVerifier
     {
         private readonly IList<JsonWebKey> keys;
+
+        public static async Task<AsymmetricSignatureVerifier> ForJwks(string issuer)
+        {
+            var jsonWebKeys = await JsonWebKeys.GetForIssuer(issuer);
+            return new AsymmetricSignatureVerifier(jsonWebKeys.Keys);
+        }
 
         public AsymmetricSignatureVerifier(IList<JsonWebKey> keys)
         {
@@ -29,7 +36,7 @@ namespace Auth0.OidcClient.Tokens
                 throw new IdTokenValidationException("ID token could not be decoded.", e);
             }
 
-            if (decoded.Header.Alg != "RS256")
+            if (decoded.SignatureAlgorithm != "RS256")
                 throw new IdTokenValidationException($"Signature algorithm of \"{decoded.Header.Alg }\" is not supported. Expected the ID token to be signed with \"RS256\".");
 
             var publicKey = FindPublicKeyByKid(decoded.Header.Kid);
@@ -67,7 +74,7 @@ namespace Auth0.OidcClient.Tokens
         {
             var key = keys.FirstOrDefault(k => k.Kid == kid);
             if (key == null)
-                throw new IdTokenValidationException($"Could not find a public key for kid \"{kid}\".");
+                throw new IdTokenValidationException($"Could not find a public key for Key ID (kid) \"{kid}\".");
 
             return key;
         }

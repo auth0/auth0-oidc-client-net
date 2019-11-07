@@ -15,47 +15,58 @@ namespace Auth0.OidcClient.Tokens
     internal static class IdTokenValidator
     {
         /// <summary>
-        /// Assert that all the <see cref="IdTokenRequirements"/> are met by a JWT ID token.
-        /// </summary>
-        /// <param name="requirements"><see cref="IdTokenRequirements"/> that should be asserted.</param>
-        /// <param name="rawIDToken">Raw ID token to assert requirements against.</param>
-        /// <exception cref="IdTokenValidationException">Exception thrown if <paramref name="rawIDToken"/> fails to
-        /// meet the requirements specified by <paramref name="requirements"/>.
-        /// </exception>
-        /// <returns><see cref="Task"/> that will complete with the token is validated.</returns>
-        internal static Task AssertTokenMeetsRequirements(this IdTokenRequirements requirements, string rawIDToken)
-        {
-            return AssertTokenMeetsRequirements(requirements, rawIDToken, DateTime.Now);
-        }
-
-        /// <summary>
         /// Assert that all the <see cref="IdTokenRequirements"/> are met by a JWT ID token for a given point in time.
         /// </summary>
         /// <param name="required"><see cref="IdTokenRequirements"/> that should be asserted.</param>
         /// <param name="rawIDToken">Raw ID token to assert requirements against.</param>
-        /// <param name="pointInTime">The <see cref="DateTime"/> to act as "Now" in order to facilitate unit testing with static tokens.</param>
+        /// <param name="pointInTime">Optional <see cref="DateTime"/> to act as "Now" in order to facilitate unit testing with static tokens.</param>
         /// <param name="signatureVerifier">Optional <see cref="ISignatureVerifier"/> to perform signature verification and token extraction. If unspecified
         /// <see cref="AsymmetricSignatureVerifier"/> is used against the <paramref name="required"/> Issuer.</param>
         /// <exception cref="IdTokenValidationException">Exception thrown if <paramref name="rawIDToken"/> fails to
         /// meet the requirements specified by <paramref name="required"/>.
         /// </exception>
         /// <returns><see cref="Task"/> that will complete when the token is validated.</returns>
-        internal static async Task AssertTokenMeetsRequirements(this IdTokenRequirements required, string rawIDToken, DateTime pointInTime, ISignatureVerifier signatureVerifier = null)
+        internal static async Task AssertTokenMeetsRequirements(this IdTokenRequirements required, string rawIDToken, DateTime? pointInTime = null, ISignatureVerifier signatureVerifier = null)
         {
             if (string.IsNullOrWhiteSpace(rawIDToken))
+                throw new IdTokenValidationException("ID token is required but missing.");
+
+            var token = DecodeToken(rawIDToken);
+
+            // For now we want to support HS256 + ClientSecret as we just had a major release.
+            // TODO: In the next major (v4.0) we should remove this condition as well as Auth0ClientOptions.ClientSecret
+            if (token.SignatureAlgorithm != "HS256")
+               (signatureVerifier ?? await AsymmetricSignatureVerifier.ForJwks(required.Issuer)).VerifySignature(rawIDToken);
+
+            AssertTokenClaimsMeetRequirements(required, token, pointInTime ?? DateTime.Now);
+        }
+
+        private static JwtSecurityToken DecodeToken(string rawIDToken)
+        {
+            JwtSecurityToken decoded;
+            try
             {
-                if (required.TokenIsRequired)
-                    throw new IdTokenValidationException("ID token is required but missing.");
-                return;
+                decoded = new JwtSecurityTokenHandler().ReadJwtToken(rawIDToken);
+            }
+            catch (ArgumentException e)
+            {
+                throw new IdTokenValidationException("ID token could not be decoded.", e);
             }
 
-            if (signatureVerifier == null) { 
-                var jsonWebKeys = await JsonWebKeys.GetForIssuer(required.Issuer);
-                signatureVerifier = new AsymmetricSignatureVerifier(jsonWebKeys.Keys);
-            }
+            return decoded;
+        }
 
-            var token = signatureVerifier.VerifySignature(rawIDToken);
-
+        /// <summary>
+        /// Assert that all the claims within a <see cref="JwtSecurityToken"/> meet the specified <see cref="IdTokenRequirements"/> for a given point in time.
+        /// </summary>
+        /// <param name="required"><see cref="IdTokenRequirements"/> that should be asserted.</param>
+        /// <param name="token"><see cref="JwtSecurityToken"/> to assert requirements against.</param>
+        /// <param name="pointInTime"><see cref="DateTime"/> to act as "Now" when asserting time-based claims.</param>
+        /// <exception cref="IdTokenValidationException">Exception thrown if <paramref name="rawIDToken"/> fails to
+        /// meet the requirements specified by <paramref name="required"/>.
+        /// </exception>
+        private static void AssertTokenClaimsMeetRequirements(IdTokenRequirements required, JwtSecurityToken token, DateTime pointInTime)
+        {
             var epochNow = EpochTime.GetIntDate(pointInTime);
 
             // Issuer
@@ -80,7 +91,7 @@ namespace Auth0.OidcClient.Tokens
             if (exp == null)
                 throw new IdTokenValidationException("Expiration Time (exp) claim must be an integer present in the ID token.");
             var expiration = exp + required.Leeway.TotalSeconds;
-            if (epochNow > expiration)
+            if (epochNow >= expiration)
                 throw new IdTokenValidationException($"Expiration Time (exp) claim error in the ID token; current time ({epochNow}) is after expiration time ({expiration}).");
 
             // Issued at

@@ -58,11 +58,11 @@ namespace Auth0.OidcClient.Core.UnitTests.Tokens
         }
 
         [Fact]
-        public async void ThrowsWhenSignedWithHS256()
+        public async void DoesNotValidateSignatureWhenSignedWithHS256()
         {
             var token = "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3Rva2Vucy10ZXN0LmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHwxMjM0NTY3ODkiLCJhdWQiOlsidG9rZW5zLXRlc3QtMTIzIiwiZXh0ZXJuYWwtdGVzdC05OTkiXSwiZXhwIjoxNTY4MTgwODk0LjIyNCwiaWF0IjoxNTY4MDA4MDk0LjIyNCwibm9uY2UiOiJhMWIyYzNkNGU1IiwiYXpwIjoidG9rZW5zLXRlc3QtMTIzIiwiYXV0aF90aW1lIjoxNTY4MDk0NDk0LjIyNH0.D5ZbbKddQMnJMLkuV76ALdvuvAShPxLVuKNvjBPn618";
 
-            await Assert.ThrowsAsync<IdTokenValidationException>(() => ValidateToken(token));
+            await ValidateToken(token);
         }
 
         [Fact]
@@ -87,12 +87,21 @@ namespace Auth0.OidcClient.Core.UnitTests.Tokens
         }
 
         [Fact]
-        public async void ThrowsWhenAlgNotSupported()
+        public async void ThrowsWhenAlgIsNone()
         {
             var token = "eyJhbGciOiJub25lIn0.eyJpc3MiOiJodHRwczovL3Rva2Vucy10ZXN0LmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHwxMjM0NTY3ODkiLCJhdWQiOlsidG9rZW5zLXRlc3QtMTIzIiwiZXh0ZXJuYWwtdGVzdC05OTkiXSwiZXhwIjoxNTY4MTgwODk0LjIyNCwiaWF0IjoxNTY4MDA4MDk0LjIyNCwibm9uY2UiOiJhMWIyYzNkNGU1IiwiYXpwIjoidG9rZW5zLXRlc3QtMTIzIiwiYXV0aF90aW1lIjoxNTY4MDk0NDk0LjIyNH0.";
 
             var ex = await Assert.ThrowsAsync<IdTokenValidationException>(() => ValidateToken(token));
             Assert.Equal("Signature algorithm of \"none\" is not supported. Expected the ID token to be signed with \"RS256\".", ex.Message);
+        }
+
+        [Fact]
+        public async void ThrowsWhenAlgIsInvalid()
+        {
+            var token = "eyJhbGciOiJSUzM4NCIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWUsImlhdCI6MTUxNjIzOTAyMn0.D4kXa3UspFjRA9ys5tsD4YDyxxam3l_XnOb3hMEdPDTfSLRHPv4HPwxvin-pIkEmfJshXPSK7O4zqSXWAXFO52X-upJjFc_gpGDswctNWpOJeXe1xBgJ--VuGDzUQCqkr9UBpN-Q7TE5u9cgIVisekSFSH5Ax6aXQC9vCO5LooNFx_WnbTLNZz7FUia9vyJ544kLB7UcacL-_idgRNIWPdd_d1vvnNGkknIMarRjCsjAEf6p5JGhYZ8_C18g-9DsfokfUfSpKgBR23R8v8ZAAmPPPiJ6MZXkefqE7p3jRbA--58z5TlHmH9nTB1DYE2872RYvyzG3LoQ-2s93VaVuw";
+
+            var ex = await Assert.ThrowsAsync<IdTokenValidationException>(() => ValidateToken(token));
+            Assert.Equal("Signature algorithm of \"RS384\" is not supported. Expected the ID token to be signed with \"RS256\".", ex.Message);
         }
 
         [Fact]

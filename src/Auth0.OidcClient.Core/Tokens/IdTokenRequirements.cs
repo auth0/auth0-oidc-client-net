@@ -28,11 +28,6 @@ namespace Auth0.OidcClient.Tokens
         public TimeSpan? MaxAge = null;
 
         /// <summary>
-        /// Whether an ID token is required. Defaults to true.
-        /// </summary>
-        public bool TokenIsRequired = true;
-
-        /// <summary>
         /// Amount of leeway to allow in validating date and time claims in order to allow some clock variance
         /// between the issuer and the application. Defaults to 60 seconds.
         /// </summary>
