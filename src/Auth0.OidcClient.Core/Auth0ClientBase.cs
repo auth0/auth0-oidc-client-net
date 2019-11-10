@@ -50,7 +50,7 @@ namespace Auth0.OidcClient
         {
             var loginRequest = new LoginRequest
             {
-                FrontChannelExtraParameters = AppendTelemetry(extraParameters),
+                FrontChannelExtraParameters = AppendTelemetry(extraParameters)
             };
 
             Debug.WriteLine($"Using Callback URL '{_options.RedirectUri}'. Ensure this is an Allowed Callback URL for application/client ID {_options.ClientId}.");
