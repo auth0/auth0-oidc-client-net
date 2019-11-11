@@ -42,7 +42,7 @@ namespace Auth0.OidcClient
         /// The telemetry information is like a browser user agent and includes operating system
         /// details only to let Auth0 guide engineering resources based on platform popularity.
         /// </remarks>
-        public bool EnableTelemetry { get; set; }
+        public bool EnableTelemetry { get; set; } = true;
 
         /// <summary>
         /// Indicates whether the user profile should be loaded from the /userinfo endpoint.
@@ -50,12 +50,12 @@ namespace Auth0.OidcClient
         /// <remarks>
         /// Defaults to true.
         /// </remarks>
-        public bool LoadProfile { get; set; }
+        public bool LoadProfile { get; set; } = true;
 
         /// <summary>
         /// The scopes you want to request.
         /// </summary>
-        public string Scope { get; set; }
+        public string Scope { get; set; } = "openid profile email";
 
         /// <summary>
         /// Allow overriding the RetryMessageHandler.
@@ -106,14 +106,22 @@ namespace Auth0.OidcClient
         public string RedirectUri { get; set; }
 
         /// <summary>
+        /// The amount of leeway to accommodate potential clock skew when validating an ID token's claims.
+        /// Defaults to 60 seconds.
+        /// </summary>
+        public TimeSpan? Leeway { get; set; } = TimeSpan.FromSeconds(60);
+
+        /// <summary>
+        /// Optional limit on the how long since the user was last authenticated.
+        /// </summary>
+        public TimeSpan? MaxAge { get; set; }
+
+        /// <summary>
         /// Create a new instance of the <see cref="Auth0ClientOptions"/> class used to configure options for
         /// <see cref="Auth0ClientBase"/> implementations by way of their constructors.
         /// </summary>
         public Auth0ClientOptions()
         {
-            EnableTelemetry = true;
-            LoadProfile = true;
-            Scope = "openid profile email";
         }
     }
 }

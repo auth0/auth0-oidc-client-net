@@ -41,17 +41,18 @@ namespace Auth0.OidcClient
         protected Auth0ClientBase(Auth0ClientOptions options, string platformName)
         {
             _options = options;
-            _idTokenRequirements = new IdTokenRequirements($"https://{_options.Domain}/", _options.ClientId);
+            _idTokenRequirements = new IdTokenRequirements($"https://{_options.Domain}/", _options.ClientId, options.MaxAge, options.Leeway);
             _userAgent = CreateAgentString(platformName);
         }
 
         /// <inheritdoc />
         public async Task<LoginResult> LoginAsync(object extraParameters = null, CancellationToken cancellationToken = default)
         {
-            var loginRequest = new LoginRequest
-            {
-                FrontChannelExtraParameters = AppendTelemetry(extraParameters)
-            };
+            var finalExtraParameters = AppendTelemetry(extraParameters);
+            if (_options.MaxAge.HasValue)
+                finalExtraParameters["max_age"] = _options.MaxAge.Value.TotalSeconds.ToString("0");
+
+            var loginRequest = new LoginRequest { FrontChannelExtraParameters = finalExtraParameters };
 
             Debug.WriteLine($"Using Callback URL '{_options.RedirectUri}'. Ensure this is an Allowed Callback URL for application/client ID {_options.ClientId}.");
 
@@ -145,6 +146,9 @@ namespace Auth0.OidcClient
             if (!String.IsNullOrWhiteSpace(oidcClientOptions.ClientSecret))
                 oidcClientOptions.ClientSecret = options.ClientSecret;
 #pragma warning restore CS0618
+
+            if (options.Leeway.HasValue)
+                oidcClientOptions.ClockSkew = options.Leeway.Value;
 
             if (options.RefreshTokenMessageHandler != null)
                 oidcClientOptions.RefreshTokenInnerHttpHandler = options.RefreshTokenMessageHandler;

@@ -23,7 +23,7 @@ namespace Auth0.OidcClient.Tokens
         public string Nonce;
 
         /// <summary>
-        /// Optional maximum time since the user authenticated, in seconds.
+        /// Optional maximum time since the user last authenticated.
         /// </summary>
         public TimeSpan? MaxAge = null;
 
@@ -31,17 +31,22 @@ namespace Auth0.OidcClient.Tokens
         /// Amount of leeway to allow in validating date and time claims in order to allow some clock variance
         /// between the issuer and the application. Defaults to 60 seconds.
         /// </summary>
-        public TimeSpan Leeway = TimeSpan.FromSeconds(60);
+        public TimeSpan Leeway;
 
         /// <summary>
         /// Create a new instance of <see cref="IdTokenRequirements"/> with specified parameters.
         /// </summary>
         /// <param name="issuer">Required issuer (iss) the token must be from.</param>
         /// <param name="audience">Required audience (aud) the token must be for.</param>
-        public IdTokenRequirements(string issuer, string audience)
+        /// <param name="maxAge">Optional maximum time since the user last authenticated.</param>
+        /// <param name="leeway">Optional amount of leeway in validating date and time claims to allow some clock variance
+        /// between the issuer and the application. Defaults to 60 seconds it not supplied.</param>
+        public IdTokenRequirements(string issuer, string audience, TimeSpan? maxAge = null, TimeSpan? leeway = null)
         {
             Issuer = issuer;
             Audience = audience;
+            MaxAge = maxAge;
+            Leeway = leeway ?? TimeSpan.FromSeconds(60);
         }
     }
 }
