@@ -107,9 +107,9 @@ namespace Auth0.OidcClient
 
         /// <summary>
         /// The amount of leeway to accommodate potential clock skew when validating an ID token's claims.
-        /// Defaults to 60 seconds.
+        /// Defaults to 5 minutes.
         /// </summary>
-        public TimeSpan? Leeway { get; set; } = TimeSpan.FromSeconds(60);
+        public TimeSpan? Leeway { get; set; } = TimeSpan.FromMinutes(5);
 
         /// <summary>
         /// Optional limit on the how long since the user was last authenticated.
