@@ -29,7 +29,7 @@ namespace Auth0.OidcClient.Tokens
 
         /// <summary>
         /// Amount of leeway to allow in validating date and time claims in order to allow some clock variance
-        /// between the issuer and the application. Defaults to 60 seconds.
+        /// between the issuer and the application.
         /// </summary>
         public TimeSpan Leeway;
 
@@ -38,15 +38,15 @@ namespace Auth0.OidcClient.Tokens
         /// </summary>
         /// <param name="issuer">Required issuer (iss) the token must be from.</param>
         /// <param name="audience">Required audience (aud) the token must be for.</param>
+        /// <param name="leeway">Amount of leeway in validating date and time claims to allow some clock variance
+        /// between the issuer and the application.</param>
         /// <param name="maxAge">Optional maximum time since the user last authenticated.</param>
-        /// <param name="leeway">Optional amount of leeway in validating date and time claims to allow some clock variance
-        /// between the issuer and the application. Defaults to 60 seconds it not supplied.</param>
-        public IdTokenRequirements(string issuer, string audience, TimeSpan? maxAge = null, TimeSpan? leeway = null)
+        public IdTokenRequirements(string issuer, string audience, TimeSpan leeway, TimeSpan ? maxAge = null)
         {
             Issuer = issuer;
             Audience = audience;
+            Leeway = leeway;
             MaxAge = maxAge;
-            Leeway = leeway ?? TimeSpan.FromSeconds(60);
         }
     }
 }

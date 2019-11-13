@@ -11,7 +11,8 @@ namespace Auth0.OidcClient.Core.UnitTests.Tokens
         private static readonly DateTime tokensWereValid = new DateTime(2019, 9, 9, 10, 00, 00, DateTimeKind.Utc);
         private static readonly ISignatureVerifier rs256NoSignature = new NoSignatureVerifier(new[] { "RS256" });
 
-        private static readonly IdTokenRequirements defaultReqs = new IdTokenRequirements("https://tokens-test.auth0.com/", "tokens-test-123")
+        private static readonly IdTokenRequirements defaultReqs =
+            new IdTokenRequirements("https://tokens-test.auth0.com/", "tokens-test-123", TimeSpan.FromMinutes(1))
         {
             Nonce = "a1b2c3d4e5",
             MaxAge = TimeSpan.FromSeconds(100)
@@ -19,7 +20,8 @@ namespace Auth0.OidcClient.Core.UnitTests.Tokens
 
         private static readonly JsonWebKeySet signingKeys = new JsonWebKeySet("{\"keys\":[{\"alg\":\"RS256\",\"kty\":\"RSA\",\"use\":\"sig\",\"x5c\":[\"MIIDGDCCAgCgAwIBAgIJ5HpMuw46gydLMA0GCSqGSIb3DQEBBQUAMDMxMTAvBgNVBAMTKGF1dGgwLWRvdG5ldC1pbnRlZ3JhdGlvbi10ZXN0cy5hdXRoMC5jb20wHhcNMTUxMTI0MTUyNDQ1WhcNMjkwODAyMTUyNDQ1WjAzMTEwLwYDVQQDEyhhdXRoMC1kb3RuZXQtaW50ZWdyYXRpb24tdGVzdHMuYXV0aDAuY29tMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA40mvPtnD1JaKsQWG9eT+1USq31Cl5GHyv2L/TYd7Kjena0v0qHIJ2/bU7jGBRwsbnQ/mL9UJ8Uzqb9VtSU1nG1py4bBS0M6CV9zYCjHROxg5qwyHOH0AbA/LOI/83IM9jK0KFboQmmHc0roLylR6QZ8EKrFEQgHTNMpKYJh7SVnrMrXfVndpNcxnkzI4dJfLUrGtPxsKURtApi1O/5WKytCeCg1lE3EZu0QkGSsvfW7xEYI/1mXVlX9V12/SAQjrF1+u910mfKkcc/PgMnArFCILLAwKm1GqnUnWO8JpKg9N5A8c3u+54JEJMbMFHWrZyNT2qouBWfz7rm+f5Z2KvwIDAQABoy8wLTAMBgNVHRMEBTADAQH/MB0GA1UdDgQWBBSNKc1MtlkujOOp295lpZ5slrHcaDANBgkqhkiG9w0BAQUFAAOCAQEAo9Be/Qe6w4oop19KsFThlOfhLuDEPKTBqL2KlEzwKs35a42o9dalQATRx/zMeIi4stm94YNBovCNi02zpddJKso09zEkPkRoHgZ3p8K+AoWek/4pmys0Yp0WgnHfvdhstqfjFo9bHzG0noNtHFErqdt/UfiRCcRL+tWqwi8TAkgbyv+ZsddH2Xomn8HbHOAaZfiUwRhLQe6yetcDHLx9emsPENLjZRVBAz2hHDfJK7urKprMHY4Q0Jm0nlXz6/gMiJRnyD5nuZjv7DyeFPixOxptCU90zq8UbS/3fj1a1RdbBBNe5KhJjHtLrBqYAuSgwpok99qzUiLjm4fK7sZPHQ==\"],\"n\":\"40mvPtnD1JaKsQWG9eT-1USq31Cl5GHyv2L_TYd7Kjena0v0qHIJ2_bU7jGBRwsbnQ_mL9UJ8Uzqb9VtSU1nG1py4bBS0M6CV9zYCjHROxg5qwyHOH0AbA_LOI_83IM9jK0KFboQmmHc0roLylR6QZ8EKrFEQgHTNMpKYJh7SVnrMrXfVndpNcxnkzI4dJfLUrGtPxsKURtApi1O_5WKytCeCg1lE3EZu0QkGSsvfW7xEYI_1mXVlX9V12_SAQjrF1-u910mfKkcc_PgMnArFCILLAwKm1GqnUnWO8JpKg9N5A8c3u-54JEJMbMFHWrZyNT2qouBWfz7rm-f5Z2Kvw\",\"e\":\"AQAB\",\"kid\":\"MjAyMjg3MjE1QzYxMjhFREJGOEFERDc3NThEODY3QjMwQTRGNzRGQQ\",\"x5t\":\"MjAyMjg3MjE1QzYxMjhFREJGOEFERDc3NThEODY3QjMwQTRGNzRGQQ\"}]}");
 
-        private static readonly IdTokenRequirements signedReqs = new IdTokenRequirements("https://auth0-dotnet-integration-tests.auth0.com/", "qmss9A66stPWTOXjR6X1OeA0DLadoNP2")
+        private static readonly IdTokenRequirements signedReqs =
+            new IdTokenRequirements("https://auth0-dotnet-integration-tests.auth0.com/", "qmss9A66stPWTOXjR6X1OeA0DLadoNP2", TimeSpan.FromMinutes(1))
         {
             Nonce = "SOrHOau9q0itx4iTF_iX2w"
         };
@@ -208,7 +210,7 @@ namespace Auth0.OidcClient.Core.UnitTests.Tokens
         {
             var token = "eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJodHRwczovL3Rva2Vucy10ZXN0LmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHwxMjM0NTY3ODkiLCJhdWQiOlsidG9rZW5zLXRlc3QtMTIzIiwiZXh0ZXJuYWwtdGVzdC05OTkiXSwiZXhwIjoxNTY4MTgwODk0LjIyNCwiaWF0IjoxNTY4MDA4MDk0LjIyNCwibm9uY2UiOiJhMWIyYzNkNGU1IiwiYXpwIjoidG9rZW5zLXRlc3QtMTIzIiwiYXV0aF90aW1lIjoxNTY4MDk0NDk0LjIyNH0.IfreWGZM2PVjgYG1E0WLIJ0f9-omYlq6v3FSn3ruu3a9gpTzhN-VB4ZKJRYmqkNLz_0F1mMFJgfpcCZ-ra5KW0aviiIAZHadYPoYLHsQsIVdOQmxkpwzaIoOwtgwvvg8QCKa3DTTPERRriUTYBfSgc5_4qg4bTxulZ7R3whygRMhVBI1uzjTHWMGXeu2PMezo1NtlFTVc3859UpDhGOUAYwBP3oC5JD1B2K15B9qpCtMq8AaAX1bieM8kX4Jez8r_ZwS1NTPMsCWOa2tpGFGhgu7ic9dlQpDjmxQdG8zXTgGJfejzSi0oHHAEtHxD-znTsyRVqu5psq_LEKBnWi6HA";
 
-            var reqs = new IdTokenRequirements("https://tokens-test.auth0.com/", "tokens-test-123")
+            var reqs = new IdTokenRequirements("https://tokens-test.auth0.com/", "tokens-test-123", TimeSpan.FromMinutes(5))
             {
                 MaxAge = TimeSpan.FromSeconds(100)
             };

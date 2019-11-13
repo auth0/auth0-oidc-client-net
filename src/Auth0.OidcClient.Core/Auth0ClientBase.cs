@@ -41,7 +41,7 @@ namespace Auth0.OidcClient
         protected Auth0ClientBase(Auth0ClientOptions options, string platformName)
         {
             _options = options;
-            _idTokenRequirements = new IdTokenRequirements($"https://{_options.Domain}/", _options.ClientId, options.MaxAge, options.Leeway);
+            _idTokenRequirements = new IdTokenRequirements($"https://{_options.Domain}/", _options.ClientId, options.Leeway, options.MaxAge);
             _userAgent = CreateAgentString(platformName);
         }
 
@@ -135,6 +135,7 @@ namespace Auth0.OidcClient
                 ResponseMode = AuthorizeResponseMode.Redirect,
                 RedirectUri = options.RedirectUri ?? $"https://{_options.Domain}/mobile",
                 PostLogoutRedirectUri = options.PostLogoutRedirectUri ?? $"https://{_options.Domain}/mobile",
+                ClockSkew = options.Leeway,
 
                 Policy = {
                     RequireAuthorizationCodeHash = false,
@@ -146,9 +147,6 @@ namespace Auth0.OidcClient
             if (!String.IsNullOrWhiteSpace(oidcClientOptions.ClientSecret))
                 oidcClientOptions.ClientSecret = options.ClientSecret;
 #pragma warning restore CS0618
-
-            if (options.Leeway.HasValue)
-                oidcClientOptions.ClockSkew = options.Leeway.Value;
 
             if (options.RefreshTokenMessageHandler != null)
                 oidcClientOptions.RefreshTokenInnerHttpHandler = options.RefreshTokenMessageHandler;
