@@ -53,8 +53,8 @@ namespace Auth0.OidcClient
                 finalExtraParameters["max_age"] = _options.MaxAge.Value.TotalSeconds.ToString("0");
 
             var loginRequest = new LoginRequest { FrontChannelExtraParameters = finalExtraParameters };
-
-            Debug.WriteLine($"Using Callback URL '{_options.RedirectUri}'. Ensure this is an Allowed Callback URL for application/client ID {_options.ClientId}.");
+            
+            Debug.WriteLine($"Using Callback URL '{OidcClient.Options.RedirectUri}'. Ensure this is an Allowed Callback URL for application/client ID {_options.ClientId}.");
 
             var result = await OidcClient.LoginAsync(loginRequest, cancellationToken);
 
@@ -67,7 +67,7 @@ namespace Auth0.OidcClient
         /// <inheritdoc/>
         public async Task<BrowserResultType> LogoutAsync(bool federated = false, object extraParameters = null, CancellationToken cancellationToken = default)
         {
-            Debug.WriteLine($"Using Callback URL '{_options.PostLogoutRedirectUri}'. Ensure this is an Allowed Logout URL for application/client ID {_options.ClientId}.");
+            Debug.WriteLine($"Using Callback URL '{OidcClient.Options.PostLogoutRedirectUri}'. Ensure this is an Allowed Logout URL for application/client ID {_options.ClientId}.");
 
             var logoutParameters = AppendTelemetry(extraParameters);
             logoutParameters["client_id"] = OidcClient.Options.ClientId;
