@@ -62,7 +62,7 @@ namespace Auth0.OidcClient.Tokens
         /// <param name="required"><see cref="IdTokenRequirements"/> that should be asserted.</param>
         /// <param name="token"><see cref="JwtSecurityToken"/> to assert requirements against.</param>
         /// <param name="pointInTime"><see cref="DateTime"/> to act as "Now" when asserting time-based claims.</param>
-        /// <exception cref="IdTokenValidationException">Exception thrown if <paramref name="rawIDToken"/> fails to
+        /// <exception cref="IdTokenValidationException">Exception thrown if <paramref name="token"/> fails to
         /// meet the requirements specified by <paramref name="required"/>.
         /// </exception>
         private static void AssertTokenClaimsMeetRequirements(IdTokenRequirements required, JwtSecurityToken token, DateTime pointInTime)
@@ -139,7 +139,7 @@ namespace Auth0.OidcClient.Tokens
         /// </summary>
         /// <param name="claims"><see cref="IEnumerable{Claim}"/>Claims to search the <paramref name="claimType"/> for.</param>
         /// <param name="claimType">Type of claim to search the <paramref name="claims"/> for.  See <see cref="JwtRegisteredClaimNames"/> for possible names.</param>
-        /// <returns>A <see cref="long?"/>Containing the <see cref="long"/> value containing the epoch value or <see langword="null"/> if no matching value was found.</returns>
+        /// <returns>A <see cref="Nullable{Int64}"/> containing the epoch value or <see langword="null"/> if no matching value was found.</returns>
         private static long? GetEpoch(IEnumerable<Claim> claims, string claimType)
         {
             var claim = claims.FirstOrDefault(t => t.Type == claimType);
