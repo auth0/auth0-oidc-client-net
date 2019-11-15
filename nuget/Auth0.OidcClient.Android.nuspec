@@ -14,6 +14,7 @@
     <releaseNotes>
       Version 3.1.0
       - Improved OIDC Compliance - ID Tokens have more comprehensive checks
+      - Updated to latest versions of runtime and dev dependencies
 
       Version 3.0.1
       - Fix `No Browser configured` error by ensuring the non-Activity constructor
