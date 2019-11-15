@@ -3,7 +3,7 @@
 <package>
   <metadata>
     <id>Auth0.OidcClient.UWP</id>
-    <version>3.0.1</version>
+    <version>3.1.0</version>
     <authors>Auth0</authors>
     <owners>Auth0</owners>
     <license type="expression">Apache-2.0</license>
@@ -12,6 +12,11 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Auth0 OIDC Client for Universal Windows Platform (UWP) apps</description>
     <releaseNotes>
+      Version 3.1.0
+      - Improved OIDC Compliance - ID Tokens have more comprehensive checks
+      - Update Microsoft.IdentityModel.Protocols.OpenIdConnect to 5.6.0
+      - Update IdentityModel.OidcClient to 3.1.0
+
       Version 3.0.1
       - Correct package dependency version for Auth0.OidcClient.Core
 
@@ -65,7 +70,7 @@
     <tags>Auth0 OIDC UWP Windows10</tags>
     <dependencies>
       <group targetFramework="uap10.0.16299">
-        <dependency id="Auth0.OidcClient.Core" version="3.0.1" />
+        <dependency id="Auth0.OidcClient.Core" version="3.1.0" />
       </group>
     </dependencies>
   </metadata>

@@ -3,7 +3,7 @@
 <package>
   <metadata>
     <id>Auth0.OidcClient.Android</id>
-    <version>3.0.1</version>
+    <version>3.1.0</version>
     <authors>Auth0</authors>
     <owners>Auth0</owners>
     <license type="expression">Apache-2.0</license>
@@ -12,6 +12,10 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Auth0 OIDC Client for Xamarin Android apps</description>
     <releaseNotes>
+      Version 3.1.0
+      - Improved OIDC Compliance - ID Tokens have more comprehensive checks
+      - Updated to latest versions of runtime and dev dependencies
+
       Version 3.0.1
       - Fix `No Browser configured` error by ensuring the non-Activity constructor
         for Auth0Client creates a default Browser implementation.
@@ -82,7 +86,7 @@
     <tags>Auth0 OIDC Android Xamarin</tags>
     <dependencies>
       <group targetFramework="MonoAndroid10">
-        <dependency id="Auth0.OidcClient.Core" version="3.0.1" />
+        <dependency id="Auth0.OidcClient.Core" version="3.1.0" />
       </group>
     </dependencies>
   </metadata>
