@@ -64,6 +64,7 @@
     <dependencies>
       <group targetFramework="net462">
         <dependency id="Auth0.OidcClient.Core" version="3.0.1" />
+        <dependency id="Microsoft.Toolkit.Forms.UI.Controls.WebView" version="5.1.1"/>
       </group>
     </dependencies>
   </metadata>
