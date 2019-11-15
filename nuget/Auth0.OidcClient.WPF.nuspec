@@ -3,7 +3,7 @@
 <package>
   <metadata>
     <id>Auth0.OidcClient.WPF</id>
-    <version>3.0.1</version>
+    <version>3.1.0</version>
     <authors>Auth0</authors>
     <owners>Auth0</owners>
     <license type="expression">Apache-2.0</license>
@@ -12,6 +12,10 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Auth0 OIDC Client for WPF apps</description>
     <releaseNotes>
+      Version 3.1.0
+      - Improved OIDC Compliance - ID Tokens have more comprehensive checks
+      - NuGet package brings in Microsoft.Toolkit.Forms.UI.Controls.WebView
+
       Version 3.0.1
       - Correct package dependency version for Auth0.OidcClient.Core
 
@@ -64,7 +68,7 @@
     <tags>Auth0 OIDC WPF</tags>
     <dependencies>
       <group targetFramework="net462">
-        <dependency id="Auth0.OidcClient.Core" version="3.0.1" />
+        <dependency id="Auth0.OidcClient.Core" version="3.1.0" />
         <dependency id="Microsoft.Toolkit.Forms.UI.Controls.WebView" version="5.1.1"/>
       </group>
     </dependencies>
