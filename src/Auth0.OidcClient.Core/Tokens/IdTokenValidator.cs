@@ -36,7 +36,7 @@ namespace Auth0.OidcClient.Tokens
             // For now we want to support HS256 + ClientSecret as we just had a major release.
             // TODO: In the next major (v4.0) we should remove this condition as well as Auth0ClientOptions.ClientSecret
             if (token.SignatureAlgorithm != "HS256")
-               (signatureVerifier ?? await AsymmetricSignatureVerifier.ForJwks(required.Issuer)).VerifySignature(rawIDToken);
+                (signatureVerifier ?? await AsymmetricSignatureVerifier.ForJwks(required.Issuer)).VerifySignature(rawIDToken);
 
             AssertTokenClaimsMeetRequirements(required, token, pointInTime ?? DateTime.Now);
         }
@@ -86,21 +86,25 @@ namespace Auth0.OidcClient.Tokens
             if (!token.Audiences.Contains(required.Audience))
                 throw new IdTokenValidationException($"Audience (aud) claim mismatch in the ID token; expected \"{required.Audience}\" but was not one of \"{String.Join(", ", token.Audiences)}\".");
 
-            // Expires at
-            var exp = GetEpoch(token.Claims, JwtRegisteredClaimNames.Exp);
-            if (exp == null)
-                throw new IdTokenValidationException("Expiration Time (exp) claim must be an integer present in the ID token.");
-            var expiration = exp + required.Leeway.TotalSeconds;
-            if (epochNow >= expiration)
-                throw new IdTokenValidationException($"Expiration Time (exp) claim error in the ID token; current time ({epochNow}) is after expiration time ({expiration}).");
+            {
+                // Expires at
+                var exp = GetEpoch(token.Claims, JwtRegisteredClaimNames.Exp);
+                if (exp == null)
+                    throw new IdTokenValidationException("Expiration Time (exp) claim must be an integer present in the ID token.");
+                var expiration = exp + required.Leeway.TotalSeconds;
+                if (epochNow >= expiration)
+                    throw new IdTokenValidationException($"Expiration Time (exp) claim error in the ID token; current time ({epochNow}) is after expiration time ({exp}).");
+            }
 
-            // Issued at
-            var iat = GetEpoch(token.Claims, JwtRegisteredClaimNames.Iat);
-            if (iat == null)
-                throw new IdTokenValidationException("Issued At (iat) claim must be an integer present in the ID token.");
-            var issued = iat - required.Leeway.TotalSeconds;
-            if (epochNow < issued)
-                throw new IdTokenValidationException($"Issued At (iat) claim error in the ID token; current time ({epochNow}) is before issued at time ({expiration}).");
+            {
+                // Issued at
+                var iat = GetEpoch(token.Claims, JwtRegisteredClaimNames.Iat);
+                if (iat == null)
+                    throw new IdTokenValidationException("Issued At (iat) claim must be an integer present in the ID token.");
+                var issued = iat - required.Leeway.TotalSeconds;
+                if (epochNow < issued)
+                    throw new IdTokenValidationException($"Issued At (iat) claim error in the ID token; current time ({epochNow}) is before issued at time ({iat}).");
+            }
 
             // Nonce
             if (required.Nonce != null)
