@@ -64,14 +64,6 @@ namespace Auth0.OidcClient
                     signal.Release();
                 };
 
-                browser.NavigateError += (s, e) =>
-                {
-                    e.Cancel = true;
-                    result.ResultType = BrowserResultType.HttpError;
-                    result.Error = e.StatusCode.ToString();
-                    signal.Release();
-                };
-
                 browser.DocumentCompleted += (s, e) =>
                 {
                     if (e.Url.AbsoluteUri.StartsWith(options.EndUrl))
