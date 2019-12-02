@@ -64,6 +64,18 @@ namespace Auth0.OidcClient
                     signal.Release();
                 };
 
+                browser.NavigateError += (s, e) =>
+                {
+                    // Windows Server secure browsing requires this
+                    if (e.Url.StartsWith(options.EndUrl))
+                    {
+                        e.Cancel = true;
+                        result.ResultType = BrowserResultType.Success;
+                        result.Response = e.Url;
+                        signal.Release();
+                    }
+                };
+
                 browser.DocumentCompleted += (s, e) =>
                 {
                     if (e.Url.AbsoluteUri.StartsWith(options.EndUrl))
