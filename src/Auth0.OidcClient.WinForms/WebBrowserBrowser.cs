@@ -66,10 +66,14 @@ namespace Auth0.OidcClient
 
                 browser.NavigateError += (s, e) =>
                 {
-                    e.Cancel = true;
-                    result.ResultType = BrowserResultType.HttpError;
-                    result.Error = e.StatusCode.ToString();
-                    signal.Release();
+                    // Windows Server secure browsing requires this
+                    if (e.Url.StartsWith(options.EndUrl))
+                    {
+                        e.Cancel = true;
+                        result.ResultType = BrowserResultType.Success;
+                        result.Response = e.Url;
+                        signal.Release();
+                    }
                 };
 
                 browser.DocumentCompleted += (s, e) =>
