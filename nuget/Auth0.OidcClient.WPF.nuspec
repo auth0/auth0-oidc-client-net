@@ -3,7 +3,7 @@
 <package>
   <metadata>
     <id>Auth0.OidcClient.WPF</id>
-    <version>3.1.0</version>
+    <version>3.1.1</version>
     <authors>Auth0</authors>
     <owners>Auth0</owners>
     <license type="expression">Apache-2.0</license>
@@ -12,6 +12,11 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Auth0 OIDC Client for WPF apps</description>
     <releaseNotes>
+      Version 3.1.1
+      - Corrected OpenIDConnect package dep version to 5.6.0
+      - Tweaked some ID Token Validation exception messages
+      - Update IdentityModel.OidcClient to 3.1.2
+
       Version 3.1.0
       - Improved OIDC Compliance - ID Tokens have more comprehensive checks
       - NuGet package brings in Microsoft.Toolkit.Forms.UI.Controls.WebView
@@ -54,24 +59,12 @@
       - Add support to get the user claims from the userinfo endpoint (thanks @OrihuelaConde)
       - Add default for logout redirect
       - Updated dependency on IdentityModel.OidcClient to v2.9.0
-
-      Version 2.3.1
-      - Handle null-terminated POST bodies
-
-      Version 2.3.0
-      - Add support for federated logout
-
-      Version 2.2.0
-      - Add support to log the user out and clear the Auth0 SSO cookie
-
-      Version 2.1.0
-      - Updated dependency on IdentityModel.OidcClient to v2.7.0
     </releaseNotes>
     <copyright>Copyright 2017-2019 Auth0, Inc.</copyright>
     <tags>Auth0 OIDC WPF</tags>
     <dependencies>
       <group targetFramework="net462">
-        <dependency id="Auth0.OidcClient.Core" version="3.1.0" />
+        <dependency id="Auth0.OidcClient.Core" version="3.1.1" />
         <dependency id="Microsoft.Toolkit.Wpf.UI.Controls.WebView" version="6.0.0"/>
       </group>
     </dependencies>
