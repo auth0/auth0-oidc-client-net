@@ -3,7 +3,7 @@
 <package>
   <metadata>
     <id>Auth0.OidcClient.Android</id>
-    <version>3.1.0</version>
+    <version>3.1.1</version>
     <authors>Auth0</authors>
     <owners>Auth0</owners>
     <license type="expression">Apache-2.0</license>
@@ -12,9 +12,15 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Auth0 OIDC Client for Xamarin Android apps</description>
     <releaseNotes>
+      Version 3.1.1
+      - Corrected OpenIDConnect package dep version to 5.6.0
+      - Tweaked some ID Token Validation exception messages
+      - Update IdentityModel.OidcClient to 3.1.2
+
       Version 3.1.0
       - Improved OIDC Compliance - ID Tokens have more comprehensive checks
-      - Updated to latest versions of runtime and dev dependencies
+      - Update Microsoft.IdentityModel.Protocols.OpenIdConnect to 5.6.0
+      - Update IdentityModel.OidcClient to 3.1.0
 
       Version 3.0.1
       - Fix `No Browser configured` error by ensuring the non-Activity constructor
@@ -68,25 +74,12 @@
       - Add default for logout redirect
       - Update dependency on IdentityModel.OidcClient to v2.9.0
       - Update Android target to SDK 26/v8.0
-
-      Version 2.3.1
-      - Handle null-terminated POST bodies
-
-      Version 2.3.0
-      - Add support for federated logout
-
-      Version 2.2.0
-      - Add support to log the user out and clear the Auth0 SSO cookie
-
-      Version 2.1.0
-      - Fixed issue with browser not opening when running on Android 6.0
-      - Updated dependency on IdentityModel.OidcClient to v2.7.0
     </releaseNotes>
     <copyright>Copyright 2017-2019 Auth0, Inc.</copyright>
     <tags>Auth0 OIDC Android Xamarin</tags>
     <dependencies>
       <group targetFramework="MonoAndroid10">
-        <dependency id="Auth0.OidcClient.Core" version="3.1.0" />
+        <dependency id="Auth0.OidcClient.Core" version="3.1.1" />
       </group>
     </dependencies>
   </metadata>
