@@ -96,10 +96,15 @@ namespace Auth0.OidcClient.Tokens
                     throw new IdTokenValidationException($"Expiration Time (exp) claim error in the ID token; current time ({epochNow}) is after expiration time ({exp}).");
             }
 
-            // Issued at
-            var iat = GetEpoch(token.Claims, JwtRegisteredClaimNames.Iat);
-            if (iat == null)
-                throw new IdTokenValidationException("Issued At (iat) claim must be an integer present in the ID token.");
+            {
+                // Issued at
+                var iat = GetEpoch(token.Claims, JwtRegisteredClaimNames.Iat);
+                if (iat == null)
+                    throw new IdTokenValidationException("Issued At (iat) claim must be an integer present in the ID token.");
+                var issued = iat - required.Leeway.TotalSeconds;
+                if (epochNow < issued)
+                    throw new IdTokenValidationException($"Issued At (iat) claim error in the ID token; current time ({epochNow}) is before issued at time ({iat}).");
+            }
 
             // Nonce
             if (required.Nonce != null)
