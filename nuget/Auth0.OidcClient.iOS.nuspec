@@ -8,7 +8,7 @@
     <owners>Auth0</owners>
     <license type="expression">Apache-2.0</license>
     <projectUrl>https://github.com/auth0/auth0-oidc-client-net</projectUrl>
-    <iconUrl>http://secure.gravatar.com/avatar/805765c256ff8617fcad483b5476faf2</iconUrl>
+    <icon>Auth0Icon.png</icon>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Auth0 OIDC Client for Xamarin iOS apps</description>
     <releaseNotes>
@@ -69,5 +69,6 @@
   <files>
     <file src="../src/Auth0.OidcClient.iOS/bin/Release/Auth0.OidcClient.dll" target="lib\Xamarin.iOS10" />
     <file src="../src/Auth0.OidcClient.iOS/bin/Release/Auth0.OidcClient.xml" target="lib\Xamarin.iOS10" />
+    <file src="..\build\Auth0Icon.png" />
   </files>
 </package>
