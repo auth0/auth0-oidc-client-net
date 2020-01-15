@@ -4,8 +4,8 @@ using System.Windows;
 
 [assembly: AssemblyTitle("Auth0.OidcClient.WPF")]
 [assembly: AssemblyProduct("Auth0.OidcClient")]
-[assembly: AssemblyVersion("3.1.0")]
-[assembly: AssemblyFileVersion("3.1.0")]
+[assembly: AssemblyVersion("3.1.2")]
+[assembly: AssemblyFileVersion("3.1.2")]
 [assembly: ComVisible(false)]
 
 [assembly: ThemeInfo(ResourceDictionaryLocation.None, ResourceDictionaryLocation.SourceAssembly)]
