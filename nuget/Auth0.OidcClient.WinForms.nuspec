@@ -3,7 +3,7 @@
 <package>
   <metadata>
     <id>Auth0.OidcClient.WinForms</id>
-    <version>3.1.1</version>
+    <version>3.1.2</version>
     <authors>Auth0</authors>
     <owners>Auth0</owners>
     <license type="expression">Apache-2.0</license>
@@ -12,6 +12,11 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Auth0 OIDC Client for WinForms apps</description>
     <releaseNotes>
+      Version 3.1.2
+      - Allow ID tokens "issued at" (iat) claims from "the future" to allow
+        slow local clocks on mobile and desktop devices.
+      - Auth0.OidcClient.iOS is now strong-named for improved compatibility.
+
       Version 3.1.1
       - Changed WebBrowserBrowser (IE compatible mode) to handle ULP 
         error scenarios without closing and to ensure completed flows
@@ -19,7 +24,6 @@
       - Corrected OpenIDConnect package dep version to 5.6.0
       - Tweaked some ID Token Validation exception messages
       - Update IdentityModel.OidcClient to 3.1.2
-
 
       Version 3.1.0
       - Improved OIDC Compliance - ID Tokens have more comprehensive checks
@@ -63,11 +67,11 @@
       - Add default for logout redirect
       - Update dependency on IdentityModel.OidcClient to v2.9.0
     </releaseNotes>
-    <copyright>Copyright 2017-2019 Auth0, Inc.</copyright>
+    <copyright>Copyright 2017-2020 Auth0, Inc.</copyright>
     <tags>Auth0 OIDC WinForms</tags>
     <dependencies>
       <group targetFramework="net462">
-        <dependency id="Auth0.OidcClient.Core" version="3.1.1" />
+        <dependency id="Auth0.OidcClient.Core" version="3.1.2" />
         <dependency id="Microsoft.Toolkit.Forms.UI.Controls.WebView" version="6.0.0"/>
       </group>
     </dependencies>
