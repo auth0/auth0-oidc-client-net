@@ -3,7 +3,7 @@
 <resources>
   <string name="Login">Login</string>
   <string name="Logout">Logout</string>
+  <string name="UserInfo">User Info</string>
   <string name="ApplicationName">AndroidTestApp</string>
-  <string name="auth0_client_id">qmss9A66stPWTOXjR6X1OeA0DLadoNP2</string>
   <string name="auth0_domain">auth0-dotnet-integration-tests.auth0.com</string>
 </resources>

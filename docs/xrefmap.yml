@@ -64,17 +64,93 @@ references:
   isSpec: "True"
   fullName: Auth0.OidcClient.ActivityMediator.Send
   nameWithType: ActivityMediator.Send
+- uid: Auth0.OidcClient.AndroidBrowserBase
+  name: AndroidBrowserBase
+  href: api/Auth0.OidcClient.AndroidBrowserBase.html
+  commentId: T:Auth0.OidcClient.AndroidBrowserBase
+  fullName: Auth0.OidcClient.AndroidBrowserBase
+  nameWithType: AndroidBrowserBase
+- uid: Auth0.OidcClient.AndroidBrowserBase.#ctor(Android.Content.Context)
+  name: AndroidBrowserBase(Context)
+  href: api/Auth0.OidcClient.AndroidBrowserBase.html#Auth0_OidcClient_AndroidBrowserBase__ctor_Android_Content_Context_
+  commentId: M:Auth0.OidcClient.AndroidBrowserBase.#ctor(Android.Content.Context)
+  fullName: Auth0.OidcClient.AndroidBrowserBase.AndroidBrowserBase(Android.Content.Context)
+  nameWithType: AndroidBrowserBase.AndroidBrowserBase(Context)
+- uid: Auth0.OidcClient.AndroidBrowserBase.#ctor*
+  name: AndroidBrowserBase
+  href: api/Auth0.OidcClient.AndroidBrowserBase.html#Auth0_OidcClient_AndroidBrowserBase__ctor_
+  commentId: Overload:Auth0.OidcClient.AndroidBrowserBase.#ctor
+  isSpec: "True"
+  fullName: Auth0.OidcClient.AndroidBrowserBase.AndroidBrowserBase
+  nameWithType: AndroidBrowserBase.AndroidBrowserBase
+- uid: Auth0.OidcClient.AndroidBrowserBase.context
+  name: context
+  href: api/Auth0.OidcClient.AndroidBrowserBase.html#Auth0_OidcClient_AndroidBrowserBase_context
+  commentId: F:Auth0.OidcClient.AndroidBrowserBase.context
+  fullName: Auth0.OidcClient.AndroidBrowserBase.context
+  nameWithType: AndroidBrowserBase.context
+- uid: Auth0.OidcClient.AndroidBrowserBase.InvokeAsync(BrowserOptions,System.Threading.CancellationToken)
+  name: InvokeAsync(BrowserOptions, CancellationToken)
+  href: api/Auth0.OidcClient.AndroidBrowserBase.html#Auth0_OidcClient_AndroidBrowserBase_InvokeAsync_BrowserOptions_System_Threading_CancellationToken_
+  commentId: M:Auth0.OidcClient.AndroidBrowserBase.InvokeAsync(BrowserOptions,System.Threading.CancellationToken)
+  fullName: Auth0.OidcClient.AndroidBrowserBase.InvokeAsync(BrowserOptions, System.Threading.CancellationToken)
+  nameWithType: AndroidBrowserBase.InvokeAsync(BrowserOptions, CancellationToken)
+- uid: Auth0.OidcClient.AndroidBrowserBase.InvokeAsync*
+  name: InvokeAsync
+  href: api/Auth0.OidcClient.AndroidBrowserBase.html#Auth0_OidcClient_AndroidBrowserBase_InvokeAsync_
+  commentId: Overload:Auth0.OidcClient.AndroidBrowserBase.InvokeAsync
+  isSpec: "True"
+  fullName: Auth0.OidcClient.AndroidBrowserBase.InvokeAsync
+  nameWithType: AndroidBrowserBase.InvokeAsync
+- uid: Auth0.OidcClient.AndroidBrowserBase.IsNewTask
+  name: IsNewTask
+  href: api/Auth0.OidcClient.AndroidBrowserBase.html#Auth0_OidcClient_AndroidBrowserBase_IsNewTask
+  commentId: F:Auth0.OidcClient.AndroidBrowserBase.IsNewTask
+  fullName: Auth0.OidcClient.AndroidBrowserBase.IsNewTask
+  nameWithType: AndroidBrowserBase.IsNewTask
+- uid: Auth0.OidcClient.AndroidBrowserBase.OpenBrowser(Android.Net.Uri,Android.Content.Context)
+  name: OpenBrowser(Uri, Context)
+  href: api/Auth0.OidcClient.AndroidBrowserBase.html#Auth0_OidcClient_AndroidBrowserBase_OpenBrowser_Android_Net_Uri_Android_Content_Context_
+  commentId: M:Auth0.OidcClient.AndroidBrowserBase.OpenBrowser(Android.Net.Uri,Android.Content.Context)
+  fullName: Auth0.OidcClient.AndroidBrowserBase.OpenBrowser(Android.Net.Uri, Android.Content.Context)
+  nameWithType: AndroidBrowserBase.OpenBrowser(Uri, Context)
+- uid: Auth0.OidcClient.AndroidBrowserBase.OpenBrowser*
+  name: OpenBrowser
+  href: api/Auth0.OidcClient.AndroidBrowserBase.html#Auth0_OidcClient_AndroidBrowserBase_OpenBrowser_
+  commentId: Overload:Auth0.OidcClient.AndroidBrowserBase.OpenBrowser
+  isSpec: "True"
+  fullName: Auth0.OidcClient.AndroidBrowserBase.OpenBrowser
+  nameWithType: AndroidBrowserBase.OpenBrowser
+- uid: Auth0.OidcClient.ASWebAuthenticationSessionBrowser
+  name: ASWebAuthenticationSessionBrowser
+  href: api/Auth0.OidcClient.ASWebAuthenticationSessionBrowser.html
+  commentId: T:Auth0.OidcClient.ASWebAuthenticationSessionBrowser
+  fullName: Auth0.OidcClient.ASWebAuthenticationSessionBrowser
+  nameWithType: ASWebAuthenticationSessionBrowser
+- uid: Auth0.OidcClient.ASWebAuthenticationSessionBrowser.Launch(BrowserOptions,System.Threading.CancellationToken)
+  name: Launch(BrowserOptions, CancellationToken)
+  href: api/Auth0.OidcClient.ASWebAuthenticationSessionBrowser.html#Auth0_OidcClient_ASWebAuthenticationSessionBrowser_Launch_BrowserOptions_System_Threading_CancellationToken_
+  commentId: M:Auth0.OidcClient.ASWebAuthenticationSessionBrowser.Launch(BrowserOptions,System.Threading.CancellationToken)
+  fullName: Auth0.OidcClient.ASWebAuthenticationSessionBrowser.Launch(BrowserOptions, System.Threading.CancellationToken)
+  nameWithType: ASWebAuthenticationSessionBrowser.Launch(BrowserOptions, CancellationToken)
+- uid: Auth0.OidcClient.ASWebAuthenticationSessionBrowser.Launch*
+  name: Launch
+  href: api/Auth0.OidcClient.ASWebAuthenticationSessionBrowser.html#Auth0_OidcClient_ASWebAuthenticationSessionBrowser_Launch_
+  commentId: Overload:Auth0.OidcClient.ASWebAuthenticationSessionBrowser.Launch
+  isSpec: "True"
+  fullName: Auth0.OidcClient.ASWebAuthenticationSessionBrowser.Launch
+  nameWithType: ASWebAuthenticationSessionBrowser.Launch
 - uid: Auth0.OidcClient.Auth0Client
   name: Auth0Client
   href: api/Auth0.OidcClient.Auth0Client.html
   commentId: T:Auth0.OidcClient.Auth0Client
   fullName: Auth0.OidcClient.Auth0Client
   nameWithType: Auth0Client
-- uid: Auth0.OidcClient.Auth0Client.#ctor(Auth0.OidcClient.Auth0ClientOptions)
+- uid: Auth0.OidcClient.Auth0Client.#ctor(Auth0ClientOptions)
   name: Auth0Client(Auth0ClientOptions)
-  href: api/Auth0.OidcClient.Auth0Client.html#Auth0_OidcClient_Auth0Client__ctor_Auth0_OidcClient_Auth0ClientOptions_
-  commentId: M:Auth0.OidcClient.Auth0Client.#ctor(Auth0.OidcClient.Auth0ClientOptions)
-  fullName: Auth0.OidcClient.Auth0Client.Auth0Client(Auth0.OidcClient.Auth0ClientOptions)
+  href: api/Auth0.OidcClient.Auth0Client.html#Auth0_OidcClient_Auth0Client__ctor_Auth0ClientOptions_
+  commentId: M:Auth0.OidcClient.Auth0Client.#ctor(Auth0ClientOptions)
+  fullName: Auth0.OidcClient.Auth0Client.Auth0Client(Auth0ClientOptions)
   nameWithType: Auth0Client.Auth0Client(Auth0ClientOptions)
 - uid: Auth0.OidcClient.Auth0Client.#ctor*
   name: Auth0Client
@@ -83,187 +159,133 @@ references:
   isSpec: "True"
   fullName: Auth0.OidcClient.Auth0Client.Auth0Client
   nameWithType: Auth0Client.Auth0Client
-- uid: Auth0.OidcClient.Auth0Client.LoginAsync(System.Object)
-  name: LoginAsync(Object)
-  href: api/Auth0.OidcClient.Auth0Client.html#Auth0_OidcClient_Auth0Client_LoginAsync_System_Object_
-  commentId: M:Auth0.OidcClient.Auth0Client.LoginAsync(System.Object)
-  fullName: Auth0.OidcClient.Auth0Client.LoginAsync(System.Object)
-  nameWithType: Auth0Client.LoginAsync(Object)
-- uid: Auth0.OidcClient.Auth0Client.LoginAsync*
-  name: LoginAsync
-  href: api/Auth0.OidcClient.Auth0Client.html#Auth0_OidcClient_Auth0Client_LoginAsync_
-  commentId: Overload:Auth0.OidcClient.Auth0Client.LoginAsync
+- uid: Auth0.OidcClient.Auth0ClientActivity
+  name: Auth0ClientActivity
+  href: api/Auth0.OidcClient.Auth0ClientActivity.html
+  commentId: T:Auth0.OidcClient.Auth0ClientActivity
+  fullName: Auth0.OidcClient.Auth0ClientActivity
+  nameWithType: Auth0ClientActivity
+- uid: Auth0.OidcClient.Auth0ClientActivity.OnNewIntent(Android.Content.Intent)
+  name: OnNewIntent(Intent)
+  href: api/Auth0.OidcClient.Auth0ClientActivity.html#Auth0_OidcClient_Auth0ClientActivity_OnNewIntent_Android_Content_Intent_
+  commentId: M:Auth0.OidcClient.Auth0ClientActivity.OnNewIntent(Android.Content.Intent)
+  fullName: Auth0.OidcClient.Auth0ClientActivity.OnNewIntent(Android.Content.Intent)
+  nameWithType: Auth0ClientActivity.OnNewIntent(Intent)
+- uid: Auth0.OidcClient.Auth0ClientActivity.OnNewIntent*
+  name: OnNewIntent
+  href: api/Auth0.OidcClient.Auth0ClientActivity.html#Auth0_OidcClient_Auth0ClientActivity_OnNewIntent_
+  commentId: Overload:Auth0.OidcClient.Auth0ClientActivity.OnNewIntent
   isSpec: "True"
-  fullName: Auth0.OidcClient.Auth0Client.LoginAsync
-  nameWithType: Auth0Client.LoginAsync
-- uid: Auth0.OidcClient.Auth0Client.PrepareLoginAsync(System.Object)
-  name: PrepareLoginAsync(Object)
-  href: api/Auth0.OidcClient.Auth0Client.html#Auth0_OidcClient_Auth0Client_PrepareLoginAsync_System_Object_
-  commentId: M:Auth0.OidcClient.Auth0Client.PrepareLoginAsync(System.Object)
-  fullName: Auth0.OidcClient.Auth0Client.PrepareLoginAsync(System.Object)
-  nameWithType: Auth0Client.PrepareLoginAsync(Object)
-- uid: Auth0.OidcClient.Auth0Client.PrepareLoginAsync*
-  name: PrepareLoginAsync
-  href: api/Auth0.OidcClient.Auth0Client.html#Auth0_OidcClient_Auth0Client_PrepareLoginAsync_
-  commentId: Overload:Auth0.OidcClient.Auth0Client.PrepareLoginAsync
+  fullName: Auth0.OidcClient.Auth0ClientActivity.OnNewIntent
+  nameWithType: Auth0ClientActivity.OnNewIntent
+- uid: Auth0.OidcClient.Auth0ClientActivity.OnResume
+  name: OnResume()
+  href: api/Auth0.OidcClient.Auth0ClientActivity.html#Auth0_OidcClient_Auth0ClientActivity_OnResume
+  commentId: M:Auth0.OidcClient.Auth0ClientActivity.OnResume
+  fullName: Auth0.OidcClient.Auth0ClientActivity.OnResume()
+  nameWithType: Auth0ClientActivity.OnResume()
+- uid: Auth0.OidcClient.Auth0ClientActivity.OnResume*
+  name: OnResume
+  href: api/Auth0.OidcClient.Auth0ClientActivity.html#Auth0_OidcClient_Auth0ClientActivity_OnResume_
+  commentId: Overload:Auth0.OidcClient.Auth0ClientActivity.OnResume
   isSpec: "True"
-  fullName: Auth0.OidcClient.Auth0Client.PrepareLoginAsync
-  nameWithType: Auth0Client.PrepareLoginAsync
-- uid: Auth0.OidcClient.Auth0Client.ProcessResponseAsync(System.String,IdentityModel.OidcClient.AuthorizeState)
-  name: ProcessResponseAsync(String, AuthorizeState)
-  href: api/Auth0.OidcClient.Auth0Client.html#Auth0_OidcClient_Auth0Client_ProcessResponseAsync_System_String_IdentityModel_OidcClient_AuthorizeState_
-  commentId: M:Auth0.OidcClient.Auth0Client.ProcessResponseAsync(System.String,IdentityModel.OidcClient.AuthorizeState)
-  fullName: Auth0.OidcClient.Auth0Client.ProcessResponseAsync(System.String, IdentityModel.OidcClient.AuthorizeState)
-  nameWithType: Auth0Client.ProcessResponseAsync(String, AuthorizeState)
-- uid: Auth0.OidcClient.Auth0Client.ProcessResponseAsync*
-  name: ProcessResponseAsync
-  href: api/Auth0.OidcClient.Auth0Client.html#Auth0_OidcClient_Auth0Client_ProcessResponseAsync_
-  commentId: Overload:Auth0.OidcClient.Auth0Client.ProcessResponseAsync
+  fullName: Auth0.OidcClient.Auth0ClientActivity.OnResume
+  nameWithType: Auth0ClientActivity.OnResume
+- uid: Auth0.OidcClient.AutoSelectBrowser
+  name: AutoSelectBrowser
+  href: api/Auth0.OidcClient.AutoSelectBrowser.html
+  commentId: T:Auth0.OidcClient.AutoSelectBrowser
+  fullName: Auth0.OidcClient.AutoSelectBrowser
+  nameWithType: AutoSelectBrowser
+- uid: Auth0.OidcClient.AutoSelectBrowser.Launch(BrowserOptions,System.Threading.CancellationToken)
+  name: Launch(BrowserOptions, CancellationToken)
+  href: api/Auth0.OidcClient.AutoSelectBrowser.html#Auth0_OidcClient_AutoSelectBrowser_Launch_BrowserOptions_System_Threading_CancellationToken_
+  commentId: M:Auth0.OidcClient.AutoSelectBrowser.Launch(BrowserOptions,System.Threading.CancellationToken)
+  fullName: Auth0.OidcClient.AutoSelectBrowser.Launch(BrowserOptions, System.Threading.CancellationToken)
+  nameWithType: AutoSelectBrowser.Launch(BrowserOptions, CancellationToken)
+- uid: Auth0.OidcClient.AutoSelectBrowser.Launch*
+  name: Launch
+  href: api/Auth0.OidcClient.AutoSelectBrowser.html#Auth0_OidcClient_AutoSelectBrowser_Launch_
+  commentId: Overload:Auth0.OidcClient.AutoSelectBrowser.Launch
   isSpec: "True"
-  fullName: Auth0.OidcClient.Auth0Client.ProcessResponseAsync
-  nameWithType: Auth0Client.ProcessResponseAsync
-- uid: Auth0.OidcClient.Auth0Client.RefreshTokenAsync(System.String)
-  name: RefreshTokenAsync(String)
-  href: api/Auth0.OidcClient.Auth0Client.html#Auth0_OidcClient_Auth0Client_RefreshTokenAsync_System_String_
-  commentId: M:Auth0.OidcClient.Auth0Client.RefreshTokenAsync(System.String)
-  fullName: Auth0.OidcClient.Auth0Client.RefreshTokenAsync(System.String)
-  nameWithType: Auth0Client.RefreshTokenAsync(String)
-- uid: Auth0.OidcClient.Auth0Client.RefreshTokenAsync*
-  name: RefreshTokenAsync
-  href: api/Auth0.OidcClient.Auth0Client.html#Auth0_OidcClient_Auth0Client_RefreshTokenAsync_
-  commentId: Overload:Auth0.OidcClient.Auth0Client.RefreshTokenAsync
+  fullName: Auth0.OidcClient.AutoSelectBrowser.Launch
+  nameWithType: AutoSelectBrowser.Launch
+- uid: Auth0.OidcClient.ChromeCustomTabsBrowser
+  name: ChromeCustomTabsBrowser
+  href: api/Auth0.OidcClient.ChromeCustomTabsBrowser.html
+  commentId: T:Auth0.OidcClient.ChromeCustomTabsBrowser
+  fullName: Auth0.OidcClient.ChromeCustomTabsBrowser
+  nameWithType: ChromeCustomTabsBrowser
+- uid: Auth0.OidcClient.ChromeCustomTabsBrowser.#ctor(Android.Content.Context)
+  name: ChromeCustomTabsBrowser(Context)
+  href: api/Auth0.OidcClient.ChromeCustomTabsBrowser.html#Auth0_OidcClient_ChromeCustomTabsBrowser__ctor_Android_Content_Context_
+  commentId: M:Auth0.OidcClient.ChromeCustomTabsBrowser.#ctor(Android.Content.Context)
+  fullName: Auth0.OidcClient.ChromeCustomTabsBrowser.ChromeCustomTabsBrowser(Android.Content.Context)
+  nameWithType: ChromeCustomTabsBrowser.ChromeCustomTabsBrowser(Context)
+- uid: Auth0.OidcClient.ChromeCustomTabsBrowser.#ctor*
+  name: ChromeCustomTabsBrowser
+  href: api/Auth0.OidcClient.ChromeCustomTabsBrowser.html#Auth0_OidcClient_ChromeCustomTabsBrowser__ctor_
+  commentId: Overload:Auth0.OidcClient.ChromeCustomTabsBrowser.#ctor
   isSpec: "True"
-  fullName: Auth0.OidcClient.Auth0Client.RefreshTokenAsync
-  nameWithType: Auth0Client.RefreshTokenAsync
-- uid: Auth0.OidcClient.Auth0ClientOptions
-  name: Auth0ClientOptions
-  href: api/Auth0.OidcClient.Auth0ClientOptions.html
-  commentId: T:Auth0.OidcClient.Auth0ClientOptions
-  fullName: Auth0.OidcClient.Auth0ClientOptions
-  nameWithType: Auth0ClientOptions
-- uid: Auth0.OidcClient.Auth0ClientOptions.#ctor
-  name: Auth0ClientOptions()
-  href: api/Auth0.OidcClient.Auth0ClientOptions.html#Auth0_OidcClient_Auth0ClientOptions__ctor
-  commentId: M:Auth0.OidcClient.Auth0ClientOptions.#ctor
-  fullName: Auth0.OidcClient.Auth0ClientOptions.Auth0ClientOptions()
-  nameWithType: Auth0ClientOptions.Auth0ClientOptions()
-- uid: Auth0.OidcClient.Auth0ClientOptions.#ctor*
-  name: Auth0ClientOptions
-  href: api/Auth0.OidcClient.Auth0ClientOptions.html#Auth0_OidcClient_Auth0ClientOptions__ctor_
-  commentId: Overload:Auth0.OidcClient.Auth0ClientOptions.#ctor
+  fullName: Auth0.OidcClient.ChromeCustomTabsBrowser.ChromeCustomTabsBrowser
+  nameWithType: ChromeCustomTabsBrowser.ChromeCustomTabsBrowser
+- uid: Auth0.OidcClient.ChromeCustomTabsBrowser.OpenBrowser(Android.Net.Uri,Android.Content.Context)
+  name: OpenBrowser(Uri, Context)
+  href: api/Auth0.OidcClient.ChromeCustomTabsBrowser.html#Auth0_OidcClient_ChromeCustomTabsBrowser_OpenBrowser_Android_Net_Uri_Android_Content_Context_
+  commentId: M:Auth0.OidcClient.ChromeCustomTabsBrowser.OpenBrowser(Android.Net.Uri,Android.Content.Context)
+  fullName: Auth0.OidcClient.ChromeCustomTabsBrowser.OpenBrowser(Android.Net.Uri, Android.Content.Context)
+  nameWithType: ChromeCustomTabsBrowser.OpenBrowser(Uri, Context)
+- uid: Auth0.OidcClient.ChromeCustomTabsBrowser.OpenBrowser*
+  name: OpenBrowser
+  href: api/Auth0.OidcClient.ChromeCustomTabsBrowser.html#Auth0_OidcClient_ChromeCustomTabsBrowser_OpenBrowser_
+  commentId: Overload:Auth0.OidcClient.ChromeCustomTabsBrowser.OpenBrowser
   isSpec: "True"
-  fullName: Auth0.OidcClient.Auth0ClientOptions.Auth0ClientOptions
-  nameWithType: Auth0ClientOptions.Auth0ClientOptions
-- uid: Auth0.OidcClient.Auth0ClientOptions.Browser
-  name: Browser
-  href: api/Auth0.OidcClient.Auth0ClientOptions.html#Auth0_OidcClient_Auth0ClientOptions_Browser
-  commentId: P:Auth0.OidcClient.Auth0ClientOptions.Browser
-  fullName: Auth0.OidcClient.Auth0ClientOptions.Browser
-  nameWithType: Auth0ClientOptions.Browser
-- uid: Auth0.OidcClient.Auth0ClientOptions.Browser*
-  name: Browser
-  href: api/Auth0.OidcClient.Auth0ClientOptions.html#Auth0_OidcClient_Auth0ClientOptions_Browser_
-  commentId: Overload:Auth0.OidcClient.Auth0ClientOptions.Browser
+  fullName: Auth0.OidcClient.ChromeCustomTabsBrowser.OpenBrowser
+  nameWithType: ChromeCustomTabsBrowser.OpenBrowser
+- uid: Auth0.OidcClient.IOSBrowserBase
+  name: IOSBrowserBase
+  href: api/Auth0.OidcClient.IOSBrowserBase.html
+  commentId: T:Auth0.OidcClient.IOSBrowserBase
+  fullName: Auth0.OidcClient.IOSBrowserBase
+  nameWithType: IOSBrowserBase
+- uid: Auth0.OidcClient.IOSBrowserBase.InvokeAsync(BrowserOptions,System.Threading.CancellationToken)
+  name: InvokeAsync(BrowserOptions, CancellationToken)
+  href: api/Auth0.OidcClient.IOSBrowserBase.html#Auth0_OidcClient_IOSBrowserBase_InvokeAsync_BrowserOptions_System_Threading_CancellationToken_
+  commentId: M:Auth0.OidcClient.IOSBrowserBase.InvokeAsync(BrowserOptions,System.Threading.CancellationToken)
+  fullName: Auth0.OidcClient.IOSBrowserBase.InvokeAsync(BrowserOptions, System.Threading.CancellationToken)
+  nameWithType: IOSBrowserBase.InvokeAsync(BrowserOptions, CancellationToken)
+- uid: Auth0.OidcClient.IOSBrowserBase.InvokeAsync*
+  name: InvokeAsync
+  href: api/Auth0.OidcClient.IOSBrowserBase.html#Auth0_OidcClient_IOSBrowserBase_InvokeAsync_
+  commentId: Overload:Auth0.OidcClient.IOSBrowserBase.InvokeAsync
   isSpec: "True"
-  fullName: Auth0.OidcClient.Auth0ClientOptions.Browser
-  nameWithType: Auth0ClientOptions.Browser
-- uid: Auth0.OidcClient.Auth0ClientOptions.ClientId
-  name: ClientId
-  href: api/Auth0.OidcClient.Auth0ClientOptions.html#Auth0_OidcClient_Auth0ClientOptions_ClientId
-  commentId: P:Auth0.OidcClient.Auth0ClientOptions.ClientId
-  fullName: Auth0.OidcClient.Auth0ClientOptions.ClientId
-  nameWithType: Auth0ClientOptions.ClientId
-- uid: Auth0.OidcClient.Auth0ClientOptions.ClientId*
-  name: ClientId
-  href: api/Auth0.OidcClient.Auth0ClientOptions.html#Auth0_OidcClient_Auth0ClientOptions_ClientId_
-  commentId: Overload:Auth0.OidcClient.Auth0ClientOptions.ClientId
+  fullName: Auth0.OidcClient.IOSBrowserBase.InvokeAsync
+  nameWithType: IOSBrowserBase.InvokeAsync
+- uid: Auth0.OidcClient.IOSBrowserBase.Launch(BrowserOptions,System.Threading.CancellationToken)
+  name: Launch(BrowserOptions, CancellationToken)
+  href: api/Auth0.OidcClient.IOSBrowserBase.html#Auth0_OidcClient_IOSBrowserBase_Launch_BrowserOptions_System_Threading_CancellationToken_
+  commentId: M:Auth0.OidcClient.IOSBrowserBase.Launch(BrowserOptions,System.Threading.CancellationToken)
+  fullName: Auth0.OidcClient.IOSBrowserBase.Launch(BrowserOptions, System.Threading.CancellationToken)
+  nameWithType: IOSBrowserBase.Launch(BrowserOptions, CancellationToken)
+- uid: Auth0.OidcClient.IOSBrowserBase.Launch*
+  name: Launch
+  href: api/Auth0.OidcClient.IOSBrowserBase.html#Auth0_OidcClient_IOSBrowserBase_Launch_
+  commentId: Overload:Auth0.OidcClient.IOSBrowserBase.Launch
   isSpec: "True"
-  fullName: Auth0.OidcClient.Auth0ClientOptions.ClientId
-  nameWithType: Auth0ClientOptions.ClientId
-- uid: Auth0.OidcClient.Auth0ClientOptions.ClientSecret
-  name: ClientSecret
-  href: api/Auth0.OidcClient.Auth0ClientOptions.html#Auth0_OidcClient_Auth0ClientOptions_ClientSecret
-  commentId: P:Auth0.OidcClient.Auth0ClientOptions.ClientSecret
-  fullName: Auth0.OidcClient.Auth0ClientOptions.ClientSecret
-  nameWithType: Auth0ClientOptions.ClientSecret
-- uid: Auth0.OidcClient.Auth0ClientOptions.ClientSecret*
-  name: ClientSecret
-  href: api/Auth0.OidcClient.Auth0ClientOptions.html#Auth0_OidcClient_Auth0ClientOptions_ClientSecret_
-  commentId: Overload:Auth0.OidcClient.Auth0ClientOptions.ClientSecret
-  isSpec: "True"
-  fullName: Auth0.OidcClient.Auth0ClientOptions.ClientSecret
-  nameWithType: Auth0ClientOptions.ClientSecret
-- uid: Auth0.OidcClient.Auth0ClientOptions.Domain
-  name: Domain
-  href: api/Auth0.OidcClient.Auth0ClientOptions.html#Auth0_OidcClient_Auth0ClientOptions_Domain
-  commentId: P:Auth0.OidcClient.Auth0ClientOptions.Domain
-  fullName: Auth0.OidcClient.Auth0ClientOptions.Domain
-  nameWithType: Auth0ClientOptions.Domain
-- uid: Auth0.OidcClient.Auth0ClientOptions.Domain*
-  name: Domain
-  href: api/Auth0.OidcClient.Auth0ClientOptions.html#Auth0_OidcClient_Auth0ClientOptions_Domain_
-  commentId: Overload:Auth0.OidcClient.Auth0ClientOptions.Domain
-  isSpec: "True"
-  fullName: Auth0.OidcClient.Auth0ClientOptions.Domain
-  nameWithType: Auth0ClientOptions.Domain
-- uid: Auth0.OidcClient.Auth0ClientOptions.EnableTelemetry
-  name: EnableTelemetry
-  href: api/Auth0.OidcClient.Auth0ClientOptions.html#Auth0_OidcClient_Auth0ClientOptions_EnableTelemetry
-  commentId: P:Auth0.OidcClient.Auth0ClientOptions.EnableTelemetry
-  fullName: Auth0.OidcClient.Auth0ClientOptions.EnableTelemetry
-  nameWithType: Auth0ClientOptions.EnableTelemetry
-- uid: Auth0.OidcClient.Auth0ClientOptions.EnableTelemetry*
-  name: EnableTelemetry
-  href: api/Auth0.OidcClient.Auth0ClientOptions.html#Auth0_OidcClient_Auth0ClientOptions_EnableTelemetry_
-  commentId: Overload:Auth0.OidcClient.Auth0ClientOptions.EnableTelemetry
-  isSpec: "True"
-  fullName: Auth0.OidcClient.Auth0ClientOptions.EnableTelemetry
-  nameWithType: Auth0ClientOptions.EnableTelemetry
-- uid: Auth0.OidcClient.Auth0ClientOptions.LoadProfile
-  name: LoadProfile
-  href: api/Auth0.OidcClient.Auth0ClientOptions.html#Auth0_OidcClient_Auth0ClientOptions_LoadProfile
-  commentId: P:Auth0.OidcClient.Auth0ClientOptions.LoadProfile
-  fullName: Auth0.OidcClient.Auth0ClientOptions.LoadProfile
-  nameWithType: Auth0ClientOptions.LoadProfile
-- uid: Auth0.OidcClient.Auth0ClientOptions.LoadProfile*
-  name: LoadProfile
-  href: api/Auth0.OidcClient.Auth0ClientOptions.html#Auth0_OidcClient_Auth0ClientOptions_LoadProfile_
-  commentId: Overload:Auth0.OidcClient.Auth0ClientOptions.LoadProfile
-  isSpec: "True"
-  fullName: Auth0.OidcClient.Auth0ClientOptions.LoadProfile
-  nameWithType: Auth0ClientOptions.LoadProfile
-- uid: Auth0.OidcClient.Auth0ClientOptions.RedirectUri
-  name: RedirectUri
-  href: api/Auth0.OidcClient.Auth0ClientOptions.html#Auth0_OidcClient_Auth0ClientOptions_RedirectUri
-  commentId: P:Auth0.OidcClient.Auth0ClientOptions.RedirectUri
-  fullName: Auth0.OidcClient.Auth0ClientOptions.RedirectUri
-  nameWithType: Auth0ClientOptions.RedirectUri
-- uid: Auth0.OidcClient.Auth0ClientOptions.RedirectUri*
-  name: RedirectUri
-  href: api/Auth0.OidcClient.Auth0ClientOptions.html#Auth0_OidcClient_Auth0ClientOptions_RedirectUri_
-  commentId: Overload:Auth0.OidcClient.Auth0ClientOptions.RedirectUri
-  isSpec: "True"
-  fullName: Auth0.OidcClient.Auth0ClientOptions.RedirectUri
-  nameWithType: Auth0ClientOptions.RedirectUri
-- uid: Auth0.OidcClient.Auth0ClientOptions.Scope
-  name: Scope
-  href: api/Auth0.OidcClient.Auth0ClientOptions.html#Auth0_OidcClient_Auth0ClientOptions_Scope
-  commentId: P:Auth0.OidcClient.Auth0ClientOptions.Scope
-  fullName: Auth0.OidcClient.Auth0ClientOptions.Scope
-  nameWithType: Auth0ClientOptions.Scope
-- uid: Auth0.OidcClient.Auth0ClientOptions.Scope*
-  name: Scope
-  href: api/Auth0.OidcClient.Auth0ClientOptions.html#Auth0_OidcClient_Auth0ClientOptions_Scope_
-  commentId: Overload:Auth0.OidcClient.Auth0ClientOptions.Scope
-  isSpec: "True"
-  fullName: Auth0.OidcClient.Auth0ClientOptions.Scope
-  nameWithType: Auth0ClientOptions.Scope
+  fullName: Auth0.OidcClient.IOSBrowserBase.Launch
+  nameWithType: IOSBrowserBase.Launch
 - uid: Auth0.OidcClient.Resource
   name: Resource
   href: api/Auth0.OidcClient.Resource.html
   commentId: T:Auth0.OidcClient.Resource
   fullName: Auth0.OidcClient.Resource
   nameWithType: Resource
+- uid: Auth0.OidcClient.Resource.Attribute
+  name: Resource.Attribute
+  href: api/Auth0.OidcClient.Resource.Attribute.html
+  commentId: T:Auth0.OidcClient.Resource.Attribute
+  fullName: Auth0.OidcClient.Resource.Attribute
+  nameWithType: Resource.Attribute
 - uid: Auth0.OidcClient.Resource.String
   name: Resource.String
   href: api/Auth0.OidcClient.Resource.String.html
@@ -282,6 +304,158 @@ references:
   commentId: F:Auth0.OidcClient.Resource.String.Hello
   fullName: Auth0.OidcClient.Resource.String.Hello
   nameWithType: Resource.String.Hello
+- uid: Auth0.OidcClient.SFAuthenticationSessionBrowser
+  name: SFAuthenticationSessionBrowser
+  href: api/Auth0.OidcClient.SFAuthenticationSessionBrowser.html
+  commentId: T:Auth0.OidcClient.SFAuthenticationSessionBrowser
+  fullName: Auth0.OidcClient.SFAuthenticationSessionBrowser
+  nameWithType: SFAuthenticationSessionBrowser
+- uid: Auth0.OidcClient.SFAuthenticationSessionBrowser.Launch(BrowserOptions,System.Threading.CancellationToken)
+  name: Launch(BrowserOptions, CancellationToken)
+  href: api/Auth0.OidcClient.SFAuthenticationSessionBrowser.html#Auth0_OidcClient_SFAuthenticationSessionBrowser_Launch_BrowserOptions_System_Threading_CancellationToken_
+  commentId: M:Auth0.OidcClient.SFAuthenticationSessionBrowser.Launch(BrowserOptions,System.Threading.CancellationToken)
+  fullName: Auth0.OidcClient.SFAuthenticationSessionBrowser.Launch(BrowserOptions, System.Threading.CancellationToken)
+  nameWithType: SFAuthenticationSessionBrowser.Launch(BrowserOptions, CancellationToken)
+- uid: Auth0.OidcClient.SFAuthenticationSessionBrowser.Launch*
+  name: Launch
+  href: api/Auth0.OidcClient.SFAuthenticationSessionBrowser.html#Auth0_OidcClient_SFAuthenticationSessionBrowser_Launch_
+  commentId: Overload:Auth0.OidcClient.SFAuthenticationSessionBrowser.Launch
+  isSpec: "True"
+  fullName: Auth0.OidcClient.SFAuthenticationSessionBrowser.Launch
+  nameWithType: SFAuthenticationSessionBrowser.Launch
+- uid: Auth0.OidcClient.SFSafariViewControllerBrowser
+  name: SFSafariViewControllerBrowser
+  href: api/Auth0.OidcClient.SFSafariViewControllerBrowser.html
+  commentId: T:Auth0.OidcClient.SFSafariViewControllerBrowser
+  fullName: Auth0.OidcClient.SFSafariViewControllerBrowser
+  nameWithType: SFSafariViewControllerBrowser
+- uid: Auth0.OidcClient.SFSafariViewControllerBrowser.Launch(BrowserOptions,System.Threading.CancellationToken)
+  name: Launch(BrowserOptions, CancellationToken)
+  href: api/Auth0.OidcClient.SFSafariViewControllerBrowser.html#Auth0_OidcClient_SFSafariViewControllerBrowser_Launch_BrowserOptions_System_Threading_CancellationToken_
+  commentId: M:Auth0.OidcClient.SFSafariViewControllerBrowser.Launch(BrowserOptions,System.Threading.CancellationToken)
+  fullName: Auth0.OidcClient.SFSafariViewControllerBrowser.Launch(BrowserOptions, System.Threading.CancellationToken)
+  nameWithType: SFSafariViewControllerBrowser.Launch(BrowserOptions, CancellationToken)
+- uid: Auth0.OidcClient.SFSafariViewControllerBrowser.Launch*
+  name: Launch
+  href: api/Auth0.OidcClient.SFSafariViewControllerBrowser.html#Auth0_OidcClient_SFSafariViewControllerBrowser_Launch_
+  commentId: Overload:Auth0.OidcClient.SFSafariViewControllerBrowser.Launch
+  isSpec: "True"
+  fullName: Auth0.OidcClient.SFSafariViewControllerBrowser.Launch
+  nameWithType: SFSafariViewControllerBrowser.Launch
+- uid: Auth0.OidcClient.SystemBrowser
+  name: SystemBrowser
+  href: api/Auth0.OidcClient.SystemBrowser.html
+  commentId: T:Auth0.OidcClient.SystemBrowser
+  fullName: Auth0.OidcClient.SystemBrowser
+  nameWithType: SystemBrowser
+- uid: Auth0.OidcClient.SystemBrowser.#ctor(Android.Content.Context)
+  name: SystemBrowser(Context)
+  href: api/Auth0.OidcClient.SystemBrowser.html#Auth0_OidcClient_SystemBrowser__ctor_Android_Content_Context_
+  commentId: M:Auth0.OidcClient.SystemBrowser.#ctor(Android.Content.Context)
+  fullName: Auth0.OidcClient.SystemBrowser.SystemBrowser(Android.Content.Context)
+  nameWithType: SystemBrowser.SystemBrowser(Context)
+- uid: Auth0.OidcClient.SystemBrowser.#ctor*
+  name: SystemBrowser
+  href: api/Auth0.OidcClient.SystemBrowser.html#Auth0_OidcClient_SystemBrowser__ctor_
+  commentId: Overload:Auth0.OidcClient.SystemBrowser.#ctor
+  isSpec: "True"
+  fullName: Auth0.OidcClient.SystemBrowser.SystemBrowser
+  nameWithType: SystemBrowser.SystemBrowser
+- uid: Auth0.OidcClient.SystemBrowser.OpenBrowser(Android.Net.Uri,Android.Content.Context)
+  name: OpenBrowser(Uri, Context)
+  href: api/Auth0.OidcClient.SystemBrowser.html#Auth0_OidcClient_SystemBrowser_OpenBrowser_Android_Net_Uri_Android_Content_Context_
+  commentId: M:Auth0.OidcClient.SystemBrowser.OpenBrowser(Android.Net.Uri,Android.Content.Context)
+  fullName: Auth0.OidcClient.SystemBrowser.OpenBrowser(Android.Net.Uri, Android.Content.Context)
+  nameWithType: SystemBrowser.OpenBrowser(Uri, Context)
+- uid: Auth0.OidcClient.SystemBrowser.OpenBrowser*
+  name: OpenBrowser
+  href: api/Auth0.OidcClient.SystemBrowser.html#Auth0_OidcClient_SystemBrowser_OpenBrowser_
+  commentId: Overload:Auth0.OidcClient.SystemBrowser.OpenBrowser
+  isSpec: "True"
+  fullName: Auth0.OidcClient.SystemBrowser.OpenBrowser
+  nameWithType: SystemBrowser.OpenBrowser
+- uid: Auth0.OidcClient.WebBrowserBrowser
+  name: WebBrowserBrowser
+  href: api/Auth0.OidcClient.WebBrowserBrowser.html
+  commentId: T:Auth0.OidcClient.WebBrowserBrowser
+  fullName: Auth0.OidcClient.WebBrowserBrowser
+  nameWithType: WebBrowserBrowser
+- uid: Auth0.OidcClient.WebBrowserBrowser.#ctor(System.Func{System.Windows.Window},System.Boolean)
+  name: WebBrowserBrowser(Func<Window>, Boolean)
+  href: api/Auth0.OidcClient.WebBrowserBrowser.html#Auth0_OidcClient_WebBrowserBrowser__ctor_System_Func_System_Windows_Window__System_Boolean_
+  commentId: M:Auth0.OidcClient.WebBrowserBrowser.#ctor(System.Func{System.Windows.Window},System.Boolean)
+  name.vb: WebBrowserBrowser(Func(Of Window), Boolean)
+  fullName: Auth0.OidcClient.WebBrowserBrowser.WebBrowserBrowser(System.Func<System.Windows.Window>, System.Boolean)
+  fullName.vb: Auth0.OidcClient.WebBrowserBrowser.WebBrowserBrowser(System.Func(Of System.Windows.Window), System.Boolean)
+  nameWithType: WebBrowserBrowser.WebBrowserBrowser(Func<Window>, Boolean)
+  nameWithType.vb: WebBrowserBrowser.WebBrowserBrowser(Func(Of Window), Boolean)
+- uid: Auth0.OidcClient.WebBrowserBrowser.#ctor(System.String,System.Int32,System.Int32)
+  name: WebBrowserBrowser(String, Int32, Int32)
+  href: api/Auth0.OidcClient.WebBrowserBrowser.html#Auth0_OidcClient_WebBrowserBrowser__ctor_System_String_System_Int32_System_Int32_
+  commentId: M:Auth0.OidcClient.WebBrowserBrowser.#ctor(System.String,System.Int32,System.Int32)
+  fullName: Auth0.OidcClient.WebBrowserBrowser.WebBrowserBrowser(System.String, System.Int32, System.Int32)
+  nameWithType: WebBrowserBrowser.WebBrowserBrowser(String, Int32, Int32)
+- uid: Auth0.OidcClient.WebBrowserBrowser.#ctor*
+  name: WebBrowserBrowser
+  href: api/Auth0.OidcClient.WebBrowserBrowser.html#Auth0_OidcClient_WebBrowserBrowser__ctor_
+  commentId: Overload:Auth0.OidcClient.WebBrowserBrowser.#ctor
+  isSpec: "True"
+  fullName: Auth0.OidcClient.WebBrowserBrowser.WebBrowserBrowser
+  nameWithType: WebBrowserBrowser.WebBrowserBrowser
+- uid: Auth0.OidcClient.WebBrowserBrowser.InvokeAsync(BrowserOptions,System.Threading.CancellationToken)
+  name: InvokeAsync(BrowserOptions, CancellationToken)
+  href: api/Auth0.OidcClient.WebBrowserBrowser.html#Auth0_OidcClient_WebBrowserBrowser_InvokeAsync_BrowserOptions_System_Threading_CancellationToken_
+  commentId: M:Auth0.OidcClient.WebBrowserBrowser.InvokeAsync(BrowserOptions,System.Threading.CancellationToken)
+  fullName: Auth0.OidcClient.WebBrowserBrowser.InvokeAsync(BrowserOptions, System.Threading.CancellationToken)
+  nameWithType: WebBrowserBrowser.InvokeAsync(BrowserOptions, CancellationToken)
+- uid: Auth0.OidcClient.WebBrowserBrowser.InvokeAsync*
+  name: InvokeAsync
+  href: api/Auth0.OidcClient.WebBrowserBrowser.html#Auth0_OidcClient_WebBrowserBrowser_InvokeAsync_
+  commentId: Overload:Auth0.OidcClient.WebBrowserBrowser.InvokeAsync
+  isSpec: "True"
+  fullName: Auth0.OidcClient.WebBrowserBrowser.InvokeAsync
+  nameWithType: WebBrowserBrowser.InvokeAsync
+- uid: Auth0.OidcClient.WebViewBrowser
+  name: WebViewBrowser
+  href: api/Auth0.OidcClient.WebViewBrowser.html
+  commentId: T:Auth0.OidcClient.WebViewBrowser
+  fullName: Auth0.OidcClient.WebViewBrowser
+  nameWithType: WebViewBrowser
+- uid: Auth0.OidcClient.WebViewBrowser.#ctor(System.Func{System.Windows.Window},System.Boolean)
+  name: WebViewBrowser(Func<Window>, Boolean)
+  href: api/Auth0.OidcClient.WebViewBrowser.html#Auth0_OidcClient_WebViewBrowser__ctor_System_Func_System_Windows_Window__System_Boolean_
+  commentId: M:Auth0.OidcClient.WebViewBrowser.#ctor(System.Func{System.Windows.Window},System.Boolean)
+  name.vb: WebViewBrowser(Func(Of Window), Boolean)
+  fullName: Auth0.OidcClient.WebViewBrowser.WebViewBrowser(System.Func<System.Windows.Window>, System.Boolean)
+  fullName.vb: Auth0.OidcClient.WebViewBrowser.WebViewBrowser(System.Func(Of System.Windows.Window), System.Boolean)
+  nameWithType: WebViewBrowser.WebViewBrowser(Func<Window>, Boolean)
+  nameWithType.vb: WebViewBrowser.WebViewBrowser(Func(Of Window), Boolean)
+- uid: Auth0.OidcClient.WebViewBrowser.#ctor(System.String,System.Int32,System.Int32)
+  name: WebViewBrowser(String, Int32, Int32)
+  href: api/Auth0.OidcClient.WebViewBrowser.html#Auth0_OidcClient_WebViewBrowser__ctor_System_String_System_Int32_System_Int32_
+  commentId: M:Auth0.OidcClient.WebViewBrowser.#ctor(System.String,System.Int32,System.Int32)
+  fullName: Auth0.OidcClient.WebViewBrowser.WebViewBrowser(System.String, System.Int32, System.Int32)
+  nameWithType: WebViewBrowser.WebViewBrowser(String, Int32, Int32)
+- uid: Auth0.OidcClient.WebViewBrowser.#ctor*
+  name: WebViewBrowser
+  href: api/Auth0.OidcClient.WebViewBrowser.html#Auth0_OidcClient_WebViewBrowser__ctor_
+  commentId: Overload:Auth0.OidcClient.WebViewBrowser.#ctor
+  isSpec: "True"
+  fullName: Auth0.OidcClient.WebViewBrowser.WebViewBrowser
+  nameWithType: WebViewBrowser.WebViewBrowser
+- uid: Auth0.OidcClient.WebViewBrowser.InvokeAsync(BrowserOptions,System.Threading.CancellationToken)
+  name: InvokeAsync(BrowserOptions, CancellationToken)
+  href: api/Auth0.OidcClient.WebViewBrowser.html#Auth0_OidcClient_WebViewBrowser_InvokeAsync_BrowserOptions_System_Threading_CancellationToken_
+  commentId: M:Auth0.OidcClient.WebViewBrowser.InvokeAsync(BrowserOptions,System.Threading.CancellationToken)
+  fullName: Auth0.OidcClient.WebViewBrowser.InvokeAsync(BrowserOptions, System.Threading.CancellationToken)
+  nameWithType: WebViewBrowser.InvokeAsync(BrowserOptions, CancellationToken)
+- uid: Auth0.OidcClient.WebViewBrowser.InvokeAsync*
+  name: InvokeAsync
+  href: api/Auth0.OidcClient.WebViewBrowser.html#Auth0_OidcClient_WebViewBrowser_InvokeAsync_
+  commentId: Overload:Auth0.OidcClient.WebViewBrowser.InvokeAsync
+  isSpec: "True"
+  fullName: Auth0.OidcClient.WebViewBrowser.InvokeAsync
+  nameWithType: WebViewBrowser.InvokeAsync
 - uid: scopes
   name: Using Scopes
   href: documentation/advanced-scenarios/scopes.html

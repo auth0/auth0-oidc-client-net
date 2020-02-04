@@ -88,7 +88,7 @@
             this.Controls.Add(this.loginButton);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "MainForm";
-            this.Text = "WinForms Test";
+            this.Text = "WinForms OIDC Test";
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -3,55 +3,71 @@
 <package>
   <metadata>
     <id>Auth0.OidcClient.Core</id>
-    <version>2.4.0</version>
+    <version>3.1.2</version>
     <authors>Auth0</authors>
     <owners>Auth0</owners>
-    <licenseUrl>http://opensource.org/licenses/MIT</licenseUrl>
+    <license type="expression">Apache-2.0</license>
     <projectUrl>https://github.com/auth0/auth0-oidc-client-net</projectUrl>
-    <iconUrl>http://secure.gravatar.com/avatar/805765c256ff8617fcad483b5476faf2</iconUrl>
+    <icon>Auth0Icon.png</icon>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Auth0 OIDC Client for Native applications</description>
+    <description>Auth0 OIDC Client for native apps</description>
     <releaseNotes>
+      Version 3.1.2
+      - Allow ID tokens "issued at" (iat) claims from "the future" to allow
+        slow local clocks on mobile and desktop devices.
+      - Auth0.OidcClient.Core is now strong-named for improved compatibility.
+
+      Version 3.1.1
+      - Corrected OpenIDConnect package dep version to 5.6.0
+      - Tweaked some ID Token Validation exception messages
+      - Update IdentityModel.OidcClient to 3.1.2
+
+      Version 3.1.0
+      - Improved OIDC Compliance - ID Tokens have more comprehensive checks
+      - Update Microsoft.IdentityModel.Protocols.OpenIdConnect to 5.6.0
+      - Update IdentityModel.OidcClient to 3.1.0
+
+      Version 3.0.1
+      - Bump for version number consistency with other Auth0.OidcClient packages
+
+      Version 3.0.0
+      - Breaking changes! Please visit our migration guide via a link on
+        https://github.com/auth0/auth0-oidc-client-net/blob/master/README.md
+      - Upgrade IdentityModel.OidcClient to 3.0.1
+      - Add CancellationToken support to IAuth0Client/Auth0Client methods (not honored yet)
+      - Combined LogoutAsync and RefreshTokenAsync overloads on IAuth0Client/Auth0Client
+      - ClientSecret property is now marked Obsolete to discourage use in native clients
+      - Add 'email' to default scopes and force 'openid' to always be included
+      - Add debugger logging statements that show expected callback URLs
+      - Add extraParameters parameter to ParseResponseAsync
+      - Ensure user agent sent on RefreshToken and ProcessResponse
+
+      Version 2.4.3
+      - Improved XML code documentation.
+      - Update IdentityModel.OidcClient2 to 2.9.2
+
+      Version 2.4.2
+      - Clarified RedirectUri and PostLogoutRedirectUri on Auth0ClientOptions in doc comments
+      - Debug log now helpfully reports what Callback and Logout URLs to whitelist
+
       Version 2.4.0
-      - Added support to get the user claims from the userinfo endpoint
-      - Updated dependency on IdentityModel.OidcClient to v2.9.0
-
-      Version 2.3.1
-      - Handle null-terminated POST bodies
-
-      Version 2.3.0
-      - Add support for federated logout
-
-      Version 2.2.0
-      - Add support to log the user out and clear the Auth0 SSO cookie
-
-      Version 2.1.0
-      - Fixed issue with browser not opening when running on Android 6.0
-      - Updated dependency on IdentityModel.OidcClient to v2.7.0
-
-      Version 2.0.0
-      - Initial release with support for Xamarin Forms
+      - Add return code status for Logout (thanks @jsauve)
+      - Add support to get the user claims from the userinfo endpoint (thanks @OrihuelaConde)
+      - Add default for logout redirect
+      - Update dependency on IdentityModel.OidcClient to v2.9.0
     </releaseNotes>
-    <copyright>Copyright 2017</copyright>
-    <tags>Auth0 OIDC Android MonoAndroid</tags>
+    <copyright>Copyright 2017-2020 Auth0, Inc.</copyright>
+    <tags>Auth0 OIDC</tags>
     <dependencies>
-      <group targetFramework="net452">
-        <dependency id="IdentityModel.OidcClient" version="2.9.0" />
-      </group>
-      <group targetFramework="netstandard1.4">
-        <dependency id="IdentityModel.OidcClient" version="2.9.0" />
-      </group>
       <group targetFramework="netstandard2.0">
-        <dependency id="IdentityModel.OidcClient" version="2.9.0" />
+        <dependency id="IdentityModel.OidcClient" version="3.1.2" />
+        <dependency id="Microsoft.IdentityModel.Protocols.OpenIdConnect" version="5.6.0" />
       </group>
     </dependencies>
   </metadata>
   <files>
-    <file src="..\src\Auth0.OidcClient.Core\bin\Release\net452\Auth0.OidcClient.Core.dll" target="lib\net452" />
-    <file src="..\src\Auth0.OidcClient.Core\bin\Release\net452\Auth0.OidcClient.Core.xml" target="lib\net452" />
-    <file src="..\src\Auth0.OidcClient.Core\bin\Release\netstandard1.4\Auth0.OidcClient.Core.dll" target="lib\netstandard1.4" />
-    <file src="..\src\Auth0.OidcClient.Core\bin\Release\netstandard1.4\Auth0.OidcClient.Core.xml" target="lib\netstandard1.4" />
     <file src="..\src\Auth0.OidcClient.Core\bin\Release\netstandard2.0\Auth0.OidcClient.Core.dll" target="lib\netstandard2.0" />
     <file src="..\src\Auth0.OidcClient.Core\bin\Release\netstandard2.0\Auth0.OidcClient.Core.xml" target="lib\netstandard2.0" />
+    <file src="..\build\Auth0Icon.png" />
   </files>
 </package>

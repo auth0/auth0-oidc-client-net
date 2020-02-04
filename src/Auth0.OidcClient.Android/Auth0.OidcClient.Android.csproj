@@ -36,6 +36,8 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>bin\Release\Auth0.OidcClient.xml</DocumentationFile>
+    <SignAssembly>false</SignAssembly>
+    <AssemblyOriginatorKeyFile>..\..\build\Auth0OidcClientStrongName.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
@@ -47,13 +49,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ActivityMediator.cs" />
+    <Compile Include="AndroidBrowserBase.cs" />
     <Compile Include="Auth0Client.cs" />
-    <Compile Include="PlatformWebView.cs" />
+    <Compile Include="Auth0ClientActivity.cs" />
+    <Compile Include="AutoSelectBrowser.cs" />
+    <Compile Include="ChromeCustomTabsBrowser.cs" />
+    <Compile Include="SystemBrowser.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\AboutResources.txt" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\Values\Strings.xml" />
@@ -66,7 +69,10 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="IdentityModel.OidcClient">
-      <Version>2.9.0</Version>
+      <Version>3.1.2</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Android.Support.CustomTabs">
+      <Version>28.0.0.3</Version>
     </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />

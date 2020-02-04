@@ -10,8 +10,7 @@ Create a new instance of @Auth0.OidcClient.Auth0Client, passing the Auth0 **Doma
 ```csharp
 using Auth0.OidcClient;
 
-var client = new Auth0Client(new Auth0ClientOptions
-{
+var client = new Auth0Client(new Auth0ClientOptions {
     Domain = "YOUR_AUTH0_DOMAIN",
     ClientId = "YOUR_AUTH0_CLIENT_ID"
 });
@@ -65,10 +64,8 @@ For iOS applications, the process is similar, but you also need to register the 
     [Register("AppDelegate")]
     public class AppDelegate : UIApplicationDelegate
     {
-        public override bool OpenUrl(UIApplication application, NSUrl url, string sourceApplication, NSObject annotation)
-        {
+        public override bool OpenUrl(UIApplication application, NSUrl url, string sourceApplication, NSObject annotation) {
             ActivityMediator.Instance.Send(url.AbsoluteString);
-
             return true;
         }
     }
@@ -95,24 +92,13 @@ On Android, you need to handle the Intent which will be activated when Auth0 red
         DataScheme = "YOUR_ANDROID_PACKAGE_NAME",
         DataHost = "YOUR_AUTH0_DOMAIN",
         DataPathPrefix = "/android/YOUR_ANDROID_PACKAGE_NAME/callback")]
-    public class MainActivity : Activity
+    public class MainActivity : Auth0ClientActivity
     {
         // Code omitted
     }
     ```
 
     Replace `YOUR_ANDROID_PACKAGE_NAME` in the code sample above with the actual Package Name for your application, such as `com.mycompany.myapplication`. Also, ensure that all the text for the `DataScheme`, `DataHost`, and `DataPathPrefix` is in lower case. Also, set `LaunchMode = LaunchMode.SingleTask` for the Activity, otherwise the system will create a new instance of the activity every time the Callback URL gets called.
-
-    Now write code to handle the intent. You can do this by overriding the `OnNewIntent` method. Inside the method you need to call the `Send` method on the `ActivityMediator` to complete the authentication cycle:
-
-    ```csharp
-    protected override async void OnNewIntent(Intent intent)
-    {
-        base.OnNewIntent(intent);
-
-        ActivityMediator.Instance.Send(intent.DataString);
-    }
-    ```
 
 2. Initiate the authentication flow by calling @Auth0.OidcClient.Auth0Client.LoginAsync(System.Object) inside your Activity. Below is the full sample code for a basic implementation of an Android Activity using the Auth0 OIDC Client:
 
@@ -125,20 +111,12 @@ On Android, you need to handle the Intent which will be activated when Auth0 red
         DataScheme = "YOUR_ANDROID_PACKAGE_NAME",
         DataHost = "YOUR_AUTH0_DOMAIN",
         DataPathPrefix = "/android/YOUR_ANDROID_PACKAGE_NAME/callback")]
-    public class MainActivity : Activity
+    public class MainActivity : Auth0ClientActivity
     {
         private Auth0Client _client;
         private Button _loginButton;
 
-        protected override void OnNewIntent(Intent intent)
-        {
-            base.OnNewIntent(intent);
-
-            ActivityMediator.Instance.Send(intent.DataString);
-        }
-
-        protected override void OnCreate(Bundle bundle)
-        {
+        protected override void OnCreate(Bundle bundle) {
             base.OnCreate(bundle);
 
             SetContentView(Resource.Layout.Main);
@@ -149,13 +127,12 @@ On Android, you need to handle the Intent which will be activated when Auth0 red
             {
                 Domain = Resources.GetString(Resource.String.auth0_domain),
                 ClientId = Resources.GetString(Resource.String.auth0_client_id)
-            });
+            }, this);
 
             _loginButton.Click += LoginButtonOnClick;
         }
 
-        private async void LoginButtonOnClick(object sender, EventArgs eventArgs)
-        {
+        private async void LoginButtonOnClick(object sender, EventArgs eventArgs) {
             var loginResult = await _client.LoginAsync();
         }
     }
@@ -172,8 +149,7 @@ You can check the `IsError` property of the result to see whether the login has 
 ```csharp
 var loginResult = await client.LoginAsync();
 
-if (loginResult.IsError)
-{
+if (loginResult.IsError) {
     Debug.WriteLine($"An error occurred during login: {loginResult.Error}")
 }
 ```
@@ -185,8 +161,7 @@ On successful login, the login result will contain the `id_token` and `access_to
 ```csharp
 var loginResult = await client.LoginAsync();
 
-if (!loginResult.IsError)
-{
+if (!loginResult.IsError) {
     Debug.WriteLine($"id_token: {loginResult.IdentityToken}");
     Debug.WriteLine($"access_token: {loginResult.AccessToken}");
 }
@@ -199,8 +174,7 @@ On successful login, the login result will contain the user information in the `
 To obtain information about the user, you can query the claims. You can, for example, obtain the user's name and email address from the `name` and `email` claims:
 
 ```csharp
-if (!loginResult.IsError)
-{
+if (!loginResult.IsError) {
     Debug.WriteLine($"name: {loginResult.User.FindFirst(c => c.Type == "name")?.Value}");
     Debug.WriteLine($"email: {loginResult.User.FindFirst(c => c.Type == "email")?.Value}");
 }
@@ -212,10 +186,8 @@ if (!loginResult.IsError)
 You can obtain a list of all the claims contained in the `id_token` by iterating through the `Claims` collection:
 
 ```csharp
-if (!loginResult.IsError)
-{
-    foreach (var claim in loginResult.User.Claims)
-    {
+if (!loginResult.IsError) {
+    foreach (var claim in loginResult.User.Claims) {
         Debug.WriteLine($"{claim.Type} = {claim.Value}");
     }
 }

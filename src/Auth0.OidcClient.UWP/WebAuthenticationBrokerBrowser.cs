@@ -1,22 +1,33 @@
 ﻿using IdentityModel.OidcClient.Browser;
 using System;
+using System.Threading;
 using System.Threading.Tasks;
 using Windows.Security.Authentication.Web;
 
 namespace Auth0.OidcClient
 {
-    public class PlatformWebView : IBrowser
+    /// <summary>
+    /// Implements the <see cref="IBrowser"/> interface using <see cref="WebAuthenticationBroker"/>.
+    /// </summary>
+    public class WebAuthenticationBrokerBrowser : IBrowser
     {
         private readonly bool _enableWindowsAuthentication;
 
-        public PlatformWebView(bool enableWindowsAuthentication = false)
+        /// <summary>
+        /// Create a new instance of <see cref="WebAuthenticationBrokerBrowser"/> class specifying if
+        /// Windows authentication should be enabled.
+        /// </summary>
+        /// <param name="enableWindowsAuthentication">Whether Windows authentication is enabled (true) or not (false).</param>
+        public WebAuthenticationBrokerBrowser(bool enableWindowsAuthentication = false)
         {
             _enableWindowsAuthentication = enableWindowsAuthentication;
         }
 
-        public async Task<BrowserResult> InvokeAsync(BrowserOptions options)
+        /// <inheritdoc />
+        public async Task<BrowserResult> InvokeAsync(BrowserOptions options, CancellationToken cancellationToken = default)
         {
-            if (string.IsNullOrWhiteSpace(options.StartUrl)) throw new ArgumentException("Missing StartUrl", nameof(options));
+            if (string.IsNullOrWhiteSpace(options.StartUrl))
+                throw new ArgumentException("Missing StartUrl", nameof(options));
 
             var startUri = new Uri(options.StartUrl);
             if (startUri.AbsolutePath.StartsWith("/v2/logout", StringComparison.OrdinalIgnoreCase))

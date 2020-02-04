@@ -32,6 +32,8 @@
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
     <DocumentationFile>bin\Release\Auth0.OidcClient.xml</DocumentationFile>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>..\..\build\Auth0OidcClientStrongName.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -44,9 +46,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ActivityMediator.cs" />
+    <Compile Include="AutoSelectBrowser.cs" />
+    <Compile Include="IOSBrowserBase.cs" />
     <Compile Include="Auth0Client.cs" />
+    <Compile Include="ASWebAuthenticationSessionBrowser.cs" />
+    <Compile Include="SFAuthenticationSessionBrowser.cs" />
+    <Compile Include="SFSafariViewControllerBrowser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="PlatformWebView.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Auth0.OidcClient.Core\Auth0.OidcClient.Core.csproj">
@@ -56,7 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="IdentityModel.OidcClient">
-      <Version>2.9.0</Version>
+      <Version>3.1.2</Version>
     </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />

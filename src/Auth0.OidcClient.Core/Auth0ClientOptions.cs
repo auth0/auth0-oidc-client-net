@@ -1,16 +1,17 @@
-﻿using System;
+﻿using IdentityModel.OidcClient.Browser;
+using System;
 using System.Net.Http;
-using IdentityModel.OidcClient.Browser;
 
 namespace Auth0.OidcClient
 {
     /// <summary>
-    /// Specifies the options for an instance of the <see cref="Auth0Client"/> class.
+    /// Specifies options that can be passed to <see cref="Auth0ClientBase"/> implementations.
     /// </summary>
     public class Auth0ClientOptions
     {
         /// <summary>
-        /// The <see cref="IBrowser"/> implementation which is responsible for displaying the Auth0 Login screen
+        /// The <see cref="IBrowser"/> implementation responsible for displaying the Auth0 Login screen. Leave this
+        /// unassigned to accept the recommended implementation for platform.
         /// </summary>
         public IBrowser Browser { get; set; }
 
@@ -22,6 +23,8 @@ namespace Auth0.OidcClient
         /// <summary>
         /// Your Auth0 Client Secret.
         /// </summary>
+        [Obsolete("Client Secrets should not be used in non-confidential clients such as native desktop and mobile apps. " +
+            "This property will be removed in a future release.")]
         public string ClientSecret { get; set; }
 
         /// <summary>
@@ -33,13 +36,13 @@ namespace Auth0.OidcClient
         public string Domain { get; set; }
 
         /// <summary>
-        /// Indicates whether telemetry information should be sent to Auth0.
+        /// Indicates whether basic telemetry information should be included with requests to Auth0.
         /// </summary>
         /// <remarks>
-        /// Telemetry simply contains information about the version of the Auth0 OIDC Client being used. No information about your
-        /// application or users are being sent to Auth0.
+        /// The telemetry information is like a browser user agent and includes operating system
+        /// details only to let Auth0 guide engineering resources based on platform popularity.
         /// </remarks>
-        public bool EnableTelemetry { get; set; }
+        public bool EnableTelemetry { get; set; } = true;
 
         /// <summary>
         /// Indicates whether the user profile should be loaded from the /userinfo endpoint.
@@ -47,15 +50,15 @@ namespace Auth0.OidcClient
         /// <remarks>
         /// Defaults to true.
         /// </remarks>
-        public bool LoadProfile { get; set; }
+        public bool LoadProfile { get; set; } = true;
 
         /// <summary>
         /// The scopes you want to request.
         /// </summary>
-        public string Scope { get; set; }
+        public string Scope { get; set; } = "openid profile email";
 
         /// <summary>
-        /// Allow overriding the RetryMessageHandler
+        /// Allow overriding the RetryMessageHandler.
         /// </summary>
         /// <example>
         /// var handler = new HttpClientHandler();
@@ -67,42 +70,58 @@ namespace Auth0.OidcClient
         public HttpMessageHandler RefreshTokenMessageHandler { get; set; }
 
         /// <summary>
-        /// Allow overriding the BackchannelHandler
+        /// Allow overriding the BackchannelHandler.
         /// </summary>
         /// <example>
+        /// <code>
         /// var handler = new HttpClientHandler();
         /// var options = new Auth0ClientOptions
         /// {
         ///    BackchannelHandler = handler
         /// };
+        /// </code>
         /// </example>
         public HttpMessageHandler BackchannelHandler { get; set; }
 
         /// <summary>
-        /// Allow overriding of the Post Logout Redirect URI
+        /// Override the Redirect URI used to return from logout.
         /// </summary>
         /// <remarks>
-        /// This should only be done in exceptional circumstances
+        /// Defaults to a platform-specific value you can observe in the debug console window when performing a logout.
+        /// On iOS this is made from the app bundle ID and on Android from a lower-cased version of the package name.
+        /// Whether you use the default or manually set this value it must be added to the 
+        /// Allowed Logout URLs for this application/client to allow the logout process to complete.
         /// </remarks>
         public string PostLogoutRedirectUri { get; set; }
 
-		/// <summary>
-		/// Allow overriding of the Redirect URI
-		/// </summary>
-		/// <remarks>
-		/// This should only be done in exceptional circumstances
-		/// </remarks>
-		public string RedirectUri { get; set; }
+        /// <summary>
+        /// Override the the Redirect URI used to return from login.
+        /// </summary>
+        /// <remarks>
+        /// Defaults to a platform-specific value you can observe in the debug console window when performing a login.
+        /// On iOS this is made from the app bundle ID and on Android from a lower-cased version of the package name.
+        /// Whether you use the default or manually set this value it must be added to the 
+        /// Allowed Callback URLs for this application/client to allow the login process to complete.
+        /// </remarks>
+        public string RedirectUri { get; set; }
 
         /// <summary>
-        /// Create a new instance of the <see cref="Auth0ClientOptions"/> class used to configure the options for
-        /// passing to the constructor of <see cref="Auth0Client"/>.
+        /// The amount of leeway to accommodate potential clock skew when validating an ID token's claims.
+        /// Defaults to 5 minutes.
+        /// </summary>
+        public TimeSpan Leeway { get; set; } = TimeSpan.FromMinutes(5);
+
+        /// <summary>
+        /// Optional limit on the how long since the user was last authenticated.
+        /// </summary>
+        public TimeSpan? MaxAge { get; set; }
+
+        /// <summary>
+        /// Create a new instance of the <see cref="Auth0ClientOptions"/> class used to configure options for
+        /// <see cref="Auth0ClientBase"/> implementations by way of their constructors.
         /// </summary>
         public Auth0ClientOptions()
         {
-            EnableTelemetry = true;
-            LoadProfile = true;
-            Scope = "openid profile";
         }
     }
 }

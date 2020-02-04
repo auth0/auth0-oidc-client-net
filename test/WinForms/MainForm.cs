@@ -8,12 +8,14 @@ namespace WindowsFormsTestApp
     {
         private Auth0Client _auth0Client;
         private Action<string> writeLine;
+        private Action clearText;
         private string accessToken;
 
         public MainForm()
         {
             InitializeComponent();
             writeLine = (s) => outputTextBox.Text += s + "\r\n";
+            clearText = () => outputTextBox.Text = "";
 
             _auth0Client = new Auth0Client(new Auth0ClientOptions
             {
@@ -24,7 +26,7 @@ namespace WindowsFormsTestApp
 
         private async void LoginButton_Click(object sender, EventArgs e)
         {
-            outputTextBox.Text = "";
+            clearText();
             writeLine("Starting login...");
 
             var loginResult = await _auth0Client.LoginAsync();
@@ -32,28 +34,27 @@ namespace WindowsFormsTestApp
             if (loginResult.IsError)
             {
                 writeLine($"An error occurred during login: {loginResult.Error}");
+                return;
             }
-            else
+
+            accessToken = loginResult.AccessToken;
+
+            writeLine($"id_token: {loginResult.IdentityToken}");
+            writeLine($"access_token: {loginResult.AccessToken}");
+            writeLine($"refresh_token: {loginResult.RefreshToken}");
+
+            writeLine($"name: {loginResult.User.FindFirst(c => c.Type == "name")?.Value}");
+            writeLine($"email: {loginResult.User.FindFirst(c => c.Type == "email")?.Value}");
+
+            foreach (var claim in loginResult.User.Claims)
             {
-                accessToken = loginResult.AccessToken;
-
-                writeLine($"id_token: {loginResult.IdentityToken}");
-                writeLine($"access_token: {loginResult.AccessToken}");
-                writeLine($"refresh_token: {loginResult.RefreshToken}");
-
-                writeLine($"name: {loginResult.User.FindFirst(c => c.Type == "name")?.Value}");
-                writeLine($"email: {loginResult.User.FindFirst(c => c.Type == "email")?.Value}");
-
-                foreach (var claim in loginResult.User.Claims)
-                {
-                    writeLine($"{claim.Type} = {claim.Value}");
-                }
+                writeLine($"{claim.Type} = {claim.Value}");
             }
         }
 
         private async void LogoutButton_Click(object sender, EventArgs e)
         {
-            outputTextBox.Text = "";
+            clearText();
             writeLine("Starting logout...");
 
             var result = await _auth0Client.LogoutAsync();
@@ -63,27 +64,26 @@ namespace WindowsFormsTestApp
 
         private async void UserInfoButton_Click(object sender, EventArgs e)
         {
-            outputTextBox.Text = "";
-            writeLine("Getting user info...");
+            clearText();
+
             if (string.IsNullOrEmpty(accessToken))
             {
                 writeLine("You need to be logged in to get user info");
+                return;
             }
-            else
-            {
-                var userInfoResult = await _auth0Client.GetUserInfoAsync(accessToken);
 
-                if (userInfoResult.IsError)
-                {
-                    writeLine($"An error occurred getting user info: {userInfoResult.Error}");
-                }
-                else
-                {
-                    foreach (var claim in userInfoResult.Claims)
-                    {
-                        writeLine($"{claim.Type} = {claim.Value}");
-                    }
-                }
+            writeLine("Getting user info...");
+            var userInfoResult = await _auth0Client.GetUserInfoAsync(accessToken);
+
+            if (userInfoResult.IsError)
+            {
+                writeLine($"An error occurred getting user info: {userInfoResult.Error}");
+                return;
+            }
+
+            foreach (var claim in userInfoResult.Claims)
+            {
+                writeLine($"{claim.Type} = {claim.Value}");
             }
         }
     }
