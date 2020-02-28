@@ -21,7 +21,6 @@ namespace Auth0.OidcClient
         protected override void OpenBrowser(Android.Net.Uri uri, Context context = null)
         {
             var intent = new Intent(Intent.ActionView, uri);
-            intent.AddFlags(ActivityFlags.NoHistory);
 
             if (IsNewTask)
                 intent.AddFlags(ActivityFlags.NewTask);
