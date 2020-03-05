@@ -1,5 +1,5 @@
 ﻿using Android.Content;
-using Android.Support.CustomTabs;
+using AndroidX.Browser.CustomTabs;
 
 namespace Auth0.OidcClient
 {

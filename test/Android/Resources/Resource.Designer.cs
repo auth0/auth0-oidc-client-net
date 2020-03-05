@@ -26,6 +26,8 @@ namespace AndroidTestApp
 		
 		public static void UpdateIdValues()
 		{
+			global::Auth0.OidcClient.Resource.Attribute.alpha = global::AndroidTestApp.Resource.Attribute.alpha;
+			global::Auth0.OidcClient.Resource.Attribute.coordinatorLayoutStyle = global::AndroidTestApp.Resource.Attribute.coordinatorLayoutStyle;
 			global::Auth0.OidcClient.Resource.Attribute.font = global::AndroidTestApp.Resource.Attribute.font;
 			global::Auth0.OidcClient.Resource.Attribute.fontProviderAuthority = global::AndroidTestApp.Resource.Attribute.fontProviderAuthority;
 			global::Auth0.OidcClient.Resource.Attribute.fontProviderCerts = global::AndroidTestApp.Resource.Attribute.fontProviderCerts;
@@ -34,16 +36,34 @@ namespace AndroidTestApp
 			global::Auth0.OidcClient.Resource.Attribute.fontProviderPackage = global::AndroidTestApp.Resource.Attribute.fontProviderPackage;
 			global::Auth0.OidcClient.Resource.Attribute.fontProviderQuery = global::AndroidTestApp.Resource.Attribute.fontProviderQuery;
 			global::Auth0.OidcClient.Resource.Attribute.fontStyle = global::AndroidTestApp.Resource.Attribute.fontStyle;
+			global::Auth0.OidcClient.Resource.Attribute.fontVariationSettings = global::AndroidTestApp.Resource.Attribute.fontVariationSettings;
 			global::Auth0.OidcClient.Resource.Attribute.fontWeight = global::AndroidTestApp.Resource.Attribute.fontWeight;
+			global::Auth0.OidcClient.Resource.Attribute.keylines = global::AndroidTestApp.Resource.Attribute.keylines;
+			global::Auth0.OidcClient.Resource.Attribute.layout_anchor = global::AndroidTestApp.Resource.Attribute.layout_anchor;
+			global::Auth0.OidcClient.Resource.Attribute.layout_anchorGravity = global::AndroidTestApp.Resource.Attribute.layout_anchorGravity;
+			global::Auth0.OidcClient.Resource.Attribute.layout_behavior = global::AndroidTestApp.Resource.Attribute.layout_behavior;
+			global::Auth0.OidcClient.Resource.Attribute.layout_dodgeInsetEdges = global::AndroidTestApp.Resource.Attribute.layout_dodgeInsetEdges;
+			global::Auth0.OidcClient.Resource.Attribute.layout_insetEdge = global::AndroidTestApp.Resource.Attribute.layout_insetEdge;
+			global::Auth0.OidcClient.Resource.Attribute.layout_keyline = global::AndroidTestApp.Resource.Attribute.layout_keyline;
+			global::Auth0.OidcClient.Resource.Attribute.statusBarBackground = global::AndroidTestApp.Resource.Attribute.statusBarBackground;
+			global::Auth0.OidcClient.Resource.Attribute.ttcIndex = global::AndroidTestApp.Resource.Attribute.ttcIndex;
+			global::Auth0.OidcClient.Resource.Color.browser_actions_bg_grey = global::AndroidTestApp.Resource.Color.browser_actions_bg_grey;
+			global::Auth0.OidcClient.Resource.Color.browser_actions_divider_color = global::AndroidTestApp.Resource.Color.browser_actions_divider_color;
+			global::Auth0.OidcClient.Resource.Color.browser_actions_text_color = global::AndroidTestApp.Resource.Color.browser_actions_text_color;
+			global::Auth0.OidcClient.Resource.Color.browser_actions_title_color = global::AndroidTestApp.Resource.Color.browser_actions_title_color;
 			global::Auth0.OidcClient.Resource.Color.notification_action_color_filter = global::AndroidTestApp.Resource.Color.notification_action_color_filter;
 			global::Auth0.OidcClient.Resource.Color.notification_icon_bg_color = global::AndroidTestApp.Resource.Color.notification_icon_bg_color;
 			global::Auth0.OidcClient.Resource.Color.ripple_material_light = global::AndroidTestApp.Resource.Color.ripple_material_light;
 			global::Auth0.OidcClient.Resource.Color.secondary_text_default_material_light = global::AndroidTestApp.Resource.Color.secondary_text_default_material_light;
+			global::Auth0.OidcClient.Resource.Dimension.browser_actions_context_menu_max_width = global::AndroidTestApp.Resource.Dimension.browser_actions_context_menu_max_width;
+			global::Auth0.OidcClient.Resource.Dimension.browser_actions_context_menu_min_padding = global::AndroidTestApp.Resource.Dimension.browser_actions_context_menu_min_padding;
 			global::Auth0.OidcClient.Resource.Dimension.compat_button_inset_horizontal_material = global::AndroidTestApp.Resource.Dimension.compat_button_inset_horizontal_material;
 			global::Auth0.OidcClient.Resource.Dimension.compat_button_inset_vertical_material = global::AndroidTestApp.Resource.Dimension.compat_button_inset_vertical_material;
 			global::Auth0.OidcClient.Resource.Dimension.compat_button_padding_horizontal_material = global::AndroidTestApp.Resource.Dimension.compat_button_padding_horizontal_material;
 			global::Auth0.OidcClient.Resource.Dimension.compat_button_padding_vertical_material = global::AndroidTestApp.Resource.Dimension.compat_button_padding_vertical_material;
 			global::Auth0.OidcClient.Resource.Dimension.compat_control_corner_material = global::AndroidTestApp.Resource.Dimension.compat_control_corner_material;
+			global::Auth0.OidcClient.Resource.Dimension.compat_notification_large_icon_max_height = global::AndroidTestApp.Resource.Dimension.compat_notification_large_icon_max_height;
+			global::Auth0.OidcClient.Resource.Dimension.compat_notification_large_icon_max_width = global::AndroidTestApp.Resource.Dimension.compat_notification_large_icon_max_width;
 			global::Auth0.OidcClient.Resource.Dimension.notification_action_icon_size = global::AndroidTestApp.Resource.Dimension.notification_action_icon_size;
 			global::Auth0.OidcClient.Resource.Dimension.notification_action_text_size = global::AndroidTestApp.Resource.Dimension.notification_action_text_size;
 			global::Auth0.OidcClient.Resource.Dimension.notification_big_circle_margin = global::AndroidTestApp.Resource.Dimension.notification_big_circle_margin;
@@ -71,32 +91,98 @@ namespace AndroidTestApp
 			global::Auth0.OidcClient.Resource.Drawable.notification_template_icon_low_bg = global::AndroidTestApp.Resource.Drawable.notification_template_icon_low_bg;
 			global::Auth0.OidcClient.Resource.Drawable.notification_tile_bg = global::AndroidTestApp.Resource.Drawable.notification_tile_bg;
 			global::Auth0.OidcClient.Resource.Drawable.notify_panel_notification_icon_bg = global::AndroidTestApp.Resource.Drawable.notify_panel_notification_icon_bg;
+			global::Auth0.OidcClient.Resource.Id.accessibility_action_clickable_span = global::AndroidTestApp.Resource.Id.accessibility_action_clickable_span;
+			global::Auth0.OidcClient.Resource.Id.accessibility_custom_action_0 = global::AndroidTestApp.Resource.Id.accessibility_custom_action_0;
+			global::Auth0.OidcClient.Resource.Id.accessibility_custom_action_1 = global::AndroidTestApp.Resource.Id.accessibility_custom_action_1;
+			global::Auth0.OidcClient.Resource.Id.accessibility_custom_action_10 = global::AndroidTestApp.Resource.Id.accessibility_custom_action_10;
+			global::Auth0.OidcClient.Resource.Id.accessibility_custom_action_11 = global::AndroidTestApp.Resource.Id.accessibility_custom_action_11;
+			global::Auth0.OidcClient.Resource.Id.accessibility_custom_action_12 = global::AndroidTestApp.Resource.Id.accessibility_custom_action_12;
+			global::Auth0.OidcClient.Resource.Id.accessibility_custom_action_13 = global::AndroidTestApp.Resource.Id.accessibility_custom_action_13;
+			global::Auth0.OidcClient.Resource.Id.accessibility_custom_action_14 = global::AndroidTestApp.Resource.Id.accessibility_custom_action_14;
+			global::Auth0.OidcClient.Resource.Id.accessibility_custom_action_15 = global::AndroidTestApp.Resource.Id.accessibility_custom_action_15;
+			global::Auth0.OidcClient.Resource.Id.accessibility_custom_action_16 = global::AndroidTestApp.Resource.Id.accessibility_custom_action_16;
+			global::Auth0.OidcClient.Resource.Id.accessibility_custom_action_17 = global::AndroidTestApp.Resource.Id.accessibility_custom_action_17;
+			global::Auth0.OidcClient.Resource.Id.accessibility_custom_action_18 = global::AndroidTestApp.Resource.Id.accessibility_custom_action_18;
+			global::Auth0.OidcClient.Resource.Id.accessibility_custom_action_19 = global::AndroidTestApp.Resource.Id.accessibility_custom_action_19;
+			global::Auth0.OidcClient.Resource.Id.accessibility_custom_action_2 = global::AndroidTestApp.Resource.Id.accessibility_custom_action_2;
+			global::Auth0.OidcClient.Resource.Id.accessibility_custom_action_20 = global::AndroidTestApp.Resource.Id.accessibility_custom_action_20;
+			global::Auth0.OidcClient.Resource.Id.accessibility_custom_action_21 = global::AndroidTestApp.Resource.Id.accessibility_custom_action_21;
+			global::Auth0.OidcClient.Resource.Id.accessibility_custom_action_22 = global::AndroidTestApp.Resource.Id.accessibility_custom_action_22;
+			global::Auth0.OidcClient.Resource.Id.accessibility_custom_action_23 = global::AndroidTestApp.Resource.Id.accessibility_custom_action_23;
+			global::Auth0.OidcClient.Resource.Id.accessibility_custom_action_24 = global::AndroidTestApp.Resource.Id.accessibility_custom_action_24;
+			global::Auth0.OidcClient.Resource.Id.accessibility_custom_action_25 = global::AndroidTestApp.Resource.Id.accessibility_custom_action_25;
+			global::Auth0.OidcClient.Resource.Id.accessibility_custom_action_26 = global::AndroidTestApp.Resource.Id.accessibility_custom_action_26;
+			global::Auth0.OidcClient.Resource.Id.accessibility_custom_action_27 = global::AndroidTestApp.Resource.Id.accessibility_custom_action_27;
+			global::Auth0.OidcClient.Resource.Id.accessibility_custom_action_28 = global::AndroidTestApp.Resource.Id.accessibility_custom_action_28;
+			global::Auth0.OidcClient.Resource.Id.accessibility_custom_action_29 = global::AndroidTestApp.Resource.Id.accessibility_custom_action_29;
+			global::Auth0.OidcClient.Resource.Id.accessibility_custom_action_3 = global::AndroidTestApp.Resource.Id.accessibility_custom_action_3;
+			global::Auth0.OidcClient.Resource.Id.accessibility_custom_action_30 = global::AndroidTestApp.Resource.Id.accessibility_custom_action_30;
+			global::Auth0.OidcClient.Resource.Id.accessibility_custom_action_31 = global::AndroidTestApp.Resource.Id.accessibility_custom_action_31;
+			global::Auth0.OidcClient.Resource.Id.accessibility_custom_action_4 = global::AndroidTestApp.Resource.Id.accessibility_custom_action_4;
+			global::Auth0.OidcClient.Resource.Id.accessibility_custom_action_5 = global::AndroidTestApp.Resource.Id.accessibility_custom_action_5;
+			global::Auth0.OidcClient.Resource.Id.accessibility_custom_action_6 = global::AndroidTestApp.Resource.Id.accessibility_custom_action_6;
+			global::Auth0.OidcClient.Resource.Id.accessibility_custom_action_7 = global::AndroidTestApp.Resource.Id.accessibility_custom_action_7;
+			global::Auth0.OidcClient.Resource.Id.accessibility_custom_action_8 = global::AndroidTestApp.Resource.Id.accessibility_custom_action_8;
+			global::Auth0.OidcClient.Resource.Id.accessibility_custom_action_9 = global::AndroidTestApp.Resource.Id.accessibility_custom_action_9;
 			global::Auth0.OidcClient.Resource.Id.actions = global::AndroidTestApp.Resource.Id.actions;
 			global::Auth0.OidcClient.Resource.Id.action_container = global::AndroidTestApp.Resource.Id.action_container;
 			global::Auth0.OidcClient.Resource.Id.action_divider = global::AndroidTestApp.Resource.Id.action_divider;
 			global::Auth0.OidcClient.Resource.Id.action_image = global::AndroidTestApp.Resource.Id.action_image;
 			global::Auth0.OidcClient.Resource.Id.action_text = global::AndroidTestApp.Resource.Id.action_text;
+			global::Auth0.OidcClient.Resource.Id.all = global::AndroidTestApp.Resource.Id.all;
 			global::Auth0.OidcClient.Resource.Id.async = global::AndroidTestApp.Resource.Id.async;
 			global::Auth0.OidcClient.Resource.Id.blocking = global::AndroidTestApp.Resource.Id.blocking;
+			global::Auth0.OidcClient.Resource.Id.bottom = global::AndroidTestApp.Resource.Id.bottom;
+			global::Auth0.OidcClient.Resource.Id.browser_actions_header_text = global::AndroidTestApp.Resource.Id.browser_actions_header_text;
+			global::Auth0.OidcClient.Resource.Id.browser_actions_menu_items = global::AndroidTestApp.Resource.Id.browser_actions_menu_items;
+			global::Auth0.OidcClient.Resource.Id.browser_actions_menu_item_icon = global::AndroidTestApp.Resource.Id.browser_actions_menu_item_icon;
+			global::Auth0.OidcClient.Resource.Id.browser_actions_menu_item_text = global::AndroidTestApp.Resource.Id.browser_actions_menu_item_text;
+			global::Auth0.OidcClient.Resource.Id.browser_actions_menu_view = global::AndroidTestApp.Resource.Id.browser_actions_menu_view;
+			global::Auth0.OidcClient.Resource.Id.center = global::AndroidTestApp.Resource.Id.center;
+			global::Auth0.OidcClient.Resource.Id.center_horizontal = global::AndroidTestApp.Resource.Id.center_horizontal;
+			global::Auth0.OidcClient.Resource.Id.center_vertical = global::AndroidTestApp.Resource.Id.center_vertical;
 			global::Auth0.OidcClient.Resource.Id.chronometer = global::AndroidTestApp.Resource.Id.chronometer;
+			global::Auth0.OidcClient.Resource.Id.clip_horizontal = global::AndroidTestApp.Resource.Id.clip_horizontal;
+			global::Auth0.OidcClient.Resource.Id.clip_vertical = global::AndroidTestApp.Resource.Id.clip_vertical;
+			global::Auth0.OidcClient.Resource.Id.dialog_button = global::AndroidTestApp.Resource.Id.dialog_button;
+			global::Auth0.OidcClient.Resource.Id.end = global::AndroidTestApp.Resource.Id.end;
+			global::Auth0.OidcClient.Resource.Id.fill = global::AndroidTestApp.Resource.Id.fill;
+			global::Auth0.OidcClient.Resource.Id.fill_horizontal = global::AndroidTestApp.Resource.Id.fill_horizontal;
+			global::Auth0.OidcClient.Resource.Id.fill_vertical = global::AndroidTestApp.Resource.Id.fill_vertical;
 			global::Auth0.OidcClient.Resource.Id.forever = global::AndroidTestApp.Resource.Id.forever;
 			global::Auth0.OidcClient.Resource.Id.icon = global::AndroidTestApp.Resource.Id.icon;
 			global::Auth0.OidcClient.Resource.Id.icon_group = global::AndroidTestApp.Resource.Id.icon_group;
 			global::Auth0.OidcClient.Resource.Id.info = global::AndroidTestApp.Resource.Id.info;
 			global::Auth0.OidcClient.Resource.Id.italic = global::AndroidTestApp.Resource.Id.italic;
+			global::Auth0.OidcClient.Resource.Id.left = global::AndroidTestApp.Resource.Id.left;
 			global::Auth0.OidcClient.Resource.Id.line1 = global::AndroidTestApp.Resource.Id.line1;
 			global::Auth0.OidcClient.Resource.Id.line3 = global::AndroidTestApp.Resource.Id.line3;
+			global::Auth0.OidcClient.Resource.Id.none = global::AndroidTestApp.Resource.Id.none;
 			global::Auth0.OidcClient.Resource.Id.normal = global::AndroidTestApp.Resource.Id.normal;
 			global::Auth0.OidcClient.Resource.Id.notification_background = global::AndroidTestApp.Resource.Id.notification_background;
 			global::Auth0.OidcClient.Resource.Id.notification_main_column = global::AndroidTestApp.Resource.Id.notification_main_column;
 			global::Auth0.OidcClient.Resource.Id.notification_main_column_container = global::AndroidTestApp.Resource.Id.notification_main_column_container;
+			global::Auth0.OidcClient.Resource.Id.right = global::AndroidTestApp.Resource.Id.right;
 			global::Auth0.OidcClient.Resource.Id.right_icon = global::AndroidTestApp.Resource.Id.right_icon;
 			global::Auth0.OidcClient.Resource.Id.right_side = global::AndroidTestApp.Resource.Id.right_side;
+			global::Auth0.OidcClient.Resource.Id.start = global::AndroidTestApp.Resource.Id.start;
+			global::Auth0.OidcClient.Resource.Id.tag_accessibility_actions = global::AndroidTestApp.Resource.Id.tag_accessibility_actions;
+			global::Auth0.OidcClient.Resource.Id.tag_accessibility_clickable_spans = global::AndroidTestApp.Resource.Id.tag_accessibility_clickable_spans;
+			global::Auth0.OidcClient.Resource.Id.tag_accessibility_heading = global::AndroidTestApp.Resource.Id.tag_accessibility_heading;
+			global::Auth0.OidcClient.Resource.Id.tag_accessibility_pane_title = global::AndroidTestApp.Resource.Id.tag_accessibility_pane_title;
+			global::Auth0.OidcClient.Resource.Id.tag_screen_reader_focusable = global::AndroidTestApp.Resource.Id.tag_screen_reader_focusable;
+			global::Auth0.OidcClient.Resource.Id.tag_transition_group = global::AndroidTestApp.Resource.Id.tag_transition_group;
+			global::Auth0.OidcClient.Resource.Id.tag_unhandled_key_event_manager = global::AndroidTestApp.Resource.Id.tag_unhandled_key_event_manager;
+			global::Auth0.OidcClient.Resource.Id.tag_unhandled_key_listeners = global::AndroidTestApp.Resource.Id.tag_unhandled_key_listeners;
 			global::Auth0.OidcClient.Resource.Id.text = global::AndroidTestApp.Resource.Id.text;
 			global::Auth0.OidcClient.Resource.Id.text2 = global::AndroidTestApp.Resource.Id.text2;
 			global::Auth0.OidcClient.Resource.Id.time = global::AndroidTestApp.Resource.Id.time;
 			global::Auth0.OidcClient.Resource.Id.title = global::AndroidTestApp.Resource.Id.title;
+			global::Auth0.OidcClient.Resource.Id.top = global::AndroidTestApp.Resource.Id.top;
 			global::Auth0.OidcClient.Resource.Integer.status_bar_notification_info_maxnum = global::AndroidTestApp.Resource.Integer.status_bar_notification_info_maxnum;
+			global::Auth0.OidcClient.Resource.Layout.browser_actions_context_menu_page = global::AndroidTestApp.Resource.Layout.browser_actions_context_menu_page;
+			global::Auth0.OidcClient.Resource.Layout.browser_actions_context_menu_row = global::AndroidTestApp.Resource.Layout.browser_actions_context_menu_row;
+			global::Auth0.OidcClient.Resource.Layout.custom_dialog = global::AndroidTestApp.Resource.Layout.custom_dialog;
 			global::Auth0.OidcClient.Resource.Layout.notification_action = global::AndroidTestApp.Resource.Layout.notification_action;
 			global::Auth0.OidcClient.Resource.Layout.notification_action_tombstone = global::AndroidTestApp.Resource.Layout.notification_action_tombstone;
 			global::Auth0.OidcClient.Resource.Layout.notification_template_custom_big = global::AndroidTestApp.Resource.Layout.notification_template_custom_big;
@@ -113,17 +199,56 @@ namespace AndroidTestApp
 			global::Auth0.OidcClient.Resource.Style.TextAppearance_Compat_Notification_Title = global::AndroidTestApp.Resource.Style.TextAppearance_Compat_Notification_Title;
 			global::Auth0.OidcClient.Resource.Style.Widget_Compat_NotificationActionContainer = global::AndroidTestApp.Resource.Style.Widget_Compat_NotificationActionContainer;
 			global::Auth0.OidcClient.Resource.Style.Widget_Compat_NotificationActionText = global::AndroidTestApp.Resource.Style.Widget_Compat_NotificationActionText;
+			global::Auth0.OidcClient.Resource.Style.Widget_Support_CoordinatorLayout = global::AndroidTestApp.Resource.Style.Widget_Support_CoordinatorLayout;
+			global::Auth0.OidcClient.Resource.Styleable.ColorStateListItem = global::AndroidTestApp.Resource.Styleable.ColorStateListItem;
+			global::Auth0.OidcClient.Resource.Styleable.ColorStateListItem_alpha = global::AndroidTestApp.Resource.Styleable.ColorStateListItem_alpha;
+			global::Auth0.OidcClient.Resource.Styleable.ColorStateListItem_android_alpha = global::AndroidTestApp.Resource.Styleable.ColorStateListItem_android_alpha;
+			global::Auth0.OidcClient.Resource.Styleable.ColorStateListItem_android_color = global::AndroidTestApp.Resource.Styleable.ColorStateListItem_android_color;
+			global::Auth0.OidcClient.Resource.Styleable.CoordinatorLayout = global::AndroidTestApp.Resource.Styleable.CoordinatorLayout;
+			global::Auth0.OidcClient.Resource.Styleable.CoordinatorLayout_keylines = global::AndroidTestApp.Resource.Styleable.CoordinatorLayout_keylines;
+			global::Auth0.OidcClient.Resource.Styleable.CoordinatorLayout_Layout = global::AndroidTestApp.Resource.Styleable.CoordinatorLayout_Layout;
+			global::Auth0.OidcClient.Resource.Styleable.CoordinatorLayout_Layout_android_layout_gravity = global::AndroidTestApp.Resource.Styleable.CoordinatorLayout_Layout_android_layout_gravity;
+			global::Auth0.OidcClient.Resource.Styleable.CoordinatorLayout_Layout_layout_anchor = global::AndroidTestApp.Resource.Styleable.CoordinatorLayout_Layout_layout_anchor;
+			global::Auth0.OidcClient.Resource.Styleable.CoordinatorLayout_Layout_layout_anchorGravity = global::AndroidTestApp.Resource.Styleable.CoordinatorLayout_Layout_layout_anchorGravity;
+			global::Auth0.OidcClient.Resource.Styleable.CoordinatorLayout_Layout_layout_behavior = global::AndroidTestApp.Resource.Styleable.CoordinatorLayout_Layout_layout_behavior;
+			global::Auth0.OidcClient.Resource.Styleable.CoordinatorLayout_Layout_layout_dodgeInsetEdges = global::AndroidTestApp.Resource.Styleable.CoordinatorLayout_Layout_layout_dodgeInsetEdges;
+			global::Auth0.OidcClient.Resource.Styleable.CoordinatorLayout_Layout_layout_insetEdge = global::AndroidTestApp.Resource.Styleable.CoordinatorLayout_Layout_layout_insetEdge;
+			global::Auth0.OidcClient.Resource.Styleable.CoordinatorLayout_Layout_layout_keyline = global::AndroidTestApp.Resource.Styleable.CoordinatorLayout_Layout_layout_keyline;
+			global::Auth0.OidcClient.Resource.Styleable.CoordinatorLayout_statusBarBackground = global::AndroidTestApp.Resource.Styleable.CoordinatorLayout_statusBarBackground;
 			global::Auth0.OidcClient.Resource.Styleable.FontFamily = global::AndroidTestApp.Resource.Styleable.FontFamily;
 			global::Auth0.OidcClient.Resource.Styleable.FontFamilyFont = global::AndroidTestApp.Resource.Styleable.FontFamilyFont;
+			global::Auth0.OidcClient.Resource.Styleable.FontFamilyFont_android_font = global::AndroidTestApp.Resource.Styleable.FontFamilyFont_android_font;
+			global::Auth0.OidcClient.Resource.Styleable.FontFamilyFont_android_fontStyle = global::AndroidTestApp.Resource.Styleable.FontFamilyFont_android_fontStyle;
+			global::Auth0.OidcClient.Resource.Styleable.FontFamilyFont_android_fontVariationSettings = global::AndroidTestApp.Resource.Styleable.FontFamilyFont_android_fontVariationSettings;
+			global::Auth0.OidcClient.Resource.Styleable.FontFamilyFont_android_fontWeight = global::AndroidTestApp.Resource.Styleable.FontFamilyFont_android_fontWeight;
+			global::Auth0.OidcClient.Resource.Styleable.FontFamilyFont_android_ttcIndex = global::AndroidTestApp.Resource.Styleable.FontFamilyFont_android_ttcIndex;
 			global::Auth0.OidcClient.Resource.Styleable.FontFamilyFont_font = global::AndroidTestApp.Resource.Styleable.FontFamilyFont_font;
 			global::Auth0.OidcClient.Resource.Styleable.FontFamilyFont_fontStyle = global::AndroidTestApp.Resource.Styleable.FontFamilyFont_fontStyle;
+			global::Auth0.OidcClient.Resource.Styleable.FontFamilyFont_fontVariationSettings = global::AndroidTestApp.Resource.Styleable.FontFamilyFont_fontVariationSettings;
 			global::Auth0.OidcClient.Resource.Styleable.FontFamilyFont_fontWeight = global::AndroidTestApp.Resource.Styleable.FontFamilyFont_fontWeight;
+			global::Auth0.OidcClient.Resource.Styleable.FontFamilyFont_ttcIndex = global::AndroidTestApp.Resource.Styleable.FontFamilyFont_ttcIndex;
 			global::Auth0.OidcClient.Resource.Styleable.FontFamily_fontProviderAuthority = global::AndroidTestApp.Resource.Styleable.FontFamily_fontProviderAuthority;
 			global::Auth0.OidcClient.Resource.Styleable.FontFamily_fontProviderCerts = global::AndroidTestApp.Resource.Styleable.FontFamily_fontProviderCerts;
 			global::Auth0.OidcClient.Resource.Styleable.FontFamily_fontProviderFetchStrategy = global::AndroidTestApp.Resource.Styleable.FontFamily_fontProviderFetchStrategy;
 			global::Auth0.OidcClient.Resource.Styleable.FontFamily_fontProviderFetchTimeout = global::AndroidTestApp.Resource.Styleable.FontFamily_fontProviderFetchTimeout;
 			global::Auth0.OidcClient.Resource.Styleable.FontFamily_fontProviderPackage = global::AndroidTestApp.Resource.Styleable.FontFamily_fontProviderPackage;
 			global::Auth0.OidcClient.Resource.Styleable.FontFamily_fontProviderQuery = global::AndroidTestApp.Resource.Styleable.FontFamily_fontProviderQuery;
+			global::Auth0.OidcClient.Resource.Styleable.GradientColor = global::AndroidTestApp.Resource.Styleable.GradientColor;
+			global::Auth0.OidcClient.Resource.Styleable.GradientColorItem = global::AndroidTestApp.Resource.Styleable.GradientColorItem;
+			global::Auth0.OidcClient.Resource.Styleable.GradientColorItem_android_color = global::AndroidTestApp.Resource.Styleable.GradientColorItem_android_color;
+			global::Auth0.OidcClient.Resource.Styleable.GradientColorItem_android_offset = global::AndroidTestApp.Resource.Styleable.GradientColorItem_android_offset;
+			global::Auth0.OidcClient.Resource.Styleable.GradientColor_android_centerColor = global::AndroidTestApp.Resource.Styleable.GradientColor_android_centerColor;
+			global::Auth0.OidcClient.Resource.Styleable.GradientColor_android_centerX = global::AndroidTestApp.Resource.Styleable.GradientColor_android_centerX;
+			global::Auth0.OidcClient.Resource.Styleable.GradientColor_android_centerY = global::AndroidTestApp.Resource.Styleable.GradientColor_android_centerY;
+			global::Auth0.OidcClient.Resource.Styleable.GradientColor_android_endColor = global::AndroidTestApp.Resource.Styleable.GradientColor_android_endColor;
+			global::Auth0.OidcClient.Resource.Styleable.GradientColor_android_endX = global::AndroidTestApp.Resource.Styleable.GradientColor_android_endX;
+			global::Auth0.OidcClient.Resource.Styleable.GradientColor_android_endY = global::AndroidTestApp.Resource.Styleable.GradientColor_android_endY;
+			global::Auth0.OidcClient.Resource.Styleable.GradientColor_android_gradientRadius = global::AndroidTestApp.Resource.Styleable.GradientColor_android_gradientRadius;
+			global::Auth0.OidcClient.Resource.Styleable.GradientColor_android_startColor = global::AndroidTestApp.Resource.Styleable.GradientColor_android_startColor;
+			global::Auth0.OidcClient.Resource.Styleable.GradientColor_android_startX = global::AndroidTestApp.Resource.Styleable.GradientColor_android_startX;
+			global::Auth0.OidcClient.Resource.Styleable.GradientColor_android_startY = global::AndroidTestApp.Resource.Styleable.GradientColor_android_startY;
+			global::Auth0.OidcClient.Resource.Styleable.GradientColor_android_tileMode = global::AndroidTestApp.Resource.Styleable.GradientColor_android_tileMode;
+			global::Auth0.OidcClient.Resource.Styleable.GradientColor_android_type = global::AndroidTestApp.Resource.Styleable.GradientColor_android_type;
 		}
 		
 		public partial class Attribute
@@ -379,104 +504,206 @@ namespace AndroidTestApp
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7F050008
-			public const int actions = 2131034120;
-			
 			// aapt resource value: 0x7F050004
-			public const int action_container = 2131034116;
+			public const int accessibility_action_clickable_span = 2131034116;
 			
 			// aapt resource value: 0x7F050005
-			public const int action_divider = 2131034117;
+			public const int accessibility_custom_action_0 = 2131034117;
 			
 			// aapt resource value: 0x7F050006
-			public const int action_image = 2131034118;
+			public const int accessibility_custom_action_1 = 2131034118;
 			
 			// aapt resource value: 0x7F050007
-			public const int action_text = 2131034119;
+			public const int accessibility_custom_action_10 = 2131034119;
+			
+			// aapt resource value: 0x7F050008
+			public const int accessibility_custom_action_11 = 2131034120;
 			
 			// aapt resource value: 0x7F050009
-			public const int all = 2131034121;
+			public const int accessibility_custom_action_12 = 2131034121;
 			
 			// aapt resource value: 0x7F05000A
-			public const int async = 2131034122;
+			public const int accessibility_custom_action_13 = 2131034122;
 			
 			// aapt resource value: 0x7F05000B
-			public const int blocking = 2131034123;
+			public const int accessibility_custom_action_14 = 2131034123;
 			
 			// aapt resource value: 0x7F05000C
-			public const int bottom = 2131034124;
+			public const int accessibility_custom_action_15 = 2131034124;
 			
 			// aapt resource value: 0x7F05000D
-			public const int browser_actions_header_text = 2131034125;
-			
-			// aapt resource value: 0x7F050010
-			public const int browser_actions_menu_items = 2131034128;
+			public const int accessibility_custom_action_16 = 2131034125;
 			
 			// aapt resource value: 0x7F05000E
-			public const int browser_actions_menu_item_icon = 2131034126;
+			public const int accessibility_custom_action_17 = 2131034126;
 			
 			// aapt resource value: 0x7F05000F
-			public const int browser_actions_menu_item_text = 2131034127;
+			public const int accessibility_custom_action_18 = 2131034127;
+			
+			// aapt resource value: 0x7F050010
+			public const int accessibility_custom_action_19 = 2131034128;
 			
 			// aapt resource value: 0x7F050011
-			public const int browser_actions_menu_view = 2131034129;
+			public const int accessibility_custom_action_2 = 2131034129;
 			
 			// aapt resource value: 0x7F050012
-			public const int center = 2131034130;
+			public const int accessibility_custom_action_20 = 2131034130;
 			
 			// aapt resource value: 0x7F050013
-			public const int center_horizontal = 2131034131;
+			public const int accessibility_custom_action_21 = 2131034131;
 			
 			// aapt resource value: 0x7F050014
-			public const int center_vertical = 2131034132;
+			public const int accessibility_custom_action_22 = 2131034132;
 			
 			// aapt resource value: 0x7F050015
-			public const int chronometer = 2131034133;
+			public const int accessibility_custom_action_23 = 2131034133;
 			
 			// aapt resource value: 0x7F050016
-			public const int clip_horizontal = 2131034134;
+			public const int accessibility_custom_action_24 = 2131034134;
 			
 			// aapt resource value: 0x7F050017
-			public const int clip_vertical = 2131034135;
+			public const int accessibility_custom_action_25 = 2131034135;
 			
 			// aapt resource value: 0x7F050018
-			public const int end = 2131034136;
+			public const int accessibility_custom_action_26 = 2131034136;
 			
 			// aapt resource value: 0x7F050019
-			public const int fill = 2131034137;
+			public const int accessibility_custom_action_27 = 2131034137;
 			
 			// aapt resource value: 0x7F05001A
-			public const int fill_horizontal = 2131034138;
+			public const int accessibility_custom_action_28 = 2131034138;
 			
 			// aapt resource value: 0x7F05001B
-			public const int fill_vertical = 2131034139;
+			public const int accessibility_custom_action_29 = 2131034139;
 			
 			// aapt resource value: 0x7F05001C
-			public const int forever = 2131034140;
+			public const int accessibility_custom_action_3 = 2131034140;
 			
 			// aapt resource value: 0x7F05001D
-			public const int icon = 2131034141;
+			public const int accessibility_custom_action_30 = 2131034141;
 			
 			// aapt resource value: 0x7F05001E
-			public const int icon_group = 2131034142;
+			public const int accessibility_custom_action_31 = 2131034142;
 			
 			// aapt resource value: 0x7F05001F
-			public const int info = 2131034143;
+			public const int accessibility_custom_action_4 = 2131034143;
 			
 			// aapt resource value: 0x7F050020
-			public const int italic = 2131034144;
+			public const int accessibility_custom_action_5 = 2131034144;
 			
 			// aapt resource value: 0x7F050021
-			public const int left = 2131034145;
+			public const int accessibility_custom_action_6 = 2131034145;
 			
 			// aapt resource value: 0x7F050022
-			public const int line1 = 2131034146;
+			public const int accessibility_custom_action_7 = 2131034146;
 			
 			// aapt resource value: 0x7F050023
-			public const int line3 = 2131034147;
+			public const int accessibility_custom_action_8 = 2131034147;
 			
 			// aapt resource value: 0x7F050024
-			public const int linearLayout1 = 2131034148;
+			public const int accessibility_custom_action_9 = 2131034148;
+			
+			// aapt resource value: 0x7F050029
+			public const int actions = 2131034153;
+			
+			// aapt resource value: 0x7F050025
+			public const int action_container = 2131034149;
+			
+			// aapt resource value: 0x7F050026
+			public const int action_divider = 2131034150;
+			
+			// aapt resource value: 0x7F050027
+			public const int action_image = 2131034151;
+			
+			// aapt resource value: 0x7F050028
+			public const int action_text = 2131034152;
+			
+			// aapt resource value: 0x7F05002A
+			public const int all = 2131034154;
+			
+			// aapt resource value: 0x7F05002B
+			public const int async = 2131034155;
+			
+			// aapt resource value: 0x7F05002C
+			public const int blocking = 2131034156;
+			
+			// aapt resource value: 0x7F05002D
+			public const int bottom = 2131034157;
+			
+			// aapt resource value: 0x7F05002E
+			public const int browser_actions_header_text = 2131034158;
+			
+			// aapt resource value: 0x7F050031
+			public const int browser_actions_menu_items = 2131034161;
+			
+			// aapt resource value: 0x7F05002F
+			public const int browser_actions_menu_item_icon = 2131034159;
+			
+			// aapt resource value: 0x7F050030
+			public const int browser_actions_menu_item_text = 2131034160;
+			
+			// aapt resource value: 0x7F050032
+			public const int browser_actions_menu_view = 2131034162;
+			
+			// aapt resource value: 0x7F050033
+			public const int center = 2131034163;
+			
+			// aapt resource value: 0x7F050034
+			public const int center_horizontal = 2131034164;
+			
+			// aapt resource value: 0x7F050035
+			public const int center_vertical = 2131034165;
+			
+			// aapt resource value: 0x7F050036
+			public const int chronometer = 2131034166;
+			
+			// aapt resource value: 0x7F050037
+			public const int clip_horizontal = 2131034167;
+			
+			// aapt resource value: 0x7F050038
+			public const int clip_vertical = 2131034168;
+			
+			// aapt resource value: 0x7F050039
+			public const int dialog_button = 2131034169;
+			
+			// aapt resource value: 0x7F05003A
+			public const int end = 2131034170;
+			
+			// aapt resource value: 0x7F05003B
+			public const int fill = 2131034171;
+			
+			// aapt resource value: 0x7F05003C
+			public const int fill_horizontal = 2131034172;
+			
+			// aapt resource value: 0x7F05003D
+			public const int fill_vertical = 2131034173;
+			
+			// aapt resource value: 0x7F05003E
+			public const int forever = 2131034174;
+			
+			// aapt resource value: 0x7F05003F
+			public const int icon = 2131034175;
+			
+			// aapt resource value: 0x7F050040
+			public const int icon_group = 2131034176;
+			
+			// aapt resource value: 0x7F050041
+			public const int info = 2131034177;
+			
+			// aapt resource value: 0x7F050042
+			public const int italic = 2131034178;
+			
+			// aapt resource value: 0x7F050043
+			public const int left = 2131034179;
+			
+			// aapt resource value: 0x7F050044
+			public const int line1 = 2131034180;
+			
+			// aapt resource value: 0x7F050045
+			public const int line3 = 2131034181;
+			
+			// aapt resource value: 0x7F050046
+			public const int linearLayout1 = 2131034182;
 			
 			// aapt resource value: 0x7F050000
 			public const int LoginButton = 2131034112;
@@ -484,56 +711,71 @@ namespace AndroidTestApp
 			// aapt resource value: 0x7F050001
 			public const int LogoutButton = 2131034113;
 			
-			// aapt resource value: 0x7F050025
-			public const int none = 2131034149;
+			// aapt resource value: 0x7F050047
+			public const int none = 2131034183;
 			
-			// aapt resource value: 0x7F050026
-			public const int normal = 2131034150;
+			// aapt resource value: 0x7F050048
+			public const int normal = 2131034184;
 			
-			// aapt resource value: 0x7F050027
-			public const int notification_background = 2131034151;
+			// aapt resource value: 0x7F050049
+			public const int notification_background = 2131034185;
 			
-			// aapt resource value: 0x7F050028
-			public const int notification_main_column = 2131034152;
+			// aapt resource value: 0x7F05004A
+			public const int notification_main_column = 2131034186;
 			
-			// aapt resource value: 0x7F050029
-			public const int notification_main_column_container = 2131034153;
+			// aapt resource value: 0x7F05004B
+			public const int notification_main_column_container = 2131034187;
 			
-			// aapt resource value: 0x7F05002A
-			public const int right = 2131034154;
+			// aapt resource value: 0x7F05004C
+			public const int right = 2131034188;
 			
-			// aapt resource value: 0x7F05002B
-			public const int right_icon = 2131034155;
+			// aapt resource value: 0x7F05004D
+			public const int right_icon = 2131034189;
 			
-			// aapt resource value: 0x7F05002C
-			public const int right_side = 2131034156;
+			// aapt resource value: 0x7F05004E
+			public const int right_side = 2131034190;
 			
-			// aapt resource value: 0x7F05002D
-			public const int start = 2131034157;
+			// aapt resource value: 0x7F05004F
+			public const int start = 2131034191;
 			
-			// aapt resource value: 0x7F05002E
-			public const int tag_transition_group = 2131034158;
+			// aapt resource value: 0x7F050050
+			public const int tag_accessibility_actions = 2131034192;
 			
-			// aapt resource value: 0x7F05002F
-			public const int tag_unhandled_key_event_manager = 2131034159;
+			// aapt resource value: 0x7F050051
+			public const int tag_accessibility_clickable_spans = 2131034193;
 			
-			// aapt resource value: 0x7F050030
-			public const int tag_unhandled_key_listeners = 2131034160;
+			// aapt resource value: 0x7F050052
+			public const int tag_accessibility_heading = 2131034194;
 			
-			// aapt resource value: 0x7F050031
-			public const int text = 2131034161;
+			// aapt resource value: 0x7F050053
+			public const int tag_accessibility_pane_title = 2131034195;
 			
-			// aapt resource value: 0x7F050032
-			public const int text2 = 2131034162;
+			// aapt resource value: 0x7F050054
+			public const int tag_screen_reader_focusable = 2131034196;
 			
-			// aapt resource value: 0x7F050033
-			public const int time = 2131034163;
+			// aapt resource value: 0x7F050055
+			public const int tag_transition_group = 2131034197;
 			
-			// aapt resource value: 0x7F050034
-			public const int title = 2131034164;
+			// aapt resource value: 0x7F050056
+			public const int tag_unhandled_key_event_manager = 2131034198;
 			
-			// aapt resource value: 0x7F050035
-			public const int top = 2131034165;
+			// aapt resource value: 0x7F050057
+			public const int tag_unhandled_key_listeners = 2131034199;
+			
+			// aapt resource value: 0x7F050058
+			public const int text = 2131034200;
+			
+			// aapt resource value: 0x7F050059
+			public const int text2 = 2131034201;
+			
+			// aapt resource value: 0x7F05005A
+			public const int time = 2131034202;
+			
+			// aapt resource value: 0x7F05005B
+			public const int title = 2131034203;
+			
+			// aapt resource value: 0x7F05005C
+			public const int top = 2131034204;
 			
 			// aapt resource value: 0x7F050002
 			public const int UserButton = 2131034114;
@@ -577,25 +819,28 @@ namespace AndroidTestApp
 			public const int browser_actions_context_menu_row = 2131165185;
 			
 			// aapt resource value: 0x7F070002
-			public const int Main = 2131165186;
+			public const int custom_dialog = 2131165186;
 			
 			// aapt resource value: 0x7F070003
-			public const int notification_action = 2131165187;
+			public const int Main = 2131165187;
 			
 			// aapt resource value: 0x7F070004
-			public const int notification_action_tombstone = 2131165188;
+			public const int notification_action = 2131165188;
 			
 			// aapt resource value: 0x7F070005
-			public const int notification_template_custom_big = 2131165189;
+			public const int notification_action_tombstone = 2131165189;
 			
 			// aapt resource value: 0x7F070006
-			public const int notification_template_icon_group = 2131165190;
+			public const int notification_template_custom_big = 2131165190;
 			
 			// aapt resource value: 0x7F070007
-			public const int notification_template_part_chronometer = 2131165191;
+			public const int notification_template_icon_group = 2131165191;
 			
 			// aapt resource value: 0x7F070008
-			public const int notification_template_part_time = 2131165192;
+			public const int notification_template_part_chronometer = 2131165192;
+			
+			// aapt resource value: 0x7F070009
+			public const int notification_template_part_time = 2131165193;
 			
 			static Layout()
 			{
