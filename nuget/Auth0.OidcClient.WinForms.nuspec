@@ -3,7 +3,7 @@
 <package>
   <metadata>
     <id>Auth0.OidcClient.WinForms</id>
-    <version>3.1.2</version>
+    <version>3.1.3</version>
     <authors>Auth0</authors>
     <owners>Auth0</owners>
     <license type="expression">Apache-2.0</license>
@@ -12,6 +12,9 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Auth0 OIDC Client for WinForms apps</description>
     <releaseNotes>
+      Version 3.1.3
+      - Now supports .NET Core 3.1 projects
+      
       Version 3.1.2
       - Allow ID tokens "issued at" (iat) claims from "the future" to allow
         slow local clocks on mobile and desktop devices.
@@ -74,11 +77,17 @@
         <dependency id="Auth0.OidcClient.Core" version="3.1.2" />
         <dependency id="Microsoft.Toolkit.Forms.UI.Controls.WebView" version="6.0.0"/>
       </group>
+      <group targetFramework="netcoreapp3.1">
+        <dependency id="Auth0.OidcClient.Core" version="3.1.2" />
+        <dependency id="Microsoft.Toolkit.Forms.UI.Controls.WebView" version="6.0.0"/>
+      </group>
     </dependencies>
   </metadata>
   <files>
-    <file src="..\src\Auth0.OidcClient.WinForms\bin\Release\Auth0.OidcClient.dll" target="lib\net462" />
-    <file src="..\src\Auth0.OidcClient.WinForms\bin\Release\Auth0.OidcClient.xml" target="lib\net462" />
+    <file src="..\src\Auth0.OidcClient.WinForms\bin\Release\net462\Auth0.OidcClient.dll" target="lib\net462" />
+    <file src="..\src\Auth0.OidcClient.WinForms\bin\Release\net462\Auth0.OidcClient.xml" target="lib\net462" />
+    <file src="..\src\Auth0.OidcClient.WinForms\bin\Release\netcoreapp3.1\Auth0.OidcClient.dll" target="lib\netcoreapp3.1" />
+    <file src="..\src\Auth0.OidcClient.WinForms\bin\Release\netcoreapp3.1\Auth0.OidcClient.xml" target="lib\netcoreapp3.1" />
     <file src="..\build\Auth0Icon.png" />
   </files>
 </package>
