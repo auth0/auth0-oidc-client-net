@@ -12,6 +12,9 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Auth0 OIDC Client for WPF apps</description>
     <releaseNotes>
+      Version 3.1.5
+      - Fixed incorrect dependency in .NET Core 3.1 version
+
       Version 3.1.4
       - Now supports .NET Core 3.1 projects
 
@@ -80,7 +83,7 @@
       </group>
       <group targetFramework="netcoreapp3.1">
         <dependency id="Auth0.OidcClient.Core" version="3.1.2" />
-        <dependency id="Microsoft.Toolkit.Forms.UI.Controls.WebView" version="6.0.0"/>
+        <dependency id="Microsoft.Toolkit.Wpf.UI.Controls.WebView" version="6.0.0"/>
       </group>
     </dependencies>
   </metadata>
