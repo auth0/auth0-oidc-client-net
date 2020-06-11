@@ -54,11 +54,7 @@
     <Compile Include="Auth0ClientActivity.cs" />
     <Compile Include="AutoSelectBrowser.cs" />
     <Compile Include="ChromeCustomTabsBrowser.cs" />
-    <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\Values\Strings.xml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Auth0.OidcClient.Core\Auth0.OidcClient.Core.csproj">

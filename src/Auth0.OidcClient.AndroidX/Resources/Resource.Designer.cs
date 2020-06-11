@@ -607,13 +607,7 @@ namespace Auth0.OidcClient
 		{
 			
 			// aapt resource value: 0x7F080000
-			public static int ApplicationName = 2131230720;
-			
-			// aapt resource value: 0x7F080001
-			public static int Hello = 2131230721;
-			
-			// aapt resource value: 0x7F080002
-			public static int status_bar_notification_info_overflow = 2131230722;
+			public static int status_bar_notification_info_overflow = 2131230720;
 			
 			static String()
 			{

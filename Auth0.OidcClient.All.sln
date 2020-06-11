@@ -11,6 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Auth0.OidcClient.WinForms",
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NuGet Packaging", "NuGet Packaging", "{3D6D8AA1-DD3D-4B0D-AEDF-A588704AFE09}"
 	ProjectSection(SolutionItems) = preProject
+		nuget\Auth0.OidcClient.Android.nuspec = nuget\Auth0.OidcClient.Android.nuspec
 		nuget\Auth0.OidcClient.AndroidX.nuspec = nuget\Auth0.OidcClient.AndroidX.nuspec
 		nuget\Auth0.OidcClient.Core.nuspec = nuget\Auth0.OidcClient.Core.nuspec
 		nuget\Auth0.OidcClient.iOS.nuspec = nuget\Auth0.OidcClient.iOS.nuspec
