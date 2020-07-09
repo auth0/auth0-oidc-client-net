@@ -3,7 +3,7 @@
 <package>
   <metadata>
     <id>Auth0.OidcClient.WPF</id>
-    <version>3.1.6</version>
+    <version>3.1.7</version>
     <authors>Auth0</authors>
     <owners>Auth0</owners>
     <license type="expression">Apache-2.0</license>
@@ -12,6 +12,9 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Auth0 OIDC Client for WPF apps</description>
     <releaseNotes>
+      Version 3.1.7
+      - Fixed dependency version in nuspec file for Microsoft.Toolkit.Wpf.UI.Controls.WebView
+      
       Version 3.1.6
       - Bumped Microsoft.Toolkit.Wpf.UI.Controls.WebView to 6.1.1
 
@@ -82,11 +85,11 @@
     <dependencies>
       <group targetFramework="net462">
         <dependency id="Auth0.OidcClient.Core" version="3.1.2" />
-        <dependency id="Microsoft.Toolkit.Wpf.UI.Controls.WebView" version="6.0.0"/>
+        <dependency id="Microsoft.Toolkit.Wpf.UI.Controls.WebView" version="6.1.1"/>
       </group>
       <group targetFramework="netcoreapp3.1">
         <dependency id="Auth0.OidcClient.Core" version="3.1.2" />
-        <dependency id="Microsoft.Toolkit.Wpf.UI.Controls.WebView" version="6.0.0"/>
+        <dependency id="Microsoft.Toolkit.Wpf.UI.Controls.WebView" version="6.1.1"/>
       </group>
     </dependencies>
   </metadata>
