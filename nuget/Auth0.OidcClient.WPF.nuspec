@@ -3,7 +3,7 @@
 <package>
   <metadata>
     <id>Auth0.OidcClient.WPF</id>
-    <version>3.1.5</version>
+    <version>3.1.6</version>
     <authors>Auth0</authors>
     <owners>Auth0</owners>
     <license type="expression">Apache-2.0</license>
@@ -12,6 +12,9 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Auth0 OIDC Client for WPF apps</description>
     <releaseNotes>
+      Version 3.1.6
+      - Bumped Microsoft.Toolkit.Wpf.UI.Controls.WebView to 6.1.1
+
       Version 3.1.5
       - Fixed incorrect dependency in .NET Core 3.1 version
 
