@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{A18A146B-FB5A-4AB8-8F1C-501E58AA7D4D}</ProjectGuid>
+    <ProjectGuid>{AD54C508-C0A1-4BF7-BA63-D21F078665F6}</ProjectGuid>
     <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -15,7 +15,7 @@
     <AndroidResgenFile>Resources\Resource.Designer.cs</AndroidResgenFile>
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
     <AndroidUseLatestPlatformSdk>False</AndroidUseLatestPlatformSdk>
-    <TargetFrameworkVersion>v8.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v9.0</TargetFrameworkVersion>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
   </PropertyGroup>
@@ -24,16 +24,17 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;__ANDROID__</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;__ANDROID__;ANDROIDX</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <SignAssembly>false</SignAssembly>
+	<SignAssembly>false</SignAssembly>
+	<AssemblyOriginatorKeyFile>..\..\build\Auth0OidcClientStrongName.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
+    <DefineConstants>TRACE;ANDROIDX</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>bin\Release\Auth0.OidcClient.xml</DocumentationFile>
@@ -48,13 +49,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ActivityMediator.cs" />
-    <Compile Include="AndroidBrowserBase.cs" />
-    <Compile Include="Auth0Client.cs" />
-    <Compile Include="Auth0ClientActivity.cs" />
-    <Compile Include="AutoSelectBrowser.cs" />
-    <Compile Include="ChromeCustomTabsBrowser.cs" />
-    <Compile Include="SystemBrowser.cs" />
+    <Compile Include="..\Auth0.OidcClient.Android\ActivityMediator.cs" />
+    <Compile Include="..\Auth0.OidcClient.Android\AndroidBrowserBase.cs" />
+    <Compile Include="..\Auth0.OidcClient.Android\Auth0Client.cs" />
+    <Compile Include="..\Auth0.OidcClient.Android\Auth0ClientActivity.cs" />
+    <Compile Include="..\Auth0.OidcClient.Android\AutoSelectBrowser.cs" />
+    <Compile Include="..\Auth0.OidcClient.Android\ChromeCustomTabsBrowser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -67,8 +67,8 @@
     <PackageReference Include="IdentityModel.OidcClient">
       <Version>3.1.2</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.Android.Support.CustomTabs">
-      <Version>28.0.0.3</Version>
+    <PackageReference Include="Xamarin.AndroidX.Browser">
+      <Version>1.0.0</Version>
     </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
