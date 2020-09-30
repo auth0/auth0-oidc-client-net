@@ -10,28 +10,16 @@ The format of the URL will depend on the platform. In the sample callback URLs b
 
 ## Universal Windows Platform (UWP)
 
-For UWP applications, the callback URL needs to be in the format **ms-app://SID**, where **SID** is the **Package SID** for your application. Assuming you have associated your application with and application on the Windows Store, you can go to the Windows Developer Centre, go to the settings for your application, and then go to the App management > App identity section, where you will see the **Package SID** listed.
+Use the following callback URL:
 
-Alternatively - or if you have not associated your application with the Store yet - you can obtain the value by calling the `Windows.Security.Authentication.Web.WebAuthenticationBroker.GetCurrentApplicationCallbackUri()` method. So for example, in the `OnLaunched` method of your application, you can add the following line of code:
-
-```csharp
-protected override void OnLaunched(LaunchActivatedEventArgs e)
-{
-#if DEBUG
-    if (System.Diagnostics.Debugger.IsAttached)
-    {
-        System.Diagnostics.Debug.WriteLine(Windows.Security.Authentication.Web.WebAuthenticationBroker.GetCurrentApplicationCallbackUri());
-    }
-#endif
-    
-    // rest of code omitted for brevity
-}
+```text
+https://YOUR_AUTH0_DOMAIN/mobile
 ```
 
 For example:
 
 ```text
-ms-app://S-1-11-1-1111111111-2222222222-3333333333-4444444444-5555555555-6666666666-7777777777
+https://contoso.auth0.com/mobile
 ```
 
 ## Windows Presentation Foundation (WPF)
