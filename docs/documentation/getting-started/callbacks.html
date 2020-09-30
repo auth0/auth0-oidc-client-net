@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <html>
   
@@ -74,21 +74,10 @@
 <p>The format of the URL will depend on the platform. In the sample callback URLs below, replace <code>YOUR_AUTH0_DOMAIN</code> with your actual Auth0 domain. You can find your domain on the Settings tab for your Client inside the <a href="https://manage.auth0.com/#/">Auth0 dashboard</a>: </p>
 <p><img src="/images/dashboard-domain.png" alt=""></p>
 <h2 id="universal-windows-platform-uwp">Universal Windows Platform (UWP)</h2>
-<p>For UWP applications, the callback URL needs to be in the format <strong>ms-app://SID</strong>, where <strong>SID</strong> is the <strong>Package SID</strong> for your application. Assuming you have associated your application with and application on the Windows Store, you can go to the Windows Developer Centre, go to the settings for your application, and then go to the App management &gt; App identity section, where you will see the <strong>Package SID</strong> listed.</p>
-<p>Alternatively - or if you have not associated your application with the Store yet - you can obtain the value by calling the <code>Windows.Security.Authentication.Web.WebAuthenticationBroker.GetCurrentApplicationCallbackUri()</code> method. So for example, in the <code>OnLaunched</code> method of your application, you can add the following line of code:</p>
-<pre><code class="lang-csharp">protected override void OnLaunched(LaunchActivatedEventArgs e)
-{
-#if DEBUG
-    if (System.Diagnostics.Debugger.IsAttached)
-    {
-        System.Diagnostics.Debug.WriteLine(Windows.Security.Authentication.Web.WebAuthenticationBroker.GetCurrentApplicationCallbackUri());
-    }
-#endif
-
-    // rest of code omitted for brevity
-}
+<p>Use the following callback URL:</p>
+<pre><code class="lang-text">https://YOUR_AUTH0_DOMAIN/mobile
 </code></pre><p>For example:</p>
-<pre><code class="lang-text">ms-app://S-1-11-1-1111111111-2222222222-3333333333-4444444444-5555555555-6666666666-7777777777
+<pre><code class="lang-text">https://contoso.auth0.com/mobile
 </code></pre><h2 id="windows-presentation-foundation-wpf">Windows Presentation Foundation (WPF)</h2>
 <p>Use the following callback URL:</p>
 <pre><code class="lang-text">https://YOUR_AUTH0_DOMAIN/mobile
