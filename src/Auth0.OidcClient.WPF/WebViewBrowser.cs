@@ -52,7 +52,7 @@ namespace Auth0.OidcClient
             var webView = new WebViewCompatible();
             window.Content = webView;
 
-            webView.NavigationStarting += (sender, e) =>
+            webView.NavigationCompleted += (sender, e) =>
             {
                 if (e.Uri.AbsoluteUri.StartsWith(options.EndUrl))
                 {
@@ -66,6 +66,7 @@ namespace Auth0.OidcClient
 
             window.Closing += (sender, e) =>
             {
+                webView.Dispose();
                 if (!tcs.Task.IsCompleted)
                     tcs.SetResult(new BrowserResult { ResultType = BrowserResultType.UserCancel });
             };
