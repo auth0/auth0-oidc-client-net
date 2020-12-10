@@ -12,13 +12,27 @@ namespace Auth0.OidcClient
     /// </summary>
     public class ASWebAuthenticationSessionBrowser : IOSBrowserBase
     {
+        /// <summary>
+        /// Configuration for the ASWebAuthenticationSession.
+        /// </summary>
+        public ASWebAuthenticationSessionOptions SessionOptions { get; }
+
+        /// <summary>
+        /// Creates a new instance of the ASWebAuthenticationSession Browser.
+        /// </summary>
+        /// <param name="sessionOptions">The <see cref="ASWebAuthenticationSessionOptions"/> specifying the configuration for the ASWebAuthenticationSession.</param>
+        public ASWebAuthenticationSessionBrowser(ASWebAuthenticationSessionOptions sessionOptions = null)
+        {
+            SessionOptions = sessionOptions;
+        }
+
         /// <inheritdoc/>
         protected override Task<BrowserResult> Launch(BrowserOptions options, CancellationToken cancellationToken = default)
         {
-            return Start(options);
+            return Start(options, SessionOptions);
         }
 
-        internal static Task<BrowserResult> Start(BrowserOptions options)
+        internal static Task<BrowserResult> Start(BrowserOptions options, ASWebAuthenticationSessionOptions sessionOptions = null)
         {
             var tcs = new TaskCompletionSource<BrowserResult>();
 
@@ -34,7 +48,10 @@ namespace Auth0.OidcClient
 
             // iOS 13 requires the PresentationContextProvider set
             if (UIDevice.CurrentDevice.CheckSystemVersion(13, 0))
+            {
                 asWebAuthenticationSession.PresentationContextProvider = new PresentationContextProviderToSharedKeyWindow();
+                asWebAuthenticationSession.PrefersEphemeralWebBrowserSession = sessionOptions != null ? sessionOptions.PrefersEphemeralWebBrowserSession : false;
+            }
 
             asWebAuthenticationSession.Start();
 

@@ -50,6 +50,7 @@
     <Compile Include="IOSBrowserBase.cs" />
     <Compile Include="Auth0Client.cs" />
     <Compile Include="ASWebAuthenticationSessionBrowser.cs" />
+    <Compile Include="ASWebAuthenticationSessionOptions.cs" />
     <Compile Include="SFAuthenticationSessionBrowser.cs" />
     <Compile Include="SFSafariViewControllerBrowser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
