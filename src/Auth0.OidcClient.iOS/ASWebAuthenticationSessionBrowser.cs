@@ -21,6 +21,23 @@ namespace Auth0.OidcClient
         /// Creates a new instance of the ASWebAuthenticationSession Browser.
         /// </summary>
         /// <param name="sessionOptions">The <see cref="ASWebAuthenticationSessionOptions"/> specifying the configuration for the ASWebAuthenticationSession.</param>
+        /// <example>
+        /// If any custom browser configuration is needed (e.g. using <see cref="ASWebAuthenticationSessionOptions.PrefersEphemeralWebBrowserSession"/>), 
+        /// a new browser instance should be instantiated and passed to <see cref="Auth0ClientOptions.Browser"/>.
+        /// <code>
+        /// var client = new Auth0Client(new Auth0ClientOptions
+        /// {
+        ///   Domain = "YOUR_AUTH0_DOMAIN",
+        ///   ClientId = "YOUR_AUTH0_CLIENT_ID",
+        ///   Browser = new ASWebAuthenticationSessionBrowser(
+        ///     new ASWebAuthenticationSessionOptions
+        ///     {
+        ///       PrefersEphemeralWebBrowserSession = true
+        ///     }
+        ///   )
+        /// });
+        /// </code>
+        /// </example>
         public ASWebAuthenticationSessionBrowser(ASWebAuthenticationSessionOptions sessionOptions = null)
         {
             SessionOptions = sessionOptions;

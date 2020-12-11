@@ -6,7 +6,7 @@
     public class ASWebAuthenticationSessionOptions
     {
         /// <summary>
-        /// Specify whether or not EphemeralWebBrowserSessions should be preferred.
+        /// Specify whether or not EphemeralWebBrowserSessions should be preferred. Defaults to false.
         /// </summary>
         public bool PrefersEphemeralWebBrowserSession { get; set; }
     }
