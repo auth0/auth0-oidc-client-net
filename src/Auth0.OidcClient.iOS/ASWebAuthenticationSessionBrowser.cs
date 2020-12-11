@@ -63,10 +63,11 @@ namespace Auth0.OidcClient
                     asWebAuthenticationSession.Dispose();
                 });
 
-            // iOS 13 requires the PresentationContextProvider set
             if (UIDevice.CurrentDevice.CheckSystemVersion(13, 0))
             {
+                // iOS 13 requires the PresentationContextProvider set
                 asWebAuthenticationSession.PresentationContextProvider = new PresentationContextProviderToSharedKeyWindow();
+                // PrefersEphemeralWebBrowserSession is only available on iOS 13 and up.
                 asWebAuthenticationSession.PrefersEphemeralWebBrowserSession = sessionOptions != null ? sessionOptions.PrefersEphemeralWebBrowserSession : false;
             }
 
