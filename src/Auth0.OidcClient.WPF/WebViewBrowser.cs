@@ -52,7 +52,7 @@ namespace Auth0.OidcClient
             var webView = new WebViewCompatible();
             window.Content = webView;
 
-            webView.NavigationCompleted += (sender, e) =>
+            webView.NavigationStarting += (sender, e) =>
             {
                 if (e.Uri.AbsoluteUri.StartsWith(options.EndUrl))
                 {
