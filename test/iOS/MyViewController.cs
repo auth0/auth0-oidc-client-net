@@ -22,8 +22,13 @@ namespace iOSTestApp
             _auth0Client = new Auth0Client(new Auth0ClientOptions
             {
                 Domain = "auth0-dotnet-integration-tests.auth0.com",
-                ClientId = "qmss9A66stPWTOXjR6X1OeA0DLadoNP2"
-            });
+                ClientId = "qmss9A66stPWTOXjR6X1OeA0DLadoNP2",
+                // Optional.
+                // The SDK will determine which browser to use when omitted.
+                // In case you need to specify custom browser configuration,
+                // you should create a new Browser instance and provide it with the corresponding options.
+                Browser = new ASWebAuthenticationSessionBrowser(new ASWebAuthenticationSessionOptions { PrefersEphemeralWebBrowserSession = false })
+            }) ;
 
             LoginButton.Clicked += Login;
             UserInfoButton.Clicked += UserInfo;
