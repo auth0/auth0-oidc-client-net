@@ -14,7 +14,8 @@
           "cwd": "../src"
         }
       ],
-      "dest": "api"
+      "dest": "api",
+      "filter": "filter.yml"
     }
   ],
   "build": {
