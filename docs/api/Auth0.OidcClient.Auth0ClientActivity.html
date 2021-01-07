@@ -103,15 +103,6 @@ to facilitate communication with the Browser implementations.</p>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
-      <span class="xref">Android.App.Activity.FindViewById&lt;T&gt;(System.Int32)</span>
-    </div>
-    <div>
-      <span class="xref">Android.App.Activity.StartActivityForResult(System.Type, System.Int32)</span>
-    </div>
-    <div>
-      <span class="xref">Android.App.Activity.RunOnUiThread(System.Action)</span>
-    </div>
-    <div>
       <span class="xref">Android.App.Activity.AddContentView(Android.Views.View, Android.Views.ViewGroup.LayoutParams)</span>
     </div>
     <div>
@@ -502,6 +493,9 @@ to facilitate communication with the Browser implementations.</p>
       <span class="xref">Android.App.Activity.RequestWindowFeature(Android.Views.WindowFeatures)</span>
     </div>
     <div>
+      <span class="xref">Android.App.Activity.RequireViewById(System.Int32)</span>
+    </div>
+    <div>
       <span class="xref">Android.App.Activity.RunOnUiThread(Java.Lang.IRunnable)</span>
     </div>
     <div>
@@ -568,10 +562,16 @@ to facilitate communication with the Browser implementations.</p>
       <span class="xref">Android.App.Activity.SetSecondaryProgress(System.Int32)</span>
     </div>
     <div>
+      <span class="xref">Android.App.Activity.SetShowWhenLocked(System.Boolean)</span>
+    </div>
+    <div>
       <span class="xref">Android.App.Activity.SetTaskDescription(Android.App.ActivityManager.TaskDescription)</span>
     </div>
     <div>
       <span class="xref">Android.App.Activity.SetTitle(System.Int32)</span>
+    </div>
+    <div>
+      <span class="xref">Android.App.Activity.SetTurnScreenOn(System.Boolean)</span>
     </div>
     <div>
       <span class="xref">Android.App.Activity.SetVisible(System.Boolean)</span>
@@ -677,6 +677,15 @@ to facilitate communication with the Browser implementations.</p>
     </div>
     <div>
       <span class="xref">Android.App.Activity.UnregisterForContextMenu(Android.Views.View)</span>
+    </div>
+    <div>
+      <span class="xref">Android.App.Activity.FindViewById&lt;T&gt;(System.Int32)</span>
+    </div>
+    <div>
+      <span class="xref">Android.App.Activity.StartActivityForResult(System.Type, System.Int32)</span>
+    </div>
+    <div>
+      <span class="xref">Android.App.Activity.RunOnUiThread(System.Action)</span>
     </div>
     <div>
       <span class="xref">Android.App.Activity.FocusedStateSet</span>
@@ -1195,6 +1204,9 @@ to facilitate communication with the Browser implementations.</p>
       <span class="xref">Android.Content.Context.ConsumerIrService</span>
     </div>
     <div>
+      <span class="xref">Android.Content.Context.CrossProfileAppsService</span>
+    </div>
+    <div>
       <span class="xref">Android.Content.Context.DevicePolicyService</span>
     </div>
     <div>
@@ -1207,6 +1219,9 @@ to facilitate communication with the Browser implementations.</p>
       <span class="xref">Android.Content.Context.DropboxService</span>
     </div>
     <div>
+      <span class="xref">Android.Content.Context.EuiccService</span>
+    </div>
+    <div>
       <span class="xref">Android.Content.Context.FingerprintService</span>
     </div>
     <div>
@@ -1217,6 +1232,9 @@ to facilitate communication with the Browser implementations.</p>
     </div>
     <div>
       <span class="xref">Android.Content.Context.InputService</span>
+    </div>
+    <div>
+      <span class="xref">Android.Content.Context.IpsecService</span>
     </div>
     <div>
       <span class="xref">Android.Content.Context.JobSchedulerService</span>
@@ -1330,13 +1348,13 @@ to facilitate communication with the Browser implementations.</p>
       <span class="xref">Android.Content.Context.WifiP2pService</span>
     </div>
     <div>
+      <span class="xref">Android.Content.Context.WifiRttRangingService</span>
+    </div>
+    <div>
       <span class="xref">Android.Content.Context.WifiService</span>
     </div>
     <div>
       <span class="xref">Android.Content.Context.WindowService</span>
-    </div>
-    <div>
-      <span class="xref">Android.Content.Context.StartActivity(System.Type)</span>
     </div>
     <div>
       <span class="xref">Android.Content.Context.GetColor(System.Int32)</span>
@@ -1381,7 +1399,43 @@ to facilitate communication with the Browser implementations.</p>
       <span class="xref">Android.Content.Context.UnregisterComponentCallbacks(Android.Content.IComponentCallbacks)</span>
     </div>
     <div>
+      <span class="xref">Android.Content.Context.StartActivity(System.Type)</span>
+    </div>
+    <div>
       <span class="xref">Android.Content.Context.IsRestricted</span>
+    </div>
+    <div>
+      <span class="xref">Android.Content.Context.MainExecutor</span>
+    </div>
+    <div>
+      <span class="xref">Java.Lang.Object.Clone()</span>
+    </div>
+    <div>
+      <span class="xref">Java.Lang.Object.Equals(Java.Lang.Object)</span>
+    </div>
+    <div>
+      <span class="xref">Java.Lang.Object.JavaFinalize()</span>
+    </div>
+    <div>
+      <span class="xref">Java.Lang.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">Java.Lang.Object.Notify()</span>
+    </div>
+    <div>
+      <span class="xref">Java.Lang.Object.NotifyAll()</span>
+    </div>
+    <div>
+      <span class="xref">Java.Lang.Object.ToString()</span>
+    </div>
+    <div>
+      <span class="xref">Java.Lang.Object.Wait()</span>
+    </div>
+    <div>
+      <span class="xref">Java.Lang.Object.Wait(System.Int64)</span>
+    </div>
+    <div>
+      <span class="xref">Java.Lang.Object.Wait(System.Int64, System.Int32)</span>
     </div>
     <div>
       <span class="xref">Java.Lang.Object.Java.Interop.IJavaPeerable.DisposeUnlessReferenced()</span>
@@ -1426,34 +1480,7 @@ to facilitate communication with the Browser implementations.</p>
       <span class="xref">Java.Lang.Object.FromArray&lt;T&gt;(T[])</span>
     </div>
     <div>
-      <span class="xref">Java.Lang.Object.Clone()</span>
-    </div>
-    <div>
-      <span class="xref">Java.Lang.Object.Equals(Java.Lang.Object)</span>
-    </div>
-    <div>
-      <span class="xref">Java.Lang.Object.JavaFinalize()</span>
-    </div>
-    <div>
-      <span class="xref">Java.Lang.Object.GetHashCode()</span>
-    </div>
-    <div>
-      <span class="xref">Java.Lang.Object.Notify()</span>
-    </div>
-    <div>
-      <span class="xref">Java.Lang.Object.NotifyAll()</span>
-    </div>
-    <div>
-      <span class="xref">Java.Lang.Object.ToString()</span>
-    </div>
-    <div>
-      <span class="xref">Java.Lang.Object.Wait()</span>
-    </div>
-    <div>
-      <span class="xref">Java.Lang.Object.Wait(System.Int64)</span>
-    </div>
-    <div>
-      <span class="xref">Java.Lang.Object.Wait(System.Int64, System.Int32)</span>
+      <span class="xref">Java.Lang.Object.Class</span>
     </div>
     <div>
       <span class="xref">Java.Lang.Object.JniIdentityHashCode</span>
@@ -1466,9 +1493,6 @@ to facilitate communication with the Browser implementations.</p>
     </div>
     <div>
       <span class="xref">Java.Lang.Object.Java.Interop.IJavaPeerable.JniManagedPeerState</span>
-    </div>
-    <div>
-      <span class="xref">Java.Lang.Object.Class</span>
     </div>
     <div>
       <span class="xref">System.Object.Equals(System.Object)</span>
@@ -1496,10 +1520,10 @@ to facilitate communication with the Browser implementations.</p>
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com//auth0/auth0-oidc-client-net/new/master/apiSpec/new?filename=Auth0_OidcClient_Auth0ClientActivity_OnNewIntent_Android_Content_Intent_.md&amp;value=---%0Auid%3A%20Auth0.OidcClient.Auth0ClientActivity.OnNewIntent(Android.Content.Intent)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/auth0/auth0-oidc-client-net/new/master/apiSpec/new?filename=Auth0_OidcClient_Auth0ClientActivity_OnNewIntent_Android_Content_Intent_.md&amp;value=---%0Auid%3A%20Auth0.OidcClient.Auth0ClientActivity.OnNewIntent(Android.Content.Intent)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com//auth0/auth0-oidc-client-net/blob/master/src/Auth0.OidcClient.Android/Auth0ClientActivity.cs/#L27">View Source</a>
+    <a href="https://github.com/auth0/auth0-oidc-client-net/blob/master/src/Auth0.OidcClient.Android/Auth0ClientActivity.cs/#L27">View Source</a>
   </span>
   <a id="Auth0_OidcClient_Auth0ClientActivity_OnNewIntent_" data-uid="Auth0.OidcClient.Auth0ClientActivity.OnNewIntent*"></a>
   <h4 id="Auth0_OidcClient_Auth0ClientActivity_OnNewIntent_Android_Content_Intent_" data-uid="Auth0.OidcClient.Auth0ClientActivity.OnNewIntent(Android.Content.Intent)">OnNewIntent(Intent)</h4>
@@ -1532,10 +1556,10 @@ to facilitate communication with the Browser implementations.</p>
   <div><span class="xref">Android.App.Activity.OnNewIntent(Android.Content.Intent)</span></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com//auth0/auth0-oidc-client-net/new/master/apiSpec/new?filename=Auth0_OidcClient_Auth0ClientActivity_OnResume.md&amp;value=---%0Auid%3A%20Auth0.OidcClient.Auth0ClientActivity.OnResume%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/auth0/auth0-oidc-client-net/new/master/apiSpec/new?filename=Auth0_OidcClient_Auth0ClientActivity_OnResume.md&amp;value=---%0Auid%3A%20Auth0.OidcClient.Auth0ClientActivity.OnResume%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com//auth0/auth0-oidc-client-net/blob/master/src/Auth0.OidcClient.Android/Auth0ClientActivity.cs/#L17">View Source</a>
+    <a href="https://github.com/auth0/auth0-oidc-client-net/blob/master/src/Auth0.OidcClient.Android/Auth0ClientActivity.cs/#L17">View Source</a>
   </span>
   <a id="Auth0_OidcClient_Auth0ClientActivity_OnResume_" data-uid="Auth0.OidcClient.Auth0ClientActivity.OnResume*"></a>
   <h4 id="Auth0_OidcClient_Auth0ClientActivity_OnResume" data-uid="Auth0.OidcClient.Auth0ClientActivity.OnResume">OnResume()</h4>
@@ -1588,10 +1612,10 @@ to facilitate communication with the Browser implementations.</p>
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com//auth0/auth0-oidc-client-net/new/master/apiSpec/new?filename=Auth0_OidcClient_Auth0ClientActivity.md&amp;value=---%0Auid%3A%20Auth0.OidcClient.Auth0ClientActivity%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/auth0/auth0-oidc-client-net/new/master/apiSpec/new?filename=Auth0_OidcClient_Auth0ClientActivity.md&amp;value=---%0Auid%3A%20Auth0.OidcClient.Auth0ClientActivity%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com//auth0/auth0-oidc-client-net/blob/master/src/Auth0.OidcClient.Android/Auth0ClientActivity.cs/#L11" class="contribution-link">View Source</a>
+                    <a href="https://github.com/auth0/auth0-oidc-client-net/blob/master/src/Auth0.OidcClient.Android/Auth0ClientActivity.cs/#L11" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

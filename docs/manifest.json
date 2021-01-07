@@ -1,6 +1,6 @@
 {
   "homepages": [],
-  "source_base_path": "D:/auth0/auth0-oidc-client-net/docs-source",
+  "source_base_path": "C:/Development/Auth0/auth0-oidc-client-net/docs-source",
   "xrefmap": "xrefmap.yml",
   "files": [
     {
@@ -9,7 +9,19 @@
       "output": {
         ".html": {
           "relative_path": "api/Auth0.OidcClient.ASWebAuthenticationSessionBrowser.html",
-          "hash": "2TYCaibIV2UuEAP3CfX0YA=="
+          "hash": "vWazDPrmc11jlzaOc4gyWQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Auth0.OidcClient.ASWebAuthenticationSessionOptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Auth0.OidcClient.ASWebAuthenticationSessionOptions.html",
+          "hash": "BnPjz1ZwtpuCBQECGNvC3w=="
         }
       },
       "is_incremental": false,
@@ -21,7 +33,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Auth0.OidcClient.ActivityMediator.MessageReceivedEventHandler.html",
-          "hash": "2zy02DH3LQJxRw0zqcxLyw=="
+          "hash": "WNj9JqIhV23rj2o1hRnlWw=="
         }
       },
       "is_incremental": false,
@@ -33,7 +45,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Auth0.OidcClient.ActivityMediator.html",
-          "hash": "OqUq9RbghWJUyqAEg7/A2Q=="
+          "hash": "sdT8qPbLgJSByOAFeEmvWQ=="
         }
       },
       "is_incremental": false,
@@ -45,7 +57,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Auth0.OidcClient.AndroidBrowserBase.html",
-          "hash": "LD3C16B3toLRfrA6DgKb1Q=="
+          "hash": "DdJ4QDy4XFifHQLy7E+afg=="
         }
       },
       "is_incremental": false,
@@ -57,7 +69,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Auth0.OidcClient.Auth0Client.html",
-          "hash": "eqiT3rllAmUqUp02Vj4qYA=="
+          "hash": "VB3kgWYudLymKXGsEUgwnQ=="
         }
       },
       "is_incremental": false,
@@ -69,7 +81,31 @@
       "output": {
         ".html": {
           "relative_path": "api/Auth0.OidcClient.Auth0ClientActivity.html",
-          "hash": "fM7huUAIlySL1k4LPUdRYg=="
+          "hash": "awKeyLpWq+V6iW/6/g9PtA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Auth0.OidcClient.Auth0ClientBase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Auth0.OidcClient.Auth0ClientBase.html",
+          "hash": "nR6QvSi2ipM8HFh9WUR2RA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Auth0.OidcClient.Auth0ClientOptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Auth0.OidcClient.Auth0ClientOptions.html",
+          "hash": "JNdU8FYqnBHrjv1YRH+lDg=="
         }
       },
       "is_incremental": false,
@@ -81,7 +117,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Auth0.OidcClient.AutoSelectBrowser.html",
-          "hash": "XFvF4KafBzEM0q6L+3POHQ=="
+          "hash": "MJSDqbE8OjM8aig5F3OGXA=="
         }
       },
       "is_incremental": false,
@@ -93,7 +129,19 @@
       "output": {
         ".html": {
           "relative_path": "api/Auth0.OidcClient.ChromeCustomTabsBrowser.html",
-          "hash": "86yJcUdlYNnhYviiqYwHsA=="
+          "hash": "0i1WRXTfCGcLxKj0BYX1HQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Auth0.OidcClient.IAuth0Client.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Auth0.OidcClient.IAuth0Client.html",
+          "hash": "CKlnbjhoJ6u33IWcqDlBmw=="
         }
       },
       "is_incremental": false,
@@ -105,43 +153,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Auth0.OidcClient.IOSBrowserBase.html",
-          "hash": "Qi/H15+d4LY16KYdVF9/2w=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Auth0.OidcClient.Resource.Attribute.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Auth0.OidcClient.Resource.Attribute.html",
-          "hash": "UBL+f7l9xro5eted8GFHmg=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Auth0.OidcClient.Resource.String.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Auth0.OidcClient.Resource.String.html",
-          "hash": "R7k6Fr4jqRTVykp9IhsWDA=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Auth0.OidcClient.Resource.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Auth0.OidcClient.Resource.html",
-          "hash": "aQDdjB7jUGhgAX/Vg25HTg=="
+          "hash": "cASKZFD156iIThdD4ATjiA=="
         }
       },
       "is_incremental": false,
@@ -153,7 +165,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Auth0.OidcClient.SFAuthenticationSessionBrowser.html",
-          "hash": "ZznEv1lx7XS/onN5RFL06Q=="
+          "hash": "a0gv/aQ75cPMp/t7S7P8vA=="
         }
       },
       "is_incremental": false,
@@ -165,7 +177,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Auth0.OidcClient.SFSafariViewControllerBrowser.html",
-          "hash": "U7lALZwAsx02JzhaWeGuGg=="
+          "hash": "EivS0+omhBD9qtTfvKva8A=="
         }
       },
       "is_incremental": false,
@@ -177,7 +189,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Auth0.OidcClient.SystemBrowser.html",
-          "hash": "EGIxIM7iAhSo2CJ0g0u0bA=="
+          "hash": "dnJxO9m+aJ6YIxctfUaDLA=="
         }
       },
       "is_incremental": false,
@@ -185,11 +197,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Auth0.OidcClient.WebBrowserBrowser.yml",
+      "source_relative_path": "api/Auth0.OidcClient.Tokens.IdTokenValidationException.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Auth0.OidcClient.WebBrowserBrowser.html",
-          "hash": "iEikkbLY1IJ2vAqkvJIPow=="
+          "relative_path": "api/Auth0.OidcClient.Tokens.IdTokenValidationException.html",
+          "hash": "PGFlvRm2KEPbcuwoV4r5Dw=="
         }
       },
       "is_incremental": false,
@@ -197,11 +209,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Auth0.OidcClient.WebViewBrowser.yml",
+      "source_relative_path": "api/Auth0.OidcClient.Tokens.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Auth0.OidcClient.WebViewBrowser.html",
-          "hash": "45cXivqRqvrmCE69VDN9CQ=="
+          "relative_path": "api/Auth0.OidcClient.Tokens.html",
+          "hash": "1ItQetxG3PoYb0RZcION/w=="
         }
       },
       "is_incremental": false,
@@ -213,7 +225,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Auth0.OidcClient.html",
-          "hash": "1WYW2Q+RuoMZ2e3USFqOOw=="
+          "hash": "ZK4//LoF/UEnKd4aS4G+mQ=="
         }
       },
       "is_incremental": false,
@@ -225,7 +237,7 @@
       "output": {
         ".html": {
           "relative_path": "api/index.html",
-          "hash": "k5I471hu9wTQRyZScb5zzA=="
+          "hash": "ybDDcSbFDuchfhML4/FHiQ=="
         }
       },
       "is_incremental": false,
@@ -237,7 +249,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "7wlOYUzyoFV1gBsSwkDUgw=="
+          "hash": "k0eh+eU0F9xPAnUeQEh8rw=="
         }
       },
       "is_incremental": false,
@@ -249,7 +261,7 @@
       "output": {
         ".html": {
           "relative_path": "documentation/advanced-scenarios/api-authorization.html",
-          "hash": "itIf8cfoY3mk85EIYEiulQ=="
+          "hash": "O1U9BEXSpdkIXa7f58b/eg=="
         }
       },
       "is_incremental": false,
@@ -261,7 +273,7 @@
       "output": {
         ".html": {
           "relative_path": "documentation/advanced-scenarios/refresh-tokens.html",
-          "hash": "jFzwXhW77MZZ8f8pAvmsog=="
+          "hash": "3gzqn6MoSl5ZrC9+CIgrKQ=="
         }
       },
       "is_incremental": false,
@@ -273,7 +285,7 @@
       "output": {
         ".html": {
           "relative_path": "documentation/advanced-scenarios/scopes.html",
-          "hash": "M8NHRAsg8FYlM3ErqaYcPA=="
+          "hash": "1o1pJk00GNLxtvj6eZAUCg=="
         }
       },
       "is_incremental": false,
@@ -285,7 +297,7 @@
       "output": {
         ".html": {
           "relative_path": "documentation/getting-started/authentication.html",
-          "hash": "HbnoAblH4HKl/a9YnDD/rA=="
+          "hash": "WNhJC/KL5bVsklbdDLnWXg=="
         }
       },
       "is_incremental": false,
@@ -297,7 +309,7 @@
       "output": {
         ".html": {
           "relative_path": "documentation/getting-started/callbacks.html",
-          "hash": "fP+tpFbM3myslvCg/Zojsw=="
+          "hash": "pbI6lltSdvLZNKnb/BNNqA=="
         }
       },
       "is_incremental": false,
@@ -309,7 +321,7 @@
       "output": {
         ".html": {
           "relative_path": "documentation/getting-started/installation.html",
-          "hash": "c8LaoBjMABMIiYMc824Beg=="
+          "hash": "NZQB0pM0Bo9zOstqaMAMjw=="
         }
       },
       "is_incremental": false,
@@ -321,7 +333,7 @@
       "output": {
         ".html": {
           "relative_path": "documentation/intro.html",
-          "hash": "iV/3/yPp4CPmX1vZ5X3uBg=="
+          "hash": "0zi3v6XPIhh76LExFvvimA=="
         }
       },
       "is_incremental": false,
@@ -333,7 +345,7 @@
       "output": {
         ".html": {
           "relative_path": "documentation/migration/v2.html",
-          "hash": "RYWvL5OJD+JXqbCwIj34dQ=="
+          "hash": "+MV8bZfei5BC/4ozlyRQCQ=="
         }
       },
       "is_incremental": false,
@@ -345,7 +357,7 @@
       "output": {
         ".html": {
           "relative_path": "documentation/migration/v3.html",
-          "hash": "RsDhh3Cct+5HkgR+2uhYCQ=="
+          "hash": "pBvTIOMfcw6a5hgh2jWT+g=="
         }
       },
       "is_incremental": false,
@@ -357,7 +369,7 @@
       "output": {
         ".html": {
           "relative_path": "documentation/samples.html",
-          "hash": "oIXTJLBKM1HL75K4h7mD9w=="
+          "hash": "evtSF6rmC0UuR4BDxYGoFw=="
         }
       },
       "is_incremental": false,
@@ -392,7 +404,7 @@
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "0nS230G0nu3hE6HX7vM1Hg=="
+          "hash": "9LCKPqBYbER8vQmA5AcCtw=="
         }
       },
       "is_incremental": false,
@@ -415,11 +427,11 @@
     {
       "status": {
         "can_incremental": false,
-        "details": "Cannot build incrementally because config changed.",
+        "details": "Cannot build incrementally because docfx version changed from 2.56.4.0 to 2.45.1.0.",
         "incrementalPhase": "build",
         "total_file_count": 0,
         "skipped_file_count": 0,
-        "full_build_reason_code": "ConfigChanged"
+        "full_build_reason_code": "DocfxVersionChanged"
       },
       "processors": {
         "TocDocumentProcessor": {
@@ -445,7 +457,7 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 19,
+          "total_file_count": 20,
           "skipped_file_count": 0
         }
       }
