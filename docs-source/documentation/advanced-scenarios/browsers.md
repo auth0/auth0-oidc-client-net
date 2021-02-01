@@ -47,4 +47,4 @@ var client = new Auth0Client(new Auth0ClientOptions {
 });
 ```
 
-The SDK will automatically call the Browser's Launch method and use the result that's being set as part of `tcs.SetResult()`.
+The SDK will automatically call `Browser.Launch()` and use the result that's being set as part of `tcs.SetResult()`.
