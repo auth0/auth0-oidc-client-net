@@ -269,6 +269,18 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "documentation/advanced-scenarios/browsers.md",
+      "output": {
+        ".html": {
+          "relative_path": "documentation/advanced-scenarios/browsers.html",
+          "hash": "3UHGzFmTkO3YFfD+Rg4acg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "documentation/advanced-scenarios/refresh-tokens.md",
       "output": {
         ".html": {
