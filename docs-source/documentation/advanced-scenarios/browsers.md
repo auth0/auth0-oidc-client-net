@@ -3,7 +3,7 @@
 The SDK is configured to use a platform-specific browser implementation to handle the redirect to Auth0. Depending on the platform, one or more browser implementations might be available.
 An example is the `Auth0.OidcClient.iOS` SDK, which auto-selects the browser based on the version of iOS used.
 
-Even though we do not recommend changing this, you could ensure all versions of iOS use the same browser by passing an explicit browser instance to the `Browser` property of the `Auth0ClientOptions`:
+Even though the use-cases are limited, as our SDK is configured to auto-select the browser based on the verion of iOS being used, you could ensure all versions of iOS use the same browser by passing an explicit `Browser` instance to the `Browser` property of the `Auth0ClientOptions`:
 
 ```
 var client = new Auth0Client(new Auth0ClientOptions {
