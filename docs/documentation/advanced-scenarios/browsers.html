@@ -1,0 +1,145 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Browsers </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Browsers ">
+    <meta name="generator" content="docfx 2.45.1.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="browsers">Browsers</h1>
+
+<p>The SDK is configured to use a platform-specific browser implementation to handle the redirect to Auth0. Depending on the platform, one or more browser implementations might be available.
+An example is the <code>Auth0.OidcClient.iOS</code> SDK, which auto-selects the browser based on the version of iOS used.</p>
+<p>Even though the use-cases are limited, as our SDK is configured to auto-select the browser based on the verion of iOS being used, you could ensure all versions of iOS use the same browser by passing an explicit <code>Browser</code> instance to the <code>Browser</code> property of the <code>Auth0ClientOptions</code>:</p>
+<pre><code>var client = new Auth0Client(new Auth0ClientOptions {
+    Domain = &quot;YOUR_AUTH0_DOMAIN&quot;,
+    ClientId = &quot;YOUR_AUTH0_CLIENT_ID&quot;,
+    Browser = new SFSafariViewControllerBrowser()
+});
+</code></pre><p>In case the default implementations that each SDK provides does not suit the needs for your application, each SDK allows you to specify your own custom browser implementation by implementing the <code>IBrowser</code> interface.</p>
+<pre><code>public class CustomBrowser : IBrowser
+{
+    protected override Task&lt;BrowserResult&gt; Launch(
+        BrowserOptions options,
+        CancellationToken cancellationToken = default
+    )  {
+        var tcs = new TaskCompletionSource&lt;BrowserResult&gt;();
+
+        // Implement custom browser and navigate to options.StartUrl.
+        // Set the BrowserResult with the callbackUrl that Auth0 redirects back to,
+        // this URL is the URL that contains state and code query parameters.
+        tcs.SetResult(new BrowserResult {
+            ResultType = BrowserResultType.Success,
+            Response = callbackUrl
+        });
+
+        return tcs.Task;
+    }
+}
+</code></pre><p>With the <code>CustomBrowser</code> implementation in place, instantiate <code>Auth0Client</code> with the appropriate <code>Auth0ClientOptions</code>:</p>
+<pre><code>var client = new Auth0Client(new Auth0ClientOptions {
+    Domain = &quot;YOUR_AUTH0_DOMAIN&quot;,
+    ClientId = &quot;YOUR_AUTH0_CLIENT_ID&quot;,
+    Browser = new CustomBrowser()
+});
+</code></pre><p>The SDK will automatically call <code>Browser.Launch()</code> and use the result that&#39;s being set as part of <code>tcs.SetResult()</code>.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/auth0/auth0-oidc-client-net/blob/master/docs-source/documentation/advanced-scenarios/browsers.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright 2017-2019, Auth0 Inc.
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>
