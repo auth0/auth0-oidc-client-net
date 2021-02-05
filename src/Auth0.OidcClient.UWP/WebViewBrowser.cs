@@ -56,12 +56,6 @@ namespace Auth0.OidcClient
                 }
             };
 
-            webView.NavigationFailed += (sender, e) =>
-            {
-                tcs.SetResult(new BrowserResult { ResultType = BrowserResultType.UnknownError, Error = e.WebErrorStatus.ToString() });
-                window.Close();
-            };
-
             // There is no closed event so the best we can do is detect visibility. This means we close when they minimize too.
             window.VisibilityChanged += (sender, e) =>
             {
