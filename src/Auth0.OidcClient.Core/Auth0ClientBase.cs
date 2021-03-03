@@ -59,7 +59,14 @@ namespace Auth0.OidcClient
             var result = await OidcClient.LoginAsync(loginRequest, cancellationToken);
 
             if (!result.IsError)
+            {
+                if (finalExtraParameters.ContainsKey("organization"))
+                {
+                    _idTokenRequirements.Organization = finalExtraParameters["organization"];
+                }
+
                 await IdTokenValidator.AssertTokenMeetsRequirements(_idTokenRequirements, result.IdentityToken); // Nonce is created & tested by OidcClient
+            }
 
             return result;
         }
@@ -104,10 +111,18 @@ namespace Auth0.OidcClient
         /// <inheritdoc/>
         public async Task<RefreshTokenResult> RefreshTokenAsync(string refreshToken, object extraParameters = null, CancellationToken cancellationToken = default)
         {
-            var result = await OidcClient.RefreshTokenAsync(refreshToken, AppendTelemetry(extraParameters), cancellationToken);
+            var finalExtraParameters = AppendTelemetry(extraParameters);
+            var result = await OidcClient.RefreshTokenAsync(refreshToken, finalExtraParameters, cancellationToken);
 
             if (!result.IsError)
+            {
+                if (finalExtraParameters.ContainsKey("Organization"))
+                {
+                    _idTokenRequirements.Organization = finalExtraParameters["Organization"];
+                }
+
                 await IdTokenValidator.AssertTokenMeetsRequirements(_idTokenRequirements, result.IdentityToken); // Nonce is created & tested by OidcClient
+            }
 
             return result;
         }

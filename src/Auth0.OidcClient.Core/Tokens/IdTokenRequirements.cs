@@ -34,6 +34,11 @@ namespace Auth0.OidcClient.Tokens
         public TimeSpan Leeway;
 
         /// <summary>
+        /// Required organization the token must be for.
+        /// </summary>
+        public string Organization;
+
+        /// <summary>
         /// Create a new instance of <see cref="IdTokenRequirements"/> with specified parameters.
         /// </summary>
         /// <param name="issuer">Required issuer (iss) the token must be from.</param>
@@ -41,12 +46,13 @@ namespace Auth0.OidcClient.Tokens
         /// <param name="leeway">Amount of leeway in validating date and time claims to allow some clock variance
         /// between the issuer and the application.</param>
         /// <param name="maxAge">Optional maximum time since the user last authenticated.</param>
-        public IdTokenRequirements(string issuer, string audience, TimeSpan leeway, TimeSpan ? maxAge = null)
+        public IdTokenRequirements(string issuer, string audience, TimeSpan leeway, TimeSpan ? maxAge = null, string organization = null)
         {
             Issuer = issuer;
             Audience = audience;
             Leeway = leeway;
             MaxAge = maxAge;
+            Organization = organization;
         }
     }
 }
