@@ -133,7 +133,7 @@ namespace Auth0.OidcClient.Tokens
             }
 
             // Organization
-            if (required.Organization != null)
+            if (!string.IsNullOrWhiteSpace(required.Organization))
             {
                 var organization = GetClaimValue(token.Claims, Auth0ClaimNames.Organization);
                 if (string.IsNullOrWhiteSpace(organization))
