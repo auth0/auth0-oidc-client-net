@@ -244,5 +244,55 @@ namespace Auth0.OidcClient.Core.UnitTests.Tokens
             var ex = await Assert.ThrowsAsync<IdTokenValidationException>(() => ValidateToken(token));
             Assert.Equal("Authentication Time (auth_time) claim in the ID token indicates that too much time has passed since the last end-user authentication. Current time (1568023200) is after last auth at 1568008254.", ex.Message);
         }
+
+        [Fact]
+        public async void ThrowsWhenOrgIdMissing()
+        {
+            var token = "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3Rva2Vucy10ZXN0LmF1dGgwLmNvbS8iLCJhdWQiOiJ0b2tlbnMtdGVzdC0xMjMiLCJzdWIiOiJhdXRoMHwxMjM0NTY3ODkiLCJleHAiOjE1NjgxODA4OTQuMjI0LCJpYXQiOjE1NjgwMDgwOTQuMjI0LCJub25jZSI6ImExYjJjM2Q0ZTUiLCJhenAiOiJ0b2tlbnMtdGVzdC0xMjMiLCJhdXRoX3RpbWUiOjE1NjgwOTQ0OTQuMjI0fQ.GXXSBhSUQX8EpWbjAzeL42c-5u76JMUq6clhA_yG9WY";
+
+            var ex = await Assert.ThrowsAsync<IdTokenValidationException>(() => ValidateToken(token, new IdTokenRequirements("https://tokens-test.auth0.com/", "tokens-test-123", TimeSpan.FromMinutes(1))
+            {
+                Nonce = "a1b2c3d4e5",
+                MaxAge = TimeSpan.FromSeconds(100),
+                Organization = "123"
+            }));
+            Assert.Equal("Organization claim must be a string present in the ID token.", ex.Message);
+        }
+
+        [Fact]
+        public async void DoesNotThrowWhenOrgIdAvailable()
+        {
+            var token = "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3Rva2Vucy10ZXN0LmF1dGgwLmNvbS8iLCJhdWQiOiJ0b2tlbnMtdGVzdC0xMjMiLCJzdWIiOiJhdXRoMHwxMjM0NTY3ODkiLCJleHAiOjE1NjgxODA4OTQuMjI0LCJpYXQiOjE1NjgwMDgwOTQuMjI0LCJub25jZSI6ImExYjJjM2Q0ZTUiLCJhenAiOiJ0b2tlbnMtdGVzdC0xMjMiLCJhdXRoX3RpbWUiOjE1NjgwOTQ0OTQuMjI0LCJvcmdfaWQiOiIxMjMifQ.AsGzG0MWXzd4v-XmIN_7Elgd527jOARv7ChDECH9qUw";
+
+            await ValidateToken(token, new IdTokenRequirements("https://tokens-test.auth0.com/", "tokens-test-123", TimeSpan.FromMinutes(1))
+            {
+                Nonce = "a1b2c3d4e5",
+                MaxAge = TimeSpan.FromSeconds(100),
+                Organization = "123"
+            });
+        }
+
+        [Fact]
+        public async void ThrowsWhenOrgIdAvailableButDoesntMatch()
+        {
+            var token = "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3Rva2Vucy10ZXN0LmF1dGgwLmNvbS8iLCJhdWQiOiJ0b2tlbnMtdGVzdC0xMjMiLCJzdWIiOiJhdXRoMHwxMjM0NTY3ODkiLCJleHAiOjE1NjgxODA4OTQuMjI0LCJpYXQiOjE1NjgwMDgwOTQuMjI0LCJub25jZSI6ImExYjJjM2Q0ZTUiLCJhenAiOiJ0b2tlbnMtdGVzdC0xMjMiLCJhdXRoX3RpbWUiOjE1NjgwOTQ0OTQuMjI0LCJvcmdfaWQiOiIxMjMifQ.AsGzG0MWXzd4v-XmIN_7Elgd527jOARv7ChDECH9qUw";
+
+            var ex = await Assert.ThrowsAsync<IdTokenValidationException>(() => ValidateToken(token, new IdTokenRequirements("https://tokens-test.auth0.com/", "tokens-test-123", TimeSpan.FromMinutes(1))
+            {
+                Nonce = "a1b2c3d4e5",
+                MaxAge = TimeSpan.FromSeconds(100),
+                Organization = "1234"
+            }));
+
+            Assert.Equal($"Organization claim mismatch in the ID token; expected \"1234\", found \"123\".", ex.Message);
+        }
+
+        [Fact]
+        public async void DoesNotThrowWhenOrgIdAvailableButNotARequirement()
+        {
+            var token = "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3Rva2Vucy10ZXN0LmF1dGgwLmNvbS8iLCJhdWQiOiJ0b2tlbnMtdGVzdC0xMjMiLCJzdWIiOiJhdXRoMHwxMjM0NTY3ODkiLCJleHAiOjE1NjgxODA4OTQuMjI0LCJpYXQiOjE1NjgwMDgwOTQuMjI0LCJub25jZSI6ImExYjJjM2Q0ZTUiLCJhenAiOiJ0b2tlbnMtdGVzdC0xMjMiLCJhdXRoX3RpbWUiOjE1NjgwOTQ0OTQuMjI0LCJvcmdfaWQiOiIxMjMifQ.AsGzG0MWXzd4v-XmIN_7Elgd527jOARv7ChDECH9qUw";
+
+            await ValidateToken(token);
+        }
     }
 }

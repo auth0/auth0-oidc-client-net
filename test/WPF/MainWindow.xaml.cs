@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Windows;
 using Auth0.OidcClient;
 
@@ -29,7 +29,7 @@ namespace WpfTestApp
             clearText();
             writeLine("Starting login...");
 
-            var loginResult = await _auth0Client.LoginAsync();
+            var loginResult = await _auth0Client.LoginAsync( new { organization = "" });
 
             if (loginResult.IsError)
             {
