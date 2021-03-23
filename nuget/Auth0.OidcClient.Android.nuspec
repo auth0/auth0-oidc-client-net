@@ -3,7 +3,7 @@
 <package>
   <metadata>
     <id>Auth0.OidcClient.Android</id>
-    <version>3.1.3</version>
+    <version>3.2.0</version>
     <authors>Auth0</authors>
     <owners>Auth0</owners>
     <license type="expression">Apache-2.0</license>
@@ -12,6 +12,9 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Auth0 OIDC Client for Xamarin Android apps</description>
     <releaseNotes>
+      Version 3.2.0
+      - Add support for Organizations
+
       Version 3.1.3
       - Sign-in flow no longer cancels when app switching.
         This allows 2FA apps to be successfully used during sign-in.

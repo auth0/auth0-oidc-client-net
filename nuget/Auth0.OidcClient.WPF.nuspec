@@ -3,7 +3,7 @@
 <package>
   <metadata>
     <id>Auth0.OidcClient.WPF</id>
-    <version>3.1.8</version>
+    <version>3.2.0</version>
     <authors>Auth0</authors>
     <owners>Auth0</owners>
     <license type="expression">Apache-2.0</license>
@@ -12,6 +12,9 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Auth0 OIDC Client for WPF apps</description>
     <releaseNotes>
+      Version 3.2.0
+      - Add support for Organizations
+
       Version 3.1.8
       - Ensure WPF web viewer is disposed
 

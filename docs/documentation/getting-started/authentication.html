@@ -211,7 +211,35 @@ if (!loginResult.IsError) {
         Debug.WriteLine($&quot;{claim.Type} = {claim.Value}&quot;);
     }
 }
-</code></pre></article>
+</code></pre><h2 id="organizations-closed-beta">Organizations (Closed Beta)</h2>
+<p>Organizations is a set of features that provide better support for developers who build and maintain SaaS and Business-to-Business (B2B) applications.</p>
+<p>Using Organizations, you can:</p>
+<ul>
+<li><p>Represent teams, business customers, partner companies, or any logical grouping of users that should have different ways of accessing your applications, as organizations.</p>
+</li>
+<li><p>Manage their membership in a variety of ways, including user invitation.</p>
+</li>
+<li><p>Configure branded, federated login flows for each organization.</p>
+</li>
+<li><p>Implement role-based access control, such that users can have different roles when authenticating in the context of different organizations.</p>
+</li>
+<li><p>Build administration capabilities into your products, using Organizations APIs, so that those businesses can manage their own organizations.</p>
+</li>
+</ul>
+<p>Note that Organizations is currently only available to customers on our Enterprise and Startup subscription plans.</p>
+<h3 id="log-in-to-an-organization">Log in to an organization</h3>
+<p>Log in to an organization by specifying the <code>organization</code> parameter when calling <code>LoginAsync</code>:</p>
+<pre><code class="lang-csharp">var loginResult = await client.LoginAsync(new { organization = &quot;YOUR_ORGANIZATION_ID&quot; });
+</code></pre><h2 id="accept-user-invitations">Accept user invitations</h2>
+<p>Accept a user invitation by specifying the <code>invitation</code> parameter when calling <code>LoginAsync</code>:</p>
+<pre><code class="lang-csharp">var loginResult = await client.LoginAsync(new 
+{
+    organization = &quot;YOUR_ORGANIZATION_ID&quot;,
+    invitation = &quot;YOUR_INVITATION_ID&quot; 
+});
+</code></pre><div class="NOTE"><h5>Note</h5><p>The <code>invitation</code> parameter can be extracted from the invitation URL users receive in their invitation email. </p>
+</div>
+</article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
