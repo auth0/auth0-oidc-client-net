@@ -1,4 +1,4 @@
-# Auth0 OIDC Client for .NET
+# Auth0 OIDC Client for .NET - test
 
 [![Build Status](https://dev.azure.com/Auth0SDK/Auth0%20OIDC%20Client.NET/_apis/build/status/auth0.auth0-oidc-client-net?branchName=master)](https://dev.azure.com/Auth0SDK/Auth0%20OIDC%20Client.NET/_build/latest?definitionId=4&branchName=master) [![NuGet version](https://img.shields.io/nuget/v/auth0.oidcclient.core.svg?style=flat)](https://www.nuget.org/packages/Auth0.OidcClient.Core/)
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fauth0%2Fauth0-oidc-client-net.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fauth0%2Fauth0-oidc-client-net?ref=badge_shield)
