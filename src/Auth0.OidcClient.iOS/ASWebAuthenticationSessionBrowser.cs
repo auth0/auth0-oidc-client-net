@@ -56,7 +56,7 @@ namespace Auth0.OidcClient
             ASWebAuthenticationSession asWebAuthenticationSession = null;
             asWebAuthenticationSession = new ASWebAuthenticationSession(
                 new NSUrl(options.StartUrl),
-                options.EndUrl,
+                new NSUrl(options.EndUrl).Scheme,
                 (callbackUrl, error) =>
                 {
                     tcs.SetResult(CreateBrowserResult(callbackUrl, error));
