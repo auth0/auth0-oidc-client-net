@@ -3,7 +3,7 @@
 <package>
   <metadata>
     <id>Auth0.OidcClient.WinForms</id>
-    <version>3.2.0</version>
+    <version>3.2.1</version>
     <authors>Auth0</authors>
     <owners>Auth0</owners>
     <license type="expression">Apache-2.0</license>
@@ -12,6 +12,10 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Auth0 OIDC Client for WinForms apps</description>
     <releaseNotes>
+      Version 3.2.1
+      - Fix System.Text.Encodings.Web vulnerability: https://github.com/dotnet/runtime/issues/49377
+      - Fix System.Text.RegularExpressions vulnerability
+
       Version 3.2.0
       - Add support for Organizations
 
@@ -80,11 +84,11 @@
     <tags>Auth0 OIDC WinForms</tags>
     <dependencies>
       <group targetFramework="net462">
-        <dependency id="Auth0.OidcClient.Core" version="3.2.0" />
+        <dependency id="Auth0.OidcClient.Core" version="3.2.1" />
         <dependency id="Microsoft.Toolkit.Forms.UI.Controls.WebView" version="6.1.1"/>
       </group>
       <group targetFramework="netcoreapp3.1">
-        <dependency id="Auth0.OidcClient.Core" version="3.2.0" />
+        <dependency id="Auth0.OidcClient.Core" version="3.2.1" />
         <dependency id="Microsoft.Toolkit.Forms.UI.Controls.WebView" version="6.1.1"/>
       </group>
     </dependencies>
