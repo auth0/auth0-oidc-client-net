@@ -151,8 +151,7 @@ namespace Auth0.OidcClient
                 ClockSkew = options.Leeway,
 
                 Policy = {
-                    RequireAccessTokenHash = false,
-                    RequireIdentityTokenSignature = false
+                    RequireAccessTokenHash = false
                 }
             };
 
