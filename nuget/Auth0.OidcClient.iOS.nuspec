@@ -3,7 +3,7 @@
 <package>
   <metadata>
     <id>Auth0.OidcClient.iOS</id>
-    <version>3.3.1</version>
+    <version>3.3.2</version>
     <authors>Auth0</authors>
     <owners>Auth0</owners>
     <license type="expression">Apache-2.0</license>
@@ -12,6 +12,9 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Auth0 OIDC Client for Xamarin iOS apps</description>
     <releaseNotes>
+      Version 3.3.2
+      - Update OidcClient to 4.0.0 
+
       Version 3.3.1
       - Fix for XCode 12.5
       - Fix System.Text.Encodings.Web vulnerability: https://github.com/dotnet/runtime/issues/49377
