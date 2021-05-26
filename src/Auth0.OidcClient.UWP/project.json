@@ -1,8 +1,7 @@
 ﻿{
   "dependencies": {
-    "IdentityModel.OidcClient": "3.1.2",
-    "Microsoft.NETCore.UniversalWindowsPlatform": "6.2.9",
-    "System.Text.Encodings.Web": "4.5.1"
+    "IdentityModel.OidcClient": "4.0.0",
+    "Microsoft.NETCore.UniversalWindowsPlatform": "6.2.9"
   },
   "frameworks": {
     "uap10.0.16299": {}

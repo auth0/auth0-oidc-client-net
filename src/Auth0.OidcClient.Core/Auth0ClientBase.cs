@@ -52,7 +52,7 @@ namespace Auth0.OidcClient
             if (_options.MaxAge.HasValue)
                 finalExtraParameters["max_age"] = _options.MaxAge.Value.TotalSeconds.ToString("0");
 
-            var loginRequest = new LoginRequest { FrontChannelExtraParameters = finalExtraParameters };
+            var loginRequest = new LoginRequest { FrontChannelExtraParameters = new Parameters(finalExtraParameters) };
             
             Debug.WriteLine($"Using Callback URL '{OidcClient.Options.RedirectUri}'. Ensure this is an Allowed Callback URL for application/client ID {_options.ClientId}.");
 
@@ -80,7 +80,7 @@ namespace Auth0.OidcClient
             logoutParameters["client_id"] = OidcClient.Options.ClientId;
             logoutParameters["returnTo"] = OidcClient.Options.PostLogoutRedirectUri;
 
-            var endSessionUrl = new RequestUrl($"https://{_options.Domain}/v2/logout").Create(logoutParameters);
+            var endSessionUrl = new RequestUrl($"https://{_options.Domain}/v2/logout").Create(new Parameters(logoutParameters));
             if (federated)
                 endSessionUrl += "&federated";
 
@@ -99,20 +99,20 @@ namespace Auth0.OidcClient
         /// <inheritdoc/>
         public Task<AuthorizeState> PrepareLoginAsync(object extraParameters = null, CancellationToken cancellationToken = default)
         {
-            return OidcClient.PrepareLoginAsync(AppendTelemetry(extraParameters), cancellationToken);
+            return OidcClient.PrepareLoginAsync(new Parameters(AppendTelemetry(extraParameters)), cancellationToken);
         }
 
         /// <inheritdoc/>
         public Task<LoginResult> ProcessResponseAsync(string data, AuthorizeState state, object extraParameters = null, CancellationToken cancellationToken = default)
         {
-            return OidcClient.ProcessResponseAsync(data, state, AppendTelemetry(extraParameters), cancellationToken);
+            return OidcClient.ProcessResponseAsync(data, state, new Parameters(AppendTelemetry(extraParameters)), cancellationToken);
         }
 
         /// <inheritdoc/>
         public async Task<RefreshTokenResult> RefreshTokenAsync(string refreshToken, object extraParameters = null, CancellationToken cancellationToken = default)
         {
             var finalExtraParameters = AppendTelemetry(extraParameters);
-            var result = await OidcClient.RefreshTokenAsync(refreshToken, finalExtraParameters, cancellationToken);
+            var result = await OidcClient.RefreshTokenAsync(refreshToken, new Parameters(finalExtraParameters), cancellationToken);
 
             if (!result.IsError)
             {
@@ -146,14 +146,11 @@ namespace Auth0.OidcClient
                 Scope = String.Join(" ", scopes),
                 LoadProfile = options.LoadProfile,
                 Browser = options.Browser,
-                Flow = AuthenticationFlow.AuthorizationCode,
-                ResponseMode = AuthorizeResponseMode.Redirect,
                 RedirectUri = options.RedirectUri ?? $"https://{_options.Domain}/mobile",
                 PostLogoutRedirectUri = options.PostLogoutRedirectUri ?? $"https://{_options.Domain}/mobile",
                 ClockSkew = options.Leeway,
 
                 Policy = {
-                    RequireAuthorizationCodeHash = false,
                     RequireAccessTokenHash = false
                 }
             };

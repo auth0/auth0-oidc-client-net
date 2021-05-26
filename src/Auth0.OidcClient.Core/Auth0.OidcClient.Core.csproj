@@ -12,10 +12,7 @@
     <AssemblyOriginatorKeyFile>..\..\build\Auth0OidcClientStrongName.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="IdentityModel.OidcClient" Version="3.1.2" />
-    <PackageReference Include="System.Text.Encodings.Web">
-      <Version>4.5.1</Version>
-    </PackageReference>
+    <PackageReference Include="IdentityModel.OidcClient" Version="4.0.0" />
     <PackageReference Include="System.Text.RegularExpressions" Version="4.3.1" />
     <PackageReference Include="Microsoft.IdentityModel.Protocols.OpenIdConnect" Version="5.6.0" />
     </ItemGroup>
