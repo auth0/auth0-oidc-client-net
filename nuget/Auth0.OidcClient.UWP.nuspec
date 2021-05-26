@@ -81,7 +81,7 @@
     <tags>Auth0 OIDC UWP Windows10</tags>
     <dependencies>
       <group targetFramework="uap10.0.16299">
-        <dependency id="Auth0.OidcClient.Core" version="3.2.1" />
+        <dependency id="Auth0.OidcClient.Core" version="3.2.2" />
       </group>
     </dependencies>
   </metadata>

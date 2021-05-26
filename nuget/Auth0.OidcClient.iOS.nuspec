@@ -81,7 +81,7 @@
     <tags>Auth0 OIDC iOS Xamarin</tags>
     <dependencies>
       <group targetFramework="Xamarin.iOS10">
-        <dependency id="Auth0.OidcClient.Core" version="3.2.1" />
+        <dependency id="Auth0.OidcClient.Core" version="3.2.2" />
       </group>
     </dependencies>
   </metadata>

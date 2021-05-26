@@ -99,7 +99,7 @@
     <tags>Auth0 OIDC Android Xamarin</tags>
     <dependencies>
       <group targetFramework="MonoAndroid10">
-        <dependency id="Auth0.OidcClient.Core" version="3.2.1" />
+        <dependency id="Auth0.OidcClient.Core" version="3.2.2" />
       </group>
     </dependencies>
   </metadata>

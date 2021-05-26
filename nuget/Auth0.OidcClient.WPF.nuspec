@@ -97,11 +97,11 @@
     <tags>Auth0 OIDC WPF</tags>
     <dependencies>
       <group targetFramework="net462">
-        <dependency id="Auth0.OidcClient.Core" version="3.2.1" />
+        <dependency id="Auth0.OidcClient.Core" version="3.2.2" />
         <dependency id="Microsoft.Toolkit.Wpf.UI.Controls.WebView" version="6.1.1"/>
       </group>
       <group targetFramework="netcoreapp3.1">
-        <dependency id="Auth0.OidcClient.Core" version="3.2.1" />
+        <dependency id="Auth0.OidcClient.Core" version="3.2.2" />
         <dependency id="Microsoft.Toolkit.Wpf.UI.Controls.WebView" version="6.1.1"/>
       </group>
     </dependencies>
