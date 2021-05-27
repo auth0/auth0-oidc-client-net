@@ -3,7 +3,7 @@
 <package>
   <metadata>
     <id>Auth0.OidcClient.WPF</id>
-    <version>3.2.1</version>
+    <version>3.2.2</version>
     <authors>Auth0</authors>
     <owners>Auth0</owners>
     <license type="expression">Apache-2.0</license>
@@ -12,6 +12,9 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Auth0 OIDC Client for WPF apps</description>
     <releaseNotes>
+      Version 3.2.2
+      - Update OidcClient to 4.0.0 
+
       Version 3.2.1
       - Fix System.Text.Encodings.Web vulnerability: https://github.com/dotnet/runtime/issues/49377
       - Fix System.Text.RegularExpressions vulnerability
@@ -94,11 +97,11 @@
     <tags>Auth0 OIDC WPF</tags>
     <dependencies>
       <group targetFramework="net462">
-        <dependency id="Auth0.OidcClient.Core" version="3.2.1" />
+        <dependency id="Auth0.OidcClient.Core" version="3.2.2" />
         <dependency id="Microsoft.Toolkit.Wpf.UI.Controls.WebView" version="6.1.1"/>
       </group>
       <group targetFramework="netcoreapp3.1">
-        <dependency id="Auth0.OidcClient.Core" version="3.2.1" />
+        <dependency id="Auth0.OidcClient.Core" version="3.2.2" />
         <dependency id="Microsoft.Toolkit.Wpf.UI.Controls.WebView" version="6.1.1"/>
       </group>
     </dependencies>
