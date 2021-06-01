@@ -20,18 +20,32 @@ namespace Auth0.OidcClient
         /// <summary>
         /// Whether this browser should launch a new Android Task.
         /// </summary>
-        protected bool IsNewTask;
+        protected readonly bool IsNewTask;
+
+        /// <summary>
+        /// Whether this browser should close itself when returning to the Android task. Default is <b>false</b>, keeping the browser open in the background when returning to the main application.
+        /// </summary>
+        public bool AutoCloseBrowser { get; set; }
 
         /// <summary>
         /// Default constructor for <see cref="AndroidBrowserBase"/> that provides assignment
         /// of context and IsNewTask when called by subclasses.
         /// </summary>
         /// <param name="context">Optional <see cref="Context"/> to provide on subsequent callbacks.</param>
-        protected AndroidBrowserBase(Context context = null)
+        /// <param name="autoCloseBrowser">Optional parameter to provide the <see cref="Activity"/> to close the browser after use.</param>
+        protected AndroidBrowserBase(Context context = null, bool autoCloseBrowser = false)
         {
             this.context = context;
             IsNewTask = context == null;
+
+            this.AutoCloseBrowser = autoCloseBrowser;
         }
+
+        /// <summary>
+        /// Provide the optional constructor to 1) provide no context and 2) set the <param name="autoCloseBrowser"> property.</param>
+        /// </summary>
+        /// <param name="autoCloseBrowser">Whether to keep the browser window open or to close it after end use.</param>
+        protected AndroidBrowserBase(bool autoCloseBrowser) : this(null, autoCloseBrowser) { }
 
         /// <inheritdoc/>
         public Task<BrowserResult> InvokeAsync(BrowserOptions options, CancellationToken cancellationToken = default)

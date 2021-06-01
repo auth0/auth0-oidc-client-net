@@ -117,6 +117,11 @@ namespace Auth0.OidcClient
         public TimeSpan? MaxAge { get; set; }
 
         /// <summary>
+        /// When returning to the main application, is the browser to be closed automatically (<b>true</b>) or kept open (<b>false</b>).
+        /// </summary>
+        public bool AutoCloseBrowser { get; set; }
+
+        /// <summary>
         /// Create a new instance of the <see cref="Auth0ClientOptions"/> class used to configure options for
         /// <see cref="Auth0ClientBase"/> implementations by way of their constructors.
         /// </summary>

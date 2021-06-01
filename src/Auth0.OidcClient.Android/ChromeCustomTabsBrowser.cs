@@ -29,6 +29,13 @@ namespace Auth0.OidcClient
             {
                 if (IsNewTask)
                     customTabsIntent.Intent.AddFlags(ActivityFlags.NewTask);
+
+                if (AutoCloseBrowser)
+                {
+                    customTabsIntent.Intent.AddFlags(ActivityFlags.NoHistory);
+                    customTabsIntent.Intent.AddFlags(ActivityFlags.ClearTop);
+                }
+
                 customTabsIntent.LaunchUrl(context, uri);
             }
         }
