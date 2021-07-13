@@ -15,10 +15,10 @@ For information on how to use this library, please refer to the relevant Quickst
 
 and also to our [docs for this library](https://auth0.github.io/auth0-oidc-client-net/documentation/intro.html).
 
-The following platforms are supported:
+For a list of supported platforms, please refer to the relevant documentation from Microsoft:
 
-* Xamarin: [Supported Platforms](https://docs.microsoft.com/en-us/xamarin/get-started/supported-platforms)
-* UWP/WPF/WinForms: [Windows 8.1 and Windows 10](https://docs.microsoft.com/en-us/lifecycle/faq/windows)
+* [Xamarin](https://docs.microsoft.com/en-us/xamarin/get-started/supported-platforms)
+* [UWP/WPF/WinForms](https://docs.microsoft.com/en-us/lifecycle/faq/windows)
 
 ## Breaking changes in v3
 
