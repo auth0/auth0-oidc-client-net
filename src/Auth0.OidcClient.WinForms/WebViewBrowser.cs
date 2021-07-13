@@ -49,7 +49,7 @@ namespace Auth0.OidcClient
             var window = _formFactory();
             var webView = new WebViewCompatible { Dock = DockStyle.Fill };
 
-            webView.NavigationStarting += (sender, e) =>
+            webView.NavigationCompleted += (sender, e) =>
             {
                 if (e.Uri.AbsoluteUri.StartsWith(options.EndUrl))
                 {
