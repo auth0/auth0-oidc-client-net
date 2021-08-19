@@ -12,7 +12,7 @@ using System.Windows.Controls;
 namespace Auth0.OidcClient
 {
     /// <summary>
-    /// Implements the <see cref="IBrowser"/> interface using the <see cref="WebViewCompatible"/> control.
+    /// Implements the <see cref="IBrowser"/> interface using the <see cref="WebView2"/> control.
     /// </summary>
     public class WebViewBrowser : IBrowser
     {
