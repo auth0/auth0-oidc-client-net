@@ -1,5 +1,5 @@
 ﻿using IdentityModel.OidcClient.Browser;
-using Microsoft.Toolkit.Forms.UI.Controls;
+using Microsoft.Web.WebView2.WinForms;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
@@ -31,31 +31,35 @@ namespace Auth0.OidcClient
         /// <param name="width">Optional width for the form in pixels. Defaults to 1024.</param>
         /// <param name="height">Optional height for the form in pixels. Defaults to 768.</param>
         public WebViewBrowser(string title = "Authenticating...", int width = 1024, int height = 768)
-            : this(() => new Form
-            {
-                Name = "WebAuthentication",
-                Text = title,
-                Width = width,
-                Height = height
-            })
+       : this(() => new Form
+       {
+           Name = "WebAuthentication",
+           Text = title,
+           Width = width,
+           Height = height
+       })
         {
         }
 
         /// <inheritdoc />
-        public Task<BrowserResult> InvokeAsync(BrowserOptions options, CancellationToken cancellationToken = default)
+        public async Task<BrowserResult> InvokeAsync(BrowserOptions options, CancellationToken cancellationToken = default)
         {
             var tcs = new TaskCompletionSource<BrowserResult>();
 
             var window = _formFactory();
-            var webView = new WebViewCompatible { Dock = DockStyle.Fill };
+            var webView = new WebView2 { Dock = DockStyle.Fill };
+            await webView.EnsureCoreWebView2Async();
 
-            webView.NavigationCompleted += (sender, e) =>
+            webView.NavigationStarting += (sender, e) =>
             {
-                if (e.Uri.AbsoluteUri.StartsWith(options.EndUrl))
+                if (e.Uri.StartsWith(options.EndUrl))
                 {
+
                     tcs.SetResult(new BrowserResult { ResultType = BrowserResultType.Success, Response = e.Uri.ToString() });
                     window.Close();
+
                 }
+
             };
 
             window.Closing += (sender, e) =>
@@ -67,9 +71,10 @@ namespace Auth0.OidcClient
 
             window.Controls.Add(webView);
             window.Show();
-            webView.Navigate(options.StartUrl);
+            webView.CoreWebView2.Navigate(options.StartUrl);
 
-            return tcs.Task;
+
+            return await tcs.Task;
         }
     }
 }

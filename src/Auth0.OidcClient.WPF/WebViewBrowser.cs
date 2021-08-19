@@ -1,9 +1,13 @@
 ﻿using IdentityModel.OidcClient.Browser;
-using Microsoft.Toolkit.Wpf.UI.Controls;
+using Microsoft.Web.WebView2.Core;
+using Microsoft.Web.WebView2.Wpf;
 using System;
+using System.Security.Policy;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
+
 
 namespace Auth0.OidcClient
 {
@@ -44,37 +48,40 @@ namespace Auth0.OidcClient
         }
 
         /// <inheritdoc />
-        public Task<BrowserResult> InvokeAsync(BrowserOptions options, CancellationToken cancellationToken = default)
+        public async Task<BrowserResult> InvokeAsync(BrowserOptions options, CancellationToken cancellationToken = default)
         {
             var tcs = new TaskCompletionSource<BrowserResult>();
 
             var window = _windowFactory();
-            var webView = new WebViewCompatible();
-            window.Content = webView;
-
+            var webView = new WebView2 {  };
+            
             webView.NavigationStarting += (sender, e) =>
             {
-                if (e.Uri.AbsoluteUri.StartsWith(options.EndUrl))
+                if (e.Uri.StartsWith(options.EndUrl))
                 {
+
                     tcs.SetResult(new BrowserResult { ResultType = BrowserResultType.Success, Response = e.Uri.ToString() });
-                    if (_shouldCloseWindow)
-                        window.Close();
-                    else
-                        window.Content = null;
+                    window.Close();
+
                 }
+
             };
 
             window.Closing += (sender, e) =>
             {
-                webView.Dispose();
                 if (!tcs.Task.IsCompleted)
                     tcs.SetResult(new BrowserResult { ResultType = BrowserResultType.UserCancel });
             };
 
-            window.Show();
-            webView.Navigate(options.StartUrl);
 
-            return tcs.Task;
+            window.Content = webView;
+            window.Show();
+            await webView.EnsureCoreWebView2Async();
+            webView.CoreWebView2.Navigate(options.StartUrl);
+
+         
+
+            return await tcs.Task;
         }
     }
 }
