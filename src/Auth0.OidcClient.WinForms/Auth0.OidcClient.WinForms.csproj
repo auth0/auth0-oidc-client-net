@@ -30,7 +30,7 @@
     </PackageReference>
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
     <PackageReference Include="Microsoft.Toolkit.Forms.UI.Controls.WebView">
-      <Version>6.1.1</Version>
+      <Version>6.1.2</Version>
     </PackageReference>
   </ItemGroup>
 </Project>
