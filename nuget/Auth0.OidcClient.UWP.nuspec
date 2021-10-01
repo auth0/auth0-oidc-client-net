@@ -3,7 +3,7 @@
 <package>
   <metadata>
     <id>Auth0.OidcClient.UWP</id>
-    <version>3.2.3</version>
+    <version>3.2.4</version>
     <authors>Auth0</authors>
     <owners>Auth0</owners>
     <license type="expression">Apache-2.0</license>
@@ -12,6 +12,9 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Auth0 OIDC Client for Universal Windows Platform (UWP) apps</description>
     <releaseNotes>
+      Version 3.2.4
+      - Fix dependency issue with System.Text.Json
+
       Version 3.2.3
       - Fix dependency issue with OidcClient
 
@@ -84,7 +87,7 @@
     <tags>Auth0 OIDC UWP Windows10</tags>
     <dependencies>
       <group targetFramework="uap10.0.16299">
-        <dependency id="Auth0.OidcClient.Core" version="3.2.3" />
+        <dependency id="Auth0.OidcClient.Core" version="3.2.4" />
       </group>
     </dependencies>
   </metadata>
