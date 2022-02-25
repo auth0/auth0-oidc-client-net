@@ -1,5 +1,5 @@
 ﻿using IdentityModel.OidcClient.Browser;
-using Microsoft.Toolkit.Wpf.UI.Controls;
+using Microsoft.Web.WebView2.Wpf;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
@@ -8,7 +8,7 @@ using System.Windows;
 namespace Auth0.OidcClient
 {
     /// <summary>
-    /// Implements the <see cref="IBrowser"/> interface using the <see cref="WebViewCompatible"/> control.
+    /// Implements the <see cref="IBrowser"/> interface using the <see cref="WebView2"/> control.
     /// </summary>
     public class WebViewBrowser : IBrowser
     {
@@ -49,12 +49,12 @@ namespace Auth0.OidcClient
             var tcs = new TaskCompletionSource<BrowserResult>();
 
             var window = _windowFactory();
-            var webView = new WebViewCompatible();
+            var webView = new WebView2();
             window.Content = webView;
 
             webView.NavigationStarting += (sender, e) =>
             {
-                if (e.Uri.AbsoluteUri.StartsWith(options.EndUrl))
+                if (e.Uri.StartsWith(options.EndUrl))
                 {
                     tcs.SetResult(new BrowserResult { ResultType = BrowserResultType.Success, Response = e.Uri.ToString() });
                     if (_shouldCloseWindow)
@@ -72,7 +72,9 @@ namespace Auth0.OidcClient
             };
 
             window.Show();
-            webView.Navigate(options.StartUrl);
+
+            webView.CoreWebView2InitializationCompleted += (sender, e) => webView.CoreWebView2.Navigate(options.StartUrl);
+            webView.EnsureCoreWebView2Async();
 
             return tcs.Task;
         }

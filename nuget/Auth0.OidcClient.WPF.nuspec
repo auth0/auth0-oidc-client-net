@@ -3,7 +3,7 @@
 <package>
   <metadata>
     <id>Auth0.OidcClient.WPF</id>
-    <version>3.2.4</version>
+    <version>4.0.0</version>
     <authors>Auth0</authors>
     <owners>Auth0</owners>
     <license type="expression">Apache-2.0</license>
@@ -12,6 +12,9 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Auth0 OIDC Client for WPF apps</description>
     <releaseNotes>
+      Version 4.0.0
+      - Update to WebView2
+
       Version 3.2.4
       - Fix dependency issue with System.Text.Json
 
@@ -104,11 +107,11 @@
     <dependencies>
       <group targetFramework="net462">
         <dependency id="Auth0.OidcClient.Core" version="3.2.4" />
-        <dependency id="Microsoft.Toolkit.Wpf.UI.Controls.WebView" version="6.1.1"/>
+        <dependency id="Microsoft.Web.WebView2" version="1.0.1108.44" />
       </group>
       <group targetFramework="netcoreapp3.1">
         <dependency id="Auth0.OidcClient.Core" version="3.2.4" />
-        <dependency id="Microsoft.Toolkit.Wpf.UI.Controls.WebView" version="6.1.1"/>
+        <dependency id="Microsoft.Web.WebView2" version="1.0.1108.44" />
       </group>
     </dependencies>
   </metadata>

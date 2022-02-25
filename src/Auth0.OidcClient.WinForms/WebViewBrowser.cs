@@ -1,5 +1,5 @@
 ﻿using IdentityModel.OidcClient.Browser;
-using Microsoft.Toolkit.Forms.UI.Controls;
+using Microsoft.Web.WebView2.WinForms;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
@@ -8,7 +8,7 @@ using System.Windows.Forms;
 namespace Auth0.OidcClient
 {
     /// <summary>
-    /// Implements the <see cref="IBrowser"/> interface using the <see cref="WebViewCompatible"/> control.
+    /// Implements the <see cref="IBrowser"/> interface using the <see cref="WebView2"/> control.
     /// </summary>
     public class WebViewBrowser : IBrowser
     {
@@ -16,9 +16,9 @@ namespace Auth0.OidcClient
 
         /// <summary>
         /// Creates a new instance of <see cref="WebViewBrowser"/> with a specified function to create the <see cref="Form"/>
-        /// used to host the <see cref="WebViewCompatible"/> control.
+        /// used to host the <see cref="WebView2"/> control.
         /// </summary>
-        /// <param name="formFactory">The function used to create the <see cref="Form"/> that will host the <see cref="WebViewCompatible"/> control.</param>
+        /// <param name="formFactory">The function used to create the <see cref="Form"/> that will host the <see cref="WebView2"/> control.</param>
         public WebViewBrowser(Func<Form> formFactory)
         {
             _formFactory = formFactory;
@@ -47,11 +47,11 @@ namespace Auth0.OidcClient
             var tcs = new TaskCompletionSource<BrowserResult>();
 
             var window = _formFactory();
-            var webView = new WebViewCompatible { Dock = DockStyle.Fill };
+            var webView = new WebView2 { Dock = DockStyle.Fill };
 
-            webView.NavigationCompleted += (sender, e) =>
+            webView.NavigationStarting += (sender, e) =>
             {
-                if (e.Uri.AbsoluteUri.StartsWith(options.EndUrl))
+                if (e.Uri.StartsWith(options.EndUrl))
                 {
                     tcs.SetResult(new BrowserResult { ResultType = BrowserResultType.Success, Response = e.Uri.ToString() });
                     window.Close();
@@ -67,7 +67,9 @@ namespace Auth0.OidcClient
 
             window.Controls.Add(webView);
             window.Show();
-            webView.Navigate(options.StartUrl);
+
+            webView.CoreWebView2InitializationCompleted += (sender, e) => webView.CoreWebView2.Navigate(options.StartUrl);
+            webView.EnsureCoreWebView2Async();
 
             return tcs.Task;
         }
