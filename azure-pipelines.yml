@@ -47,7 +47,7 @@ steps:
 
 - task: CmdLine@2
   displayName: 'Publish to Nuget'
-  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/azure-pipelines'))
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/foo'))
   inputs:
     script: 'nuget push $(Build.ArtifactStagingDirectory)\**\*.nupkg -ApiKey $(NugetApiKey) -Source https://api.nuget.org/v3/index.json -SkipDuplicate -NonInteractive'
 
