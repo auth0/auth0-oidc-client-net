@@ -142,3 +142,9 @@ steps:
       }
 
       release_to_github "core-$AUTH0_OIDCCLIENT_CORE_VERSION"
+      release_to_github "uwp-$AUTH0_OIDCCLIENT_UWP_VERSION"
+      release_to_github "wpf-$AUTH0_OIDCCLIENT_WPF_VERSION"
+      release_to_github "winforms-$AUTH0_OIDCCLIENT_WINFORMS_VERSION"
+      release_to_github "android-$AUTH0_OIDCCLIENT_ANDROID_VERSION"
+      release_to_github "androidx-$AUTH0_OIDCCLIENT_ANDROIDX_VERSION"
+      release_to_github "ios-$AUTH0_OIDCCLIENT_IOS_VERSION"
