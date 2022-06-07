@@ -95,3 +95,50 @@ steps:
       echo "${AUTH0_OIDCCLIENT_ANDROID_VERSION}"
       echo "${AUTH0_OIDCCLIENT_ANDROIDX_VERSION}"
       echo "${AUTH0_OIDCCLIENT_IOS_VERSION}"
+
+- task: Bash@3
+  displayName: 'Publish to GitHub'
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/azure-pipelines'))
+  inputs:
+    targetType: 'inline'
+    script: |
+      create_release () {
+           local TAG="$1"
+
+           if ! git show-ref --tags "$TAG"; then
+              echo "Tag with name '$TAG' not yet published."
+          else
+              echo "Tag with name '$TAG' is already published."
+          fi
+      }
+ 
+      release_to_github () {
+          LOCAL_VERSION="${!PACKAGE_VERSION_KEY}"
+          # Check if $LOCAL_VERSION is defined
+          if [[ -z "$LOCAL_VERSION" ]]; then
+              echo "ERROR: The '$PACKAGE_VERSION_KEY' variable must be set to the package version."
+              exit 1
+          fi
+
+          GH_TOKEN="${!GH_TOKEN_KEY}"
+          # Check if $GH_TOKEN is defined
+          if [[ -z "$GH_TOKEN" ]]; then
+              echo "ERROR: The '$GH_TOKEN_KEY' variable must be set to a Github access token."
+              exit 1
+          fi
+
+          # Check if the API URL can be constructed
+          if [[ -z "$PROJECT_USERNAME" ]] || [[ -z "$PROJECT_REPONAME" ]]; then
+              echo "ERROR: The variables 'PROJECT_USERNAME' and/or 'PROJECT_REPONAME' are not defined."
+              exit 1
+          fi
+
+          if [ "$PREFIX_TAG" = true ] || [ "$PREFIX_TAG" = 1 ]; then LOCAL_VERSION="v$LOCAL_VERSION"; fi
+
+          echo "Pulling remote tags..."
+          git fetch --tags
+
+          create_release "core-$AUTH0_OIDCCLIENT_CORE_VERSION"
+      }
+
+      release_to_github
