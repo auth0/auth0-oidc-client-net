@@ -72,9 +72,12 @@ steps:
 
       read_and_expose_package_versions () {
           expose_package_version "AUTH0_OIDCCLIENT_CORE_VERSION" $(read_package_version "Auth0.OidcClient.Core.")
-          expose_package_version "Auth0_OidcClient_Core_VERSION" $(read_package_version "Auth0.OidcClient.Core.")
-          expose_package_version "Auth0_OidcClient_WPF_VERSION" $(read_package_version "Auth0.OidcClient.WPF.")
-          expose_package_version "Auth0_OidcClient_WinForms_VERSION" $(read_package_version "Auth0.OidcClient.WinForms.")
+          expose_package_version "AUTH0_OIDCCLIENT_WPF_VERSION" $(read_package_version "Auth0.OidcClient.WPF.")
+          expose_package_version "AUTH0_OIDCCLIENT_WINFORMS_VERSION" $(read_package_version "Auth0.OidcClient.WinForms.")
+          expose_package_version "AUTH0_OIDCCLIENT_UWP_VERSION" $(read_package_version "Auth0.OidcClient.UWP.")
+          expose_package_version "AUTH0_OIDCCLIENT_ANDROID_VERSION" $(read_package_version "Auth0.OidcClient.Android.")
+          expose_package_version "AUTH0_OIDCCLIENT_ANDROIDX_VERSION" $(read_package_version "Auth0.OidcClient.AndroidX.")
+          expose_package_version "AUTH0_OIDCCLIENT_IOS_VERSION" $(read_package_version "Auth0.OidcClient.iOS.")
       }
 
       read_and_expose_package_versions
@@ -86,6 +89,9 @@ steps:
     targetType: 'inline'
     script: |
       echo "${AUTH0_OIDCCLIENT_CORE_VERSION}"
-      echo "${Auth0_OidcClient_Core_VERSION}"
-      echo "${Auth0_OidcClient_WPF_VERSION}"
-      echo "${Auth0_OidcClient_WinForms_VERSION}"
+      echo "${AUTH0_OIDCCLIENT_WPF_VERSION}"
+      echo "${AUTH0_OIDCCLIENT_WINFORMS_VERSION}"
+      echo "${AUTH0_OIDCCLIENT_UWP_VERSION}"
+      echo "${AUTH0_OIDCCLIENT_ANDROID_VERSION}"
+      echo "${AUTH0_OIDCCLIENT_ANDROIDX_VERSION}"
+      echo "${AUTH0_OIDCCLIENT_IOS_VERSION}"
