@@ -70,9 +70,9 @@ steps:
       }
 
       read_and_expose_package_versions () {
-          expose_package_version "Auth0.OidcClient.Core.VERSION" $(read_package_version "Auth0.OidcClient.Core.")
-          expose_package_version "Auth0.OidcClient.WPF.VERSION" $(read_package_version "Auth0.OidcClient.WPF.")
-          expose_package_version "Auth0.OidcClient.WinForms.VERSION" $(read_package_version "Auth0.OidcClient.WinForms.")
+          expose_package_version "Auth0_OidcClient_Core_VERSION" $(read_package_version "Auth0.OidcClient.Core.")
+          expose_package_version "Auth0_OidcClient_WPF_VERSION" $(read_package_version "Auth0.OidcClient.WPF.")
+          expose_package_version "Auth0_OidcClient_WinForms_VERSION" $(read_package_version "Auth0.OidcClient.WinForms.")
       }
 
       read_and_expose_package_versions
@@ -83,6 +83,6 @@ steps:
   inputs:
     targetType: 'inline'
     script: |
-      echo "${Auth0.OidcClient.Core.VERSION}"
-      echo "${Auth0.OidcClient.WPF.VERSION}"
-      echo "${Auth0.OidcClient.WinForms.VERSION}"
+      echo "${Auth0_OidcClient_Core_VERSION}"
+      echo "${Auth0_OidcClient_WPF_VERSION}"
+      echo "${Auth0_OidcClient_WinForms_VERSION}"
