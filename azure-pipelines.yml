@@ -44,3 +44,29 @@ steps:
   displayName: 'Publish Artifact: drop'
   inputs:
     PathtoPublish: '$(build.artifactstagingdirectory)'
+
+- task: CmdLine@2
+  displayName: 'Publish to Nuget'
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/azure-pipelines'))
+  inputs:
+    script: 'nuget push $(Build.ArtifactStagingDirectory)\**\*.nupkg -ApiKey $(NugetApiKey) -Source https://api.nuget.org/v3/index.json -SkipDuplicate -NonInteractive'
+
+- task: Bash@3
+  displayName: 'Read Package Version'
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/azure-pipelines'))
+  inputs:
+    targetType: 'inline'
+    script: |
+      nugetFile=$(find "$(Build.ArtifactStagingDirectory)" -path "**/Auth0.OidcClient.Core.*.nupkg")
+      
+      [[ $nugetFile =~ (.*)(Auth0\.OidcClient\.Core\.)(.*)(.nupkg) ]]
+      
+      echo "##vso[task.setvariable variable=VERSION;]${BASH_REMATCH[3]}"
+
+- task: Bash@3
+  displayName: 'Test Version'
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/azure-pipelines'))
+  inputs:
+    targetType: 'inline'
+    script: |
+      echo "${VERSION}"
