@@ -47,13 +47,13 @@ steps:
 
 - task: CmdLine@2
   displayName: 'Publish to Nuget'
-  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/foo'))
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
   inputs:
     script: 'nuget push $(Build.ArtifactStagingDirectory)\**\*.nupkg -ApiKey $(NugetApiKey) -Source https://api.nuget.org/v3/index.json -SkipDuplicate -NonInteractive'
 
 - task: Bash@3
   displayName: 'Read Package Version'
-  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/azure-pipelines'))
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
   inputs:
     targetType: 'inline'
     script: |
@@ -83,22 +83,8 @@ steps:
       read_and_expose_package_versions
 
 - task: Bash@3
-  displayName: 'Test Version'
-  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/azure-pipelines'))
-  inputs:
-    targetType: 'inline'
-    script: |
-      echo "${AUTH0_OIDCCLIENT_CORE_VERSION}"
-      echo "${AUTH0_OIDCCLIENT_WPF_VERSION}"
-      echo "${AUTH0_OIDCCLIENT_WINFORMS_VERSION}"
-      echo "${AUTH0_OIDCCLIENT_UWP_VERSION}"
-      echo "${AUTH0_OIDCCLIENT_ANDROID_VERSION}"
-      echo "${AUTH0_OIDCCLIENT_ANDROIDX_VERSION}"
-      echo "${AUTH0_OIDCCLIENT_IOS_VERSION}"
-
-- task: Bash@3
   displayName: 'Publish to GitHub'
-  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/azure-pipelines'))
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
   inputs:
     targetType: 'inline'
     script: |
@@ -158,3 +144,9 @@ steps:
       }
 
       release_to_github "core-$AUTH0_OIDCCLIENT_CORE_VERSION"
+      release_to_github "uwp-$AUTH0_OIDCCLIENT_UWP_VERSION"
+      release_to_github "wpf-$AUTH0_OIDCCLIENT_WPF_VERSION"
+      release_to_github "winforms-$AUTH0_OIDCCLIENT_WINFORMS_VERSION"
+      release_to_github "android-$AUTH0_OIDCCLIENT_ANDROID_VERSION"
+      release_to_github "androidx-$AUTH0_OIDCCLIENT_ANDROIDX_VERSION"
+      release_to_github "ios-$AUTH0_OIDCCLIENT_IOS_VERSION"
