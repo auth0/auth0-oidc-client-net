@@ -89,8 +89,6 @@ steps:
     script: |
       create_release () {
            local TAG="$1"
-           
-           echo "$GH_TOKEN"
 
            if ! git show-ref --tags "$TAG"; then
               echo "Tag with name '$TAG' not yet published."
@@ -132,15 +130,11 @@ steps:
           fi
 
           echo "Pulling remote tags..."
+          
           git fetch --tags
 
           create_release "core-$AUTH0_OIDCCLIENT_CORE_VERSION"
           create_release "uwp-$AUTH0_OIDCCLIENT_UWP_VERSION"
-          create_release "wpf-$AUTH0_OIDCCLIENT_WPF_VERSION"
-          create_release "winforms-$AUTH0_OIDCCLIENT_WINFORMS_VERSION"
-          create_release "android-$AUTH0_OIDCCLIENT_ANDROID_VERSION"
-          create_release "androidx-$AUTH0_OIDCCLIENT_ANDROIDX_VERSION"
-          create_release "ios-$AUTH0_OIDCCLIENT_IOS_VERSION"
       }
       
       release_to_github
