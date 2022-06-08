@@ -123,10 +123,10 @@ steps:
               exit 1
           fi
 
-          GH_TOKEN="${!GH_TOKEN_KEY}"
+          GH_TOKEN="$(GH_TOKEN)"
           # Check if $GH_TOKEN is defined
           if [[ -z "$GH_TOKEN" ]]; then
-              echo "ERROR: The '$GH_TOKEN_KEY' variable must be set to a Github access token."
+              echo "ERROR: The 'GH_TOKEN' variable must be set to a Github access token."
               exit 1
           fi
 
