@@ -89,6 +89,8 @@ steps:
     script: |
       create_release () {
            local TAG="$1"
+           
+           echo "$GH_TOKEN"
 
            if ! git show-ref --tags "$TAG"; then
               echo "Tag with name '$TAG' not yet published."
