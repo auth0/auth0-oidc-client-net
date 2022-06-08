@@ -53,7 +53,7 @@ steps:
 
 - task: Bash@3
   displayName: 'Read Package Version'
-  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/frederikprijck-patch-1'))
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
   inputs:
     targetType: 'inline'
     script: |
@@ -83,7 +83,7 @@ steps:
 
 - task: Bash@3
   displayName: 'Publish to GitHub'
-  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/frederikprijck-patch-1'))
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
   inputs:
     targetType: 'inline'
     script: |
