@@ -107,6 +107,24 @@ steps:
 
            if ! git show-ref --tags "$TAG"; then
               echo "Tag with name '$TAG' not yet published."
+              
+              # Create a well-formed JSON payload to send
+              RELEASE_JSON=$(jq --null-input \
+                --arg tag"$TAG " \
+                '{"tag_name": $tag, "name": $tag, "body": ""}')
+                
+              # POST the Release
+              API_URL="https://api.github.com/repos/$PROJECT_USERNAME/$PROJECT_REPONAME/releases"
+              STATUS_CODE=$(curl \
+              --output /dev/stderr \
+              --write-out "%{http_code}" \
+              -H "Accept: application/json" \
+              -H "Authorization: token $GH_TOKEN" \
+              -d "$RELEASE_JSON" \
+              "$API_URL"
+              )
+              
+              if [[ "$STATUS_CODE" -lt 200 ]] || [[ "$STATUS_CODE" -gt 299 ]]; then exit "$STATUS_CODE"; fi
           else
               echo "Tag with name '$TAG' is already published."
           fi
@@ -133,8 +151,6 @@ steps:
               exit 1
           fi
 
-          if [ "$PREFIX_TAG" = true ] || [ "$PREFIX_TAG" = 1 ]; then LOCAL_VERSION="v$LOCAL_VERSION"; fi
-
           echo "Pulling remote tags..."
           git fetch --tags
 
@@ -142,9 +158,3 @@ steps:
       }
 
       release_to_github "core-$AUTH0_OIDCCLIENT_CORE_VERSION"
-      release_to_github "uwp-$AUTH0_OIDCCLIENT_UWP_VERSION"
-      release_to_github "wpf-$AUTH0_OIDCCLIENT_WPF_VERSION"
-      release_to_github "winforms-$AUTH0_OIDCCLIENT_WINFORMS_VERSION"
-      release_to_github "android-$AUTH0_OIDCCLIENT_ANDROID_VERSION"
-      release_to_github "androidx-$AUTH0_OIDCCLIENT_ANDROIDX_VERSION"
-      release_to_github "ios-$AUTH0_OIDCCLIENT_IOS_VERSION"
