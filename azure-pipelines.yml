@@ -110,7 +110,7 @@ steps:
               
               # Create a well-formed JSON payload to send
               RELEASE_JSON=$(jq --null-input \
-                --arg tag"$TAG " \
+                --arg tag "$TAG" \
                 '{"tag_name": $tag, "name": $tag, "body": ""}')
                 
               # POST the Release
