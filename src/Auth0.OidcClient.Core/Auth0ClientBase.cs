@@ -173,7 +173,7 @@ namespace Auth0.OidcClient
         {
             var dictionary = ObjectToDictionary(values);
 
-            if (_options.EnableTelemetry)
+            if (_options.EnableTelemetry && !dictionary.ContainsKey("auth0Client"))
                 dictionary.Add("auth0Client", _userAgent);
 
             return dictionary;
@@ -189,7 +189,7 @@ namespace Auth0.OidcClient
         private Dictionary<string, string> ObjectToDictionary(object values)
         {
             if (values is Dictionary<string, string> dictionary)
-                return dictionary;
+                return dictionary.ToDictionary(entry => entry.Key, entry => entry.Value);
 
             dictionary = new Dictionary<string, string>();
             if (values != null)
