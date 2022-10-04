@@ -149,7 +149,7 @@ namespace Auth0.OidcClient
                 RedirectUri = options.RedirectUri ?? $"https://{_options.Domain}/mobile",
                 PostLogoutRedirectUri = options.PostLogoutRedirectUri ?? $"https://{_options.Domain}/mobile",
                 ClockSkew = options.Leeway,
-                LoggerFactory = options.LoggerFactory
+                LoggerFactory = options.LoggerFactory,
 
                 Policy = {
                     RequireAccessTokenHash = false
