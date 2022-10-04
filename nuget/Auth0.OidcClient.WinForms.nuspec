@@ -3,7 +3,7 @@
 <package>
   <metadata>
     <id>Auth0.OidcClient.WinForms</id>
-    <version>3.2.6</version>
+    <version>3.2.7</version>
     <authors>Auth0</authors>
     <owners>Auth0</owners>
     <license type="expression">Apache-2.0</license>
@@ -12,6 +12,9 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Auth0 OIDC Client for WinForms apps</description>
     <releaseNotes>
+      Version 3.2.7
+      - Expose OidcClient's LoggerFactory to enable for your own LoggerFactory
+
       Version 3.2.6
       - Do not mutate dictionary when passed to our SDK using LoginAsync, LogoutAsync or RefreshTokenAsync
 
@@ -99,11 +102,11 @@
     <tags>Auth0 OIDC WinForms</tags>
     <dependencies>
       <group targetFramework="net462">
-        <dependency id="Auth0.OidcClient.Core" version="3.2.5" />
+        <dependency id="Auth0.OidcClient.Core" version="3.2.6" />
         <dependency id="Microsoft.Toolkit.Forms.UI.Controls.WebView" version="6.1.1"/>
       </group>
       <group targetFramework="netcoreapp3.1">
-        <dependency id="Auth0.OidcClient.Core" version="3.2.5" />
+        <dependency id="Auth0.OidcClient.Core" version="3.2.6" />
         <dependency id="Microsoft.Toolkit.Forms.UI.Controls.WebView" version="6.1.1"/>
       </group>
     </dependencies>
