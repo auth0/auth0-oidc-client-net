@@ -1,4 +1,5 @@
 ﻿using IdentityModel.OidcClient.Browser;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Net.Http;
 
@@ -115,6 +116,11 @@ namespace Auth0.OidcClient
         /// Optional limit on the how long since the user was last authenticated.
         /// </summary>
         public TimeSpan? MaxAge { get; set; }
+
+        /// <summary>
+        /// Optional ILoggerFactory implementation to use for logging purposes.
+        /// </summary>
+        public ILoggerFactory LoggerFactory { get; set; } = new LoggerFactory();
 
         /// <summary>
         /// Create a new instance of the <see cref="Auth0ClientOptions"/> class used to configure options for
