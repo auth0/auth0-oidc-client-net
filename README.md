@@ -6,7 +6,7 @@ OIDC Client for .NET Desktop (WinForms, WPF and UWP) as well as Xamarin-based iO
 [![License](https://img.shields.io/:license-Apache2.0-blue.svg?style=flat)](https://opensource.org/licenses/Apache-2.0)
 [![Build Status](https://dev.azure.com/Auth0SDK/Auth0%20OIDC%20Client.NET/_apis/build/status/auth0.auth0-oidc-client-net?branchName=master)](https://dev.azure.com/Auth0SDK/Auth0%20OIDC%20Client.NET/_build/latest?definitionId=4&branchName=master)
 
-:books: [Documentation](#documentation) - :rocket: [Getting Started](#getting-started) - :rocket: [How To](#how-to) - :computer: [API Reference](#api-reference) - :speech_balloon: [Feedback](#feedback)
+:books: [Documentation](#documentation) - :rocket: [Getting Started](#getting-started) - :computer: [API Reference](#api-reference) - :speech_balloon: [Feedback](#feedback)
 
 This library makes use of the the [IdentityModel/IdentityModel.OidcClient](https://github.com/IdentityModel/IdentityModel.OidcClient) library and uses code from the [IdentityModel/IdentityModel.OidcClient.Samples](https://github.com/IdentityModel/IdentityModel.OidcClient.Samples) repository to achieve browser integration.
 
@@ -34,28 +34,12 @@ For a list of supported platforms, please refer to the relevant documentation fr
 ### Installation
 The SDK is available on [Nuget](https://www.nuget.org/packages?q=Auth0.OidcClient) for different platforms:
 
-UWP
 ```
 Install-Package Auth0.OidcClient.UWP
-```
-WPF
-```
 Install-Package Auth0.OidcClient.WPF
-```
-WinForms
-```
 Install-Package Auth0.OidcClient.WinForms
-```
-iOS
-```
 Install-Package Auth0.OidcClient.iOS
-```
-Android
-```
 Install-Package Auth0.OidcClient.Android
-```
-AndroidX
-```
 Install-Package Auth0.OidcClient.AndroidX
 ```
 
