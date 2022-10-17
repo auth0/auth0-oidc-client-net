@@ -8,7 +8,7 @@ OIDC Client for .NET Desktop (WinForms, WPF and UWP) as well as Xamarin-based iO
 
 :books: [Documentation](#documentation) - :rocket: [Getting Started](#getting-started) - :computer: [API Reference](#api-reference) - :speech_balloon: [Feedback](#feedback)
 
-This library makes use of the the [IdentityModel/IdentityModel.OidcClient](https://github.com/IdentityModel/IdentityModel.OidcClient) library and uses code from the [IdentityModel/IdentityModel.OidcClient.Samples](https://github.com/IdentityModel/IdentityModel.OidcClient.Samples) repository to achieve browser integration.
+This library makes use of the [IdentityModel/IdentityModel.OidcClient](https://github.com/IdentityModel/IdentityModel.OidcClient) library and uses code from the [IdentityModel/IdentityModel.OidcClient.Samples](https://github.com/IdentityModel/IdentityModel.OidcClient.Samples) repository to achieve browser integration.
 
 ## Documentation
 
