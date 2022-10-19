@@ -1,4 +1,5 @@
-# auth0-oidc-client-net
+![](./banner.png)
+
 OIDC Client for .NET Desktop (WinForms, WPF and UWP) as well as Xamarin-based iOS and Android mobile applications.
 
 [![NuGet version](https://img.shields.io/nuget/v/auth0.oidcclient.core.svg?style=flat)](https://www.nuget.org/packages/Auth0.OidcClient.Core/)
