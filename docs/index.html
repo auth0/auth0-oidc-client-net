@@ -8,7 +8,7 @@
     <title>Auth0 OIDC Client </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Auth0 OIDC Client ">
-    <meta name="generator" content="docfx 2.45.1.0">
+    <meta name="generator" content="docfx 2.59.4.0">
     
     <link rel="shortcut icon" href="favicon.ico">
     <link rel="stylesheet" href="styles/docfx.vendor.css">
@@ -60,52 +60,94 @@
         <div class="article row grid">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="auth0-oidc-client">Auth0 OIDC Client</h1>
 
-<p>The Auth0 OIDC Client allows you to add authentication for your .NET Client applications. The Auth0 OIDC Client supports the following platforms:</p>
+<p><img src="https://cdn.auth0.com/website/sdks/banners/auth0-oidc-client-net-banner.png" alt=""></p>
+<p>OIDC Client for .NET Desktop (WinForms, WPF and UWP) as well as Xamarin-based iOS and Android mobile applications.</p>
+<p><a href="https://www.nuget.org/packages/Auth0.OidcClient.Core/"><img src="https://img.shields.io/nuget/v/auth0.oidcclient.core.svg?style=flat" alt="NuGet version"></a>
+<img src="https://img.shields.io/nuget/dt/Auth0.OidcClient.Core" alt="Downloads">
+<a href="https://opensource.org/licenses/Apache-2.0"><img src="https://img.shields.io/:license-Apache2.0-blue.svg?style=flat" alt="License"></a>
+<a href="https://dev.azure.com/Auth0SDK/Auth0%20OIDC%20Client.NET/_build/latest?definitionId=4&amp;branchName=master"><img src="https://dev.azure.com/Auth0SDK/Auth0%20OIDC%20Client.NET/_apis/build/status/auth0.auth0-oidc-client-net?branchName=master" alt="Build Status"></a></p>
+<p><span class="emoji" shortcode="books">📚</span> <a href="#documentation">Documentation</a> - <span class="emoji" shortcode="rocket">🚀</span> <a href="#getting-started">Getting Started</a> - <span class="emoji" shortcode="computer">💻</span> <a href="#api-reference">API Reference</a> - <span class="emoji" shortcode="speech_balloon">💬</span> <a href="#feedback">Feedback</a></p>
+<p>This library makes use of the <a href="https://github.com/IdentityModel/IdentityModel.OidcClient">IdentityModel/IdentityModel.OidcClient</a> library and uses code from the <a href="https://github.com/IdentityModel/IdentityModel.OidcClient.Samples">IdentityModel/IdentityModel.OidcClient.Samples</a> repository to achieve browser integration.</p>
+<h2 id="documentation">Documentation</h2>
 <ul>
-<li>Universal Windows Platform (UWP 10.0.16299 and higher)</li>
-<li>Windows Presentation Foundation (.NET 4.6.2 and higher)</li>
-<li>Windows Forms (.NET 4.6.2 and higher)</li>
-<li>iOS (uses Xamarin)</li>
-<li>Android (uses Xamarin)</li>
+<li><a href="https://auth0.com/docs/quickstart/native/windows-uwp-csharp">UWP Quickstart</a> - our interactive guide for quickly adding login, logout and user information to a UWP application using Auth0.</li>
+<li><a href="https://auth0.com/docs/quickstart/native/wpf-winforms">WPF/WinForms Quickstart</a> - our interactive guide for quickly adding login, logout and user information to a WPF and WinForms application using Auth0.</li>
+<li><a href="https://auth0.com/docs/quickstart/native/xamarin">Xamarin Quickstart</a> - our interactive guide for quickly adding login, logout and user information to a Xamarin application using Auth0.</li>
+<li><a href="https://github.com/auth0-samples/auth0-WinFormsWPF-oidc-samples/tree/master/Quickstart/00-Starter-Seed/WPF">WPF Sample App</a> - a WPF application integrated with Auth0.</li>
+<li><a href="https://github.com/auth0-samples/auth0-WinFormsWPF-oidc-samples/tree/master/Quickstart/00-Starter-Seed/WinForms">WinForms Sample App</a> - a WinForms application integrated with Auth0.</li>
+<li><a href="https://github.com/auth0-samples/auth0-xamarin-oidc-samples/tree/master/Quickstart/01-Login">Xamarin Sample App</a> - a Xamarin application integrated with Auth0.</li>
+<li><a href="https://auth0.github.io/auth0-oidc-client-net/documentation/intro.html">SDK docs</a> - explore the documentation for this SDK. </li>
+<li><a href="https://www.auth0.com/docs">Auth0 docs</a> - explore our docs site and learn more about </li>
 </ul>
-<h2 id="quick-start">Quick Start</h2>
-<blockquote><p>Before you start, ensure that you have configured the Callback URL in the Clients Settings section in the <a href="https://manage.auth0.com/#/">Auth0 dashboard</a>. See the <a href="documentation/getting-started/callbacks.html">Callback URLs documentation</a> for more information on what Callback URL you need to use for your particular platform.</p>
+<h2 id="getting-started">Getting started</h2>
+<h3 id="requirements">Requirements</h3>
+<p>For a list of supported platforms, please refer to the relevant documentation from Microsoft:</p>
+<ul>
+<li><a href="https://docs.microsoft.com/en-us/xamarin/get-started/supported-platforms">Xamarin</a></li>
+<li><a href="https://docs.microsoft.com/en-us/lifecycle/faq/windows">UWP/WPF/WinForms</a></li>
+</ul>
+<h3 id="installation">Installation</h3>
+<p>The SDK is available on <a href="https://www.nuget.org/packages?q=Auth0.OidcClient">Nuget</a> for different platforms:</p>
+<pre><code>Install-Package Auth0.OidcClient.UWP
+Install-Package Auth0.OidcClient.WPF
+Install-Package Auth0.OidcClient.WinForms
+Install-Package Auth0.OidcClient.iOS
+Install-Package Auth0.OidcClient.Android
+Install-Package Auth0.OidcClient.AndroidX
+</code></pre><h3 id="configure-auth0">Configure Auth0</h3>
+<p>Create a <strong>Native Application</strong> in the <a href="https://manage.auth0.com/#/applications">Auth0 Dashboard</a>.</p>
+<blockquote><p><strong>If you&#39;re using an existing application</strong>, verify that you have configured the following settings in your Native Application:</p>
+<ul>
+<li>Click on the &quot;Settings&quot; tab of your application&#39;s page.</li>
+<li>Ensure that &quot;Token Endpoint Authentication Method&quot; under &quot;Application Properties&quot; is set to &quot;None&quot;</li>
+<li>Scroll down and click on the &quot;Show Advanced Settings&quot; link.</li>
+<li>Under &quot;Advanced Settings&quot;, click on the &quot;OAuth&quot; tab.</li>
+<li>Ensure that &quot;JsonWebToken Signature Algorithm&quot; is set to <code>RS256</code> and that &quot;OIDC Conformant&quot; is enabled.</li>
+</ul>
 </blockquote>
-<div class="NOTE"><h5>Note</h5><p>You will also need to ensure that the JWT Signature Algorithm for your client is set to RS256</p>
-</div>
-<h3 id="1-install-the-nuget-package-for-your-platform">1. Install the NuGet Package for your platform</h3>
-<p><strong>Universal Windows Platform (UWP)</strong></p>
-<pre><code class="lang-text">Install-Package Auth0.OidcClient.UWP
-</code></pre><p><strong>Windows Presentation Foundation (WPF)</strong></p>
-<pre><code class="lang-text">Install-Package Auth0.OidcClient.WPF
-</code></pre><p><strong>Windows Forms</strong></p>
-<pre><code class="lang-text">Install-Package Auth0.OidcClient.WinForms
-</code></pre><p><strong>iOS (uses Xamarin)</strong></p>
-<pre><code class="lang-text">Install-Package Auth0.OidcClient.iOS
-</code></pre><p><strong>Android (uses Xamarin)</strong></p>
-<pre><code class="lang-text">Install-Package Auth0.OidcClient.Android
-</code></pre><h3 id="2-initialize">2. Initialize</h3>
+<p>Next, configure the following URLs for your application under the &quot;Application URIs&quot; section of the &quot;Settings&quot; page:</p>
+<ul>
+<li><strong>Allowed Callback URLs</strong></li>
+<li><strong>Allowed Logout URLs</strong></li>
+</ul>
+<blockquote><p>For the values for these URLs, please refer to the corresponding quickstart from our <a href="#documentation">documentation</a>.</p>
+</blockquote>
+<p>Take note of the <strong>Client ID</strong> and <strong>Domain</strong> values under the &quot;Basic Information&quot; section. You&#39;ll need these values to configure the SDK.</p>
+<h3 id="configure-the-sdk">Configure the SDK</h3>
+<p>All platforms share the same interface, so you can use the following code to instantiate the <code>Auth0Client</code>:</p>
 <pre><code class="lang-csharp">using Auth0.OidcClient;
-
-var client = new Auth0Client(new Auth0ClientOptions
+// ...
+var auth0Client = new Auth0Client(new Auth0ClientOptions
 {
     Domain = &quot;YOUR_AUTH0_DOMAIN&quot;,
     ClientId = &quot;YOUR_AUTH0_CLIENT_ID&quot;
 });
-</code></pre><h3 id="3-authenticate">3. Authenticate</h3>
-<p>For Windows clients, you can simply call @Auth0.OidcClient.Auth0Client.LoginAsync(System.Object)</p>
-<pre><code class="lang-csharp">var loginResult = await client.LoginAsync();
-</code></pre><p>For Android and iOS clients, you need to do some manual work to log a user in. The basic flow is as follows:</p>
-<ol>
-<li>Obtain an <code>AuthorizeState</code> by calling @Auth0.OidcClient.Auth0Client.PrepareLoginAsync(System.Object). You will need to save the instance of <code>AuthorizeState</code> as you will need it later on.</li>
-<li>Launch the system browser and direct the user to the <code>StartUrl</code> in the returned <code>AuthorizeState</code>. After the user has logged in, Auth0 will call back to your application on the Callback URL.</li>
-<li>Your application will need to handle the callback. The means either creating an <code>Intent</code> or Android, or handling <code>OpenUrl</code> in your <code>AppDelegate</code> on iOS.</li>
-</ol>
-<p>For a more detailed walkthrough, please see the relevant <a href="https://auth0.com/docs/quickstart/native">Quickstarts</a>.</p>
-<h2 id="further-reading">Further Reading</h2>
-<p>For more information please refer to the <a href="documentation/intro.html">Documentation</a> section, or to the <a href="api/index.html">API Documentation</a></p>
+</code></pre><h2 id="api-reference">API reference</h2>
+<p>Read <a href="https://auth0.github.io/auth0-oidc-client-net/api/Auth0.OidcClient.html">the full API reference</a> to find out about the public API&#39;s this SDK exposes.</p>
+<h2 id="feedback">Feedback</h2>
+<h3 id="contributing">Contributing</h3>
+<p>We appreciate feedback and contribution to this repo! Before you get started, please see the following:</p>
+<ul>
+<li><a href="https://github.com/auth0/open-source-template/blob/master/GENERAL-CONTRIBUTING.md">Auth0&#39;s general contribution guidelines</a></li>
+<li><a href="https://github.com/auth0/open-source-template/blob/master/CODE-OF-CONDUCT.md">Auth0&#39;s code of conduct guidelines</a></li>
+<li><a href="https://github.com/auth0/auth0-oidc-client-net/blob/master/CONTRIBUTING.md">This repo&#39;s contribution guide</a></li>
+</ul>
+<h3 id="raise-an-issue">Raise an issue</h3>
+<p>To provide feedback or report a bug, please <a href="https://github.com/auth0/auth0-oidc-client-net/issues">raise an issue on our issue tracker</a>.</p>
+<h3 id="vulnerability-reporting">Vulnerability Reporting</h3>
+<p>Please do not report security vulnerabilities on the public GitHub issue tracker. The <a href="https://auth0.com/responsible-disclosure-policy">Responsible Disclosure Program</a> details the procedure for disclosing security issues.</p>
+<hr>
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: light)" srcset="https://cdn.auth0.com/website/sdks/logos/auth0_light_mode.png" width="150">
+    <source media="(prefers-color-scheme: dark)" srcset="https://cdn.auth0.com/website/sdks/logos/auth0_dark_mode.png" width="150">
+    <img alt="Auth0 Logo" src="https://cdn.auth0.com/website/sdks/logos/auth0_light_mode.png" width="150">
+  </source></source></picture>
+</p>
+<p align="center">Auth0 is an easy to implement, adaptable authentication and authorization platform. To learn more checkout <a href="https://auth0.com/why-auth0">Why Auth0?</a></p>
+<p align="center">
+This project is licensed under the Apache-2.0 license. See the <a href="https://github.com/auth0/auth0-oidc-client-net/blob/master/LICENSE"> LICENSE</a> file for more info.</p>
 </article>
           </div>
           
@@ -119,7 +161,8 @@ var client = new Auth0Client(new Auth0ClientOptions
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

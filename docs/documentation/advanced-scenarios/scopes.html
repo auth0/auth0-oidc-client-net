@@ -8,7 +8,7 @@
     <title>Using Scopes </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Using Scopes ">
-    <meta name="generator" content="docfx 2.45.1.0">
+    <meta name="generator" content="docfx 2.59.4.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
     <link rel="stylesheet" href="../../styles/docfx.vendor.css">
@@ -69,7 +69,7 @@
             <article class="content wrap" id="_content" data-uid="scopes">
 <h1 id="using-scopes">Using Scopes</h1>
 
-<p>By default the Auth0 OIDC Client will request the <code>openid</code>, <code>profile</code>, and <code>email</code> scopes. You can request different scopes by setting the @Auth0.OidcClient.Auth0ClientOptions.Scope property of the @Auth0.OidcClient.Auth0ClientOptions passed to the <a class="xref" href="../../api/Auth0.OidcClient.html">Auth0.OidcClient</a> constructor however <code>openid</code> is always included.</p>
+<p>By default the Auth0 OIDC Client will request the <code>openid</code>, <code>profile</code>, and <code>email</code> scopes. You can request different scopes by setting the <a class="xref" href="../../api/Auth0.OidcClient.Auth0ClientOptions.html#Auth0_OidcClient_Auth0ClientOptions_Scope">Scope</a> property of the <a class="xref" href="../../api/Auth0.OidcClient.Auth0ClientOptions.html">Auth0ClientOptions</a> passed to the <a class="xref" href="../../api/Auth0.OidcClient.html">Auth0.OidcClient</a> constructor however <code>openid</code> is always included.</p>
 <p>Depending on the <code>scope</code> which was request the <code>id_token</code> will contain a different set of claims.</p>
 <p>By default <code>loadProfile</code> will be set to <code>true</code> which means the UserInfo endpoint will be called during the authorization flow. To ensure the User object contain only the claims requested in the <code>scope</code>, be sure to also set <code>LoadProfile</code> to <code>false</code>, e.g:</p>
 <pre><code class="lang-csharp">var client = new Auth0Client(new Auth0ClientOptions
@@ -93,7 +93,8 @@
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

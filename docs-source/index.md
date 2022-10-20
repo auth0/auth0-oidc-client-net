@@ -1,3 +1,6 @@
+---
+title: Auth0 OIDC Client
+---
 ![](https://cdn.auth0.com/website/sdks/banners/auth0-oidc-client-net-banner.png)
 
 OIDC Client for .NET Desktop (WinForms, WPF and UWP) as well as Xamarin-based iOS and Android mobile applications.
