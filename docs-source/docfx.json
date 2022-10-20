@@ -46,12 +46,6 @@
         "exclude": [
           "obj/**"
         ]
-      },
-      {
-        "files": [
-          "banner.png"
-        ],
-        "src": ".."
       }
     ],
     "overwrite": [
