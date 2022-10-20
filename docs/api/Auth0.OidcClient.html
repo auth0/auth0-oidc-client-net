@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Namespace Auth0.OidcClient
    ">
-    <meta name="generator" content="docfx 2.45.1.0">
+    <meta name="generator" content="docfx 2.59.4.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -84,7 +84,7 @@
       <section><p>Provides common IBrowser logic for Android.</p>
 </section>
       <h4><a class="xref" href="Auth0.OidcClient.ASWebAuthenticationSessionBrowser.html">ASWebAuthenticationSessionBrowser</a></h4>
-      <section><p>Implements the <see cref="!:IBrowser"></see> interface using <span class="xref">AuthenticationServices.ASWebAuthenticationSession</span> for support on iOS 12+.</p>
+      <section><p>Implements the <see cref="!:IBrowser"></see> interface using <see cref="!:ASWebAuthenticationSession"></see> for support on iOS 12+.</p>
 </section>
       <h4><a class="xref" href="Auth0.OidcClient.ASWebAuthenticationSessionOptions.html">ASWebAuthenticationSessionOptions</a></h4>
       <section><p>Specifies options that can be passed to <a class="xref" href="Auth0.OidcClient.ASWebAuthenticationSessionBrowser.html">ASWebAuthenticationSessionBrowser</a> implementations.</p>
@@ -97,8 +97,15 @@ underlying <see cref="!:IdentityModel.OidcClient.OidcClient"></see>.</p>
       <section><p>Base class for automatically wiring up the necessary callback hooks required
 to facilitate communication with the Browser implementations.</p>
 </section>
+      <h4><a class="xref" href="Auth0.OidcClient.Auth0ClientBase.html">Auth0ClientBase</a></h4>
+      <section><p>Base class for performing authentication and authorization operations with Auth0 using the
+underlying <span class="xref">IdentityModel.OidcClient.OidcClient</span>.</p>
+</section>
+      <h4><a class="xref" href="Auth0.OidcClient.Auth0ClientOptions.html">Auth0ClientOptions</a></h4>
+      <section><p>Specifies options that can be passed to <a class="xref" href="Auth0.OidcClient.Auth0ClientBase.html">Auth0ClientBase</a> implementations.</p>
+</section>
       <h4><a class="xref" href="Auth0.OidcClient.AutoSelectBrowser.html">AutoSelectBrowser</a></h4>
-      <section><p>Implements the <see cref="!:IBrowser"></see> interface using the best available option for the current iOS version.</p>
+      <section><p>Implements the <see cref="!:IBrowser"></see> interface using the best available option for the current Android version.</p>
 </section>
       <h4><a class="xref" href="Auth0.OidcClient.ChromeCustomTabsBrowser.html">ChromeCustomTabsBrowser</a></h4>
       <section><p>Implements browser integration using Chrome Custom Tabs.</p>
@@ -107,19 +114,25 @@ to facilitate communication with the Browser implementations.</p>
       <section><p>Provides common <see cref="!:IBrowser"></see> logic for iOS platform.</p>
 </section>
       <h4><a class="xref" href="Auth0.OidcClient.SFAuthenticationSessionBrowser.html">SFAuthenticationSessionBrowser</a></h4>
-      <section><p>Implements the Browser <see cref="!:IBrowser"></see> using <span class="xref">SafariServices.SFAuthenticationSession</span> for support on iOS 11.</p>
+      <section><p>Implements the Browser <see cref="!:IBrowser"></see> using <see cref="!:SFAuthenticationSession"></see> for support on iOS 11.</p>
 </section>
       <h4><a class="xref" href="Auth0.OidcClient.SFSafariViewControllerBrowser.html">SFSafariViewControllerBrowser</a></h4>
-      <section><p>Implements the <see cref="!:IBrowser"></see> interface using <span class="xref">SafariServices.SFSafariViewController</span> for support on iOS 10 and earlier.</p>
+      <section><p>Implements the <see cref="!:IBrowser"></see> interface using <see cref="!:SFSafariViewController"></see> for support on iOS 10 and earlier.</p>
 </section>
       <h4><a class="xref" href="Auth0.OidcClient.SystemBrowser.html">SystemBrowser</a></h4>
       <section><p>Implements the <see cref="!:IBrowser"></see> interface using the best available option for the current Android version.</p>
 </section>
       <h4><a class="xref" href="Auth0.OidcClient.WebBrowserBrowser.html">WebBrowserBrowser</a></h4>
-      <section><p>Implements the <see cref="!:IBrowser"></see> interface using <span class="xref">System.Windows.Controls.WebBrowser</span>.</p>
+      <section><p>Implements the <see cref="!:IBrowser"></see> interface using <span class="xref">Auth0.OidcClient.ExtendedWebBrowser</span>.</p>
 </section>
       <h4><a class="xref" href="Auth0.OidcClient.WebViewBrowser.html">WebViewBrowser</a></h4>
       <section><p>Implements the <see cref="!:IBrowser"></see> interface using the <see cref="!:WebViewCompatible"></see> control.</p>
+</section>
+    <h3 id="interfaces">Interfaces
+  </h3>
+      <h4><a class="xref" href="Auth0.OidcClient.IAuth0Client.html">IAuth0Client</a></h4>
+      <section><p>Interface for performing authentication and authorization operations with Auth0 using the
+underlying <span class="xref">IdentityModel.OidcClient.OidcClient</span>.</p>
 </section>
     <h3 id="delegates">Delegates
   </h3>
@@ -136,7 +149,8 @@ to facilitate communication with the Browser implementations.</p>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

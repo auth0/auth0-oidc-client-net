@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class WebViewBrowser
    ">
-    <meta name="generator" content="docfx 2.45.1.0">
+    <meta name="generator" content="docfx 2.59.4.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -91,19 +91,20 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com//auth0/auth0-oidc-client-net/new/master/apiSpec/new?filename=Auth0_OidcClient_WebViewBrowser__ctor_System_Func_System_Windows_Window__System_Boolean_.md&amp;value=---%0Auid%3A%20Auth0.OidcClient.WebViewBrowser.%23ctor(System.Func%7BSystem.Windows.Window%7D%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/auth0/auth0-oidc-client-net/new/master/apiSpec/new?filename=Auth0_OidcClient_WebViewBrowser__ctor_Func_Form__.md&amp;value=---%0Auid%3A%20Auth0.OidcClient.WebViewBrowser.%23ctor(Func%7BForm%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com//auth0/auth0-oidc-client-net/blob/master/src/Auth0.OidcClient.WPF/WebViewBrowser.cs/#L23">View Source</a>
+    <a href="https://github.com/auth0/auth0-oidc-client-net/blob/feat/sdk-3682/src/Auth0.OidcClient.WinForms/WebViewBrowser.cs/#L22">View Source</a>
   </span>
   <a id="Auth0_OidcClient_WebViewBrowser__ctor_" data-uid="Auth0.OidcClient.WebViewBrowser.#ctor*"></a>
-  <h4 id="Auth0_OidcClient_WebViewBrowser__ctor_System_Func_System_Windows_Window__System_Boolean_" data-uid="Auth0.OidcClient.WebViewBrowser.#ctor(System.Func{System.Windows.Window},System.Boolean)">WebViewBrowser(Func&lt;Window&gt;, Boolean)</h4>
-  <div class="markdown level1 summary"><p>Create a new instance of <a class="xref" href="Auth0.OidcClient.WebViewBrowser.html">WebViewBrowser</a> with a custom windowFactory and optional window close flag.</p>
+  <h4 id="Auth0_OidcClient_WebViewBrowser__ctor_Func_Form__" data-uid="Auth0.OidcClient.WebViewBrowser.#ctor(Func{Form})">WebViewBrowser(Func&lt;Form&gt;)</h4>
+  <div class="markdown level1 summary"><p>Creates a new instance of <a class="xref" href="Auth0.OidcClient.WebViewBrowser.html">WebViewBrowser</a> with a specified function to create the <see cref="!:Form"></see>
+used to host the <see cref="!:WebViewCompatible"></see> control.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public WebViewBrowser(Func&lt;Window&gt; windowFactory, bool shouldCloseWindow = true)</code></pre>
+    <pre><code class="lang-csharp hljs">public WebViewBrowser(Func&lt;Form&gt; formFactory)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -116,29 +117,23 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Func</span>&lt;<span class="xref">System.Windows.Window</span>&gt;</td>
-        <td><span class="parametername">windowFactory</span></td>
-        <td><p>A function that returns a <span class="xref">System.Windows.Window</span> to be used for hosting the browser.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><span class="parametername">shouldCloseWindow</span></td>
-        <td><p>Whether the Window should be closed or not after completion.</p>
+        <td><span class="xref">Func</span>&lt;<span class="xref">Form</span>&gt;</td>
+        <td><span class="parametername">formFactory</span></td>
+        <td><p>The function used to create the <see cref="!:Form"></see> that will host the <see cref="!:WebViewCompatible"></see> control.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com//auth0/auth0-oidc-client-net/new/master/apiSpec/new?filename=Auth0_OidcClient_WebViewBrowser__ctor_System_String_System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20Auth0.OidcClient.WebViewBrowser.%23ctor(System.String%2CSystem.Int32%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/auth0/auth0-oidc-client-net/new/master/apiSpec/new?filename=Auth0_OidcClient_WebViewBrowser__ctor_System_String_System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20Auth0.OidcClient.WebViewBrowser.%23ctor(System.String%2CSystem.Int32%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com//auth0/auth0-oidc-client-net/blob/master/src/Auth0.OidcClient.WPF/WebViewBrowser.cs/#L35">View Source</a>
+    <a href="https://github.com/auth0/auth0-oidc-client-net/blob/feat/sdk-3682/src/Auth0.OidcClient.WinForms/WebViewBrowser.cs/#L33">View Source</a>
   </span>
   <a id="Auth0_OidcClient_WebViewBrowser__ctor_" data-uid="Auth0.OidcClient.WebViewBrowser.#ctor*"></a>
   <h4 id="Auth0_OidcClient_WebViewBrowser__ctor_System_String_System_Int32_System_Int32_" data-uid="Auth0.OidcClient.WebViewBrowser.#ctor(System.String,System.Int32,System.Int32)">WebViewBrowser(String, Int32, Int32)</h4>
-  <div class="markdown level1 summary"><p>Create a new instance of <a class="xref" href="Auth0.OidcClient.WebViewBrowser.html">WebViewBrowser</a> allowing parts of the <span class="xref">System.Windows.Window</span> container to be set.</p>
+  <div class="markdown level1 summary"><p>Creates a new instance of <a class="xref" href="Auth0.OidcClient.WebViewBrowser.html">WebViewBrowser</a> allowing parts of the <see cref="!:Form"></see> container to be set.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -179,18 +174,18 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com//auth0/auth0-oidc-client-net/new/master/apiSpec/new?filename=Auth0_OidcClient_WebViewBrowser_InvokeAsync_BrowserOptions_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20Auth0.OidcClient.WebViewBrowser.InvokeAsync(BrowserOptions%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/auth0/auth0-oidc-client-net/new/master/apiSpec/new?filename=Auth0_OidcClient_WebViewBrowser_InvokeAsync_BrowserOptions_CancellationToken_.md&amp;value=---%0Auid%3A%20Auth0.OidcClient.WebViewBrowser.InvokeAsync(BrowserOptions%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com//auth0/auth0-oidc-client-net/blob/master/src/Auth0.OidcClient.WPF/WebViewBrowser.cs/#L47">View Source</a>
+    <a href="https://github.com/auth0/auth0-oidc-client-net/blob/feat/sdk-3682/src/Auth0.OidcClient.WinForms/WebViewBrowser.cs/#L45">View Source</a>
   </span>
   <a id="Auth0_OidcClient_WebViewBrowser_InvokeAsync_" data-uid="Auth0.OidcClient.WebViewBrowser.InvokeAsync*"></a>
-  <h4 id="Auth0_OidcClient_WebViewBrowser_InvokeAsync_BrowserOptions_System_Threading_CancellationToken_" data-uid="Auth0.OidcClient.WebViewBrowser.InvokeAsync(BrowserOptions,System.Threading.CancellationToken)">InvokeAsync(BrowserOptions, CancellationToken)</h4>
+  <h4 id="Auth0_OidcClient_WebViewBrowser_InvokeAsync_BrowserOptions_CancellationToken_" data-uid="Auth0.OidcClient.WebViewBrowser.InvokeAsync(BrowserOptions,CancellationToken)">InvokeAsync(BrowserOptions, CancellationToken)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;BrowserResult&gt; InvokeAsync(BrowserOptions options, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;BrowserResult&gt; InvokeAsync(BrowserOptions options, CancellationToken cancellationToken = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -208,7 +203,7 @@
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="xref">CancellationToken</span></td>
         <td><span class="parametername">cancellationToken</span></td>
         <td></td>
       </tr>
@@ -224,7 +219,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">BrowserResult</span>&gt;</td>
+        <td><span class="xref">Task</span>&lt;<span class="xref">BrowserResult</span>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -237,15 +232,16 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com//auth0/auth0-oidc-client-net/new/master/apiSpec/new?filename=Auth0_OidcClient_WebViewBrowser.md&amp;value=---%0Auid%3A%20Auth0.OidcClient.WebViewBrowser%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/auth0/auth0-oidc-client-net/new/master/apiSpec/new?filename=Auth0_OidcClient_WebViewBrowser.md&amp;value=---%0Auid%3A%20Auth0.OidcClient.WebViewBrowser%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com//auth0/auth0-oidc-client-net/blob/master/src/Auth0.OidcClient.WPF/WebViewBrowser.cs/#L13" class="contribution-link">View Source</a>
+                    <a href="https://github.com/auth0/auth0-oidc-client-net/blob/feat/sdk-3682/src/Auth0.OidcClient.WinForms/WebViewBrowser.cs/#L13" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

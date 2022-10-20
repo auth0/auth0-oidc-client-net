@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class ASWebAuthenticationSessionBrowser
    ">
-    <meta name="generator" content="docfx 2.45.1.0">
+    <meta name="generator" content="docfx 2.59.4.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -73,7 +73,7 @@
   
   <h1 id="Auth0_OidcClient_ASWebAuthenticationSessionBrowser" data-uid="Auth0.OidcClient.ASWebAuthenticationSessionBrowser" class="text-break">Class ASWebAuthenticationSessionBrowser
   </h1>
-  <div class="markdown level0 summary"><p>Implements the <see cref="!:IBrowser"></see> interface using <span class="xref">AuthenticationServices.ASWebAuthenticationSession</span> for support on iOS 12+.</p>
+  <div class="markdown level0 summary"><p>Implements the <see cref="!:IBrowser"></see> interface using <see cref="!:ASWebAuthenticationSession"></see> for support on iOS 12+.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -85,7 +85,7 @@
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
-      <a class="xref" href="Auth0.OidcClient.IOSBrowserBase.html#Auth0_OidcClient_IOSBrowserBase_InvokeAsync_BrowserOptions_System_Threading_CancellationToken_">IOSBrowserBase.InvokeAsync(BrowserOptions, CancellationToken)</a>
+      <a class="xref" href="Auth0.OidcClient.IOSBrowserBase.html#Auth0_OidcClient_IOSBrowserBase_InvokeAsync_BrowserOptions_CancellationToken_">IOSBrowserBase.InvokeAsync(BrowserOptions, CancellationToken)</a>
     </div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Auth0.OidcClient.html">Auth0.OidcClient</a></h6>
@@ -101,7 +101,7 @@
     <a href="https://github.com/auth0/auth0-oidc-client-net/new/master/apiSpec/new?filename=Auth0_OidcClient_ASWebAuthenticationSessionBrowser__ctor_Auth0_OidcClient_ASWebAuthenticationSessionOptions_.md&amp;value=---%0Auid%3A%20Auth0.OidcClient.ASWebAuthenticationSessionBrowser.%23ctor(Auth0.OidcClient.ASWebAuthenticationSessionOptions)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/auth0/auth0-oidc-client-net/blob/master/src/Auth0.OidcClient.iOS/ASWebAuthenticationSessionBrowser.cs/#L41">View Source</a>
+    <a href="https://github.com/auth0/auth0-oidc-client-net/blob/feat/sdk-3682/src/Auth0.OidcClient.iOS/ASWebAuthenticationSessionBrowser.cs/#L41">View Source</a>
   </span>
   <a id="Auth0_OidcClient_ASWebAuthenticationSessionBrowser__ctor_" data-uid="Auth0.OidcClient.ASWebAuthenticationSessionBrowser.#ctor*"></a>
   <h4 id="Auth0_OidcClient_ASWebAuthenticationSessionBrowser__ctor_Auth0_OidcClient_ASWebAuthenticationSessionOptions_" data-uid="Auth0.OidcClient.ASWebAuthenticationSessionBrowser.#ctor(Auth0.OidcClient.ASWebAuthenticationSessionOptions)">ASWebAuthenticationSessionBrowser(ASWebAuthenticationSessionOptions)</h4>
@@ -132,7 +132,7 @@
   </table>
   <h5 id="Auth0_OidcClient_ASWebAuthenticationSessionBrowser__ctor_Auth0_OidcClient_ASWebAuthenticationSessionOptions__examples">Examples</h5>
   <p>If any custom browser configuration is needed (e.g. using <a class="xref" href="Auth0.OidcClient.ASWebAuthenticationSessionOptions.html#Auth0_OidcClient_ASWebAuthenticationSessionOptions_PrefersEphemeralWebBrowserSession">PrefersEphemeralWebBrowserSession</a>), 
-a new browser instance should be instantiated and passed to <see cref="!:Auth0ClientOptions.Browser"></see>.</p>
+a new browser instance should be instantiated and passed to <a class="xref" href="Auth0.OidcClient.Auth0ClientOptions.html#Auth0_OidcClient_Auth0ClientOptions_Browser">Browser</a>.</p>
 <pre><code>var client = new Auth0Client(new Auth0ClientOptions
 {
   Domain = &quot;YOUR_AUTH0_DOMAIN&quot;,
@@ -152,7 +152,7 @@ a new browser instance should be instantiated and passed to <see cref="!:Auth0Cl
     <a href="https://github.com/auth0/auth0-oidc-client-net/new/master/apiSpec/new?filename=Auth0_OidcClient_ASWebAuthenticationSessionBrowser_SessionOptions.md&amp;value=---%0Auid%3A%20Auth0.OidcClient.ASWebAuthenticationSessionBrowser.SessionOptions%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/auth0/auth0-oidc-client-net/blob/master/src/Auth0.OidcClient.iOS/ASWebAuthenticationSessionBrowser.cs/#L18">View Source</a>
+    <a href="https://github.com/auth0/auth0-oidc-client-net/blob/feat/sdk-3682/src/Auth0.OidcClient.iOS/ASWebAuthenticationSessionBrowser.cs/#L18">View Source</a>
   </span>
   <a id="Auth0_OidcClient_ASWebAuthenticationSessionBrowser_SessionOptions_" data-uid="Auth0.OidcClient.ASWebAuthenticationSessionBrowser.SessionOptions*"></a>
   <h4 id="Auth0_OidcClient_ASWebAuthenticationSessionBrowser_SessionOptions" data-uid="Auth0.OidcClient.ASWebAuthenticationSessionBrowser.SessionOptions">SessionOptions</h4>
@@ -182,19 +182,18 @@ a new browser instance should be instantiated and passed to <see cref="!:Auth0Cl
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/auth0/auth0-oidc-client-net/new/master/apiSpec/new?filename=Auth0_OidcClient_ASWebAuthenticationSessionBrowser_Launch_BrowserOptions_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20Auth0.OidcClient.ASWebAuthenticationSessionBrowser.Launch(BrowserOptions%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/auth0/auth0-oidc-client-net/new/master/apiSpec/new?filename=Auth0_OidcClient_ASWebAuthenticationSessionBrowser_Launch_BrowserOptions_CancellationToken_.md&amp;value=---%0Auid%3A%20Auth0.OidcClient.ASWebAuthenticationSessionBrowser.Launch(BrowserOptions%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/auth0/auth0-oidc-client-net/blob/master/src/Auth0.OidcClient.iOS/ASWebAuthenticationSessionBrowser.cs/#L47">View Source</a>
+    <a href="https://github.com/auth0/auth0-oidc-client-net/blob/feat/sdk-3682/src/Auth0.OidcClient.iOS/ASWebAuthenticationSessionBrowser.cs/#L47">View Source</a>
   </span>
   <a id="Auth0_OidcClient_ASWebAuthenticationSessionBrowser_Launch_" data-uid="Auth0.OidcClient.ASWebAuthenticationSessionBrowser.Launch*"></a>
-  <h4 id="Auth0_OidcClient_ASWebAuthenticationSessionBrowser_Launch_BrowserOptions_System_Threading_CancellationToken_" data-uid="Auth0.OidcClient.ASWebAuthenticationSessionBrowser.Launch(BrowserOptions,System.Threading.CancellationToken)">Launch(BrowserOptions, CancellationToken)</h4>
-  <div class="markdown level1 summary"><p>Launch a browser with the options and URL specified by the <see cref="!:BrowserOptions"></see>.</p>
-</div>
+  <h4 id="Auth0_OidcClient_ASWebAuthenticationSessionBrowser_Launch_BrowserOptions_CancellationToken_" data-uid="Auth0.OidcClient.ASWebAuthenticationSessionBrowser.Launch(BrowserOptions,CancellationToken)">Launch(BrowserOptions, CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected override Task&lt;BrowserResult&gt; Launch(BrowserOptions options, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">protected override Task&lt;BrowserResult&gt; Launch(BrowserOptions options, CancellationToken cancellationToken = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -209,14 +208,12 @@ a new browser instance should be instantiated and passed to <see cref="!:Auth0Cl
       <tr>
         <td><span class="xref">BrowserOptions</span></td>
         <td><span class="parametername">options</span></td>
-        <td><p><see cref="!:BrowserOptions"></see> specifying the parameters to be used in launching the browser.</p>
-</td>
+        <td></td>
       </tr>
       <tr>
-        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="xref">CancellationToken</span></td>
         <td><span class="parametername">cancellationToken</span></td>
-        <td><p>Optional <span class="xref">System.Threading.CancellationToken</span> that could be used to cancel the browser.</p>
-</td>
+        <td></td>
       </tr>
     </tbody>
   </table>
@@ -230,15 +227,13 @@ a new browser instance should be instantiated and passed to <see cref="!:Auth0Cl
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">BrowserResult</span>&gt;</td>
-        <td><p>A <span class="xref">System.Threading.Tasks.Task</span> that will contain a <see cref="!:BrowserResult"></see> with details of
-wether the launch process succeeded or not by way of a <see cref="!:BrowserResultType"></see>.</p>
-</td>
+        <td><span class="xref">Task</span>&lt;<span class="xref">BrowserResult</span>&gt;</td>
+        <td></td>
       </tr>
     </tbody>
   </table>
   <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="Auth0.OidcClient.IOSBrowserBase.html#Auth0_OidcClient_IOSBrowserBase_Launch_BrowserOptions_System_Threading_CancellationToken_">IOSBrowserBase.Launch(BrowserOptions, CancellationToken)</a></div>
+  <div><a class="xref" href="Auth0.OidcClient.IOSBrowserBase.html#Auth0_OidcClient_IOSBrowserBase_Launch_BrowserOptions_CancellationToken_">IOSBrowserBase.Launch(BrowserOptions, CancellationToken)</a></div>
 </article>
           </div>
           
@@ -250,12 +245,13 @@ wether the launch process succeeded or not by way of a <see cref="!:BrowserResul
                     <a href="https://github.com/auth0/auth0-oidc-client-net/new/master/apiSpec/new?filename=Auth0_OidcClient_ASWebAuthenticationSessionBrowser.md&amp;value=---%0Auid%3A%20Auth0.OidcClient.ASWebAuthenticationSessionBrowser%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/auth0/auth0-oidc-client-net/blob/master/src/Auth0.OidcClient.iOS/ASWebAuthenticationSessionBrowser.cs/#L13" class="contribution-link">View Source</a>
+                    <a href="https://github.com/auth0/auth0-oidc-client-net/blob/feat/sdk-3682/src/Auth0.OidcClient.iOS/ASWebAuthenticationSessionBrowser.cs/#L13" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>
