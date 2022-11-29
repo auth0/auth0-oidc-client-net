@@ -1,0 +1,128 @@
+<?xml version="1.0"?>
+
+<package>
+  <metadata>
+    <id>Auth0.OidcClient.Avalonia</id>
+    <version>3.2.6</version>
+    <authors>Auth0</authors>
+    <owners>Auth0</owners>
+    <license type="expression">Apache-2.0</license>
+    <projectUrl>https://github.com/auth0/auth0-oidc-client-net</projectUrl>
+    <icon>Auth0Icon.png</icon>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Auth0 OIDC Client for Avalonia apps</description>
+    <releaseNotes>
+      Version 3.2.6
+      - Expose OidcClient's LoggerFactory to enable for your own LoggerFactory
+
+      Version 3.2.5
+      - Do not mutate dictionary when passed to our SDK using LoginAsync, LogoutAsync or RefreshTokenAsync
+
+      Version 3.2.4
+      - Fix dependency issue with System.Text.Json
+
+      Version 3.2.3
+      - Fix dependency issue with OidcClient
+
+      Version 3.2.2
+      - Update OidcClient to 4.0.0
+
+      Version 3.2.1
+      - Fix System.Text.Encodings.Web vulnerability: https://github.com/dotnet/runtime/issues/49377
+      - Fix System.Text.RegularExpressions vulnerability
+
+      Version 3.2.0
+      - Add support for Organizations
+
+      Version 3.1.8
+      - Ensure WPF web viewer is disposed
+
+      Version 3.1.7
+      - Fixed dependency version in nuspec file for Microsoft.Toolkit.Wpf.UI.Controls.WebView
+
+      Version 3.1.6
+      - Bumped Microsoft.Toolkit.Wpf.UI.Controls.WebView to 6.1.1
+
+      Version 3.1.5
+      - Fixed incorrect dependency in .NET Core 3.1 version
+
+      Version 3.1.4
+      - Now supports .NET Core 3.1 projects
+
+      Version 3.1.3
+      - WPF version is now actually strong-named.
+
+      Version 3.1.2
+      - Allow ID tokens "issued at" (iat) claims from "the future" to allow
+        slow local clocks on mobile and desktop devices.
+      - Auth0.OidcClient.WPF is now strong-named for improved compatibility.
+
+      Version 3.1.1
+      - Corrected OpenIDConnect package dep version to 5.6.0
+      - Tweaked some ID Token Validation exception messages
+      - Update IdentityModel.OidcClient to 3.1.2
+
+      Version 3.1.0
+      - Improved OIDC Compliance - ID Tokens have more comprehensive checks
+      - NuGet package brings in Microsoft.Toolkit.Forms.UI.Controls.WebView
+      - Update Microsoft.IdentityModel.Protocols.OpenIdConnect to 5.6.0
+      - Update IdentityModel.OidcClient to 3.1.0
+      - Update Microsoft.Toolkit.Wpf.UI.Controls.WebView to 6.0.0
+
+      Version 3.0.1
+      - Correct package dependency version for Auth0.OidcClient.Core
+
+      Version 3.0.0
+      - Breaking changes! Please visit our migration guide via a link on
+        https://github.com/auth0/auth0-oidc-client-net/blob/master/README.md
+      - Upgrade IdentityModel.OidcClient to 3.0.1
+      - Add CancellationToken support to IAuth0Client/Auth0Client methods (not honored yet)
+      - Combined LogoutAsync and RefreshTokenAsync overloads on IAuth0Client/Auth0Client
+      - ClientSecret property is now marked Obsolete to discourage use in native clients
+      - Add 'email' to default scopes and force 'openid' to always be included
+      - Add debugger logging statements that show expected callback URLs
+      - Add extraParameters parameter to ParseResponseAsync
+      - Ensure user agent sent on RefreshToken and ProcessResponse
+      - Remove obsolete PlatformWebView class
+      - Support Microsoft Edge and prefer it over Internet Explorer
+      - Min .NET target is now 4.6.2
+
+      Version 2.4.3
+      - Improved XML code documentation.
+      - Update IdentityModel.OidcClient2 to 2.9.2
+
+      Version 2.4.2
+      - Clarified RedirectUri and PostLogoutRedirectUri on Auth0ClientOptions in doc comments
+      - Debug log now helpfully reports Callback and Logout URLs to whitelist in dev mode
+
+      Version 2.4.0
+      - Add support for closing the browser window (thanks @aashikgowda)
+      - PlatformWebView class is deprecated. When it comes to config.Browser either:
+        - Leave it null for ongoing best default (recommended)
+        - Assign an instance of WebBrowserBrowser passing a custom Window function if customization needed
+      - Add return code status for Logout (thanks @jsauve)
+      - Add support to get the user claims from the userinfo endpoint (thanks @OrihuelaConde)
+      - Add default for logout redirect
+      - Updated dependency on IdentityModel.OidcClient to v2.9.0
+    </releaseNotes>
+    <copyright>Copyright 2017-2022 Auth0, Inc.</copyright>
+    <tags>Auth0 OIDC Avalonia</tags>
+    <dependencies>
+      <group targetFramework="net462">
+        <dependency id="Auth0.OidcClient.Core" version="3.2.6" />
+        <dependency id="WebViewControl-Avalonia" version="2.91.29" />
+      </group>
+      <group targetFramework="netcoreapp3.1">
+        <dependency id="Auth0.OidcClient.Core" version="3.2.6" />
+        <dependency id="WebViewControl-Avalonia" version="2.91.29" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="..\src\Auth0.OidcClient.Avalonia\bin\Release\net462\Auth0.OidcClient.dll" target="lib\net462" />
+    <file src="..\src\Auth0.OidcClient.Avalonia\bin\Release\net462\Auth0.OidcClient.xml" target="lib\net462" />
+    <file src="..\src\Auth0.OidcClient.Avalonia\bin\Release\netcoreapp3.1\Auth0.OidcClient.dll" target="lib\netcoreapp3.1" />
+    <file src="..\src\Auth0.OidcClient.Avalonia\bin\Release\netcoreapp3.1\Auth0.OidcClient.xml" target="lib\netcoreapp3.1" />
+    <file src="..\build\Auth0Icon.png" />
+  </files>
+</package>
