@@ -28,7 +28,7 @@ namespace Auth0.OidcClient
             using (var customTabsIntent = builder.Build())
             {
                 if (IsNewTask)
-                    customTabsIntent.Intent.AddFlags(ActivityFlags.NewTask);
+                    customTabsIntent.Intent.AddFlags(ActivityFlags.NewTask | ActivityFlags.NoHistory);
                 customTabsIntent.LaunchUrl(context, uri);
             }
         }
