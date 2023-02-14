@@ -2,24 +2,32 @@
 using Microsoft.IdentityModel.Protocols.OpenIdConnect;
 using Microsoft.IdentityModel.Tokens;
 using System;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace Auth0.OidcClient.Tokens
 {
-    static class JsonWebKeys
+    class JsonWebKeys
     {
-        public static async Task<JsonWebKeySet> GetForIssuer(string issuer)
+        private readonly HttpMessageHandler backchannel;
+
+        public JsonWebKeys(HttpMessageHandler backchannel = null)
+        {
+            this.backchannel = backchannel;
+        }
+        
+        public async Task<JsonWebKeySet> GetForIssuer(string issuer)
         {
             var metadataAddress = new UriBuilder(issuer) { Path = "/.well-known/openid-configuration" }.Uri.OriginalString;
             var openIdConfiguration = await GetOpenIdConfiguration(metadataAddress);
             return openIdConfiguration.JsonWebKeySet;
         }
 
-        private static Task<OpenIdConnectConfiguration> GetOpenIdConfiguration(string metadataAddress)
+        private Task<OpenIdConnectConfiguration> GetOpenIdConfiguration(string metadataAddress)
         {
             try
             {
-                var configurationManager = new ConfigurationManager<OpenIdConnectConfiguration>(metadataAddress, new OpenIdConnectConfigurationRetriever());
+                var configurationManager = backchannel == null ? new ConfigurationManager<OpenIdConnectConfiguration>(metadataAddress, new OpenIdConnectConfigurationRetriever()) : new ConfigurationManager<OpenIdConnectConfiguration>(metadataAddress, new OpenIdConnectConfigurationRetriever(), new System.Net.Http.HttpClient(backchannel));
                 return configurationManager.GetConfigurationAsync();
             }
             catch (Exception e)

@@ -1,6 +1,13 @@
 ﻿using Auth0.OidcClient.Tokens;
+using Microsoft.IdentityModel.Protocols.OpenIdConnect;
 using Microsoft.IdentityModel.Tokens;
+using Moq;
+using Moq.Protected;
 using System;
+using System.Net;
+using System.Net.Http;
+using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Xunit;
 
@@ -28,7 +35,7 @@ namespace Auth0.OidcClient.Core.UnitTests.Tokens
 
         private Task ValidateToken(string token, IdTokenRequirements reqs = null, DateTime? when = null, ISignatureVerifier signatureVerifier = null)
         {
-            return IdTokenValidator.AssertTokenMeetsRequirements(reqs ?? defaultReqs, token, when ?? tokensWereValid, signatureVerifier ?? rs256NoSignature);
+            return new OidcClient.Tokens.IdTokenValidator().AssertTokenMeetsRequirements(reqs ?? defaultReqs, token, when ?? tokensWereValid, signatureVerifier ?? rs256NoSignature);
         }
 
         [Fact]
@@ -293,6 +300,34 @@ namespace Auth0.OidcClient.Core.UnitTests.Tokens
             var token = "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3Rva2Vucy10ZXN0LmF1dGgwLmNvbS8iLCJhdWQiOiJ0b2tlbnMtdGVzdC0xMjMiLCJzdWIiOiJhdXRoMHwxMjM0NTY3ODkiLCJleHAiOjE1NjgxODA4OTQuMjI0LCJpYXQiOjE1NjgwMDgwOTQuMjI0LCJub25jZSI6ImExYjJjM2Q0ZTUiLCJhenAiOiJ0b2tlbnMtdGVzdC0xMjMiLCJhdXRoX3RpbWUiOjE1NjgwOTQ0OTQuMjI0LCJvcmdfaWQiOiIxMjMifQ.AsGzG0MWXzd4v-XmIN_7Elgd527jOARv7ChDECH9qUw";
 
             await ValidateToken(token);
+        }
+
+        [Fact]
+        public async void UsesTheBackchannelWhenProvidedToFetchTheOpenIdConfiguration()
+        {
+            var token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1qQXlNamczTWpFMVF6WXhNamhGUkVKR09FRkVSRGMzTlRoRU9EWTNRak13UVRSR056UkdRUSJ9.eyJuaWNrbmFtZSI6ImRhbWllbmcrdGVzdDQyIiwibmFtZSI6ImRhbWllbmcrdGVzdDQyQGdtYWlsLmNvbSIsInBpY3R1cmUiOiJodHRwczovL3MuZ3JhdmF0YXIuY29tL2F2YXRhci81MzFiMDJkYTllOWVjNzg3ZDBlMWE1NzA1YzQ0YzU2Nj9zPTQ4MCZyPXBnJmQ9aHR0cHMlM0ElMkYlMkZjZG4uYXV0aDAuY29tJTJGYXZhdGFycyUyRmRhLnBuZyIsInVwZGF0ZWRfYXQiOiIyMDE5LTExLTAxVDE3OjQ0OjE2LjY5NVoiLCJlbWFpbCI6ImRhbWllbmcrdGVzdDQyQGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwiaXNzIjoiaHR0cHM6Ly9hdXRoMC1kb3RuZXQtaW50ZWdyYXRpb24tdGVzdHMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDVkYTY0NTNjMTIyZmI2MGE5MjRlOTI2MSIsImF1ZCI6InFtc3M5QTY2c3RQV1RPWGpSNlgxT2VBMERMYWRvTlAyIiwiaWF0IjoxNTcyNjMwMjU2LCJleHAiOjE1NzI2NjYyNTYsIm5vbmNlIjoiU09ySE9hdTlxMGl0eDRpVEZfaVgydyJ9.NomT02whkH42ISpcd_JvG4ZvQQhzPKfoWCwcgrhyLeWmnmHTo704WtsnfCqR72uw26D-ZGA5n2Yu4Jdcv2A8_leGEQm3p45-ramIDwWUu2J30m_op_5I4wFvgpbRrWSrD1_3qK1GrDnrdv8psGL8VgCf3pLLDbqbkzDmtE6OtEfDp2hEFwXs9YntREXu5Z-ufFFLz9VU5uyRg7JA95YGQNIRhzMFoUNKZAO19nrBq3HKc_iR_W9g9Y3iLPLgVVazq6zHjn3cXNKpr7JN6MUKqIB-YYJ1KDEvmaMO60xs2DAhhnkUN1OhXBLTgQ9xbCJeaxE7N48YMxPAu3HHT-rhZg";
+
+            var mockHandler = new Mock<HttpMessageHandler>(MockBehavior.Strict);
+            mockHandler.Protected()
+                .Setup<Task<HttpResponseMessage>>(
+                    "SendAsync",
+                    ItExpr.Is<HttpRequestMessage>(req => req.RequestUri.ToString() == $"https://auth0-dotnet-integration-tests.auth0.com/.well-known/openid-configuration"),
+                    ItExpr.IsAny<CancellationToken>()
+                )
+                .ReturnsAsync(new HttpResponseMessage()
+                {
+                    StatusCode = HttpStatusCode.OK,
+                    Content = new StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(new OpenIdConnectConfiguration() { JsonWebKeySet = signingKeys }), Encoding.UTF8, "application/json"),
+                });
+
+            await new OidcClient.Tokens.IdTokenValidator(mockHandler.Object).AssertTokenMeetsRequirements(signedReqs, token, new DateTime(2019, 11, 1, 20, 00, 00, DateTimeKind.Utc));
+
+
+            mockHandler.Protected().Verify(
+                "SendAsync",
+                Times.Exactly(1),
+                ItExpr.Is<HttpRequestMessage>(req => req.RequestUri.ToString() == $"https://auth0-dotnet-integration-tests.auth0.com/.well-known/openid-configuration"),
+                ItExpr.IsAny<CancellationToken>());
         }
     }
 }

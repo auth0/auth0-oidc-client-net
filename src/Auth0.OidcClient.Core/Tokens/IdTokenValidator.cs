@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Net.Http;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
@@ -12,8 +13,15 @@ namespace Auth0.OidcClient.Tokens
     /// <summary>
     /// Perform validation of a JWT ID token in compliance with specified <see cref="IdTokenRequirements"/>.
     /// </summary>
-    internal static class IdTokenValidator
+    internal class IdTokenValidator
     {
+        private readonly AsymmetricSignatureVerifier assymetricSignatureVerifier;
+
+        public IdTokenValidator(HttpMessageHandler backchannel = null)
+        {
+            assymetricSignatureVerifier = new AsymmetricSignatureVerifier(backchannel);
+        }
+
         /// <summary>
         /// Assert that all the <see cref="IdTokenRequirements"/> are met by a JWT ID token for a given point in time.
         /// </summary>
@@ -26,7 +34,7 @@ namespace Auth0.OidcClient.Tokens
         /// meet the requirements specified by <paramref name="required"/>.
         /// </exception>
         /// <returns><see cref="Task"/> that will complete when the token is validated.</returns>
-        internal static async Task AssertTokenMeetsRequirements(this IdTokenRequirements required, string rawIDToken, DateTime? pointInTime = null, ISignatureVerifier signatureVerifier = null)
+        internal async Task AssertTokenMeetsRequirements(IdTokenRequirements required, string rawIDToken, DateTime? pointInTime = null, ISignatureVerifier signatureVerifier = null)
         {
             if (string.IsNullOrWhiteSpace(rawIDToken))
                 throw new IdTokenValidationException("ID token is required but missing.");
@@ -36,7 +44,7 @@ namespace Auth0.OidcClient.Tokens
             // For now we want to support HS256 + ClientSecret as we just had a major release.
             // TODO: In the next major (v4.0) we should remove this condition as well as Auth0ClientOptions.ClientSecret
             if (token.SignatureAlgorithm != "HS256")
-                (signatureVerifier ?? await AsymmetricSignatureVerifier.ForJwks(required.Issuer)).VerifySignature(rawIDToken);
+                (signatureVerifier ?? await assymetricSignatureVerifier.ForJwks(required.Issuer)).VerifySignature(rawIDToken);
 
             AssertTokenClaimsMeetRequirements(required, token, pointInTime ?? DateTime.Now);
         }
