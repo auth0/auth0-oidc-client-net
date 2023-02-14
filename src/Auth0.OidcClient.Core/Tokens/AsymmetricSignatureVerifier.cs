@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace Auth0.OidcClient.Tokens
@@ -9,11 +10,17 @@ namespace Auth0.OidcClient.Tokens
     internal class AsymmetricSignatureVerifier : ISignatureVerifier
     {
         private readonly IList<JsonWebKey> keys;
+        private readonly JsonWebKeys jsonWebKeys;
 
-        public static async Task<AsymmetricSignatureVerifier> ForJwks(string issuer)
+        public AsymmetricSignatureVerifier(HttpMessageHandler backchannel = null)
         {
-            var jsonWebKeys = await JsonWebKeys.GetForIssuer(issuer);
-            return new AsymmetricSignatureVerifier(jsonWebKeys.Keys);
+            jsonWebKeys = new JsonWebKeys(backchannel);
+        }
+
+        public async Task<AsymmetricSignatureVerifier> ForJwks(string issuer)
+        {
+            var jsonWebKeysSet = await jsonWebKeys.GetForIssuer(issuer);
+            return new AsymmetricSignatureVerifier(jsonWebKeysSet.Keys);
         }
 
         public AsymmetricSignatureVerifier(IList<JsonWebKey> keys)

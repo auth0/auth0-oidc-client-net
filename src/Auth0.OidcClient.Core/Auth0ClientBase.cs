@@ -22,6 +22,7 @@ namespace Auth0.OidcClient
     public abstract class Auth0ClientBase : IAuth0Client
     {
         private readonly IdTokenRequirements _idTokenRequirements;
+        private readonly IdTokenValidator _idTokenValidator;
         private readonly Auth0ClientOptions _options;
         private readonly string _userAgent;
         private IdentityModel.OidcClient.OidcClient _oidcClient;
@@ -43,6 +44,7 @@ namespace Auth0.OidcClient
             _options = options;
             _idTokenRequirements = new IdTokenRequirements($"https://{_options.Domain}/", _options.ClientId, options.Leeway, options.MaxAge);
             _userAgent = CreateAgentString(platformName);
+            _idTokenValidator = new IdTokenValidator(options.BackchannelHandler);
         }
 
         /// <inheritdoc />
@@ -65,7 +67,7 @@ namespace Auth0.OidcClient
                     _idTokenRequirements.Organization = finalExtraParameters["organization"];
                 }
 
-                await IdTokenValidator.AssertTokenMeetsRequirements(_idTokenRequirements, result.IdentityToken); // Nonce is created & tested by OidcClient
+                await _idTokenValidator.AssertTokenMeetsRequirements(_idTokenRequirements, result.IdentityToken); // Nonce is created & tested by OidcClient
             }
 
             return result;
@@ -121,7 +123,7 @@ namespace Auth0.OidcClient
                     _idTokenRequirements.Organization = finalExtraParameters["Organization"];
                 }
 
-                await IdTokenValidator.AssertTokenMeetsRequirements(_idTokenRequirements, result.IdentityToken); // Nonce is created & tested by OidcClient
+                await _idTokenValidator.AssertTokenMeetsRequirements(_idTokenRequirements, result.IdentityToken); // Nonce is created & tested by OidcClient
             }
 
             return result;
