@@ -2,9 +2,9 @@
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0</TargetFrameworks>
     <RootNamespace>Auth0.OidcClient</RootNamespace>
-    <AssemblyVersion>3.2.6</AssemblyVersion>
-    <FileVersion>3.2.6</FileVersion>
-    <Version>3.2.6</Version>
+    <AssemblyVersion>3.2.7</AssemblyVersion>
+    <FileVersion>3.2.7</FileVersion>
+    <Version>3.2.7</Version>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <DocumentationFile>bin\Release\netstandard2.0\Auth0.OidcClient.Core.xml</DocumentationFile>
