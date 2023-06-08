@@ -111,22 +111,10 @@ namespace Auth0.OidcClient
         }
 
         /// <inheritdoc/>
-        public Task<RefreshTokenResult> RefreshTokenAsync(string refreshToken, CancellationToken cancellationToken = default)
-        {
-            return this.RefreshTokenAsync(refreshToken, null, null, cancellationToken);
-        }
-
-        /// <inheritdoc/>
-        public Task<RefreshTokenResult> RefreshTokenAsync(string refreshToken, object extraParameters, CancellationToken cancellationToken = default)
-        {
-            return this.RefreshTokenAsync(refreshToken, null, extraParameters, cancellationToken);
-        }
-
-        /// <inheritdoc/>
-        public async Task<RefreshTokenResult> RefreshTokenAsync(string refreshToken, string scope, object extraParameters = null, CancellationToken cancellationToken = default)
+        public async Task<RefreshTokenResult> RefreshTokenAsync(string refreshToken, object extraParameters = null, CancellationToken cancellationToken = default)
         {
             var finalExtraParameters = AppendTelemetry(extraParameters);
-            var result = await OidcClient.RefreshTokenAsync(refreshToken, new Parameters(finalExtraParameters), scope, cancellationToken: cancellationToken);
+            var result = await OidcClient.RefreshTokenAsync(refreshToken, new Parameters(finalExtraParameters), cancellationToken: cancellationToken);
 
             if (!result.IsError)
             {
