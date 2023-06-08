@@ -57,10 +57,30 @@ namespace Auth0.OidcClient
         /// </summary>
         /// <param name="refreshToken">Refresh token which was issued during the authorization flow, or subsequent
         /// calls to <see cref="IdentityModel.OidcClient.OidcClient.RefreshTokenAsync"/>.</param>
+        /// <param name="cancellationToken">Optional <see cref="CancellationToken"/> that can be used to cancel the request.</param>
+        /// <returns>A <see cref="RefreshTokenResult"/> with the refreshed tokens.</returns>
+        Task<RefreshTokenResult> RefreshTokenAsync(string refreshToken, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Generates a new set of tokens based on a refresh token. 
+        /// </summary>
+        /// <param name="refreshToken">Refresh token which was issued during the authorization flow, or subsequent
+        /// calls to <see cref="IdentityModel.OidcClient.OidcClient.RefreshTokenAsync"/>.</param>
         /// <param name="extraParameters">Optional extra parameters that need to be passed to the endpoint.</param>
         /// <param name="cancellationToken">Optional <see cref="CancellationToken"/> that can be used to cancel the request.</param>
         /// <returns>A <see cref="RefreshTokenResult"/> with the refreshed tokens.</returns>
         Task<RefreshTokenResult> RefreshTokenAsync(string refreshToken, object extraParameters = null, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Generates a new set of tokens based on a refresh token. 
+        /// </summary>
+        /// <param name="refreshToken">Refresh token which was issued during the authorization flow, or subsequent
+        /// calls to <see cref="IdentityModel.OidcClient.OidcClient.RefreshTokenAsync"/>.</param>
+        /// <param name="scope">Space separated list of the requested scopes.</param>
+        /// <param name="extraParameters">Optional extra parameters that need to be passed to the endpoint.</param>
+        /// <param name="cancellationToken">Optional <see cref="CancellationToken"/> that can be used to cancel the request.</param>
+        /// <returns>A <see cref="RefreshTokenResult"/> with the refreshed tokens.</returns>
+        Task<RefreshTokenResult> RefreshTokenAsync(string refreshToken, string scope, object extraParameters = null, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Gets the user claims from the userinfo endpoint.
