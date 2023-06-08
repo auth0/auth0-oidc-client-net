@@ -73,7 +73,7 @@
   
   <h1 id="Auth0_OidcClient_SFSafariViewControllerBrowser" data-uid="Auth0.OidcClient.SFSafariViewControllerBrowser" class="text-break">Class SFSafariViewControllerBrowser
   </h1>
-  <div class="markdown level0 summary"><p>Implements the <see cref="!:IBrowser"></see> interface using <see cref="!:SFSafariViewController"></see> for support on iOS 10 and earlier.</p>
+  <div class="markdown level0 summary"><p>Implements the <span class="xref">IdentityModel.OidcClient.Browser.IBrowser</span> interface using <span class="xref">SafariServices.SFSafariViewController</span> for support on iOS 10 and earlier.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -82,34 +82,60 @@
     <div class="level1"><a class="xref" href="Auth0.OidcClient.IOSBrowserBase.html">IOSBrowserBase</a></div>
     <div class="level2"><span class="xref">SFSafariViewControllerBrowser</span></div>
   </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><span class="xref">IdentityModel.OidcClient.Browser.IBrowser</span></div>
+  </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
-      <a class="xref" href="Auth0.OidcClient.IOSBrowserBase.html#Auth0_OidcClient_IOSBrowserBase_InvokeAsync_BrowserOptions_CancellationToken_">IOSBrowserBase.InvokeAsync(BrowserOptions, CancellationToken)</a>
+      <a class="xref" href="Auth0.OidcClient.IOSBrowserBase.html#Auth0_OidcClient_IOSBrowserBase_InvokeAsync_IdentityModel_OidcClient_Browser_BrowserOptions_System_Threading_CancellationToken_">IOSBrowserBase.InvokeAsync(BrowserOptions, CancellationToken)</a>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
     </div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Auth0.OidcClient.html">Auth0.OidcClient</a></h6>
   <h6><strong>Assembly</strong>: Auth0.OidcClient.dll</h6>
   <h5 id="Auth0_OidcClient_SFSafariViewControllerBrowser_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class SFSafariViewControllerBrowser : IOSBrowserBase</code></pre>
+    <pre><code class="lang-csharp hljs">public class SFSafariViewControllerBrowser : IOSBrowserBase, IBrowser</code></pre>
   </div>
   <h3 id="methods">Methods
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/auth0/auth0-oidc-client-net/new/master/apiSpec/new?filename=Auth0_OidcClient_SFSafariViewControllerBrowser_Launch_BrowserOptions_CancellationToken_.md&amp;value=---%0Auid%3A%20Auth0.OidcClient.SFSafariViewControllerBrowser.Launch(BrowserOptions%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/auth0/auth0-oidc-client-net/new/master/apiSpec/new?filename=Auth0_OidcClient_SFSafariViewControllerBrowser_Launch_IdentityModel_OidcClient_Browser_BrowserOptions_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20Auth0.OidcClient.SFSafariViewControllerBrowser.Launch(IdentityModel.OidcClient.Browser.BrowserOptions%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/auth0/auth0-oidc-client-net/blob/feat/sdk-3682/src/Auth0.OidcClient.iOS/SFSafariViewControllerBrowser.cs/#L16">View Source</a>
+    <a href="https://github.com/auth0/auth0-oidc-client-net/blob/master/src/Auth0.OidcClient.iOS/SFSafariViewControllerBrowser.cs/#L16">View Source</a>
   </span>
   <a id="Auth0_OidcClient_SFSafariViewControllerBrowser_Launch_" data-uid="Auth0.OidcClient.SFSafariViewControllerBrowser.Launch*"></a>
-  <h4 id="Auth0_OidcClient_SFSafariViewControllerBrowser_Launch_BrowserOptions_CancellationToken_" data-uid="Auth0.OidcClient.SFSafariViewControllerBrowser.Launch(BrowserOptions,CancellationToken)">Launch(BrowserOptions, CancellationToken)</h4>
-  <div class="markdown level1 summary"></div>
+  <h4 id="Auth0_OidcClient_SFSafariViewControllerBrowser_Launch_IdentityModel_OidcClient_Browser_BrowserOptions_System_Threading_CancellationToken_" data-uid="Auth0.OidcClient.SFSafariViewControllerBrowser.Launch(IdentityModel.OidcClient.Browser.BrowserOptions,System.Threading.CancellationToken)">Launch(BrowserOptions, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Launch a browser with the options and URL specified by the <span class="xref">IdentityModel.OidcClient.Browser.BrowserOptions</span>.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected override Task&lt;BrowserResult&gt; Launch(BrowserOptions options, CancellationToken cancellationToken = null)</code></pre>
+    <pre><code class="lang-csharp hljs">protected override Task&lt;BrowserResult&gt; Launch(BrowserOptions options, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -122,14 +148,16 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">BrowserOptions</span></td>
+        <td><span class="xref">IdentityModel.OidcClient.Browser.BrowserOptions</span></td>
         <td><span class="parametername">options</span></td>
-        <td></td>
+        <td><p><span class="xref">IdentityModel.OidcClient.Browser.BrowserOptions</span> specifying the parameters to be used in launching the browser.</p>
+</td>
       </tr>
       <tr>
-        <td><span class="xref">CancellationToken</span></td>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
         <td><span class="parametername">cancellationToken</span></td>
-        <td></td>
+        <td><p>Optional <span class="xref">System.Threading.CancellationToken</span> that could be used to cancel the browser.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -143,13 +171,19 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<span class="xref">BrowserResult</span>&gt;</td>
-        <td></td>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">IdentityModel.OidcClient.Browser.BrowserResult</span>&gt;</td>
+        <td><p>A <span class="xref">System.Threading.Tasks.Task</span> that will contain a <span class="xref">IdentityModel.OidcClient.Browser.BrowserResult</span> with details of
+wether the launch process succeeded or not by way of a <span class="xref">IdentityModel.OidcClient.Browser.BrowserResultType</span>.</p>
+</td>
       </tr>
     </tbody>
   </table>
   <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="Auth0.OidcClient.IOSBrowserBase.html#Auth0_OidcClient_IOSBrowserBase_Launch_BrowserOptions_CancellationToken_">IOSBrowserBase.Launch(BrowserOptions, CancellationToken)</a></div>
+  <div><a class="xref" href="Auth0.OidcClient.IOSBrowserBase.html#Auth0_OidcClient_IOSBrowserBase_Launch_IdentityModel_OidcClient_Browser_BrowserOptions_System_Threading_CancellationToken_">IOSBrowserBase.Launch(BrowserOptions, CancellationToken)</a></div>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">IdentityModel.OidcClient.Browser.IBrowser</span>
+  </div>
 </article>
           </div>
           
@@ -161,7 +195,7 @@
                     <a href="https://github.com/auth0/auth0-oidc-client-net/new/master/apiSpec/new?filename=Auth0_OidcClient_SFSafariViewControllerBrowser.md&amp;value=---%0Auid%3A%20Auth0.OidcClient.SFSafariViewControllerBrowser%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/auth0/auth0-oidc-client-net/blob/feat/sdk-3682/src/Auth0.OidcClient.iOS/SFSafariViewControllerBrowser.cs/#L13" class="contribution-link">View Source</a>
+                    <a href="https://github.com/auth0/auth0-oidc-client-net/blob/master/src/Auth0.OidcClient.iOS/SFSafariViewControllerBrowser.cs/#L13" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

@@ -74,7 +74,7 @@
   <h1 id="Auth0_OidcClient_Auth0ClientBase" data-uid="Auth0.OidcClient.Auth0ClientBase" class="text-break">Class Auth0ClientBase
   </h1>
   <div class="markdown level0 summary"><p>Base class for performing authentication and authorization operations with Auth0 using the
-underlying <span class="xref">IdentityModel.OidcClient.OidcClient</span>.</p>
+underlying <see cref="!:IdentityModel.OidcClient.OidcClient"></see>.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -124,7 +124,7 @@ underlying <span class="xref">IdentityModel.OidcClient.OidcClient</span>.</p>
     <a href="https://github.com/auth0/auth0-oidc-client-net/new/master/apiSpec/new?filename=Auth0_OidcClient_Auth0ClientBase__ctor_Auth0_OidcClient_Auth0ClientOptions_System_String_.md&amp;value=---%0Auid%3A%20Auth0.OidcClient.Auth0ClientBase.%23ctor(Auth0.OidcClient.Auth0ClientOptions%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/auth0/auth0-oidc-client-net/blob/feat/sdk-3682/src/Auth0.OidcClient.Core/Auth0ClientBase.cs/#L41">View Source</a>
+    <a href="https://github.com/auth0/auth0-oidc-client-net/blob/master/src/Auth0.OidcClient.Core/Auth0ClientBase.cs/#L42">View Source</a>
   </span>
   <a id="Auth0_OidcClient_Auth0ClientBase__ctor_" data-uid="Auth0.OidcClient.Auth0ClientBase.#ctor*"></a>
   <h4 id="Auth0_OidcClient_Auth0ClientBase__ctor_Auth0_OidcClient_Auth0ClientOptions_System_String_" data-uid="Auth0.OidcClient.Auth0ClientBase.#ctor(Auth0.OidcClient.Auth0ClientOptions,System.String)">Auth0ClientBase(Auth0ClientOptions, String)</h4>
@@ -166,11 +166,12 @@ underlying <span class="xref">IdentityModel.OidcClient.OidcClient</span>.</p>
     <a href="https://github.com/auth0/auth0-oidc-client-net/new/master/apiSpec/new?filename=Auth0_OidcClient_Auth0ClientBase_GetUserInfoAsync_System_String_.md&amp;value=---%0Auid%3A%20Auth0.OidcClient.Auth0ClientBase.GetUserInfoAsync(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/auth0/auth0-oidc-client-net/blob/feat/sdk-3682/src/Auth0.OidcClient.Core/Auth0ClientBase.cs/#L131">View Source</a>
+    <a href="https://github.com/auth0/auth0-oidc-client-net/blob/master/src/Auth0.OidcClient.Core/Auth0ClientBase.cs/#L145">View Source</a>
   </span>
   <a id="Auth0_OidcClient_Auth0ClientBase_GetUserInfoAsync_" data-uid="Auth0.OidcClient.Auth0ClientBase.GetUserInfoAsync*"></a>
   <h4 id="Auth0_OidcClient_Auth0ClientBase_GetUserInfoAsync_System_String_" data-uid="Auth0.OidcClient.Auth0ClientBase.GetUserInfoAsync(System.String)">GetUserInfoAsync(String)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gets the user claims from the userinfo endpoint.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -189,7 +190,8 @@ underlying <span class="xref">IdentityModel.OidcClient.OidcClient</span>.</p>
       <tr>
         <td><span class="xref">System.String</span></td>
         <td><span class="parametername">accessToken</span></td>
-        <td></td>
+        <td><p>Access token to use in obtaining claims.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -203,8 +205,30 @@ underlying <span class="xref">IdentityModel.OidcClient.OidcClient</span>.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">IdentityModel.OidcClient.Results.UserInfoResult</span>&gt;</td>
-        <td></td>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">UserInfoResult</span>&gt;</td>
+        <td><returns>A <see cref="!:UserInfoResult"></see> with the user information and claims.</returns>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ArgumentNullException</span></td>
+        <td><p>When <code data-dev-comment-type="paramref" class="paramref">accessToken</code> is null.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.InvalidOperationException</span></td>
+        <td><p>When no userinfo endpoint specified.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -213,11 +237,12 @@ underlying <span class="xref">IdentityModel.OidcClient.OidcClient</span>.</p>
     <a href="https://github.com/auth0/auth0-oidc-client-net/new/master/apiSpec/new?filename=Auth0_OidcClient_Auth0ClientBase_LoginAsync_System_Object_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20Auth0.OidcClient.Auth0ClientBase.LoginAsync(System.Object%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/auth0/auth0-oidc-client-net/blob/feat/sdk-3682/src/Auth0.OidcClient.Core/Auth0ClientBase.cs/#L49">View Source</a>
+    <a href="https://github.com/auth0/auth0-oidc-client-net/blob/master/src/Auth0.OidcClient.Core/Auth0ClientBase.cs/#L51">View Source</a>
   </span>
   <a id="Auth0_OidcClient_Auth0ClientBase_LoginAsync_" data-uid="Auth0.OidcClient.Auth0ClientBase.LoginAsync*"></a>
   <h4 id="Auth0_OidcClient_Auth0ClientBase_LoginAsync_System_Object_System_Threading_CancellationToken_" data-uid="Auth0.OidcClient.Auth0ClientBase.LoginAsync(System.Object,System.Threading.CancellationToken)">LoginAsync(Object, CancellationToken)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Launches a browser to log the user in.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -236,12 +261,14 @@ underlying <span class="xref">IdentityModel.OidcClient.OidcClient</span>.</p>
       <tr>
         <td><span class="xref">System.Object</span></td>
         <td><span class="parametername">extraParameters</span></td>
-        <td></td>
+        <td><p>Optional extra parameters that need to be passed to the endpoint.</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Threading.CancellationToken</span></td>
         <td><span class="parametername">cancellationToken</span></td>
-        <td></td>
+        <td><p>Optional <span class="xref">System.Threading.CancellationToken</span> that can be used to cancel the request.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -255,8 +282,9 @@ underlying <span class="xref">IdentityModel.OidcClient.OidcClient</span>.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">IdentityModel.OidcClient.LoginResult</span>&gt;</td>
-        <td></td>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">LoginResult</span>&gt;</td>
+        <td><p>A <see cref="!:LoginResult"></see> containing the tokens and claims.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -265,11 +293,12 @@ underlying <span class="xref">IdentityModel.OidcClient.OidcClient</span>.</p>
     <a href="https://github.com/auth0/auth0-oidc-client-net/new/master/apiSpec/new?filename=Auth0_OidcClient_Auth0ClientBase_LogoutAsync_System_Boolean_System_Object_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20Auth0.OidcClient.Auth0ClientBase.LogoutAsync(System.Boolean%2CSystem.Object%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/auth0/auth0-oidc-client-net/blob/feat/sdk-3682/src/Auth0.OidcClient.Core/Auth0ClientBase.cs/#L75">View Source</a>
+    <a href="https://github.com/auth0/auth0-oidc-client-net/blob/master/src/Auth0.OidcClient.Core/Auth0ClientBase.cs/#L77">View Source</a>
   </span>
   <a id="Auth0_OidcClient_Auth0ClientBase_LogoutAsync_" data-uid="Auth0.OidcClient.Auth0ClientBase.LogoutAsync*"></a>
   <h4 id="Auth0_OidcClient_Auth0ClientBase_LogoutAsync_System_Boolean_System_Object_System_Threading_CancellationToken_" data-uid="Auth0.OidcClient.Auth0ClientBase.LogoutAsync(System.Boolean,System.Object,System.Threading.CancellationToken)">LogoutAsync(Boolean, Object, CancellationToken)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Launches a browser to log the user out and clear the Auth0 SSO Cookie.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -288,17 +317,20 @@ underlying <span class="xref">IdentityModel.OidcClient.OidcClient</span>.</p>
       <tr>
         <td><span class="xref">System.Boolean</span></td>
         <td><span class="parametername">federated</span></td>
-        <td></td>
+        <td><p>Whether to log the user out of their federated identity provider. Defaults to false.</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Object</span></td>
         <td><span class="parametername">extraParameters</span></td>
-        <td></td>
+        <td><p>Optional extra parameters that need to be passed to the endpoint.</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Threading.CancellationToken</span></td>
         <td><span class="parametername">cancellationToken</span></td>
-        <td></td>
+        <td><p>Optional <span class="xref">System.Threading.CancellationToken</span> that can be used to cancel the request.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -312,8 +344,9 @@ underlying <span class="xref">IdentityModel.OidcClient.OidcClient</span>.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">IdentityModel.OidcClient.Browser.BrowserResultType</span>&gt;</td>
-        <td></td>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">BrowserResultType</span>&gt;</td>
+        <td><p>A <see cref="!:BrowserResultType"></see> indicating whether the logout was successful.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -322,11 +355,14 @@ underlying <span class="xref">IdentityModel.OidcClient.OidcClient</span>.</p>
     <a href="https://github.com/auth0/auth0-oidc-client-net/new/master/apiSpec/new?filename=Auth0_OidcClient_Auth0ClientBase_PrepareLoginAsync_System_Object_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20Auth0.OidcClient.Auth0ClientBase.PrepareLoginAsync(System.Object%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/auth0/auth0-oidc-client-net/blob/feat/sdk-3682/src/Auth0.OidcClient.Core/Auth0ClientBase.cs/#L100">View Source</a>
+    <a href="https://github.com/auth0/auth0-oidc-client-net/blob/master/src/Auth0.OidcClient.Core/Auth0ClientBase.cs/#L102">View Source</a>
   </span>
   <a id="Auth0_OidcClient_Auth0ClientBase_PrepareLoginAsync_" data-uid="Auth0.OidcClient.Auth0ClientBase.PrepareLoginAsync*"></a>
   <h4 id="Auth0_OidcClient_Auth0ClientBase_PrepareLoginAsync_System_Object_System_Threading_CancellationToken_" data-uid="Auth0.OidcClient.Auth0ClientBase.PrepareLoginAsync(System.Object,System.Threading.CancellationToken)">PrepareLoginAsync(Object, CancellationToken)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Generates an <see cref="!:AuthorizeState"></see> containing the URL, state, nonce and code challenge which can
+be used to redirect the user to the authorization URL, and subsequently process any response by calling
+the <a class="xref" href="Auth0.OidcClient.IAuth0Client.html#Auth0_OidcClient_IAuth0Client_ProcessResponseAsync_System_String_AuthorizeState_System_Object_System_Threading_CancellationToken_">ProcessResponseAsync(String, AuthorizeState, Object, CancellationToken)</a> method.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -345,12 +381,14 @@ underlying <span class="xref">IdentityModel.OidcClient.OidcClient</span>.</p>
       <tr>
         <td><span class="xref">System.Object</span></td>
         <td><span class="parametername">extraParameters</span></td>
-        <td></td>
+        <td><p>Optional extra parameters that need to be passed to the endpoint.</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Threading.CancellationToken</span></td>
         <td><span class="parametername">cancellationToken</span></td>
-        <td></td>
+        <td><p>Optional <span class="xref">System.Threading.CancellationToken</span> that can be used to cancel the request.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -364,21 +402,23 @@ underlying <span class="xref">IdentityModel.OidcClient.OidcClient</span>.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">IdentityModel.OidcClient.AuthorizeState</span>&gt;</td>
-        <td></td>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">AuthorizeState</span>&gt;</td>
+        <td><p>A <see cref="!:AuthorizeState"></see> with necessary URLs, nonce, state and code verifiers.</p>
+</td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/auth0/auth0-oidc-client-net/new/master/apiSpec/new?filename=Auth0_OidcClient_Auth0ClientBase_ProcessResponseAsync_System_String_IdentityModel_OidcClient_AuthorizeState_System_Object_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20Auth0.OidcClient.Auth0ClientBase.ProcessResponseAsync(System.String%2CIdentityModel.OidcClient.AuthorizeState%2CSystem.Object%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/auth0/auth0-oidc-client-net/new/master/apiSpec/new?filename=Auth0_OidcClient_Auth0ClientBase_ProcessResponseAsync_System_String_AuthorizeState_System_Object_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20Auth0.OidcClient.Auth0ClientBase.ProcessResponseAsync(System.String%2CAuthorizeState%2CSystem.Object%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/auth0/auth0-oidc-client-net/blob/feat/sdk-3682/src/Auth0.OidcClient.Core/Auth0ClientBase.cs/#L106">View Source</a>
+    <a href="https://github.com/auth0/auth0-oidc-client-net/blob/master/src/Auth0.OidcClient.Core/Auth0ClientBase.cs/#L108">View Source</a>
   </span>
   <a id="Auth0_OidcClient_Auth0ClientBase_ProcessResponseAsync_" data-uid="Auth0.OidcClient.Auth0ClientBase.ProcessResponseAsync*"></a>
-  <h4 id="Auth0_OidcClient_Auth0ClientBase_ProcessResponseAsync_System_String_IdentityModel_OidcClient_AuthorizeState_System_Object_System_Threading_CancellationToken_" data-uid="Auth0.OidcClient.Auth0ClientBase.ProcessResponseAsync(System.String,IdentityModel.OidcClient.AuthorizeState,System.Object,System.Threading.CancellationToken)">ProcessResponseAsync(String, AuthorizeState, Object, CancellationToken)</h4>
-  <div class="markdown level1 summary"></div>
+  <h4 id="Auth0_OidcClient_Auth0ClientBase_ProcessResponseAsync_System_String_AuthorizeState_System_Object_System_Threading_CancellationToken_" data-uid="Auth0.OidcClient.Auth0ClientBase.ProcessResponseAsync(System.String,AuthorizeState,System.Object,System.Threading.CancellationToken)">ProcessResponseAsync(String, AuthorizeState, Object, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Process the response from the Auth0 redirect URI.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -397,22 +437,27 @@ underlying <span class="xref">IdentityModel.OidcClient.OidcClient</span>.</p>
       <tr>
         <td><span class="xref">System.String</span></td>
         <td><span class="parametername">data</span></td>
-        <td></td>
+        <td><p>The data containing the full redirect URI.</p>
+</td>
       </tr>
       <tr>
-        <td><span class="xref">IdentityModel.OidcClient.AuthorizeState</span></td>
+        <td><span class="xref">AuthorizeState</span></td>
         <td><span class="parametername">state</span></td>
-        <td></td>
+        <td><p>The <see cref="!:AuthorizeState"></see> which was generated when the <a class="xref" href="Auth0.OidcClient.IAuth0Client.html#Auth0_OidcClient_IAuth0Client_PrepareLoginAsync_System_Object_System_Threading_CancellationToken_">PrepareLoginAsync(Object, CancellationToken)</a>
+method was called.</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Object</span></td>
         <td><span class="parametername">extraParameters</span></td>
-        <td></td>
+        <td><p>Optional extra parameters that need to be passed to the endpoint.</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Threading.CancellationToken</span></td>
         <td><span class="parametername">cancellationToken</span></td>
-        <td></td>
+        <td><p>Optional <span class="xref">System.Threading.CancellationToken</span> that can be used to cancel the request.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -426,8 +471,9 @@ underlying <span class="xref">IdentityModel.OidcClient.OidcClient</span>.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">IdentityModel.OidcClient.LoginResult</span>&gt;</td>
-        <td></td>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">LoginResult</span>&gt;</td>
+        <td><p>A <see cref="!:LoginResult"></see> containing the tokens and claims.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -436,15 +482,16 @@ underlying <span class="xref">IdentityModel.OidcClient.OidcClient</span>.</p>
     <a href="https://github.com/auth0/auth0-oidc-client-net/new/master/apiSpec/new?filename=Auth0_OidcClient_Auth0ClientBase_RefreshTokenAsync_System_String_System_Object_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20Auth0.OidcClient.Auth0ClientBase.RefreshTokenAsync(System.String%2CSystem.Object%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/auth0/auth0-oidc-client-net/blob/feat/sdk-3682/src/Auth0.OidcClient.Core/Auth0ClientBase.cs/#L112">View Source</a>
+    <a href="https://github.com/auth0/auth0-oidc-client-net/blob/master/src/Auth0.OidcClient.Core/Auth0ClientBase.cs/#L120">View Source</a>
   </span>
   <a id="Auth0_OidcClient_Auth0ClientBase_RefreshTokenAsync_" data-uid="Auth0.OidcClient.Auth0ClientBase.RefreshTokenAsync*"></a>
   <h4 id="Auth0_OidcClient_Auth0ClientBase_RefreshTokenAsync_System_String_System_Object_System_Threading_CancellationToken_" data-uid="Auth0.OidcClient.Auth0ClientBase.RefreshTokenAsync(System.String,System.Object,System.Threading.CancellationToken)">RefreshTokenAsync(String, Object, CancellationToken)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Generates a new set of tokens based on a refresh token. </p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public async Task&lt;RefreshTokenResult&gt; RefreshTokenAsync(string refreshToken, object extraParameters = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;RefreshTokenResult&gt; RefreshTokenAsync(string refreshToken, object extraParameters, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -459,17 +506,21 @@ underlying <span class="xref">IdentityModel.OidcClient.OidcClient</span>.</p>
       <tr>
         <td><span class="xref">System.String</span></td>
         <td><span class="parametername">refreshToken</span></td>
-        <td></td>
+        <td><p>Refresh token which was issued during the authorization flow, or subsequent
+calls to <see cref="!:IdentityModel.OidcClient.OidcClient.RefreshTokenAsync"></see>.</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Object</span></td>
         <td><span class="parametername">extraParameters</span></td>
-        <td></td>
+        <td><p>Optional extra parameters that need to be passed to the endpoint.</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Threading.CancellationToken</span></td>
         <td><span class="parametername">cancellationToken</span></td>
-        <td></td>
+        <td><p>Optional <span class="xref">System.Threading.CancellationToken</span> that can be used to cancel the request.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -483,8 +534,135 @@ underlying <span class="xref">IdentityModel.OidcClient.OidcClient</span>.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">IdentityModel.OidcClient.Results.RefreshTokenResult</span>&gt;</td>
-        <td></td>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">RefreshTokenResult</span>&gt;</td>
+        <td><p>A <see cref="!:RefreshTokenResult"></see> with the refreshed tokens.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/auth0/auth0-oidc-client-net/new/master/apiSpec/new?filename=Auth0_OidcClient_Auth0ClientBase_RefreshTokenAsync_System_String_System_String_System_Object_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20Auth0.OidcClient.Auth0ClientBase.RefreshTokenAsync(System.String%2CSystem.String%2CSystem.Object%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/auth0/auth0-oidc-client-net/blob/master/src/Auth0.OidcClient.Core/Auth0ClientBase.cs/#L126">View Source</a>
+  </span>
+  <a id="Auth0_OidcClient_Auth0ClientBase_RefreshTokenAsync_" data-uid="Auth0.OidcClient.Auth0ClientBase.RefreshTokenAsync*"></a>
+  <h4 id="Auth0_OidcClient_Auth0ClientBase_RefreshTokenAsync_System_String_System_String_System_Object_System_Threading_CancellationToken_" data-uid="Auth0.OidcClient.Auth0ClientBase.RefreshTokenAsync(System.String,System.String,System.Object,System.Threading.CancellationToken)">RefreshTokenAsync(String, String, Object, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Generates a new set of tokens based on a refresh token. </p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public async Task&lt;RefreshTokenResult&gt; RefreshTokenAsync(string refreshToken, string scope, object extraParameters = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">refreshToken</span></td>
+        <td><p>Refresh token which was issued during the authorization flow, or subsequent
+calls to <see cref="!:IdentityModel.OidcClient.OidcClient.RefreshTokenAsync"></see>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">scope</span></td>
+        <td><p>Space separated list of the requested scopes.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td><span class="parametername">extraParameters</span></td>
+        <td><p>Optional extra parameters that need to be passed to the endpoint.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>Optional <span class="xref">System.Threading.CancellationToken</span> that can be used to cancel the request.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">RefreshTokenResult</span>&gt;</td>
+        <td><p>A <see cref="!:RefreshTokenResult"></see> with the refreshed tokens.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/auth0/auth0-oidc-client-net/new/master/apiSpec/new?filename=Auth0_OidcClient_Auth0ClientBase_RefreshTokenAsync_System_String_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20Auth0.OidcClient.Auth0ClientBase.RefreshTokenAsync(System.String%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/auth0/auth0-oidc-client-net/blob/master/src/Auth0.OidcClient.Core/Auth0ClientBase.cs/#L114">View Source</a>
+  </span>
+  <a id="Auth0_OidcClient_Auth0ClientBase_RefreshTokenAsync_" data-uid="Auth0.OidcClient.Auth0ClientBase.RefreshTokenAsync*"></a>
+  <h4 id="Auth0_OidcClient_Auth0ClientBase_RefreshTokenAsync_System_String_System_Threading_CancellationToken_" data-uid="Auth0.OidcClient.Auth0ClientBase.RefreshTokenAsync(System.String,System.Threading.CancellationToken)">RefreshTokenAsync(String, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Generates a new set of tokens based on a refresh token. </p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;RefreshTokenResult&gt; RefreshTokenAsync(string refreshToken, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">refreshToken</span></td>
+        <td><p>Refresh token which was issued during the authorization flow, or subsequent
+calls to <see cref="!:IdentityModel.OidcClient.OidcClient.RefreshTokenAsync"></see>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>Optional <span class="xref">System.Threading.CancellationToken</span> that can be used to cancel the request.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">RefreshTokenResult</span>&gt;</td>
+        <td><p>A <see cref="!:LoginResult"></see> containing the tokens and claims.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -503,7 +681,7 @@ underlying <span class="xref">IdentityModel.OidcClient.OidcClient</span>.</p>
                     <a href="https://github.com/auth0/auth0-oidc-client-net/new/master/apiSpec/new?filename=Auth0_OidcClient_Auth0ClientBase.md&amp;value=---%0Auid%3A%20Auth0.OidcClient.Auth0ClientBase%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/auth0/auth0-oidc-client-net/blob/feat/sdk-3682/src/Auth0.OidcClient.Core/Auth0ClientBase.cs/#L22" class="contribution-link">View Source</a>
+                    <a href="https://github.com/auth0/auth0-oidc-client-net/blob/master/src/Auth0.OidcClient.Core/Auth0ClientBase.cs/#L22" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
