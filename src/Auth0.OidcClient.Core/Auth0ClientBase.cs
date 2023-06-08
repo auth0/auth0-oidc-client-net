@@ -114,7 +114,7 @@ namespace Auth0.OidcClient
         public async Task<RefreshTokenResult> RefreshTokenAsync(string refreshToken, object extraParameters = null, CancellationToken cancellationToken = default)
         {
             var finalExtraParameters = AppendTelemetry(extraParameters);
-            var result = await OidcClient.RefreshTokenAsync(refreshToken, new Parameters(finalExtraParameters), cancellationToken);
+            var result = await OidcClient.RefreshTokenAsync(refreshToken, new Parameters(finalExtraParameters), cancellationToken: cancellationToken);
 
             if (!result.IsError)
             {
