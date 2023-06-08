@@ -3,7 +3,7 @@
 <package>
   <metadata>
     <id>Auth0.OidcClient.iOS</id>
-    <version>3.3.7</version>
+    <version>3.4.0</version>
     <authors>Auth0</authors>
     <owners>Auth0</owners>
     <license type="expression">Apache-2.0</license>
@@ -12,6 +12,10 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Auth0 OIDC Client for Xamarin iOS apps</description>
     <releaseNotes>
+    Version 3.4.0
+      - Update IdentityModel.OidcClient to v5
+      - Support scope with RefreshTokens
+
     Version 3.3.7
       - Ensure backchannel is used with the IdTokenValidator
 
@@ -96,7 +100,7 @@
     <tags>Auth0 OIDC iOS Xamarin</tags>
     <dependencies>
       <group targetFramework="Xamarin.iOS10">
-        <dependency id="Auth0.OidcClient.Core" version="3.2.7" />
+        <dependency id="Auth0.OidcClient.Core" version="3.3.0" />
       </group>
     </dependencies>
   </metadata>
