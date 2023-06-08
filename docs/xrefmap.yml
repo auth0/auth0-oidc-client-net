@@ -70,11 +70,11 @@ references:
   commentId: T:Auth0.OidcClient.AndroidBrowserBase
   fullName: Auth0.OidcClient.AndroidBrowserBase
   nameWithType: AndroidBrowserBase
-- uid: Auth0.OidcClient.AndroidBrowserBase.#ctor(Context)
+- uid: Auth0.OidcClient.AndroidBrowserBase.#ctor(Android.Content.Context)
   name: AndroidBrowserBase(Context)
-  href: api/Auth0.OidcClient.AndroidBrowserBase.html#Auth0_OidcClient_AndroidBrowserBase__ctor_Context_
-  commentId: M:Auth0.OidcClient.AndroidBrowserBase.#ctor(Context)
-  fullName: Auth0.OidcClient.AndroidBrowserBase.AndroidBrowserBase(Context)
+  href: api/Auth0.OidcClient.AndroidBrowserBase.html#Auth0_OidcClient_AndroidBrowserBase__ctor_Android_Content_Context_
+  commentId: M:Auth0.OidcClient.AndroidBrowserBase.#ctor(Android.Content.Context)
+  fullName: Auth0.OidcClient.AndroidBrowserBase.AndroidBrowserBase(Android.Content.Context)
   nameWithType: AndroidBrowserBase.AndroidBrowserBase(Context)
 - uid: Auth0.OidcClient.AndroidBrowserBase.#ctor*
   name: AndroidBrowserBase
@@ -89,11 +89,11 @@ references:
   commentId: F:Auth0.OidcClient.AndroidBrowserBase.context
   fullName: Auth0.OidcClient.AndroidBrowserBase.context
   nameWithType: AndroidBrowserBase.context
-- uid: Auth0.OidcClient.AndroidBrowserBase.InvokeAsync(BrowserOptions,CancellationToken)
+- uid: Auth0.OidcClient.AndroidBrowserBase.InvokeAsync(IdentityModel.OidcClient.Browser.BrowserOptions,System.Threading.CancellationToken)
   name: InvokeAsync(BrowserOptions, CancellationToken)
-  href: api/Auth0.OidcClient.AndroidBrowserBase.html#Auth0_OidcClient_AndroidBrowserBase_InvokeAsync_BrowserOptions_CancellationToken_
-  commentId: M:Auth0.OidcClient.AndroidBrowserBase.InvokeAsync(BrowserOptions,CancellationToken)
-  fullName: Auth0.OidcClient.AndroidBrowserBase.InvokeAsync(BrowserOptions, CancellationToken)
+  href: api/Auth0.OidcClient.AndroidBrowserBase.html#Auth0_OidcClient_AndroidBrowserBase_InvokeAsync_IdentityModel_OidcClient_Browser_BrowserOptions_System_Threading_CancellationToken_
+  commentId: M:Auth0.OidcClient.AndroidBrowserBase.InvokeAsync(IdentityModel.OidcClient.Browser.BrowserOptions,System.Threading.CancellationToken)
+  fullName: Auth0.OidcClient.AndroidBrowserBase.InvokeAsync(IdentityModel.OidcClient.Browser.BrowserOptions, System.Threading.CancellationToken)
   nameWithType: AndroidBrowserBase.InvokeAsync(BrowserOptions, CancellationToken)
 - uid: Auth0.OidcClient.AndroidBrowserBase.InvokeAsync*
   name: InvokeAsync
@@ -108,12 +108,12 @@ references:
   commentId: F:Auth0.OidcClient.AndroidBrowserBase.IsNewTask
   fullName: Auth0.OidcClient.AndroidBrowserBase.IsNewTask
   nameWithType: AndroidBrowserBase.IsNewTask
-- uid: Auth0.OidcClient.AndroidBrowserBase.OpenBrowser(Android.Net.Uri,Context)
-  name: OpenBrowser(Android.Net.Uri, Context)
-  href: api/Auth0.OidcClient.AndroidBrowserBase.html#Auth0_OidcClient_AndroidBrowserBase_OpenBrowser_Android_Net_Uri_Context_
-  commentId: M:Auth0.OidcClient.AndroidBrowserBase.OpenBrowser(Android.Net.Uri,Context)
-  fullName: Auth0.OidcClient.AndroidBrowserBase.OpenBrowser(Android.Net.Uri, Context)
-  nameWithType: AndroidBrowserBase.OpenBrowser(Android.Net.Uri, Context)
+- uid: Auth0.OidcClient.AndroidBrowserBase.OpenBrowser(Android.Net.Uri,Android.Content.Context)
+  name: OpenBrowser(Uri, Context)
+  href: api/Auth0.OidcClient.AndroidBrowserBase.html#Auth0_OidcClient_AndroidBrowserBase_OpenBrowser_Android_Net_Uri_Android_Content_Context_
+  commentId: M:Auth0.OidcClient.AndroidBrowserBase.OpenBrowser(Android.Net.Uri,Android.Content.Context)
+  fullName: Auth0.OidcClient.AndroidBrowserBase.OpenBrowser(Android.Net.Uri, Android.Content.Context)
+  nameWithType: AndroidBrowserBase.OpenBrowser(Uri, Context)
 - uid: Auth0.OidcClient.AndroidBrowserBase.OpenBrowser*
   name: OpenBrowser
   href: api/Auth0.OidcClient.AndroidBrowserBase.html#Auth0_OidcClient_AndroidBrowserBase_OpenBrowser_
@@ -140,11 +140,11 @@ references:
   isSpec: "True"
   fullName: Auth0.OidcClient.ASWebAuthenticationSessionBrowser.ASWebAuthenticationSessionBrowser
   nameWithType: ASWebAuthenticationSessionBrowser.ASWebAuthenticationSessionBrowser
-- uid: Auth0.OidcClient.ASWebAuthenticationSessionBrowser.Launch(BrowserOptions,CancellationToken)
+- uid: Auth0.OidcClient.ASWebAuthenticationSessionBrowser.Launch(IdentityModel.OidcClient.Browser.BrowserOptions,System.Threading.CancellationToken)
   name: Launch(BrowserOptions, CancellationToken)
-  href: api/Auth0.OidcClient.ASWebAuthenticationSessionBrowser.html#Auth0_OidcClient_ASWebAuthenticationSessionBrowser_Launch_BrowserOptions_CancellationToken_
-  commentId: M:Auth0.OidcClient.ASWebAuthenticationSessionBrowser.Launch(BrowserOptions,CancellationToken)
-  fullName: Auth0.OidcClient.ASWebAuthenticationSessionBrowser.Launch(BrowserOptions, CancellationToken)
+  href: api/Auth0.OidcClient.ASWebAuthenticationSessionBrowser.html#Auth0_OidcClient_ASWebAuthenticationSessionBrowser_Launch_IdentityModel_OidcClient_Browser_BrowserOptions_System_Threading_CancellationToken_
+  commentId: M:Auth0.OidcClient.ASWebAuthenticationSessionBrowser.Launch(IdentityModel.OidcClient.Browser.BrowserOptions,System.Threading.CancellationToken)
+  fullName: Auth0.OidcClient.ASWebAuthenticationSessionBrowser.Launch(IdentityModel.OidcClient.Browser.BrowserOptions, System.Threading.CancellationToken)
   nameWithType: ASWebAuthenticationSessionBrowser.Launch(BrowserOptions, CancellationToken)
 - uid: Auth0.OidcClient.ASWebAuthenticationSessionBrowser.Launch*
   name: Launch
@@ -210,11 +210,11 @@ references:
   commentId: T:Auth0.OidcClient.Auth0ClientActivity
   fullName: Auth0.OidcClient.Auth0ClientActivity
   nameWithType: Auth0ClientActivity
-- uid: Auth0.OidcClient.Auth0ClientActivity.OnNewIntent(Intent)
+- uid: Auth0.OidcClient.Auth0ClientActivity.OnNewIntent(Android.Content.Intent)
   name: OnNewIntent(Intent)
-  href: api/Auth0.OidcClient.Auth0ClientActivity.html#Auth0_OidcClient_Auth0ClientActivity_OnNewIntent_Intent_
-  commentId: M:Auth0.OidcClient.Auth0ClientActivity.OnNewIntent(Intent)
-  fullName: Auth0.OidcClient.Auth0ClientActivity.OnNewIntent(Intent)
+  href: api/Auth0.OidcClient.Auth0ClientActivity.html#Auth0_OidcClient_Auth0ClientActivity_OnNewIntent_Android_Content_Intent_
+  commentId: M:Auth0.OidcClient.Auth0ClientActivity.OnNewIntent(Android.Content.Intent)
+  fullName: Auth0.OidcClient.Auth0ClientActivity.OnNewIntent(Android.Content.Intent)
   nameWithType: Auth0ClientActivity.OnNewIntent(Intent)
 - uid: Auth0.OidcClient.Auth0ClientActivity.OnNewIntent*
   name: OnNewIntent
@@ -307,11 +307,11 @@ references:
   isSpec: "True"
   fullName: Auth0.OidcClient.Auth0ClientBase.PrepareLoginAsync
   nameWithType: Auth0ClientBase.PrepareLoginAsync
-- uid: Auth0.OidcClient.Auth0ClientBase.ProcessResponseAsync(System.String,IdentityModel.OidcClient.AuthorizeState,System.Object,System.Threading.CancellationToken)
+- uid: Auth0.OidcClient.Auth0ClientBase.ProcessResponseAsync(System.String,AuthorizeState,System.Object,System.Threading.CancellationToken)
   name: ProcessResponseAsync(String, AuthorizeState, Object, CancellationToken)
-  href: api/Auth0.OidcClient.Auth0ClientBase.html#Auth0_OidcClient_Auth0ClientBase_ProcessResponseAsync_System_String_IdentityModel_OidcClient_AuthorizeState_System_Object_System_Threading_CancellationToken_
-  commentId: M:Auth0.OidcClient.Auth0ClientBase.ProcessResponseAsync(System.String,IdentityModel.OidcClient.AuthorizeState,System.Object,System.Threading.CancellationToken)
-  fullName: Auth0.OidcClient.Auth0ClientBase.ProcessResponseAsync(System.String, IdentityModel.OidcClient.AuthorizeState, System.Object, System.Threading.CancellationToken)
+  href: api/Auth0.OidcClient.Auth0ClientBase.html#Auth0_OidcClient_Auth0ClientBase_ProcessResponseAsync_System_String_AuthorizeState_System_Object_System_Threading_CancellationToken_
+  commentId: M:Auth0.OidcClient.Auth0ClientBase.ProcessResponseAsync(System.String,AuthorizeState,System.Object,System.Threading.CancellationToken)
+  fullName: Auth0.OidcClient.Auth0ClientBase.ProcessResponseAsync(System.String, AuthorizeState, System.Object, System.Threading.CancellationToken)
   nameWithType: Auth0ClientBase.ProcessResponseAsync(String, AuthorizeState, Object, CancellationToken)
 - uid: Auth0.OidcClient.Auth0ClientBase.ProcessResponseAsync*
   name: ProcessResponseAsync
@@ -326,6 +326,18 @@ references:
   commentId: M:Auth0.OidcClient.Auth0ClientBase.RefreshTokenAsync(System.String,System.Object,System.Threading.CancellationToken)
   fullName: Auth0.OidcClient.Auth0ClientBase.RefreshTokenAsync(System.String, System.Object, System.Threading.CancellationToken)
   nameWithType: Auth0ClientBase.RefreshTokenAsync(String, Object, CancellationToken)
+- uid: Auth0.OidcClient.Auth0ClientBase.RefreshTokenAsync(System.String,System.String,System.Object,System.Threading.CancellationToken)
+  name: RefreshTokenAsync(String, String, Object, CancellationToken)
+  href: api/Auth0.OidcClient.Auth0ClientBase.html#Auth0_OidcClient_Auth0ClientBase_RefreshTokenAsync_System_String_System_String_System_Object_System_Threading_CancellationToken_
+  commentId: M:Auth0.OidcClient.Auth0ClientBase.RefreshTokenAsync(System.String,System.String,System.Object,System.Threading.CancellationToken)
+  fullName: Auth0.OidcClient.Auth0ClientBase.RefreshTokenAsync(System.String, System.String, System.Object, System.Threading.CancellationToken)
+  nameWithType: Auth0ClientBase.RefreshTokenAsync(String, String, Object, CancellationToken)
+- uid: Auth0.OidcClient.Auth0ClientBase.RefreshTokenAsync(System.String,System.Threading.CancellationToken)
+  name: RefreshTokenAsync(String, CancellationToken)
+  href: api/Auth0.OidcClient.Auth0ClientBase.html#Auth0_OidcClient_Auth0ClientBase_RefreshTokenAsync_System_String_System_Threading_CancellationToken_
+  commentId: M:Auth0.OidcClient.Auth0ClientBase.RefreshTokenAsync(System.String,System.Threading.CancellationToken)
+  fullName: Auth0.OidcClient.Auth0ClientBase.RefreshTokenAsync(System.String, System.Threading.CancellationToken)
+  nameWithType: Auth0ClientBase.RefreshTokenAsync(String, CancellationToken)
 - uid: Auth0.OidcClient.Auth0ClientBase.RefreshTokenAsync*
   name: RefreshTokenAsync
   href: api/Auth0.OidcClient.Auth0ClientBase.html#Auth0_OidcClient_Auth0ClientBase_RefreshTokenAsync_
@@ -540,11 +552,11 @@ references:
   commentId: T:Auth0.OidcClient.AutoSelectBrowser
   fullName: Auth0.OidcClient.AutoSelectBrowser
   nameWithType: AutoSelectBrowser
-- uid: Auth0.OidcClient.AutoSelectBrowser.#ctor(Context)
+- uid: Auth0.OidcClient.AutoSelectBrowser.#ctor(Android.Content.Context)
   name: AutoSelectBrowser(Context)
-  href: api/Auth0.OidcClient.AutoSelectBrowser.html#Auth0_OidcClient_AutoSelectBrowser__ctor_Context_
-  commentId: M:Auth0.OidcClient.AutoSelectBrowser.#ctor(Context)
-  fullName: Auth0.OidcClient.AutoSelectBrowser.AutoSelectBrowser(Context)
+  href: api/Auth0.OidcClient.AutoSelectBrowser.html#Auth0_OidcClient_AutoSelectBrowser__ctor_Android_Content_Context_
+  commentId: M:Auth0.OidcClient.AutoSelectBrowser.#ctor(Android.Content.Context)
+  fullName: Auth0.OidcClient.AutoSelectBrowser.AutoSelectBrowser(Android.Content.Context)
   nameWithType: AutoSelectBrowser.AutoSelectBrowser(Context)
 - uid: Auth0.OidcClient.AutoSelectBrowser.#ctor*
   name: AutoSelectBrowser
@@ -559,11 +571,11 @@ references:
   commentId: T:Auth0.OidcClient.ChromeCustomTabsBrowser
   fullName: Auth0.OidcClient.ChromeCustomTabsBrowser
   nameWithType: ChromeCustomTabsBrowser
-- uid: Auth0.OidcClient.ChromeCustomTabsBrowser.#ctor(Context)
+- uid: Auth0.OidcClient.ChromeCustomTabsBrowser.#ctor(Android.Content.Context)
   name: ChromeCustomTabsBrowser(Context)
-  href: api/Auth0.OidcClient.ChromeCustomTabsBrowser.html#Auth0_OidcClient_ChromeCustomTabsBrowser__ctor_Context_
-  commentId: M:Auth0.OidcClient.ChromeCustomTabsBrowser.#ctor(Context)
-  fullName: Auth0.OidcClient.ChromeCustomTabsBrowser.ChromeCustomTabsBrowser(Context)
+  href: api/Auth0.OidcClient.ChromeCustomTabsBrowser.html#Auth0_OidcClient_ChromeCustomTabsBrowser__ctor_Android_Content_Context_
+  commentId: M:Auth0.OidcClient.ChromeCustomTabsBrowser.#ctor(Android.Content.Context)
+  fullName: Auth0.OidcClient.ChromeCustomTabsBrowser.ChromeCustomTabsBrowser(Android.Content.Context)
   nameWithType: ChromeCustomTabsBrowser.ChromeCustomTabsBrowser(Context)
 - uid: Auth0.OidcClient.ChromeCustomTabsBrowser.#ctor*
   name: ChromeCustomTabsBrowser
@@ -572,12 +584,12 @@ references:
   isSpec: "True"
   fullName: Auth0.OidcClient.ChromeCustomTabsBrowser.ChromeCustomTabsBrowser
   nameWithType: ChromeCustomTabsBrowser.ChromeCustomTabsBrowser
-- uid: Auth0.OidcClient.ChromeCustomTabsBrowser.OpenBrowser(Android.Net.Uri,Context)
-  name: OpenBrowser(Android.Net.Uri, Context)
-  href: api/Auth0.OidcClient.ChromeCustomTabsBrowser.html#Auth0_OidcClient_ChromeCustomTabsBrowser_OpenBrowser_Android_Net_Uri_Context_
-  commentId: M:Auth0.OidcClient.ChromeCustomTabsBrowser.OpenBrowser(Android.Net.Uri,Context)
-  fullName: Auth0.OidcClient.ChromeCustomTabsBrowser.OpenBrowser(Android.Net.Uri, Context)
-  nameWithType: ChromeCustomTabsBrowser.OpenBrowser(Android.Net.Uri, Context)
+- uid: Auth0.OidcClient.ChromeCustomTabsBrowser.OpenBrowser(Android.Net.Uri,Android.Content.Context)
+  name: OpenBrowser(Uri, Context)
+  href: api/Auth0.OidcClient.ChromeCustomTabsBrowser.html#Auth0_OidcClient_ChromeCustomTabsBrowser_OpenBrowser_Android_Net_Uri_Android_Content_Context_
+  commentId: M:Auth0.OidcClient.ChromeCustomTabsBrowser.OpenBrowser(Android.Net.Uri,Android.Content.Context)
+  fullName: Auth0.OidcClient.ChromeCustomTabsBrowser.OpenBrowser(Android.Net.Uri, Android.Content.Context)
+  nameWithType: ChromeCustomTabsBrowser.OpenBrowser(Uri, Context)
 - uid: Auth0.OidcClient.ChromeCustomTabsBrowser.OpenBrowser*
   name: OpenBrowser
   href: api/Auth0.OidcClient.ChromeCustomTabsBrowser.html#Auth0_OidcClient_ChromeCustomTabsBrowser_OpenBrowser_
@@ -643,11 +655,11 @@ references:
   isSpec: "True"
   fullName: Auth0.OidcClient.IAuth0Client.PrepareLoginAsync
   nameWithType: IAuth0Client.PrepareLoginAsync
-- uid: Auth0.OidcClient.IAuth0Client.ProcessResponseAsync(System.String,IdentityModel.OidcClient.AuthorizeState,System.Object,System.Threading.CancellationToken)
+- uid: Auth0.OidcClient.IAuth0Client.ProcessResponseAsync(System.String,AuthorizeState,System.Object,System.Threading.CancellationToken)
   name: ProcessResponseAsync(String, AuthorizeState, Object, CancellationToken)
-  href: api/Auth0.OidcClient.IAuth0Client.html#Auth0_OidcClient_IAuth0Client_ProcessResponseAsync_System_String_IdentityModel_OidcClient_AuthorizeState_System_Object_System_Threading_CancellationToken_
-  commentId: M:Auth0.OidcClient.IAuth0Client.ProcessResponseAsync(System.String,IdentityModel.OidcClient.AuthorizeState,System.Object,System.Threading.CancellationToken)
-  fullName: Auth0.OidcClient.IAuth0Client.ProcessResponseAsync(System.String, IdentityModel.OidcClient.AuthorizeState, System.Object, System.Threading.CancellationToken)
+  href: api/Auth0.OidcClient.IAuth0Client.html#Auth0_OidcClient_IAuth0Client_ProcessResponseAsync_System_String_AuthorizeState_System_Object_System_Threading_CancellationToken_
+  commentId: M:Auth0.OidcClient.IAuth0Client.ProcessResponseAsync(System.String,AuthorizeState,System.Object,System.Threading.CancellationToken)
+  fullName: Auth0.OidcClient.IAuth0Client.ProcessResponseAsync(System.String, AuthorizeState, System.Object, System.Threading.CancellationToken)
   nameWithType: IAuth0Client.ProcessResponseAsync(String, AuthorizeState, Object, CancellationToken)
 - uid: Auth0.OidcClient.IAuth0Client.ProcessResponseAsync*
   name: ProcessResponseAsync
@@ -662,6 +674,18 @@ references:
   commentId: M:Auth0.OidcClient.IAuth0Client.RefreshTokenAsync(System.String,System.Object,System.Threading.CancellationToken)
   fullName: Auth0.OidcClient.IAuth0Client.RefreshTokenAsync(System.String, System.Object, System.Threading.CancellationToken)
   nameWithType: IAuth0Client.RefreshTokenAsync(String, Object, CancellationToken)
+- uid: Auth0.OidcClient.IAuth0Client.RefreshTokenAsync(System.String,System.String,System.Object,System.Threading.CancellationToken)
+  name: RefreshTokenAsync(String, String, Object, CancellationToken)
+  href: api/Auth0.OidcClient.IAuth0Client.html#Auth0_OidcClient_IAuth0Client_RefreshTokenAsync_System_String_System_String_System_Object_System_Threading_CancellationToken_
+  commentId: M:Auth0.OidcClient.IAuth0Client.RefreshTokenAsync(System.String,System.String,System.Object,System.Threading.CancellationToken)
+  fullName: Auth0.OidcClient.IAuth0Client.RefreshTokenAsync(System.String, System.String, System.Object, System.Threading.CancellationToken)
+  nameWithType: IAuth0Client.RefreshTokenAsync(String, String, Object, CancellationToken)
+- uid: Auth0.OidcClient.IAuth0Client.RefreshTokenAsync(System.String,System.Threading.CancellationToken)
+  name: RefreshTokenAsync(String, CancellationToken)
+  href: api/Auth0.OidcClient.IAuth0Client.html#Auth0_OidcClient_IAuth0Client_RefreshTokenAsync_System_String_System_Threading_CancellationToken_
+  commentId: M:Auth0.OidcClient.IAuth0Client.RefreshTokenAsync(System.String,System.Threading.CancellationToken)
+  fullName: Auth0.OidcClient.IAuth0Client.RefreshTokenAsync(System.String, System.Threading.CancellationToken)
+  nameWithType: IAuth0Client.RefreshTokenAsync(String, CancellationToken)
 - uid: Auth0.OidcClient.IAuth0Client.RefreshTokenAsync*
   name: RefreshTokenAsync
   href: api/Auth0.OidcClient.IAuth0Client.html#Auth0_OidcClient_IAuth0Client_RefreshTokenAsync_
@@ -675,11 +699,11 @@ references:
   commentId: T:Auth0.OidcClient.IOSBrowserBase
   fullName: Auth0.OidcClient.IOSBrowserBase
   nameWithType: IOSBrowserBase
-- uid: Auth0.OidcClient.IOSBrowserBase.InvokeAsync(BrowserOptions,CancellationToken)
+- uid: Auth0.OidcClient.IOSBrowserBase.InvokeAsync(IdentityModel.OidcClient.Browser.BrowserOptions,System.Threading.CancellationToken)
   name: InvokeAsync(BrowserOptions, CancellationToken)
-  href: api/Auth0.OidcClient.IOSBrowserBase.html#Auth0_OidcClient_IOSBrowserBase_InvokeAsync_BrowserOptions_CancellationToken_
-  commentId: M:Auth0.OidcClient.IOSBrowserBase.InvokeAsync(BrowserOptions,CancellationToken)
-  fullName: Auth0.OidcClient.IOSBrowserBase.InvokeAsync(BrowserOptions, CancellationToken)
+  href: api/Auth0.OidcClient.IOSBrowserBase.html#Auth0_OidcClient_IOSBrowserBase_InvokeAsync_IdentityModel_OidcClient_Browser_BrowserOptions_System_Threading_CancellationToken_
+  commentId: M:Auth0.OidcClient.IOSBrowserBase.InvokeAsync(IdentityModel.OidcClient.Browser.BrowserOptions,System.Threading.CancellationToken)
+  fullName: Auth0.OidcClient.IOSBrowserBase.InvokeAsync(IdentityModel.OidcClient.Browser.BrowserOptions, System.Threading.CancellationToken)
   nameWithType: IOSBrowserBase.InvokeAsync(BrowserOptions, CancellationToken)
 - uid: Auth0.OidcClient.IOSBrowserBase.InvokeAsync*
   name: InvokeAsync
@@ -688,11 +712,11 @@ references:
   isSpec: "True"
   fullName: Auth0.OidcClient.IOSBrowserBase.InvokeAsync
   nameWithType: IOSBrowserBase.InvokeAsync
-- uid: Auth0.OidcClient.IOSBrowserBase.Launch(BrowserOptions,CancellationToken)
+- uid: Auth0.OidcClient.IOSBrowserBase.Launch(IdentityModel.OidcClient.Browser.BrowserOptions,System.Threading.CancellationToken)
   name: Launch(BrowserOptions, CancellationToken)
-  href: api/Auth0.OidcClient.IOSBrowserBase.html#Auth0_OidcClient_IOSBrowserBase_Launch_BrowserOptions_CancellationToken_
-  commentId: M:Auth0.OidcClient.IOSBrowserBase.Launch(BrowserOptions,CancellationToken)
-  fullName: Auth0.OidcClient.IOSBrowserBase.Launch(BrowserOptions, CancellationToken)
+  href: api/Auth0.OidcClient.IOSBrowserBase.html#Auth0_OidcClient_IOSBrowserBase_Launch_IdentityModel_OidcClient_Browser_BrowserOptions_System_Threading_CancellationToken_
+  commentId: M:Auth0.OidcClient.IOSBrowserBase.Launch(IdentityModel.OidcClient.Browser.BrowserOptions,System.Threading.CancellationToken)
+  fullName: Auth0.OidcClient.IOSBrowserBase.Launch(IdentityModel.OidcClient.Browser.BrowserOptions, System.Threading.CancellationToken)
   nameWithType: IOSBrowserBase.Launch(BrowserOptions, CancellationToken)
 - uid: Auth0.OidcClient.IOSBrowserBase.Launch*
   name: Launch
@@ -707,11 +731,11 @@ references:
   commentId: T:Auth0.OidcClient.SFAuthenticationSessionBrowser
   fullName: Auth0.OidcClient.SFAuthenticationSessionBrowser
   nameWithType: SFAuthenticationSessionBrowser
-- uid: Auth0.OidcClient.SFAuthenticationSessionBrowser.Launch(BrowserOptions,CancellationToken)
+- uid: Auth0.OidcClient.SFAuthenticationSessionBrowser.Launch(IdentityModel.OidcClient.Browser.BrowserOptions,System.Threading.CancellationToken)
   name: Launch(BrowserOptions, CancellationToken)
-  href: api/Auth0.OidcClient.SFAuthenticationSessionBrowser.html#Auth0_OidcClient_SFAuthenticationSessionBrowser_Launch_BrowserOptions_CancellationToken_
-  commentId: M:Auth0.OidcClient.SFAuthenticationSessionBrowser.Launch(BrowserOptions,CancellationToken)
-  fullName: Auth0.OidcClient.SFAuthenticationSessionBrowser.Launch(BrowserOptions, CancellationToken)
+  href: api/Auth0.OidcClient.SFAuthenticationSessionBrowser.html#Auth0_OidcClient_SFAuthenticationSessionBrowser_Launch_IdentityModel_OidcClient_Browser_BrowserOptions_System_Threading_CancellationToken_
+  commentId: M:Auth0.OidcClient.SFAuthenticationSessionBrowser.Launch(IdentityModel.OidcClient.Browser.BrowserOptions,System.Threading.CancellationToken)
+  fullName: Auth0.OidcClient.SFAuthenticationSessionBrowser.Launch(IdentityModel.OidcClient.Browser.BrowserOptions, System.Threading.CancellationToken)
   nameWithType: SFAuthenticationSessionBrowser.Launch(BrowserOptions, CancellationToken)
 - uid: Auth0.OidcClient.SFAuthenticationSessionBrowser.Launch*
   name: Launch
@@ -726,11 +750,11 @@ references:
   commentId: T:Auth0.OidcClient.SFSafariViewControllerBrowser
   fullName: Auth0.OidcClient.SFSafariViewControllerBrowser
   nameWithType: SFSafariViewControllerBrowser
-- uid: Auth0.OidcClient.SFSafariViewControllerBrowser.Launch(BrowserOptions,CancellationToken)
+- uid: Auth0.OidcClient.SFSafariViewControllerBrowser.Launch(IdentityModel.OidcClient.Browser.BrowserOptions,System.Threading.CancellationToken)
   name: Launch(BrowserOptions, CancellationToken)
-  href: api/Auth0.OidcClient.SFSafariViewControllerBrowser.html#Auth0_OidcClient_SFSafariViewControllerBrowser_Launch_BrowserOptions_CancellationToken_
-  commentId: M:Auth0.OidcClient.SFSafariViewControllerBrowser.Launch(BrowserOptions,CancellationToken)
-  fullName: Auth0.OidcClient.SFSafariViewControllerBrowser.Launch(BrowserOptions, CancellationToken)
+  href: api/Auth0.OidcClient.SFSafariViewControllerBrowser.html#Auth0_OidcClient_SFSafariViewControllerBrowser_Launch_IdentityModel_OidcClient_Browser_BrowserOptions_System_Threading_CancellationToken_
+  commentId: M:Auth0.OidcClient.SFSafariViewControllerBrowser.Launch(IdentityModel.OidcClient.Browser.BrowserOptions,System.Threading.CancellationToken)
+  fullName: Auth0.OidcClient.SFSafariViewControllerBrowser.Launch(IdentityModel.OidcClient.Browser.BrowserOptions, System.Threading.CancellationToken)
   nameWithType: SFSafariViewControllerBrowser.Launch(BrowserOptions, CancellationToken)
 - uid: Auth0.OidcClient.SFSafariViewControllerBrowser.Launch*
   name: Launch
@@ -745,11 +769,11 @@ references:
   commentId: T:Auth0.OidcClient.SystemBrowser
   fullName: Auth0.OidcClient.SystemBrowser
   nameWithType: SystemBrowser
-- uid: Auth0.OidcClient.SystemBrowser.#ctor(Context)
+- uid: Auth0.OidcClient.SystemBrowser.#ctor(Android.Content.Context)
   name: SystemBrowser(Context)
-  href: api/Auth0.OidcClient.SystemBrowser.html#Auth0_OidcClient_SystemBrowser__ctor_Context_
-  commentId: M:Auth0.OidcClient.SystemBrowser.#ctor(Context)
-  fullName: Auth0.OidcClient.SystemBrowser.SystemBrowser(Context)
+  href: api/Auth0.OidcClient.SystemBrowser.html#Auth0_OidcClient_SystemBrowser__ctor_Android_Content_Context_
+  commentId: M:Auth0.OidcClient.SystemBrowser.#ctor(Android.Content.Context)
+  fullName: Auth0.OidcClient.SystemBrowser.SystemBrowser(Android.Content.Context)
   nameWithType: SystemBrowser.SystemBrowser(Context)
 - uid: Auth0.OidcClient.SystemBrowser.#ctor*
   name: SystemBrowser
@@ -758,12 +782,12 @@ references:
   isSpec: "True"
   fullName: Auth0.OidcClient.SystemBrowser.SystemBrowser
   nameWithType: SystemBrowser.SystemBrowser
-- uid: Auth0.OidcClient.SystemBrowser.OpenBrowser(Android.Net.Uri,Context)
-  name: OpenBrowser(Android.Net.Uri, Context)
-  href: api/Auth0.OidcClient.SystemBrowser.html#Auth0_OidcClient_SystemBrowser_OpenBrowser_Android_Net_Uri_Context_
-  commentId: M:Auth0.OidcClient.SystemBrowser.OpenBrowser(Android.Net.Uri,Context)
-  fullName: Auth0.OidcClient.SystemBrowser.OpenBrowser(Android.Net.Uri, Context)
-  nameWithType: SystemBrowser.OpenBrowser(Android.Net.Uri, Context)
+- uid: Auth0.OidcClient.SystemBrowser.OpenBrowser(Android.Net.Uri,Android.Content.Context)
+  name: OpenBrowser(Uri, Context)
+  href: api/Auth0.OidcClient.SystemBrowser.html#Auth0_OidcClient_SystemBrowser_OpenBrowser_Android_Net_Uri_Android_Content_Context_
+  commentId: M:Auth0.OidcClient.SystemBrowser.OpenBrowser(Android.Net.Uri,Android.Content.Context)
+  fullName: Auth0.OidcClient.SystemBrowser.OpenBrowser(Android.Net.Uri, Android.Content.Context)
+  nameWithType: SystemBrowser.OpenBrowser(Uri, Context)
 - uid: Auth0.OidcClient.SystemBrowser.OpenBrowser*
   name: OpenBrowser
   href: api/Auth0.OidcClient.SystemBrowser.html#Auth0_OidcClient_SystemBrowser_OpenBrowser_
@@ -820,13 +844,13 @@ references:
   commentId: T:Auth0.OidcClient.WebBrowserBrowser
   fullName: Auth0.OidcClient.WebBrowserBrowser
   nameWithType: WebBrowserBrowser
-- uid: Auth0.OidcClient.WebBrowserBrowser.#ctor(Func{Form})
+- uid: Auth0.OidcClient.WebBrowserBrowser.#ctor(System.Func{System.Windows.Forms.Form})
   name: WebBrowserBrowser(Func<Form>)
-  href: api/Auth0.OidcClient.WebBrowserBrowser.html#Auth0_OidcClient_WebBrowserBrowser__ctor_Func_Form__
-  commentId: M:Auth0.OidcClient.WebBrowserBrowser.#ctor(Func{Form})
+  href: api/Auth0.OidcClient.WebBrowserBrowser.html#Auth0_OidcClient_WebBrowserBrowser__ctor_System_Func_System_Windows_Forms_Form__
+  commentId: M:Auth0.OidcClient.WebBrowserBrowser.#ctor(System.Func{System.Windows.Forms.Form})
   name.vb: WebBrowserBrowser(Func(Of Form))
-  fullName: Auth0.OidcClient.WebBrowserBrowser.WebBrowserBrowser(Func<Form>)
-  fullName.vb: Auth0.OidcClient.WebBrowserBrowser.WebBrowserBrowser(Func(Of Form))
+  fullName: Auth0.OidcClient.WebBrowserBrowser.WebBrowserBrowser(System.Func<System.Windows.Forms.Form>)
+  fullName.vb: Auth0.OidcClient.WebBrowserBrowser.WebBrowserBrowser(System.Func(Of System.Windows.Forms.Form))
   nameWithType: WebBrowserBrowser.WebBrowserBrowser(Func<Form>)
   nameWithType.vb: WebBrowserBrowser.WebBrowserBrowser(Func(Of Form))
 - uid: Auth0.OidcClient.WebBrowserBrowser.#ctor(System.String,System.Int32,System.Int32)
@@ -842,11 +866,11 @@ references:
   isSpec: "True"
   fullName: Auth0.OidcClient.WebBrowserBrowser.WebBrowserBrowser
   nameWithType: WebBrowserBrowser.WebBrowserBrowser
-- uid: Auth0.OidcClient.WebBrowserBrowser.InvokeAsync(BrowserOptions,CancellationToken)
+- uid: Auth0.OidcClient.WebBrowserBrowser.InvokeAsync(BrowserOptions,System.Threading.CancellationToken)
   name: InvokeAsync(BrowserOptions, CancellationToken)
-  href: api/Auth0.OidcClient.WebBrowserBrowser.html#Auth0_OidcClient_WebBrowserBrowser_InvokeAsync_BrowserOptions_CancellationToken_
-  commentId: M:Auth0.OidcClient.WebBrowserBrowser.InvokeAsync(BrowserOptions,CancellationToken)
-  fullName: Auth0.OidcClient.WebBrowserBrowser.InvokeAsync(BrowserOptions, CancellationToken)
+  href: api/Auth0.OidcClient.WebBrowserBrowser.html#Auth0_OidcClient_WebBrowserBrowser_InvokeAsync_BrowserOptions_System_Threading_CancellationToken_
+  commentId: M:Auth0.OidcClient.WebBrowserBrowser.InvokeAsync(BrowserOptions,System.Threading.CancellationToken)
+  fullName: Auth0.OidcClient.WebBrowserBrowser.InvokeAsync(BrowserOptions, System.Threading.CancellationToken)
   nameWithType: WebBrowserBrowser.InvokeAsync(BrowserOptions, CancellationToken)
 - uid: Auth0.OidcClient.WebBrowserBrowser.InvokeAsync*
   name: InvokeAsync
@@ -861,13 +885,13 @@ references:
   commentId: T:Auth0.OidcClient.WebViewBrowser
   fullName: Auth0.OidcClient.WebViewBrowser
   nameWithType: WebViewBrowser
-- uid: Auth0.OidcClient.WebViewBrowser.#ctor(Func{Form})
+- uid: Auth0.OidcClient.WebViewBrowser.#ctor(System.Func{System.Windows.Forms.Form})
   name: WebViewBrowser(Func<Form>)
-  href: api/Auth0.OidcClient.WebViewBrowser.html#Auth0_OidcClient_WebViewBrowser__ctor_Func_Form__
-  commentId: M:Auth0.OidcClient.WebViewBrowser.#ctor(Func{Form})
+  href: api/Auth0.OidcClient.WebViewBrowser.html#Auth0_OidcClient_WebViewBrowser__ctor_System_Func_System_Windows_Forms_Form__
+  commentId: M:Auth0.OidcClient.WebViewBrowser.#ctor(System.Func{System.Windows.Forms.Form})
   name.vb: WebViewBrowser(Func(Of Form))
-  fullName: Auth0.OidcClient.WebViewBrowser.WebViewBrowser(Func<Form>)
-  fullName.vb: Auth0.OidcClient.WebViewBrowser.WebViewBrowser(Func(Of Form))
+  fullName: Auth0.OidcClient.WebViewBrowser.WebViewBrowser(System.Func<System.Windows.Forms.Form>)
+  fullName.vb: Auth0.OidcClient.WebViewBrowser.WebViewBrowser(System.Func(Of System.Windows.Forms.Form))
   nameWithType: WebViewBrowser.WebViewBrowser(Func<Form>)
   nameWithType.vb: WebViewBrowser.WebViewBrowser(Func(Of Form))
 - uid: Auth0.OidcClient.WebViewBrowser.#ctor(System.String,System.Int32,System.Int32)
@@ -883,11 +907,11 @@ references:
   isSpec: "True"
   fullName: Auth0.OidcClient.WebViewBrowser.WebViewBrowser
   nameWithType: WebViewBrowser.WebViewBrowser
-- uid: Auth0.OidcClient.WebViewBrowser.InvokeAsync(BrowserOptions,CancellationToken)
+- uid: Auth0.OidcClient.WebViewBrowser.InvokeAsync(BrowserOptions,System.Threading.CancellationToken)
   name: InvokeAsync(BrowserOptions, CancellationToken)
-  href: api/Auth0.OidcClient.WebViewBrowser.html#Auth0_OidcClient_WebViewBrowser_InvokeAsync_BrowserOptions_CancellationToken_
-  commentId: M:Auth0.OidcClient.WebViewBrowser.InvokeAsync(BrowserOptions,CancellationToken)
-  fullName: Auth0.OidcClient.WebViewBrowser.InvokeAsync(BrowserOptions, CancellationToken)
+  href: api/Auth0.OidcClient.WebViewBrowser.html#Auth0_OidcClient_WebViewBrowser_InvokeAsync_BrowserOptions_System_Threading_CancellationToken_
+  commentId: M:Auth0.OidcClient.WebViewBrowser.InvokeAsync(BrowserOptions,System.Threading.CancellationToken)
+  fullName: Auth0.OidcClient.WebViewBrowser.InvokeAsync(BrowserOptions, System.Threading.CancellationToken)
   nameWithType: WebViewBrowser.InvokeAsync(BrowserOptions, CancellationToken)
 - uid: Auth0.OidcClient.WebViewBrowser.InvokeAsync*
   name: InvokeAsync
