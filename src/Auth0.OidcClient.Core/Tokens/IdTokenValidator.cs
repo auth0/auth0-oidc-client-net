@@ -149,9 +149,9 @@ namespace Auth0.OidcClient.Tokens
                 var expectedOrganization = organizationClaim == Auth0ClaimNames.OrganizationName ? required.Organization.ToLower() : required.Organization;
 
                 if (string.IsNullOrWhiteSpace(organizationClaimValue))
-                    throw new IdTokenValidationException($"Organization claim ({organizationClaim}) must be a string present in the ID token.");
+                    throw new IdTokenValidationException($"Organization ({organizationClaim}) claim must be a string present in the ID token.");
                 if (organizationClaimValue != expectedOrganization)
-                    throw new IdTokenValidationException($"Organization claim ({organizationClaim}) mismatch in the ID token; expected \"{expectedOrganization}\", found \"{organizationClaimValue}\".");
+                    throw new IdTokenValidationException($"Organization ({organizationClaim}) claim mismatch in the ID token; expected \"{expectedOrganization}\", found \"{organizationClaimValue}\".");
             }
         }
 

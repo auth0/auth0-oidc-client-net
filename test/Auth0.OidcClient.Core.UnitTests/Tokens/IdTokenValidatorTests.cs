@@ -271,7 +271,7 @@ namespace Auth0.OidcClient.Core.UnitTests.Tokens
                 MaxAge = TimeSpan.FromSeconds(100),
                 Organization = "org_123"
             }));
-            Assert.Equal("Organization claim (org_id) must be a string present in the ID token.", ex.Message);
+            Assert.Equal("Organization (org_id) claim must be a string present in the ID token.", ex.Message);
         }
 
         [Fact]
@@ -305,7 +305,7 @@ namespace Auth0.OidcClient.Core.UnitTests.Tokens
                 Organization = "org_456"
             }));
 
-            Assert.Equal($"Organization claim (org_id) mismatch in the ID token; expected \"org_456\", found \"org_123\".", ex.Message);
+            Assert.Equal($"Organization (org_id) claim mismatch in the ID token; expected \"org_456\", found \"org_123\".", ex.Message);
         }
 
         [Fact]
@@ -322,7 +322,7 @@ namespace Auth0.OidcClient.Core.UnitTests.Tokens
                 MaxAge = TimeSpan.FromSeconds(100),
                 Organization = "123"
             }));
-            Assert.Equal("Organization claim (org_name) must be a string present in the ID token.", ex.Message);
+            Assert.Equal("Organization (org_name) claim must be a string present in the ID token.", ex.Message);
         }
 
         [Fact]
@@ -356,7 +356,7 @@ namespace Auth0.OidcClient.Core.UnitTests.Tokens
                 Organization = "organizationb"
             }));
 
-            Assert.Equal($"Organization claim (org_name) mismatch in the ID token; expected \"organizationb\", found \"organizationa\".", ex.Message);
+            Assert.Equal($"Organization (org_name) claim mismatch in the ID token; expected \"organizationb\", found \"organizationa\".", ex.Message);
         }
 
 
