@@ -307,11 +307,11 @@ references:
   isSpec: "True"
   fullName: Auth0.OidcClient.Auth0ClientBase.PrepareLoginAsync
   nameWithType: Auth0ClientBase.PrepareLoginAsync
-- uid: Auth0.OidcClient.Auth0ClientBase.ProcessResponseAsync(System.String,AuthorizeState,System.Object,System.Threading.CancellationToken)
+- uid: Auth0.OidcClient.Auth0ClientBase.ProcessResponseAsync(System.String,IdentityModel.OidcClient.AuthorizeState,System.Object,System.Threading.CancellationToken)
   name: ProcessResponseAsync(String, AuthorizeState, Object, CancellationToken)
-  href: api/Auth0.OidcClient.Auth0ClientBase.html#Auth0_OidcClient_Auth0ClientBase_ProcessResponseAsync_System_String_AuthorizeState_System_Object_System_Threading_CancellationToken_
-  commentId: M:Auth0.OidcClient.Auth0ClientBase.ProcessResponseAsync(System.String,AuthorizeState,System.Object,System.Threading.CancellationToken)
-  fullName: Auth0.OidcClient.Auth0ClientBase.ProcessResponseAsync(System.String, AuthorizeState, System.Object, System.Threading.CancellationToken)
+  href: api/Auth0.OidcClient.Auth0ClientBase.html#Auth0_OidcClient_Auth0ClientBase_ProcessResponseAsync_System_String_IdentityModel_OidcClient_AuthorizeState_System_Object_System_Threading_CancellationToken_
+  commentId: M:Auth0.OidcClient.Auth0ClientBase.ProcessResponseAsync(System.String,IdentityModel.OidcClient.AuthorizeState,System.Object,System.Threading.CancellationToken)
+  fullName: Auth0.OidcClient.Auth0ClientBase.ProcessResponseAsync(System.String, IdentityModel.OidcClient.AuthorizeState, System.Object, System.Threading.CancellationToken)
   nameWithType: Auth0ClientBase.ProcessResponseAsync(String, AuthorizeState, Object, CancellationToken)
 - uid: Auth0.OidcClient.Auth0ClientBase.ProcessResponseAsync*
   name: ProcessResponseAsync
@@ -655,11 +655,11 @@ references:
   isSpec: "True"
   fullName: Auth0.OidcClient.IAuth0Client.PrepareLoginAsync
   nameWithType: IAuth0Client.PrepareLoginAsync
-- uid: Auth0.OidcClient.IAuth0Client.ProcessResponseAsync(System.String,AuthorizeState,System.Object,System.Threading.CancellationToken)
+- uid: Auth0.OidcClient.IAuth0Client.ProcessResponseAsync(System.String,IdentityModel.OidcClient.AuthorizeState,System.Object,System.Threading.CancellationToken)
   name: ProcessResponseAsync(String, AuthorizeState, Object, CancellationToken)
-  href: api/Auth0.OidcClient.IAuth0Client.html#Auth0_OidcClient_IAuth0Client_ProcessResponseAsync_System_String_AuthorizeState_System_Object_System_Threading_CancellationToken_
-  commentId: M:Auth0.OidcClient.IAuth0Client.ProcessResponseAsync(System.String,AuthorizeState,System.Object,System.Threading.CancellationToken)
-  fullName: Auth0.OidcClient.IAuth0Client.ProcessResponseAsync(System.String, AuthorizeState, System.Object, System.Threading.CancellationToken)
+  href: api/Auth0.OidcClient.IAuth0Client.html#Auth0_OidcClient_IAuth0Client_ProcessResponseAsync_System_String_IdentityModel_OidcClient_AuthorizeState_System_Object_System_Threading_CancellationToken_
+  commentId: M:Auth0.OidcClient.IAuth0Client.ProcessResponseAsync(System.String,IdentityModel.OidcClient.AuthorizeState,System.Object,System.Threading.CancellationToken)
+  fullName: Auth0.OidcClient.IAuth0Client.ProcessResponseAsync(System.String, IdentityModel.OidcClient.AuthorizeState, System.Object, System.Threading.CancellationToken)
   nameWithType: IAuth0Client.ProcessResponseAsync(String, AuthorizeState, Object, CancellationToken)
 - uid: Auth0.OidcClient.IAuth0Client.ProcessResponseAsync*
   name: ProcessResponseAsync
