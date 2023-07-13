@@ -9,7 +9,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Auth0.OidcClient.ASWebAuthenticationSessionBrowser.html",
-          "hash": "ifGB4s+EZDrCys5BFuKRA5N34p9i1iufpCeN8J5cVV8="
+          "hash": "3C+X8c82CwBY8ONRuYAGnmcwnlibkRoaM+XqyhqK/kY="
         }
       },
       "is_incremental": false,
@@ -21,7 +21,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Auth0.OidcClient.ASWebAuthenticationSessionOptions.html",
-          "hash": "Oslb560d1X8MJmz5Jko/R/8fRbDxlUAZO/3KqHCkpkQ="
+          "hash": "+hmxjlXjn8NMuTS2+KpqffWmvsqsn10jtSYe2xTax1E="
         }
       },
       "is_incremental": false,
@@ -33,7 +33,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Auth0.OidcClient.ActivityMediator.MessageReceivedEventHandler.html",
-          "hash": "I9Qm6lFsp1XS130MKjtE3qqY9igoJfwMRCd86NbhDB8="
+          "hash": "3Hc2YUdjePpl7swe91CXp9H9p7XQA8Nk5ICKNHSL7/0="
         }
       },
       "is_incremental": false,
@@ -45,7 +45,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Auth0.OidcClient.ActivityMediator.html",
-          "hash": "wmvhxi0Fdez24ofJ4kAwrO1r/QYR3ppK75b6ZOcQmWg="
+          "hash": "D/Y4x1t8mLY948uRrj/LZX9hFdsYAbz/JNnovT7WEPk="
         }
       },
       "is_incremental": false,
@@ -57,7 +57,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Auth0.OidcClient.AndroidBrowserBase.html",
-          "hash": "94HWLNj08ovrXf3ZQHY7s/K7Xr2sy96uwmWTTlgWTXM="
+          "hash": "TL8Zzv/3f9Bk2VZsVk7oxFznNw5pPkf0Vn5LG45O668="
         }
       },
       "is_incremental": false,
@@ -69,7 +69,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Auth0.OidcClient.Auth0Client.html",
-          "hash": "NnCC3vdlSf4wDA2bXJmpcsMqLs5OV1uLWVTk2OsnN2U="
+          "hash": "06Lt+ylOcZBzBjp+DV2vRDIIVVYtUEax9nvfJIOd/tA="
         }
       },
       "is_incremental": false,
@@ -81,7 +81,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Auth0.OidcClient.Auth0ClientActivity.html",
-          "hash": "ecNy9zkK06gPLjahcZb5OjgfOBrOKq+yKEwan48sa5c="
+          "hash": "paCdoL5Bg/3KNaF1Y8uj3mZdINOc4q1G8Pq+7rLZyP4="
         }
       },
       "is_incremental": false,
@@ -93,7 +93,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Auth0.OidcClient.Auth0ClientBase.html",
-          "hash": "lOW+7NkGJ+Do7Jb98AASfbg98Kj8fKOf1yF/A19cszI="
+          "hash": "BGoOV6K2oPDb8PCXpYC+QVsV/0tFeTFEx/1wqCxgkZs="
         }
       },
       "is_incremental": false,
@@ -105,7 +105,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Auth0.OidcClient.Auth0ClientOptions.html",
-          "hash": "raHlcLfvkeW2AfgrSnoukPAXXkH1PalWiq7UGNnosxw="
+          "hash": "VuqGtF7q/wxPSMEiXyJ0NY9A74dofP8fyXXwYQ75Bo8="
         }
       },
       "is_incremental": false,
@@ -117,7 +117,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Auth0.OidcClient.AutoSelectBrowser.html",
-          "hash": "DGZTB0VqxCkctWfOT4uop5KiFeinq/87ox/Z+hwJ4R4="
+          "hash": "GgCQJppFNb+F9mFQVjcZ6b87WFvg6P2MXwm+FS7OYSY="
         }
       },
       "is_incremental": false,
@@ -129,7 +129,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Auth0.OidcClient.ChromeCustomTabsBrowser.html",
-          "hash": "mngGZ/e/XeRSYME/tfKRs5mbDmHHuMympNwteP6GgvQ="
+          "hash": "rE3kIqcK4TgAqIcZmemcHlHDsmEgVGSx4WlHW4ZiAM8="
         }
       },
       "is_incremental": false,
@@ -141,7 +141,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Auth0.OidcClient.IAuth0Client.html",
-          "hash": "zroCc21uhG3RpMWZrJ649ZsB8CgW1oXhzCw6PvTXL1M="
+          "hash": "ruKHxGpIaoRZYh8d+JYrE8rI4RCJSS4jBCIGRTdPXa8="
         }
       },
       "is_incremental": false,
@@ -153,7 +153,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Auth0.OidcClient.IOSBrowserBase.html",
-          "hash": "RyairaafIIJIbBflFvDKlXfimMLMyRAzqr7hGEGaKuI="
+          "hash": "pbEZZVTyxR7KjeYuhaDI1lxJciKZlRTXRMGw2B421e8="
         }
       },
       "is_incremental": false,
@@ -165,7 +165,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Auth0.OidcClient.SFAuthenticationSessionBrowser.html",
-          "hash": "ZwkfzOL68jBQmSetvN/E4DVmdVJKt2w6PctiYD/kOhs="
+          "hash": "H72V0u9ENwXqPXKdg/E1KEu14T0q5iZ/5yYEPyU2MdI="
         }
       },
       "is_incremental": false,
@@ -177,7 +177,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Auth0.OidcClient.SFSafariViewControllerBrowser.html",
-          "hash": "61US/BkPkGEPpv7wjaK58GVF4KKWJDL7Flr0wr4ZSrE="
+          "hash": "g1jgGHpb0AXX/73FLyXs0fchc/3NFB1vmKs12VgbRO8="
         }
       },
       "is_incremental": false,
@@ -189,7 +189,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Auth0.OidcClient.SystemBrowser.html",
-          "hash": "AUv4csI4ce4grGA2HCxUnP7i8j66WVJFtU80MI9tYp4="
+          "hash": "IhfOpwf9yrKuZgT1PKnnUfgVX9HY/Dd01VW8qEJ1sCo="
         }
       },
       "is_incremental": false,
@@ -201,7 +201,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Auth0.OidcClient.Tokens.IdTokenValidationException.html",
-          "hash": "MHpeH4W15q7Qj+qcCPl5S0Ns99anGgVYuDGAlHKEB9o="
+          "hash": "PD5MRghL/kPIwTzgSHnPq3CqUkNugh6TNvJwAADXEmI="
         }
       },
       "is_incremental": false,
@@ -225,7 +225,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Auth0.OidcClient.WebBrowserBrowser.html",
-          "hash": "AyO7XlKuh2yr1Gr9jSenSslWKEBOr9gd7pDYkcGTdCs="
+          "hash": "gp8y4h1hLWJ62uLj2nk3wLkQFx1n0JihNoNGyEt+XVM="
         }
       },
       "is_incremental": false,
@@ -237,7 +237,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Auth0.OidcClient.WebViewBrowser.html",
-          "hash": "B4SziN9NU2AUumRd4Ncomt7zxxX2ihNzUYXzPuUVt+c="
+          "hash": "hNxWxJ3LWoM+wV6lWi/lpXBtUkvMD+dNom8CnILPCi8="
         }
       },
       "is_incremental": false,
@@ -249,7 +249,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Auth0.OidcClient.html",
-          "hash": "QpKX1cmtJBkcsm149lSzrIpe8DHA5oR3QFyD2iVfMKw="
+          "hash": "K730k2u+/d2wezma/J6ffIdrH7CXDs1VGdlQknxZ7Ks="
         }
       },
       "is_incremental": false,
