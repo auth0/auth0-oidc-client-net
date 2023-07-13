@@ -14,6 +14,7 @@
     <releaseNotes>
     Version 3.4.0
       - Support Organization Name
+      - Correctly set IdentityModel.OidcClient dependency to v5
       
     Version 3.3.0
       - Update IdentityModel.OidcClient to v5
