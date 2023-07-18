@@ -3,7 +3,7 @@
 <package>
   <metadata>
     <id>Auth0.OidcClient.Android</id>
-    <version>3.4.0</version>
+    <version>3.4.1</version>
     <authors>Auth0</authors>
     <owners>Auth0</owners>
     <license type="expression">Apache-2.0</license>
@@ -12,6 +12,9 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Auth0 OIDC Client for Xamarin Android apps</description>
     <releaseNotes>
+    Version 3.4.1
+      - Do not lowercase org_name claim
+
     Version 3.4.0
       - Support Organization Name
       - Correctly set IdentityModel.OidcClient dependency to v5
@@ -123,7 +126,7 @@
     <tags>Auth0 OIDC Android Xamarin</tags>
     <dependencies>
       <group targetFramework="MonoAndroid10">
-        <dependency id="Auth0.OidcClient.Core" version="3.4.0" />
+        <dependency id="Auth0.OidcClient.Core" version="3.4.1" />
       </group>
     </dependencies>
   </metadata>
