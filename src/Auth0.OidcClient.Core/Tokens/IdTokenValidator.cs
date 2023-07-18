@@ -145,7 +145,6 @@ namespace Auth0.OidcClient.Tokens
             {
                 var organizationClaim = required.Organization.StartsWith("org_") ? Auth0ClaimNames.OrganizationId : Auth0ClaimNames.OrganizationName;
                 var rawOrganizationClaimValue = GetClaimValue(token.Claims, organizationClaim);
-                var organizationClaimValue = organizationClaim == Auth0ClaimNames.OrganizationName ? rawOrganizationClaimValue?.ToLower() : rawOrganizationClaimValue;
                 var expectedOrganization = organizationClaim == Auth0ClaimNames.OrganizationName ? required.Organization.ToLower() : required.Organization;
 
                 if (string.IsNullOrWhiteSpace(organizationClaimValue))
