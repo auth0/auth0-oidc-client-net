@@ -1,36 +1,25 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
-    <TargetFrameworks>net462;netcoreapp3.1</TargetFrameworks>
-    <OutputType>library</OutputType>
-    <RootNamespace>Auth0.OidcClient</RootNamespace>
-    <AssemblyName>Auth0.OidcClient</AssemblyName>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
+    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+    <PackageId>$(AssemblyName)</PackageId>
+    <AssemblyVersion>3.2.3</AssemblyVersion>
+    <FileVersion>3.2.3</FileVersion>
+    <Title>Auth0.OidcClient.WPF</Title>
+    <Product>Auth0.OidcClient</Product>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DefineConstants>TRACE;DEBUG;WPF</DefineConstants>
-    <TargetFrameworks>net462;netcoreapp3.1</TargetFrameworks>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DefineConstants>TRACE;WPF</DefineConstants>
-    <DocumentationFile>bin\Release\Auth0.OidcClient.xml</DocumentationFile>
-    <SignAssembly>true</SignAssembly>
-    <AssemblyOriginatorKeyFile>..\..\build\Auth0OidcClientStrongName.snk</AssemblyOriginatorKeyFile>
-    <TargetFrameworks>net462;netcoreapp3.1</TargetFrameworks>
-  </PropertyGroup>
+
   <ItemGroup>
-    <AppDesigner Include="Properties\" />
+    <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.1823.32" />
   </ItemGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\Auth0.OidcClient.Core\Auth0.OidcClient.Core.csproj" />
   </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="IdentityModel.OidcClient">
-      <Version>5.2.1</Version>
-    </PackageReference>
-    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
-    <PackageReference Include="Microsoft.Toolkit.Wpf.UI.Controls.WebView">
-      <Version>6.1.2</Version>
-    </PackageReference>
-  </ItemGroup>
+
+
+
 </Project>
