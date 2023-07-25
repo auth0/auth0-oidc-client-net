@@ -3,7 +3,7 @@
 <package>
   <metadata>
     <id>Auth0.OidcClient.Core</id>
-    <version>3.4.1</version>
+    <version>3.4.2</version>
     <authors>Auth0</authors>
     <owners>Auth0</owners>
     <license type="expression">Apache-2.0</license>
@@ -12,6 +12,9 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Auth0 OIDC Client for native apps</description>
     <releaseNotes>
+    Version 3.4.2
+      - Added support for .NET6+
+
     Version 3.4.1
       - Do not lowercase org_name claim
 
@@ -101,11 +104,19 @@
         <dependency id="System.Text.Encodings.Web" version="5.0.1" />
         <dependency id="System.Text.Json" version="5.0.1" />
       </group>
+      <group targetFramework="net6.0">
+        <dependency id="IdentityModel.OidcClient" version="5.2.1" />
+        <dependency id="Microsoft.IdentityModel.Protocols.OpenIdConnect" version="6.12.2" />
+        <dependency id="System.Text.Encodings.Web" version="5.0.1" />
+        <dependency id="System.Text.Json" version="5.0.1" />
+      </group>
     </dependencies>
   </metadata>
   <files>
     <file src="..\src\Auth0.OidcClient.Core\bin\Release\netstandard2.0\Auth0.OidcClient.Core.dll" target="lib\netstandard2.0" />
     <file src="..\src\Auth0.OidcClient.Core\bin\Release\netstandard2.0\Auth0.OidcClient.Core.xml" target="lib\netstandard2.0" />
+    <file src="..\src\Auth0.OidcClient.Core\bin\Release\net6.0\Auth0.OidcClient.Core.dll" target="lib\net6.0" />
+    <file src="..\src\Auth0.OidcClient.Core\bin\Release\net6.0\Auth0.OidcClient.Core.xml" target="lib\net6.0" />
     <file src="..\build\Auth0Icon.png" />
   </files>
 </package>
