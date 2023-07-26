@@ -79,17 +79,12 @@ namespace Auth0.OidcClient
                     tcs.SetResult(new BrowserResult { ResultType = BrowserResultType.UserCancel });
             };
 
-#if NET6_0
-            window.ContentRendered += async (_, e) => 
-            {
-                await webView.EnsureCoreWebView2Async();
-                webView.CoreWebView2.Navigate(options.StartUrl);
-            };
-#endif
-
             window.Show();
 
-#if !NET6_0
+#if NET6_0
+            await webView.EnsureCoreWebView2Async();
+            webView.CoreWebView2.Navigate(options.StartUrl);
+#else
             webView.Navigate(options.StartUrl);
 #endif
 
