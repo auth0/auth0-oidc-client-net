@@ -83,6 +83,10 @@ namespace Auth0.OidcClient
 
 #if NET6_0
             await webView.EnsureCoreWebView2Async();
+
+            // Delete existing Cookies so previous logins won't remembered
+            webView.CoreWebView2.CookieManager.DeleteAllCookies();
+
             webView.CoreWebView2.Navigate(options.StartUrl);
 #else
             webView.Navigate(options.StartUrl);
