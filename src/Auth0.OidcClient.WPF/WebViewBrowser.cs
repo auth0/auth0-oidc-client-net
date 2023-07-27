@@ -1,5 +1,9 @@
 ﻿using IdentityModel.OidcClient.Browser;
+#if NET6_0
+using WebViewCompatible = Microsoft.Web.WebView2.Wpf.WebView2;
+#else
 using Microsoft.Toolkit.Wpf.UI.Controls;
+#endif
 using System;
 using System.Threading;
 using System.Threading.Tasks;
@@ -44,7 +48,7 @@ namespace Auth0.OidcClient
         }
 
         /// <inheritdoc />
-        public Task<BrowserResult> InvokeAsync(BrowserOptions options, CancellationToken cancellationToken = default)
+        public async Task<BrowserResult> InvokeAsync(BrowserOptions options, CancellationToken cancellationToken = default)
         {
             var tcs = new TaskCompletionSource<BrowserResult>();
 
@@ -54,7 +58,11 @@ namespace Auth0.OidcClient
 
             webView.NavigationStarting += (sender, e) =>
             {
+#if NET6_0
+                if (e.Uri.StartsWith(options.EndUrl))
+#else
                 if (e.Uri.AbsoluteUri.StartsWith(options.EndUrl))
+#endif
                 {
                     tcs.SetResult(new BrowserResult { ResultType = BrowserResultType.Success, Response = e.Uri.ToString() });
                     if (_shouldCloseWindow)
@@ -72,9 +80,15 @@ namespace Auth0.OidcClient
             };
 
             window.Show();
-            webView.Navigate(options.StartUrl);
 
-            return tcs.Task;
+#if NET6_0
+            await webView.EnsureCoreWebView2Async();
+            webView.CoreWebView2.Navigate(options.StartUrl);
+#else
+            webView.Navigate(options.StartUrl);
+#endif
+
+            return await tcs.Task;
         }
     }
 }
