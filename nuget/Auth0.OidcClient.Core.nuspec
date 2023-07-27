@@ -98,8 +98,6 @@
       <group targetFramework="netstandard2.0">
         <dependency id="IdentityModel.OidcClient" version="5.2.1" />
         <dependency id="Microsoft.IdentityModel.Protocols.OpenIdConnect" version="6.12.2" />
-        <dependency id="System.Text.Encodings.Web" version="5.0.1" />
-        <dependency id="System.Text.Json" version="5.0.1" />
       </group>
       <group targetFramework="net6.0">
         <dependency id="IdentityModel.OidcClient" version="5.2.1" />
