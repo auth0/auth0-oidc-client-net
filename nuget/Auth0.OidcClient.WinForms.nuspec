@@ -123,6 +123,10 @@
         <dependency id="Auth0.OidcClient.Core" version="3.4.1" />
         <dependency id="Microsoft.Toolkit.Forms.UI.Controls.WebView" version="6.1.1"/>
       </group>
+      <group targetFramework="net6.0-windows7.0">
+        <dependency id="Auth0.OidcClient.Core" version="3.4.1" />
+        <dependency id="Microsoft.Web.WebView2" version="1.0.1823.32"/>
+      </group>
     </dependencies>
   </metadata>
   <files>
@@ -130,6 +134,8 @@
     <file src="..\src\Auth0.OidcClient.WinForms\bin\Release\net462\Auth0.OidcClient.xml" target="lib\net462" />
     <file src="..\src\Auth0.OidcClient.WinForms\bin\Release\netcoreapp3.1\Auth0.OidcClient.dll" target="lib\netcoreapp3.1" />
     <file src="..\src\Auth0.OidcClient.WinForms\bin\Release\netcoreapp3.1\Auth0.OidcClient.xml" target="lib\netcoreapp3.1" />
+    <file src="..\src\Auth0.OidcClient.WinForms\bin\Release\net6.0-windows\Auth0.OidcClient.dll" target="lib\net6.0-windows7.0" />
+    <file src="..\src\Auth0.OidcClient.WinForms\bin\Release\net6.0-windows\Auth0.OidcClient.xml" target="lib\net6.0-windows7.0" />
     <file src="..\build\Auth0Icon.png" />
   </files>
 </package>

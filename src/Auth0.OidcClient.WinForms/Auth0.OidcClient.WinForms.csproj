@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
   <PropertyGroup>
-    <TargetFrameworks>net462;netcoreapp3.1</TargetFrameworks>
+    <TargetFrameworks>net462;netcoreapp3.1;net6.0-windows</TargetFrameworks>
     <OutputType>Library</OutputType>
     <RootNamespace>Auth0.OidcClient</RootNamespace>
     <AssemblyName>Auth0.OidcClient</AssemblyName>
@@ -9,14 +9,12 @@
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DefineConstants>TRACE;DEBUG;WINFORMS</DefineConstants>
-    <TargetFrameworks>net462;netcoreapp3.1</TargetFrameworks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DefineConstants>TRACE;WINFORMS</DefineConstants>
     <DocumentationFile>bin\Release\Auth0.OidcClient.xml</DocumentationFile>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>..\..\build\Auth0OidcClientStrongName.snk</AssemblyOriginatorKeyFile>
-    <TargetFrameworks>net462;netcoreapp3.1</TargetFrameworks>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationManifest>app.manifest</ApplicationManifest>
@@ -28,9 +26,20 @@
     <PackageReference Include="IdentityModel.OidcClient">
       <Version>5.2.1</Version>
     </PackageReference>
-    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
-    <PackageReference Include="Microsoft.Toolkit.Forms.UI.Controls.WebView">
-      <Version>6.1.2</Version>
-    </PackageReference>
   </ItemGroup>
+  <Choose>
+		<When Condition="'$(TargetFramework)'!='net6.0-windows'">
+			<ItemGroup>
+				<PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+				<PackageReference Include="Microsoft.Toolkit.Forms.UI.Controls.WebView">
+					<Version>6.1.2</Version>
+				</PackageReference>
+			</ItemGroup>
+		</When>
+		<When Condition="'$(TargetFramework)'=='net6.0-windows'">
+			<ItemGroup>
+				<PackageReference Include="Microsoft.Web.WebView2" Version="1.0.1823.32" />
+			</ItemGroup>
+		</When>
+	</Choose>
 </Project>
