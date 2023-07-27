@@ -13,7 +13,7 @@
     <description>Auth0 OIDC Client for WPF apps</description>
     <releaseNotes>
     Version 3.5.0
-      - Add support for .NET6+ through supporting WebView2
+      - Add support for .NET6+ by supporting WebView2
 
     Version 3.4.1
       - Do not lowercase org_name claim
