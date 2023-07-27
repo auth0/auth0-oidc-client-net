@@ -1,5 +1,9 @@
 ﻿using IdentityModel.OidcClient.Browser;
+#if NET6_0
+using WebViewCompatible = Microsoft.Web.WebView2.WinForms.WebView2;
+#else
 using Microsoft.Toolkit.Forms.UI.Controls;
+#endif
 using System;
 using System.Threading;
 using System.Threading.Tasks;
@@ -42,16 +46,20 @@ namespace Auth0.OidcClient
         }
 
         /// <inheritdoc />
-        public Task<BrowserResult> InvokeAsync(BrowserOptions options, CancellationToken cancellationToken = default)
+        public async Task<BrowserResult> InvokeAsync(BrowserOptions options, CancellationToken cancellationToken = default)
         {
             var tcs = new TaskCompletionSource<BrowserResult>();
 
             var window = _formFactory();
             var webView = new WebViewCompatible { Dock = DockStyle.Fill };
 
-            webView.NavigationCompleted += (sender, e) =>
+            webView.NavigationStarting += (sender, e) =>
             {
+#if NET6_0
+                if (e.Uri.StartsWith(options.EndUrl))
+#else
                 if (e.Uri.AbsoluteUri.StartsWith(options.EndUrl))
+#endif
                 {
                     tcs.SetResult(new BrowserResult { ResultType = BrowserResultType.Success, Response = e.Uri.ToString() });
                     window.Close();
@@ -64,12 +72,18 @@ namespace Auth0.OidcClient
                     tcs.SetResult(new BrowserResult { ResultType = BrowserResultType.UserCancel });
             };
 
-
             window.Controls.Add(webView);
-            window.Show();
-            webView.Navigate(options.StartUrl);
 
-            return tcs.Task;
+            window.Show();
+
+#if NET6_0
+            await webView.EnsureCoreWebView2Async();
+            webView.CoreWebView2.Navigate(options.StartUrl);
+#else
+            webView.Navigate(options.StartUrl);
+#endif
+
+            return await tcs.Task;
         }
     }
 }
