@@ -51,7 +51,6 @@ Create a **Native Application** in the [Auth0 Dashboard](https://manage.auth0.co
 > **If you're using an existing application**, verify that you have configured the following settings in your Native Application:
 >
 > - Click on the "Settings" tab of your application's page.
-> - Ensure that "Token Endpoint Authentication Method" under "Application Properties" is set to "None"
 > - Scroll down and click on the "Show Advanced Settings" link.
 > - Under "Advanced Settings", click on the "OAuth" tab.
 > - Ensure that "JsonWebToken Signature Algorithm" is set to `RS256` and that "OIDC Conformant" is enabled.
