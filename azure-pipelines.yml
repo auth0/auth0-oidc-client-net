@@ -15,7 +15,13 @@ steps:
   displayName: 'Install .NET SDK'
   inputs:
     version: 6.x
-    performMultiLevelLookup: true
+
+- task: DotNetCoreCLI@2
+  displayName: "Install .NET iOS workload"
+  inputs:
+    command: 'custom'
+    custom: 'workload'
+    arguments: 'install ios'
 
 - task: NuGetToolInstaller@1
 
