@@ -14,13 +14,13 @@
     <LangVersion>default</LangVersion>
   </PropertyGroup>
    <PropertyGroup Condition=" '$(Configuration)'=='Debug' ">
-    <DebugType>full</DebugType>
+    <DebugType>portable</DebugType>
     <DebugSymbols>true</DebugSymbols>
     <GenerateDocumentationFile>false</GenerateDocumentationFile>
     <DefineConstants>TRACE;DEBUG;__ANDROID__;ANDROIDX</DefineConstants>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)'=='Release' ">
-    <DebugType>pdbonly</DebugType>
+    <DebugType>portable</DebugType>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <DefineConstants>TRACE;ANDROIDX</DefineConstants>
   </PropertyGroup>
