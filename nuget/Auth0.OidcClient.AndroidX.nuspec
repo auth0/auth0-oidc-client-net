@@ -66,6 +66,8 @@
   <files>
     <file src="..\src\Auth0.OidcClient.AndroidX\bin\Release\monoandroid10.0\Auth0.OidcClient.dll" target="lib\MonoAndroid10" />
     <file src="..\src\Auth0.OidcClient.AndroidX\bin\Release\monoandroid10.0\Auth0.OidcClient.xml" target="lib\MonoAndroid10" />
+    <file src="..\src\Auth0.OidcClient.AndroidX\bin\Release\net6.0-android\Auth0.OidcClient.dll" target="lib\net6.0-android26.0" />
+    <file src="..\src\Auth0.OidcClient.AndroidX\bin\Release\net6.0-android\Auth0.OidcClient.xml" target="lib\net6.0-android26.0" />
     <file src="..\build\Auth0Icon.png" />
   </files>
 </package>
