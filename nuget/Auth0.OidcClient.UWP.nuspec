@@ -112,10 +112,10 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="..\src\Auth0.OidcClient.UWP\bin\Release\Auth0.OidcClient.dll" target="lib\uap10.0.16299" />
-    <file src="..\src\Auth0.OidcClient.UWP\bin\Release\Auth0.OidcClient.pdb" target="lib\uap10.0.16299" />
-    <file src="..\src\Auth0.OidcClient.UWP\bin\Release\Auth0.OidcClient.pri" target="lib\uap10.0.16299" />
-    <file src="..\src\Auth0.OidcClient.UWP\bin\Release\Auth0.OidcClient.xml" target="lib\uap10.0.16299" />
+    <file src="..\src\Auth0.OidcClient.UWP\bin\Release\uap10.0.16299\Auth0.OidcClient.dll" target="lib\uap10.0.16299" />
+    <file src="..\src\Auth0.OidcClient.UWP\bin\Release\uap10.0.16299\Auth0.OidcClient.pdb" target="lib\uap10.0.16299" />
+    <file src="..\src\Auth0.OidcClient.UWP\bin\Release\uap10.0.16299\Auth0.OidcClient.pri" target="lib\uap10.0.16299" />
+    <file src="..\src\Auth0.OidcClient.UWP\bin\Release\uap10.0.16299\Auth0.OidcClient.xml" target="lib\uap10.0.16299" />
     <file src="..\build\Auth0Icon.png" />
   </files>
 </package>

@@ -112,8 +112,8 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="../src/Auth0.OidcClient.iOS/bin/Release/Auth0.OidcClient.dll" target="lib\Xamarin.iOS10" />
-    <file src="../src/Auth0.OidcClient.iOS/bin/Release/Auth0.OidcClient.xml" target="lib\Xamarin.iOS10" />
+    <file src="../src/Auth0.OidcClient.iOS/bin/Release/xamarin.ios10/Auth0.OidcClient.dll" target="lib\Xamarin.iOS10" />
+    <file src="../src/Auth0.OidcClient.iOS/bin/Release/xamarin.ios10/Auth0.OidcClient.xml" target="lib\Xamarin.iOS10" />
     <file src="..\build\Auth0Icon.png" />
   </files>
 </package>
