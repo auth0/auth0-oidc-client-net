@@ -131,8 +131,8 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="..\src\Auth0.OidcClient.Android\bin\Release\Auth0.OidcClient.dll" target="lib\MonoAndroid10" />
-    <file src="..\src\Auth0.OidcClient.Android\bin\Release\Auth0.OidcClient.xml" target="lib\MonoAndroid10" />
+    <file src="..\src\Auth0.OidcClient.Android\bin\Release\monoandroid10.0\Auth0.OidcClient.dll" target="lib\MonoAndroid10" />
+    <file src="..\src\Auth0.OidcClient.Android\bin\Release\monoandroid10.0\Auth0.OidcClient.xml" target="lib\MonoAndroid10" />
     <file src="..\build\Auth0Icon.png" />
   </files>
 </package>

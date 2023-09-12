@@ -1,40 +1,26 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project Sdk="MSBuild.Sdk.Extras/3.0.44">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>8.0.30703</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{A18A146B-FB5A-4AB8-8F1C-501E58AA7D4D}</ProjectGuid>
-    <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <TargetFrameworks>MonoAndroid10.0</TargetFrameworks>
     <RootNamespace>Auth0.OidcClient</RootNamespace>
     <AssemblyName>Auth0.OidcClient</AssemblyName>
-    <FileAlignment>512</FileAlignment>
-    <AndroidResgenFile>Resources\Resource.Designer.cs</AndroidResgenFile>
-    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
-    <TargetFrameworkVersion>v8.0</TargetFrameworkVersion>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
+    <Product>Auth0.OidcClient</Product>
+    <AssemblyTitle>Auth0.OidcClient.Android</AssemblyTitle>
+    <AssemblyVersion>3.4.1</AssemblyVersion>
+    <AssemblyFileVersion>3.4.1</AssemblyFileVersion>
+    <Version>3.4.1</Version>
+    <NeutralLanguage>en</NeutralLanguage>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <DefineConstants>$(DefineConstants);</DefineConstants>    
+    <LangVersion>default</LangVersion>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
+   <PropertyGroup Condition=" '$(Configuration)'=='Debug' ">
     <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;__ANDROID__</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <DebugSymbols>true</DebugSymbols>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+  <PropertyGroup Condition=" '$(Configuration)'=='Release' ">
     <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Release\Auth0.OidcClient.xml</DocumentationFile>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
@@ -44,6 +30,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Xml" />
   </ItemGroup>
+
   <ItemGroup>
     <Compile Include="ActivityMediator.cs" />
     <Compile Include="AndroidBrowserBase.cs" />
@@ -52,21 +39,15 @@
     <Compile Include="AutoSelectBrowser.cs" />
     <Compile Include="ChromeCustomTabsBrowser.cs" />
     <Compile Include="SystemBrowser.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Auth0.OidcClient.Core\Auth0.OidcClient.Core.csproj">
-      <Project>{1f79db59-f3a8-45b7-972b-ecd15259d1c9}</Project>
-      <Name>Auth0.OidcClient.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="IdentityModel.OidcClient">
-      <Version>5.2.1</Version>
+    <PackageReference Include="IdentityModel.OidcClient" Version="5.2.1">
     </PackageReference>
-    <PackageReference Include="Xamarin.Android.Support.CustomTabs">
-      <Version>28.0.0.3</Version>
+    <PackageReference Include="Xamarin.Android.Support.CustomTabs" Version="28.0.0.3">
     </PackageReference>
   </ItemGroup>
-  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>
