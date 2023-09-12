@@ -1,4 +1,4 @@
-﻿<Project Sdk="Xamarin.Legacy.Sdk/0.2.0-alpha4">
+﻿<Project Sdk="MSBuild.Sdk.Extras/3.0.44">
   <PropertyGroup>
     <TargetFrameworks>Xamarin.iOS10</TargetFrameworks>
     <RootNamespace>Auth0.OidcClient</RootNamespace>
