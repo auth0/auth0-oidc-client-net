@@ -53,6 +53,7 @@ namespace Auth0.OidcClient
             var tcs = new TaskCompletionSource<BrowserResult>();
 
             var window = _windowFactory();
+            #pragma warning disable 618
             var webView = new WebViewCompatible();
             window.Content = webView;
 

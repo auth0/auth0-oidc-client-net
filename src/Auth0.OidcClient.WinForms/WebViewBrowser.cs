@@ -51,6 +51,7 @@ namespace Auth0.OidcClient
             var tcs = new TaskCompletionSource<BrowserResult>();
 
             var window = _formFactory();
+            #pragma warning disable 618
             var webView = new WebViewCompatible { Dock = DockStyle.Fill };
 
             webView.NavigationStarting += (sender, e) =>
