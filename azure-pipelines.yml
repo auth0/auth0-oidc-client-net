@@ -23,6 +23,12 @@ steps:
     custom: 'workload'
     arguments: 'install ios'
 
+  displayName: "Install .NET Android workload"
+  inputs:
+    command: 'custom'
+    custom: 'workload'
+    arguments: 'install android'
+
 - task: NuGetToolInstaller@1
 
 - task: NuGetCommand@2

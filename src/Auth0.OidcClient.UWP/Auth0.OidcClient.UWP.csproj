@@ -40,6 +40,5 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="IdentityModel.OidcClient" Version="5.2.1" />
-    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" version="6.2.12" />
   </ItemGroup>
 </Project>

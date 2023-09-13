@@ -51,6 +51,7 @@ namespace Auth0.OidcClient.Tokens
         /// <param name="leeway">Amount of leeway in validating date and time claims to allow some clock variance
         /// between the issuer and the application.</param>
         /// <param name="maxAge">Optional maximum time since the user last authenticated.</param>
+        /// <param name="organization">Optional organization the token must be for.</param>
         public IdTokenRequirements(string issuer, string audience, TimeSpan leeway, TimeSpan ? maxAge = null, string organization = null)
         {
             Issuer = issuer;
