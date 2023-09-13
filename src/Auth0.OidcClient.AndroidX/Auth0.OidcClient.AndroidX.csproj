@@ -1,6 +1,6 @@
-﻿<Project Sdk="MSBuild.Sdk.Extras/3.0.44">
+﻿<Project Sdk="Xamarin.Legacy.Sdk/0.2.0-alpha4">
   <PropertyGroup>
-    <TargetFramework>MonoAndroid11.0</TargetFramework>
+    <TargetFrameworks>MonoAndroid11.0;net6.0-android</TargetFrameworks>
     <RootNamespace>Auth0.OidcClient</RootNamespace>
     <AssemblyName>Auth0.OidcClient</AssemblyName>
     <Product>Auth0.OidcClient</Product>
