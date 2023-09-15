@@ -142,8 +142,6 @@
   <files>
     <file src="..\src\Auth0.OidcClient.WPF\bin\Release\net462\Auth0.OidcClient.dll" target="lib\net462" />
     <file src="..\src\Auth0.OidcClient.WPF\bin\Release\net462\Auth0.OidcClient.xml" target="lib\net462" />
-    <file src="..\src\Auth0.OidcClient.WPF\bin\Release\netcoreapp3.1\Auth0.OidcClient.dll" target="lib\netcoreapp3.1" />
-    <file src="..\src\Auth0.OidcClient.WPF\bin\Release\netcoreapp3.1\Auth0.OidcClient.xml" target="lib\netcoreapp3.1" />
     <file src="..\src\Auth0.OidcClient.WPF\bin\Release\net6.0-windows\Auth0.OidcClient.dll" target="lib\net6.0-windows7.0" />
     <file src="..\src\Auth0.OidcClient.WPF\bin\Release\net6.0-windows\Auth0.OidcClient.xml" target="lib\net6.0-windows7.0" />
     <file src="..\build\Auth0Icon.png" />
