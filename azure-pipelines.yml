@@ -17,6 +17,12 @@ steps:
     version: 6.x
 
 - task: DotNetCoreCLI@2
+  displayName: "Install .NET iOS workload"
+  inputs:
+    command: 'custom'
+    custom: 'workload'
+    arguments: 'install ios'
+
   displayName: "Install .NET Android workload"
   inputs:
     command: 'custom'
