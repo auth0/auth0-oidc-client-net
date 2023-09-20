@@ -5,9 +5,9 @@
     <AssemblyName>Auth0.OidcClient</AssemblyName>
     <Product>Auth0.OidcClient</Product>
     <AssemblyTitle>Auth0.OidcClient.Android</AssemblyTitle>
-    <AssemblyVersion>3.4.1</AssemblyVersion>
-    <AssemblyFileVersion>3.4.1</AssemblyFileVersion>
-    <Version>3.4.1</Version>
+    <AssemblyVersion>3.5.0</AssemblyVersion>
+    <AssemblyFileVersion>3.5.0</AssemblyFileVersion>
+    <Version>3.5.0</Version>
     <NeutralLanguage>en</NeutralLanguage>
     <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
     <DefineConstants>$(DefineConstants);</DefineConstants>    
