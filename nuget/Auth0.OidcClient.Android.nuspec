@@ -10,7 +10,7 @@
     <projectUrl>https://github.com/auth0/auth0-oidc-client-net</projectUrl>
     <icon>Auth0Icon.png</icon>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Auth0 OIDC Client for Xamarin Android apps</description>
+    <description>Auth0 OIDC Client for Xamarin Android apps. Relies on deprecated support libraries from Google, use Auth0.OidcClient.AndroidX instead.</description>
     <releaseNotes>
     Version 3.5.0
       - Set Android Target Framework Version to v11
