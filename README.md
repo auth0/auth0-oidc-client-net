@@ -43,7 +43,7 @@ Install-Package Auth0.OidcClient.iOS
 Install-Package Auth0.OidcClient.AndroidX
 ```
 
-> *Note*: As `Auth0.OidcClient.Android` relies on support packages which have been deprecated nby Google since 2019, there is no way for `Auth0.OidcClient.Android` to ever work on .NET 6 and above. If you wish to integrate Auth0 in an Android application running on .NET6 or above, use `Auth0.OidcClient.AndroidX` instead.
+> *Note*: As `Auth0.OidcClient.Android` relies on [support libraries](https://developer.android.com/topic/libraries/support-library) which have been deprecated by Google since 2019, there is no way for `Auth0.OidcClient.Android` to ever work on .NET 6 and above. If you wish to integrate Auth0 in an Android application, use `Auth0.OidcClient.AndroidX` instead.
 
 ### Configure Auth0
 
