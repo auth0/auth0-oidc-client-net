@@ -1,5 +1,6 @@
 trigger:
 - master
+- maui
 
 pool:
   vmImage: 'windows-2022'
