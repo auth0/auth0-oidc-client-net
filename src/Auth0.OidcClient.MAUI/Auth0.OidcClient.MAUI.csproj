@@ -1,0 +1,54 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>net6.0;net6.0-android;net6.0-ios;net6.0-maccatalyst</TargetFrameworks>
+		<UseMaui>true</UseMaui>
+		<SingleProject>true</SingleProject>
+		<ImplicitUsings>enable</ImplicitUsings>
+
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">14.2</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">14.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
+
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+
+		<PackageId>Auth0.OidcClient.MAUI</PackageId>
+		<PackageVersion>1.0.0</PackageVersion>
+		<Description>Auth0 OIDC Client for MAUI apps</Description>
+		<Authors>Auth0</Authors>
+		<PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+		<PackageProjectUrl>https://auth0.github.io/auth0-oidc-client-net/</PackageProjectUrl>
+		<PackageIcon>Auth0Icon.png</PackageIcon>
+		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+		<Copyright>Copyright 2023 Auth0, Inc.</Copyright>
+		<PackageTags>Auth0 OIDC MAUI</PackageTags>
+		<RepositoryUrl>https://github.com/auth0/auth0-oidc-client-net</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="IdentityModel.OidcClient" Version="5.2.1" />
+	</ItemGroup>
+	<ItemGroup>
+	  <ProjectReference Include="..\Auth0.OidcClient.Core\Auth0.OidcClient.Core.csproj" />
+	</ItemGroup>
+	<ItemGroup>
+	  <None Remove="Platforms\MacCatalyst\" />
+	  <None Remove="Platforms\iOS\" />
+	  <None Remove="Platforms\Android\" />
+	</ItemGroup>
+	<ItemGroup>
+    <None Include="README.md" Pack="true" PackagePath="\" />
+</ItemGroup>
+	<ItemGroup>
+	  <BundleResource Include="..\..\build\Auth0Icon.png" Pack="true" PackagePath="">
+	    <Link>Auth0Icon.png</Link>
+	  </BundleResource>
+	</ItemGroup>
+	<ItemGroup>
+	  <Folder Include="Platforms\MacCatalyst\" />
+	  <Folder Include="Platforms\iOS\" />
+	  <Folder Include="Platforms\Android\" />
+	</ItemGroup>
+</Project>
