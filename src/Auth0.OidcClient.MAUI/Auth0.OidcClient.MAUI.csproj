@@ -13,7 +13,7 @@
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 
 		<PackageId>Auth0.OidcClient.MAUI</PackageId>
-		<PackageVersion>1.0.0</PackageVersion>
+		<Version>1.0.0-beta.0</Version>
 		<Description>Auth0 OIDC Client for MAUI apps</Description>
 		<Authors>Auth0</Authors>
 		<PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
