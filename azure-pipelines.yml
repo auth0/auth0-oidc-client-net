@@ -31,6 +31,13 @@ steps:
     custom: 'workload'
     arguments: 'install android'
 
+- task: DotNetCoreCLI@2
+  displayName: "Install .NET MAUI workload"
+  inputs:
+    command: 'custom'
+    custom: 'workload'
+    arguments: 'install maui'
+
 - task: NuGetToolInstaller@1
 
 - task: NuGetCommand@2
