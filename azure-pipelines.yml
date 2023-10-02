@@ -1,5 +1,6 @@
 trigger:
 - master
+- beta
 
 pool:
   vmImage: 'windows-2022'
@@ -29,6 +30,13 @@ steps:
     command: 'custom'
     custom: 'workload'
     arguments: 'install android'
+
+- task: DotNetCoreCLI@2
+  displayName: "Install .NET MAUI workload"
+  inputs:
+    command: 'custom'
+    custom: 'workload'
+    arguments: 'install maui'
 
 - task: NuGetToolInstaller@1
 
