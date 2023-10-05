@@ -71,11 +71,30 @@ steps:
   inputs:
     PathtoPublish: '$(build.artifactstagingdirectory)'
 
+- task: Bash@3
+  displayName: 'Install docfx'
+  inputs:
+    targetType: 'inline'
+    script: 'dotnet tool install -g docfx'
+
+- task: Bash@3
+  displayName: 'Build docs'
+  inputs:
+    targetType: 'filePath'
+    filePath: 'tools/build-docs.sh'
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifact: docs'
+  inputs:
+    PathtoPublish: 'new-docs'
+    ArtifactName: 'docs'
+
 - task: CmdLine@2
   displayName: 'Publish to Nuget'
   condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
   inputs:
     script: 'nuget push $(Build.ArtifactStagingDirectory)\**\*.nupkg -ApiKey $(NugetApiKey) -Source https://api.nuget.org/v3/index.json -SkipDuplicate -NonInteractive'
+
 
 - task: Bash@3
   displayName: 'Read Package Version'

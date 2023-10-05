@@ -1,0 +1,699 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class Auth0ClientOptions
+ </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class Auth0ClientOptions
+ ">
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+  </head>
+
+  <script type="module">
+    import options from './../public/main.js'
+    import { init } from './../public/docfx.min.js'
+    init(options)
+  </script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="/auth0-oidc-client-net">
+            <img id="logo" class="svg" src="../images/logo.png" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Auth0.OidcClient.Auth0ClientOptions">
+
+
+
+  <h1 id="Auth0_OidcClient_Auth0ClientOptions" data-uid="Auth0.OidcClient.Auth0ClientOptions" class="text-break">
+    Class Auth0ClientOptions
+  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Auth0.html">Auth0</a>.<a class="xref" href="Auth0.OidcClient.html">OidcClient</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Auth0.OidcClient.Core.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Specifies options that can be passed to <a class="xref" href="Auth0.OidcClient.Auth0ClientBase.html">Auth0ClientBase</a> implementations.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class Auth0ClientOptions</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">Auth0ClientOptions</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist derived">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Auth0_OidcClient_Auth0ClientOptions__ctor_" data-uid="Auth0.OidcClient.Auth0ClientOptions.#ctor*"></a>
+
+  <h3 id="Auth0_OidcClient_Auth0ClientOptions__ctor" data-uid="Auth0.OidcClient.Auth0ClientOptions.#ctor">
+  Auth0ClientOptions()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Create a new instance of the <a class="xref" href="Auth0.OidcClient.Auth0ClientOptions.html">Auth0ClientOptions</a> class used to configure options for
+<a class="xref" href="Auth0.OidcClient.Auth0ClientBase.html">Auth0ClientBase</a> implementations by way of their constructors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Auth0ClientOptions()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Auth0_OidcClient_Auth0ClientOptions_BackchannelHandler_" data-uid="Auth0.OidcClient.Auth0ClientOptions.BackchannelHandler*"></a>
+
+  <h3 id="Auth0_OidcClient_Auth0ClientOptions_BackchannelHandler" data-uid="Auth0.OidcClient.Auth0ClientOptions.BackchannelHandler">
+  BackchannelHandler
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Allow overriding the BackchannelHandler.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public HttpMessageHandler BackchannelHandler { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httpmessagehandler">HttpMessageHandler</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+  <h4 class="section" id="Auth0_OidcClient_Auth0ClientOptions_BackchannelHandler_examples">Examples</h4>
+  <pre><code class="lang-csharp">var handler = new HttpClientHandler();
+var options = new Auth0ClientOptions
+{
+   BackchannelHandler = handler
+};</code></pre>
+
+
+
+
+
+
+  <a id="Auth0_OidcClient_Auth0ClientOptions_Browser_" data-uid="Auth0.OidcClient.Auth0ClientOptions.Browser*"></a>
+
+  <h3 id="Auth0_OidcClient_Auth0ClientOptions_Browser" data-uid="Auth0.OidcClient.Auth0ClientOptions.Browser">
+  Browser
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The <span class="xref">IdentityModel.OidcClient.Browser.IBrowser</span> implementation responsible for displaying the Auth0 Login screen. Leave this
+unassigned to accept the recommended implementation for platform.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IBrowser Browser { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">IBrowser</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Auth0_OidcClient_Auth0ClientOptions_ClientId_" data-uid="Auth0.OidcClient.Auth0ClientOptions.ClientId*"></a>
+
+  <h3 id="Auth0_OidcClient_Auth0ClientOptions_ClientId" data-uid="Auth0.OidcClient.Auth0ClientOptions.ClientId">
+  ClientId
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Your Auth0 Client ID.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string ClientId { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Auth0_OidcClient_Auth0ClientOptions_ClientSecret_" data-uid="Auth0.OidcClient.Auth0ClientOptions.ClientSecret*"></a>
+
+  <h3 id="Auth0_OidcClient_Auth0ClientOptions_ClientSecret" data-uid="Auth0.OidcClient.Auth0ClientOptions.ClientSecret">
+  ClientSecret
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Your Auth0 Client Secret.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Client Secrets should not be used in non-confidential clients such as native desktop and mobile apps. This property will be removed in a future release.&quot;)]
+public string ClientSecret { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Auth0_OidcClient_Auth0ClientOptions_Domain_" data-uid="Auth0.OidcClient.Auth0ClientOptions.Domain*"></a>
+
+  <h3 id="Auth0_OidcClient_Auth0ClientOptions_Domain" data-uid="Auth0.OidcClient.Auth0ClientOptions.Domain">
+  Domain
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Your Auth0 tenant domain.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Domain { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="Auth0_OidcClient_Auth0ClientOptions_Domain_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>e.g. tenant.auth0.com</p>
+</div>
+
+
+
+
+  <a id="Auth0_OidcClient_Auth0ClientOptions_EnableTelemetry_" data-uid="Auth0.OidcClient.Auth0ClientOptions.EnableTelemetry*"></a>
+
+  <h3 id="Auth0_OidcClient_Auth0ClientOptions_EnableTelemetry" data-uid="Auth0.OidcClient.Auth0ClientOptions.EnableTelemetry">
+  EnableTelemetry
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Indicates whether basic telemetry information should be included with requests to Auth0.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool EnableTelemetry { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="Auth0_OidcClient_Auth0ClientOptions_EnableTelemetry_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The telemetry information is like a browser user agent and includes operating system
+details only to let Auth0 guide engineering resources based on platform popularity.</p>
+</div>
+
+
+
+
+  <a id="Auth0_OidcClient_Auth0ClientOptions_Leeway_" data-uid="Auth0.OidcClient.Auth0ClientOptions.Leeway*"></a>
+
+  <h3 id="Auth0_OidcClient_Auth0ClientOptions_Leeway" data-uid="Auth0.OidcClient.Auth0ClientOptions.Leeway">
+  Leeway
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The amount of leeway to accommodate potential clock skew when validating an ID token's claims.
+Defaults to 5 minutes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TimeSpan Leeway { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Auth0_OidcClient_Auth0ClientOptions_LoadProfile_" data-uid="Auth0.OidcClient.Auth0ClientOptions.LoadProfile*"></a>
+
+  <h3 id="Auth0_OidcClient_Auth0ClientOptions_LoadProfile" data-uid="Auth0.OidcClient.Auth0ClientOptions.LoadProfile">
+  LoadProfile
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Indicates whether the user profile should be loaded from the /userinfo endpoint.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool LoadProfile { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="Auth0_OidcClient_Auth0ClientOptions_LoadProfile_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Defaults to true.</p>
+</div>
+
+
+
+
+  <a id="Auth0_OidcClient_Auth0ClientOptions_LoggerFactory_" data-uid="Auth0.OidcClient.Auth0ClientOptions.LoggerFactory*"></a>
+
+  <h3 id="Auth0_OidcClient_Auth0ClientOptions_LoggerFactory" data-uid="Auth0.OidcClient.Auth0ClientOptions.LoggerFactory">
+  LoggerFactory
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Optional ILoggerFactory implementation to use for logging purposes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ILoggerFactory LoggerFactory { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.iloggerfactory">ILoggerFactory</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Auth0_OidcClient_Auth0ClientOptions_MaxAge_" data-uid="Auth0.OidcClient.Auth0ClientOptions.MaxAge*"></a>
+
+  <h3 id="Auth0_OidcClient_Auth0ClientOptions_MaxAge" data-uid="Auth0.OidcClient.Auth0ClientOptions.MaxAge">
+  MaxAge
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Optional limit on the how long since the user was last authenticated.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TimeSpan? MaxAge { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Auth0_OidcClient_Auth0ClientOptions_PostLogoutRedirectUri_" data-uid="Auth0.OidcClient.Auth0ClientOptions.PostLogoutRedirectUri*"></a>
+
+  <h3 id="Auth0_OidcClient_Auth0ClientOptions_PostLogoutRedirectUri" data-uid="Auth0.OidcClient.Auth0ClientOptions.PostLogoutRedirectUri">
+  PostLogoutRedirectUri
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Override the Redirect URI used to return from logout.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string PostLogoutRedirectUri { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="Auth0_OidcClient_Auth0ClientOptions_PostLogoutRedirectUri_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Defaults to a platform-specific value you can observe in the debug console window when performing a logout.
+On iOS this is made from the app bundle ID and on Android from a lower-cased version of the package name.
+Whether you use the default or manually set this value it must be added to the
+Allowed Logout URLs for this application/client to allow the logout process to complete.</p>
+</div>
+
+
+
+
+  <a id="Auth0_OidcClient_Auth0ClientOptions_RedirectUri_" data-uid="Auth0.OidcClient.Auth0ClientOptions.RedirectUri*"></a>
+
+  <h3 id="Auth0_OidcClient_Auth0ClientOptions_RedirectUri" data-uid="Auth0.OidcClient.Auth0ClientOptions.RedirectUri">
+  RedirectUri
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Override the the Redirect URI used to return from login.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string RedirectUri { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="Auth0_OidcClient_Auth0ClientOptions_RedirectUri_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Defaults to a platform-specific value you can observe in the debug console window when performing a login.
+On iOS this is made from the app bundle ID and on Android from a lower-cased version of the package name.
+Whether you use the default or manually set this value it must be added to the
+Allowed Callback URLs for this application/client to allow the login process to complete.</p>
+</div>
+
+
+
+
+  <a id="Auth0_OidcClient_Auth0ClientOptions_RefreshTokenMessageHandler_" data-uid="Auth0.OidcClient.Auth0ClientOptions.RefreshTokenMessageHandler*"></a>
+
+  <h3 id="Auth0_OidcClient_Auth0ClientOptions_RefreshTokenMessageHandler" data-uid="Auth0.OidcClient.Auth0ClientOptions.RefreshTokenMessageHandler">
+  RefreshTokenMessageHandler
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Allow overriding the RetryMessageHandler.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public HttpMessageHandler RefreshTokenMessageHandler { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httpmessagehandler">HttpMessageHandler</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+  <h4 class="section" id="Auth0_OidcClient_Auth0ClientOptions_RefreshTokenMessageHandler_examples">Examples</h4>
+  <p>var handler = new HttpClientHandler();
+var options = new Auth0ClientOptions
+{
+RefreshTokenMessageHandler = handler
+};</p>
+
+
+
+
+
+
+  <a id="Auth0_OidcClient_Auth0ClientOptions_Scope_" data-uid="Auth0.OidcClient.Auth0ClientOptions.Scope*"></a>
+
+  <h3 id="Auth0_OidcClient_Auth0ClientOptions_Scope" data-uid="Auth0.OidcClient.Auth0ClientOptions.Scope">
+  Scope
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The scopes you want to request.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Scope { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+        
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

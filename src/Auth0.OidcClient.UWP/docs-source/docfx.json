@@ -1,0 +1,54 @@
+{
+    "metadata": [
+      {
+        "src": [
+          {
+            "files": [
+              "bin/Release/**/Auth0.OidcClient.dll",
+              "bin/Release/**/Auth0.OidcClient.Core.dll"
+            ],
+            "cwd": "../"
+          }
+        ],
+        "dest": "api",
+        "includePrivateMembers": false,
+        "disableGitFeatures": false,
+        "disableDefaultFilter": false,
+        "noRestore": false,
+        "namespaceLayout": "flattened",
+        "memberLayout": "samePage",
+        "EnumSortOrder": "alphabetic",
+        "allowCompilationErrors": false
+      }
+    ],
+    "build": {
+      "content": [
+        {
+          "files": [ "**/*.{md,yml}" ],
+          "exclude": [ "_site/**", "obj/**" ]
+        }
+      ],
+      "resource": [
+        {
+          "files": [
+            "images/**"
+          ]
+        }
+      ],
+      "output": "_site",
+      "globalMetadataFiles": [],
+      "globalMetadata": {
+        "_appLogoUrl": "/auth0-oidc-client-net",
+        "_appLogoPath": "images/logo.png"
+      },
+      "fileMetadataFiles": [],
+      "template": [
+        "default",
+        "modern",
+        "../../../docs-source/custom-template"
+      ],
+      "postProcessors": [],
+      "keepFileLink": false,
+      "disableGitFeatures": false
+    }
+  }

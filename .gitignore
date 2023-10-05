@@ -252,3 +252,7 @@ paket-files/
 # JetBrains Rider
 .idea/
 *.sln.iml
+
+src/**/docs-source/_site
+src/**/docs-source/api
+new-docs

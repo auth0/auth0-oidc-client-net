@@ -1,8 +1,12 @@
 - name: Documentation
   href: documentation/
-- name: Migrate to V3
-  href: documentation/migration/v3.md
-- name: Migrate to V2
-  href: documentation/migration/v2.md
-- name: API Reference
-  href: api/
+- name: Android
+  href: android/api/Auth0.OidcClient.html
+- name: iOS
+  href: ios/api/Auth0.OidcClient.html
+- name: WPF
+  href: wpf/api/Auth0.OidcClient.html
+- name: WinForms
+  href: winforms/api/Auth0.OidcClient.html
+- name: UWP
+  href: uwp/api/Auth0.OidcClient.html

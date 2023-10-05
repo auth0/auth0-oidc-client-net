@@ -1,65 +1,89 @@
 ﻿<!DOCTYPE html>
-<!--[if IE]><![endif]-->
 <html>
-  
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Auth0 OIDC Client </title>
-    <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Auth0 OIDC Client ">
-    <meta name="generator" content="docfx 2.59.4.0">
-    
-    <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" href="styles/docfx.vendor.css">
-    <link rel="stylesheet" href="styles/docfx.css">
-    <link rel="stylesheet" href="styles/main.css">
-    <meta property="docfx:navrel" content="toc.html">
-    <meta property="docfx:tocrel" content="toc.html">
-    
-    
-    
+      <title>Auth0 OIDC Client </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Auth0 OIDC Client ">
+      
+      <link rel="icon" href="favicon.ico">
+      <link rel="stylesheet" href="public/docfx.min.css">
+      <link rel="stylesheet" href="public/main.css">
+      <meta name="docfx:navrel" content="toc.html">
+      <meta name="docfx:tocrel" content="documentation/toc.html">
+      
+      
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/auth0/auth0-oidc-client-net/blob/master/docs-source/index.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
   </head>
-  <body data-spy="scroll" data-target="#affix" data-offset="120">
-    <div id="wrapper">
-      <header>
-        
-        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              
-              <a class="navbar-brand" href="index.html">
-                <img id="logo" class="svg" src="logo.svg" alt="">
-              </a>
+
+  <script type="module">
+    import options from './public/main.js'
+    import { init } from './public/docfx.min.js'
+    init(options)
+  </script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="index.html">
+            <img id="logo" class="svg" src="images/logo.png" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
             </div>
-            <div class="collapse navbar-collapse" id="navbar">
-              <form class="navbar-form navbar-right" role="search" id="search">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
-                </div>
-              </form>
-            </div>
-          </div>
-        </nav>
-        
-        <div class="subnav navbar navbar-default">
-          <div class="container hide-when-search" id="breadcrumb">
-            <ul class="breadcrumb">
-              <li></li>
-            </ul>
           </div>
         </div>
-      </header>
-      <div role="main" class="container body-content hide-when-search">
-        <div class="article row grid">
-          <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="">
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+
 
 <p><img src="https://cdn.auth0.com/website/sdks/banners/auth0-oidc-client-net-banner.png" alt=""></p>
 <p>OIDC Client for .NET Desktop (WinForms, WPF and UWP) as well as Xamarin-based iOS and Android mobile applications.</p>
@@ -67,7 +91,7 @@
 <img src="https://img.shields.io/nuget/dt/Auth0.OidcClient.Core" alt="Downloads">
 <a href="https://opensource.org/licenses/Apache-2.0"><img src="https://img.shields.io/:license-Apache2.0-blue.svg?style=flat" alt="License"></a>
 <a href="https://dev.azure.com/Auth0SDK/Auth0%20OIDC%20Client.NET/_build/latest?definitionId=4&amp;branchName=master"><img src="https://dev.azure.com/Auth0SDK/Auth0%20OIDC%20Client.NET/_apis/build/status/auth0.auth0-oidc-client-net?branchName=master" alt="Build Status"></a></p>
-<p><span class="emoji" shortcode="books">📚</span> <a href="#documentation">Documentation</a> - <span class="emoji" shortcode="rocket">🚀</span> <a href="#getting-started">Getting Started</a> - <span class="emoji" shortcode="computer">💻</span> <a href="#api-reference">API Reference</a> - <span class="emoji" shortcode="speech_balloon">💬</span> <a href="#feedback">Feedback</a></p>
+<p>📚 <a href="#documentation">Documentation</a> - 🚀 <a href="#getting-started">Getting Started</a> - 💻 <a href="#api-reference">API Reference</a> - 💬 <a href="#feedback">Feedback</a></p>
 <p>This library makes use of the <a href="https://github.com/IdentityModel/IdentityModel.OidcClient">IdentityModel/IdentityModel.OidcClient</a> library and uses code from the <a href="https://github.com/IdentityModel/IdentityModel.OidcClient.Samples">IdentityModel/IdentityModel.OidcClient.Samples</a> repository to achieve browser integration.</p>
 <h2 id="documentation">Documentation</h2>
 <ul>
@@ -77,8 +101,8 @@
 <li><a href="https://github.com/auth0-samples/auth0-WinFormsWPF-oidc-samples/tree/master/Quickstart/00-Starter-Seed/WPF">WPF Sample App</a> - a WPF application integrated with Auth0.</li>
 <li><a href="https://github.com/auth0-samples/auth0-WinFormsWPF-oidc-samples/tree/master/Quickstart/00-Starter-Seed/WinForms">WinForms Sample App</a> - a WinForms application integrated with Auth0.</li>
 <li><a href="https://github.com/auth0-samples/auth0-xamarin-oidc-samples/tree/master/Quickstart/01-Login">Xamarin Sample App</a> - a Xamarin application integrated with Auth0.</li>
-<li><a href="https://auth0.github.io/auth0-oidc-client-net/documentation/intro.html">SDK docs</a> - explore the documentation for this SDK. </li>
-<li><a href="https://www.auth0.com/docs">Auth0 docs</a> - explore our docs site and learn more about </li>
+<li><a href="https://auth0.github.io/auth0-oidc-client-net/documentation/intro.html">SDK docs</a> - explore the documentation for this SDK.</li>
+<li><a href="https://www.auth0.com/docs">Auth0 docs</a> - explore our docs site and learn more about</li>
 </ul>
 <h2 id="getting-started">Getting started</h2>
 <h3 id="requirements">Requirements</h3>
@@ -95,11 +119,13 @@ Install-Package Auth0.OidcClient.WinForms
 Install-Package Auth0.OidcClient.iOS
 Install-Package Auth0.OidcClient.Android
 Install-Package Auth0.OidcClient.AndroidX
-</code></pre><h3 id="configure-auth0">Configure Auth0</h3>
+</code></pre>
+<h3 id="configure-auth0">Configure Auth0</h3>
 <p>Create a <strong>Native Application</strong> in the <a href="https://manage.auth0.com/#/applications">Auth0 Dashboard</a>.</p>
-<blockquote><p><strong>If you&#39;re using an existing application</strong>, verify that you have configured the following settings in your Native Application:</p>
+<blockquote>
+<p><strong>If you're using an existing application</strong>, verify that you have configured the following settings in your Native Application:</p>
 <ul>
-<li>Click on the &quot;Settings&quot; tab of your application&#39;s page.</li>
+<li>Click on the &quot;Settings&quot; tab of your application's page.</li>
 <li>Ensure that &quot;Token Endpoint Authentication Method&quot; under &quot;Application Properties&quot; is set to &quot;None&quot;</li>
 <li>Scroll down and click on the &quot;Show Advanced Settings&quot; link.</li>
 <li>Under &quot;Advanced Settings&quot;, click on the &quot;OAuth&quot; tab.</li>
@@ -111,9 +137,10 @@ Install-Package Auth0.OidcClient.AndroidX
 <li><strong>Allowed Callback URLs</strong></li>
 <li><strong>Allowed Logout URLs</strong></li>
 </ul>
-<blockquote><p>For the values for these URLs, please refer to the corresponding quickstart from our <a href="#documentation">documentation</a>.</p>
+<blockquote>
+<p>For the values for these URLs, please refer to the corresponding quickstart from our <a href="#documentation">documentation</a>.</p>
 </blockquote>
-<p>Take note of the <strong>Client ID</strong> and <strong>Domain</strong> values under the &quot;Basic Information&quot; section. You&#39;ll need these values to configure the SDK.</p>
+<p>Take note of the <strong>Client ID</strong> and <strong>Domain</strong> values under the &quot;Basic Information&quot; section. You'll need these values to configure the SDK.</p>
 <h3 id="configure-the-sdk">Configure the SDK</h3>
 <p>All platforms share the same interface, so you can use the following code to instantiate the <code>Auth0Client</code>:</p>
 <pre><code class="lang-csharp">using Auth0.OidcClient;
@@ -123,15 +150,16 @@ var auth0Client = new Auth0Client(new Auth0ClientOptions
     Domain = &quot;YOUR_AUTH0_DOMAIN&quot;,
     ClientId = &quot;YOUR_AUTH0_CLIENT_ID&quot;
 });
-</code></pre><h2 id="api-reference">API reference</h2>
-<p>Read <a href="https://auth0.github.io/auth0-oidc-client-net/api/Auth0.OidcClient.html">the full API reference</a> to find out about the public API&#39;s this SDK exposes.</p>
+</code></pre>
+<h2 id="api-reference">API reference</h2>
+<p>Read <a href="https://auth0.github.io/auth0-oidc-client-net/api/Auth0.OidcClient.html">the full API reference</a> to find out about the public API's this SDK exposes.</p>
 <h2 id="feedback">Feedback</h2>
 <h3 id="contributing">Contributing</h3>
 <p>We appreciate feedback and contribution to this repo! Before you get started, please see the following:</p>
 <ul>
-<li><a href="https://github.com/auth0/open-source-template/blob/master/GENERAL-CONTRIBUTING.md">Auth0&#39;s general contribution guidelines</a></li>
-<li><a href="https://github.com/auth0/open-source-template/blob/master/CODE-OF-CONDUCT.md">Auth0&#39;s code of conduct guidelines</a></li>
-<li><a href="https://github.com/auth0/auth0-oidc-client-net/blob/master/CONTRIBUTING.md">This repo&#39;s contribution guide</a></li>
+<li><a href="https://github.com/auth0/open-source-template/blob/master/GENERAL-CONTRIBUTING.md">Auth0's general contribution guidelines</a></li>
+<li><a href="https://github.com/auth0/open-source-template/blob/master/CODE-OF-CONDUCT.md">Auth0's code of conduct guidelines</a></li>
+<li><a href="https://github.com/auth0/auth0-oidc-client-net/blob/master/CONTRIBUTING.md">This repo's contribution guide</a></li>
 </ul>
 <h3 id="raise-an-issue">Raise an issue</h3>
 <p>To provide feedback or report a bug, please <a href="https://github.com/auth0/auth0-oidc-client-net/issues">raise an issue on our issue tracker</a>.</p>
@@ -143,48 +171,33 @@ var auth0Client = new Auth0Client(new Auth0ClientOptions
     <source media="(prefers-color-scheme: light)" srcset="https://cdn.auth0.com/website/sdks/logos/auth0_light_mode.png" width="150">
     <source media="(prefers-color-scheme: dark)" srcset="https://cdn.auth0.com/website/sdks/logos/auth0_dark_mode.png" width="150">
     <img alt="Auth0 Logo" src="https://cdn.auth0.com/website/sdks/logos/auth0_light_mode.png" width="150">
-  </source></source></picture>
+  </picture>
 </p>
 <p align="center">Auth0 is an easy to implement, adaptable authentication and authorization platform. To learn more checkout <a href="https://auth0.com/why-auth0">Why Auth0?</a></p>
 <p align="center">
 This project is licensed under the Apache-2.0 license. See the <a href="https://github.com/auth0/auth0-oidc-client-net/blob/master/LICENSE"> LICENSE</a> file for more info.</p>
 </article>
-          </div>
-          
-          <div class="hidden-sm col-md-2" role="complementary">
-            <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                  <li>
-                    <a href="https://github.com/auth0/auth0-oidc-client-net/blob/master/docs-source/index.md/#L1" class="contribution-link">Improve this Doc</a>
-                  </li>
-                </ul>
-              </div>
-              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In This Article</h5>
-                <div></div>
-              </nav>
-            </div>
-          </div>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/auth0/auth0-oidc-client-net/blob/master/docs-source/index.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+        
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Copyright 2017-2023, Auth0 Inc.
         </div>
       </div>
-      
-      <footer>
-        <div class="grad-bottom"></div>
-        <div class="footer">
-          <div class="container">
-            <span class="pull-right">
-              <a href="#top">Back to top</a>
-            </span>
-            Copyright 2017-2019, Auth0 Inc.
-            
-          </div>
-        </div>
-      </footer>
-    </div>
-    
-    <script type="text/javascript" src="styles/docfx.vendor.js"></script>
-    <script type="text/javascript" src="styles/docfx.js"></script>
-    <script type="text/javascript" src="styles/main.js"></script>
+    </footer>
   </body>
 </html>
