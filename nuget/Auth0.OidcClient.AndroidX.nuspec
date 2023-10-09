@@ -3,7 +3,7 @@
 <package>
   <metadata>
     <id>Auth0.OidcClient.AndroidX</id>
-    <version>3.4.1</version>
+    <version>3.5.0</version>
     <authors>Auth0</authors>
     <owners>Auth0</owners>
     <license type="expression">Apache-2.0</license>
@@ -12,6 +12,10 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Auth0 OIDC Client for Xamarin AndroidX apps</description>
     <releaseNotes>
+    Version 3.5.0
+      - Set Android Target Framework Version to v11
+      - Support .NET6 and above
+
     Version 3.4.1
       - Do not lowercase org_name claim
 
