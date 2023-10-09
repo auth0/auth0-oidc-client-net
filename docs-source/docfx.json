@@ -33,7 +33,7 @@
         ]
       }
     ],
-    "dest": "../new-docs",
+    "dest": "../docs",
     "globalMetadataFiles": [],
     "globalMetadata": {
       "_appFooter": "Copyright 2017-2023, Auth0 Inc.",
