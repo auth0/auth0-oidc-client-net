@@ -1,0 +1,140 @@
+{
+  "source_base_path": "D:/a/1/s/src/Auth0.OidcClient.WinForms/docs-source",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Auth0.OidcClient.Auth0Client.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Auth0.OidcClient.Auth0Client.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Auth0.OidcClient.Auth0ClientBase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Auth0.OidcClient.Auth0ClientBase.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Auth0.OidcClient.Auth0ClientOptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Auth0.OidcClient.Auth0ClientOptions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Auth0.OidcClient.IAuth0Client.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Auth0.OidcClient.IAuth0Client.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Auth0.OidcClient.Tokens.IdTokenValidationException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Auth0.OidcClient.Tokens.IdTokenValidationException.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Auth0.OidcClient.Tokens.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Auth0.OidcClient.Tokens.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Auth0.OidcClient.WebBrowserBrowser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Auth0.OidcClient.WebBrowserBrowser.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Auth0.OidcClient.WebViewBrowser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Auth0.OidcClient.WebViewBrowser.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Auth0.OidcClient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Auth0.OidcClient.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html"
+        },
+        ".json": {
+          "relative_path": "api/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/logo.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/logo.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "InvalidFileLink"
+      ],
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html"
+        },
+        ".json": {
+          "relative_path": "toc.json"
+        }
+      },
+      "version": ""
+    }
+  ],
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}

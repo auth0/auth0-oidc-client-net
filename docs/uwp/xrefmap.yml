@@ -1,0 +1,600 @@
+### YamlMime:XRefMap
+sorted: true
+references:
+- uid: Auth0.OidcClient
+  name: Auth0.OidcClient
+  href: api/Auth0.OidcClient.html
+  commentId: N:Auth0.OidcClient
+  fullName: Auth0.OidcClient
+  nameWithType: Auth0.OidcClient
+- uid: Auth0.OidcClient.Auth0Client
+  name: Auth0Client
+  href: api/Auth0.OidcClient.Auth0Client.html
+  commentId: T:Auth0.OidcClient.Auth0Client
+  fullName: Auth0.OidcClient.Auth0Client
+  nameWithType: Auth0Client
+- uid: Auth0.OidcClient.Auth0Client.#ctor(Auth0.OidcClient.Auth0ClientOptions)
+  name: Auth0Client(Auth0ClientOptions)
+  href: api/Auth0.OidcClient.Auth0Client.html#Auth0_OidcClient_Auth0Client__ctor_Auth0_OidcClient_Auth0ClientOptions_
+  commentId: M:Auth0.OidcClient.Auth0Client.#ctor(Auth0.OidcClient.Auth0ClientOptions)
+  name.vb: New(Auth0ClientOptions)
+  fullName: Auth0.OidcClient.Auth0Client.Auth0Client(Auth0.OidcClient.Auth0ClientOptions)
+  fullName.vb: Auth0.OidcClient.Auth0Client.New(Auth0.OidcClient.Auth0ClientOptions)
+  nameWithType: Auth0Client.Auth0Client(Auth0ClientOptions)
+  nameWithType.vb: Auth0Client.New(Auth0ClientOptions)
+- uid: Auth0.OidcClient.Auth0Client.#ctor*
+  name: Auth0Client
+  href: api/Auth0.OidcClient.Auth0Client.html#Auth0_OidcClient_Auth0Client__ctor_
+  commentId: Overload:Auth0.OidcClient.Auth0Client.#ctor
+  name.vb: New
+  fullName: Auth0.OidcClient.Auth0Client.Auth0Client
+  fullName.vb: Auth0.OidcClient.Auth0Client.New
+  nameWithType: Auth0Client.Auth0Client
+  nameWithType.vb: Auth0Client.New
+- uid: Auth0.OidcClient.Auth0ClientBase
+  name: Auth0ClientBase
+  href: api/Auth0.OidcClient.Auth0ClientBase.html
+  commentId: T:Auth0.OidcClient.Auth0ClientBase
+  fullName: Auth0.OidcClient.Auth0ClientBase
+  nameWithType: Auth0ClientBase
+- uid: Auth0.OidcClient.Auth0ClientBase.#ctor(Auth0.OidcClient.Auth0ClientOptions,System.String)
+  name: Auth0ClientBase(Auth0ClientOptions, string)
+  href: api/Auth0.OidcClient.Auth0ClientBase.html#Auth0_OidcClient_Auth0ClientBase__ctor_Auth0_OidcClient_Auth0ClientOptions_System_String_
+  commentId: M:Auth0.OidcClient.Auth0ClientBase.#ctor(Auth0.OidcClient.Auth0ClientOptions,System.String)
+  name.vb: New(Auth0ClientOptions, String)
+  fullName: Auth0.OidcClient.Auth0ClientBase.Auth0ClientBase(Auth0.OidcClient.Auth0ClientOptions, string)
+  fullName.vb: Auth0.OidcClient.Auth0ClientBase.New(Auth0.OidcClient.Auth0ClientOptions, String)
+  nameWithType: Auth0ClientBase.Auth0ClientBase(Auth0ClientOptions, string)
+  nameWithType.vb: Auth0ClientBase.New(Auth0ClientOptions, String)
+- uid: Auth0.OidcClient.Auth0ClientBase.#ctor*
+  name: Auth0ClientBase
+  href: api/Auth0.OidcClient.Auth0ClientBase.html#Auth0_OidcClient_Auth0ClientBase__ctor_
+  commentId: Overload:Auth0.OidcClient.Auth0ClientBase.#ctor
+  name.vb: New
+  fullName: Auth0.OidcClient.Auth0ClientBase.Auth0ClientBase
+  fullName.vb: Auth0.OidcClient.Auth0ClientBase.New
+  nameWithType: Auth0ClientBase.Auth0ClientBase
+  nameWithType.vb: Auth0ClientBase.New
+- uid: Auth0.OidcClient.Auth0ClientBase.GetUserInfoAsync(System.String)
+  name: GetUserInfoAsync(string)
+  href: api/Auth0.OidcClient.Auth0ClientBase.html#Auth0_OidcClient_Auth0ClientBase_GetUserInfoAsync_System_String_
+  commentId: M:Auth0.OidcClient.Auth0ClientBase.GetUserInfoAsync(System.String)
+  name.vb: GetUserInfoAsync(String)
+  fullName: Auth0.OidcClient.Auth0ClientBase.GetUserInfoAsync(string)
+  fullName.vb: Auth0.OidcClient.Auth0ClientBase.GetUserInfoAsync(String)
+  nameWithType: Auth0ClientBase.GetUserInfoAsync(string)
+  nameWithType.vb: Auth0ClientBase.GetUserInfoAsync(String)
+- uid: Auth0.OidcClient.Auth0ClientBase.GetUserInfoAsync*
+  name: GetUserInfoAsync
+  href: api/Auth0.OidcClient.Auth0ClientBase.html#Auth0_OidcClient_Auth0ClientBase_GetUserInfoAsync_
+  commentId: Overload:Auth0.OidcClient.Auth0ClientBase.GetUserInfoAsync
+  fullName: Auth0.OidcClient.Auth0ClientBase.GetUserInfoAsync
+  nameWithType: Auth0ClientBase.GetUserInfoAsync
+- uid: Auth0.OidcClient.Auth0ClientBase.LoginAsync(System.Object,System.Threading.CancellationToken)
+  name: LoginAsync(object, CancellationToken)
+  href: api/Auth0.OidcClient.Auth0ClientBase.html#Auth0_OidcClient_Auth0ClientBase_LoginAsync_System_Object_System_Threading_CancellationToken_
+  commentId: M:Auth0.OidcClient.Auth0ClientBase.LoginAsync(System.Object,System.Threading.CancellationToken)
+  name.vb: LoginAsync(Object, CancellationToken)
+  fullName: Auth0.OidcClient.Auth0ClientBase.LoginAsync(object, System.Threading.CancellationToken)
+  fullName.vb: Auth0.OidcClient.Auth0ClientBase.LoginAsync(Object, System.Threading.CancellationToken)
+  nameWithType: Auth0ClientBase.LoginAsync(object, CancellationToken)
+  nameWithType.vb: Auth0ClientBase.LoginAsync(Object, CancellationToken)
+- uid: Auth0.OidcClient.Auth0ClientBase.LoginAsync*
+  name: LoginAsync
+  href: api/Auth0.OidcClient.Auth0ClientBase.html#Auth0_OidcClient_Auth0ClientBase_LoginAsync_
+  commentId: Overload:Auth0.OidcClient.Auth0ClientBase.LoginAsync
+  fullName: Auth0.OidcClient.Auth0ClientBase.LoginAsync
+  nameWithType: Auth0ClientBase.LoginAsync
+- uid: Auth0.OidcClient.Auth0ClientBase.LogoutAsync(System.Boolean,System.Object,System.Threading.CancellationToken)
+  name: LogoutAsync(bool, object, CancellationToken)
+  href: api/Auth0.OidcClient.Auth0ClientBase.html#Auth0_OidcClient_Auth0ClientBase_LogoutAsync_System_Boolean_System_Object_System_Threading_CancellationToken_
+  commentId: M:Auth0.OidcClient.Auth0ClientBase.LogoutAsync(System.Boolean,System.Object,System.Threading.CancellationToken)
+  name.vb: LogoutAsync(Boolean, Object, CancellationToken)
+  fullName: Auth0.OidcClient.Auth0ClientBase.LogoutAsync(bool, object, System.Threading.CancellationToken)
+  fullName.vb: Auth0.OidcClient.Auth0ClientBase.LogoutAsync(Boolean, Object, System.Threading.CancellationToken)
+  nameWithType: Auth0ClientBase.LogoutAsync(bool, object, CancellationToken)
+  nameWithType.vb: Auth0ClientBase.LogoutAsync(Boolean, Object, CancellationToken)
+- uid: Auth0.OidcClient.Auth0ClientBase.LogoutAsync*
+  name: LogoutAsync
+  href: api/Auth0.OidcClient.Auth0ClientBase.html#Auth0_OidcClient_Auth0ClientBase_LogoutAsync_
+  commentId: Overload:Auth0.OidcClient.Auth0ClientBase.LogoutAsync
+  fullName: Auth0.OidcClient.Auth0ClientBase.LogoutAsync
+  nameWithType: Auth0ClientBase.LogoutAsync
+- uid: Auth0.OidcClient.Auth0ClientBase.PrepareLoginAsync(System.Object,System.Threading.CancellationToken)
+  name: PrepareLoginAsync(object, CancellationToken)
+  href: api/Auth0.OidcClient.Auth0ClientBase.html#Auth0_OidcClient_Auth0ClientBase_PrepareLoginAsync_System_Object_System_Threading_CancellationToken_
+  commentId: M:Auth0.OidcClient.Auth0ClientBase.PrepareLoginAsync(System.Object,System.Threading.CancellationToken)
+  name.vb: PrepareLoginAsync(Object, CancellationToken)
+  fullName: Auth0.OidcClient.Auth0ClientBase.PrepareLoginAsync(object, System.Threading.CancellationToken)
+  fullName.vb: Auth0.OidcClient.Auth0ClientBase.PrepareLoginAsync(Object, System.Threading.CancellationToken)
+  nameWithType: Auth0ClientBase.PrepareLoginAsync(object, CancellationToken)
+  nameWithType.vb: Auth0ClientBase.PrepareLoginAsync(Object, CancellationToken)
+- uid: Auth0.OidcClient.Auth0ClientBase.PrepareLoginAsync*
+  name: PrepareLoginAsync
+  href: api/Auth0.OidcClient.Auth0ClientBase.html#Auth0_OidcClient_Auth0ClientBase_PrepareLoginAsync_
+  commentId: Overload:Auth0.OidcClient.Auth0ClientBase.PrepareLoginAsync
+  fullName: Auth0.OidcClient.Auth0ClientBase.PrepareLoginAsync
+  nameWithType: Auth0ClientBase.PrepareLoginAsync
+- uid: Auth0.OidcClient.Auth0ClientBase.ProcessResponseAsync(System.String,IdentityModel.OidcClient.AuthorizeState,System.Object,System.Threading.CancellationToken)
+  name: ProcessResponseAsync(string, AuthorizeState, object, CancellationToken)
+  href: api/Auth0.OidcClient.Auth0ClientBase.html#Auth0_OidcClient_Auth0ClientBase_ProcessResponseAsync_System_String_IdentityModel_OidcClient_AuthorizeState_System_Object_System_Threading_CancellationToken_
+  commentId: M:Auth0.OidcClient.Auth0ClientBase.ProcessResponseAsync(System.String,IdentityModel.OidcClient.AuthorizeState,System.Object,System.Threading.CancellationToken)
+  name.vb: ProcessResponseAsync(String, AuthorizeState, Object, CancellationToken)
+  fullName: Auth0.OidcClient.Auth0ClientBase.ProcessResponseAsync(string, IdentityModel.OidcClient.AuthorizeState, object, System.Threading.CancellationToken)
+  fullName.vb: Auth0.OidcClient.Auth0ClientBase.ProcessResponseAsync(String, IdentityModel.OidcClient.AuthorizeState, Object, System.Threading.CancellationToken)
+  nameWithType: Auth0ClientBase.ProcessResponseAsync(string, AuthorizeState, object, CancellationToken)
+  nameWithType.vb: Auth0ClientBase.ProcessResponseAsync(String, AuthorizeState, Object, CancellationToken)
+- uid: Auth0.OidcClient.Auth0ClientBase.ProcessResponseAsync*
+  name: ProcessResponseAsync
+  href: api/Auth0.OidcClient.Auth0ClientBase.html#Auth0_OidcClient_Auth0ClientBase_ProcessResponseAsync_
+  commentId: Overload:Auth0.OidcClient.Auth0ClientBase.ProcessResponseAsync
+  fullName: Auth0.OidcClient.Auth0ClientBase.ProcessResponseAsync
+  nameWithType: Auth0ClientBase.ProcessResponseAsync
+- uid: Auth0.OidcClient.Auth0ClientBase.RefreshTokenAsync(System.String,System.Object,System.Threading.CancellationToken)
+  name: RefreshTokenAsync(string, object, CancellationToken)
+  href: api/Auth0.OidcClient.Auth0ClientBase.html#Auth0_OidcClient_Auth0ClientBase_RefreshTokenAsync_System_String_System_Object_System_Threading_CancellationToken_
+  commentId: M:Auth0.OidcClient.Auth0ClientBase.RefreshTokenAsync(System.String,System.Object,System.Threading.CancellationToken)
+  name.vb: RefreshTokenAsync(String, Object, CancellationToken)
+  fullName: Auth0.OidcClient.Auth0ClientBase.RefreshTokenAsync(string, object, System.Threading.CancellationToken)
+  fullName.vb: Auth0.OidcClient.Auth0ClientBase.RefreshTokenAsync(String, Object, System.Threading.CancellationToken)
+  nameWithType: Auth0ClientBase.RefreshTokenAsync(string, object, CancellationToken)
+  nameWithType.vb: Auth0ClientBase.RefreshTokenAsync(String, Object, CancellationToken)
+- uid: Auth0.OidcClient.Auth0ClientBase.RefreshTokenAsync(System.String,System.String,System.Object,System.Threading.CancellationToken)
+  name: RefreshTokenAsync(string, string, object, CancellationToken)
+  href: api/Auth0.OidcClient.Auth0ClientBase.html#Auth0_OidcClient_Auth0ClientBase_RefreshTokenAsync_System_String_System_String_System_Object_System_Threading_CancellationToken_
+  commentId: M:Auth0.OidcClient.Auth0ClientBase.RefreshTokenAsync(System.String,System.String,System.Object,System.Threading.CancellationToken)
+  name.vb: RefreshTokenAsync(String, String, Object, CancellationToken)
+  fullName: Auth0.OidcClient.Auth0ClientBase.RefreshTokenAsync(string, string, object, System.Threading.CancellationToken)
+  fullName.vb: Auth0.OidcClient.Auth0ClientBase.RefreshTokenAsync(String, String, Object, System.Threading.CancellationToken)
+  nameWithType: Auth0ClientBase.RefreshTokenAsync(string, string, object, CancellationToken)
+  nameWithType.vb: Auth0ClientBase.RefreshTokenAsync(String, String, Object, CancellationToken)
+- uid: Auth0.OidcClient.Auth0ClientBase.RefreshTokenAsync(System.String,System.Threading.CancellationToken)
+  name: RefreshTokenAsync(string, CancellationToken)
+  href: api/Auth0.OidcClient.Auth0ClientBase.html#Auth0_OidcClient_Auth0ClientBase_RefreshTokenAsync_System_String_System_Threading_CancellationToken_
+  commentId: M:Auth0.OidcClient.Auth0ClientBase.RefreshTokenAsync(System.String,System.Threading.CancellationToken)
+  name.vb: RefreshTokenAsync(String, CancellationToken)
+  fullName: Auth0.OidcClient.Auth0ClientBase.RefreshTokenAsync(string, System.Threading.CancellationToken)
+  fullName.vb: Auth0.OidcClient.Auth0ClientBase.RefreshTokenAsync(String, System.Threading.CancellationToken)
+  nameWithType: Auth0ClientBase.RefreshTokenAsync(string, CancellationToken)
+  nameWithType.vb: Auth0ClientBase.RefreshTokenAsync(String, CancellationToken)
+- uid: Auth0.OidcClient.Auth0ClientBase.RefreshTokenAsync*
+  name: RefreshTokenAsync
+  href: api/Auth0.OidcClient.Auth0ClientBase.html#Auth0_OidcClient_Auth0ClientBase_RefreshTokenAsync_
+  commentId: Overload:Auth0.OidcClient.Auth0ClientBase.RefreshTokenAsync
+  fullName: Auth0.OidcClient.Auth0ClientBase.RefreshTokenAsync
+  nameWithType: Auth0ClientBase.RefreshTokenAsync
+- uid: Auth0.OidcClient.Auth0ClientOptions
+  name: Auth0ClientOptions
+  href: api/Auth0.OidcClient.Auth0ClientOptions.html
+  commentId: T:Auth0.OidcClient.Auth0ClientOptions
+  fullName: Auth0.OidcClient.Auth0ClientOptions
+  nameWithType: Auth0ClientOptions
+- uid: Auth0.OidcClient.Auth0ClientOptions.#ctor
+  name: Auth0ClientOptions()
+  href: api/Auth0.OidcClient.Auth0ClientOptions.html#Auth0_OidcClient_Auth0ClientOptions__ctor
+  commentId: M:Auth0.OidcClient.Auth0ClientOptions.#ctor
+  name.vb: New()
+  fullName: Auth0.OidcClient.Auth0ClientOptions.Auth0ClientOptions()
+  fullName.vb: Auth0.OidcClient.Auth0ClientOptions.New()
+  nameWithType: Auth0ClientOptions.Auth0ClientOptions()
+  nameWithType.vb: Auth0ClientOptions.New()
+- uid: Auth0.OidcClient.Auth0ClientOptions.#ctor*
+  name: Auth0ClientOptions
+  href: api/Auth0.OidcClient.Auth0ClientOptions.html#Auth0_OidcClient_Auth0ClientOptions__ctor_
+  commentId: Overload:Auth0.OidcClient.Auth0ClientOptions.#ctor
+  name.vb: New
+  fullName: Auth0.OidcClient.Auth0ClientOptions.Auth0ClientOptions
+  fullName.vb: Auth0.OidcClient.Auth0ClientOptions.New
+  nameWithType: Auth0ClientOptions.Auth0ClientOptions
+  nameWithType.vb: Auth0ClientOptions.New
+- uid: Auth0.OidcClient.Auth0ClientOptions.BackchannelHandler
+  name: BackchannelHandler
+  href: api/Auth0.OidcClient.Auth0ClientOptions.html#Auth0_OidcClient_Auth0ClientOptions_BackchannelHandler
+  commentId: P:Auth0.OidcClient.Auth0ClientOptions.BackchannelHandler
+  fullName: Auth0.OidcClient.Auth0ClientOptions.BackchannelHandler
+  nameWithType: Auth0ClientOptions.BackchannelHandler
+- uid: Auth0.OidcClient.Auth0ClientOptions.BackchannelHandler*
+  name: BackchannelHandler
+  href: api/Auth0.OidcClient.Auth0ClientOptions.html#Auth0_OidcClient_Auth0ClientOptions_BackchannelHandler_
+  commentId: Overload:Auth0.OidcClient.Auth0ClientOptions.BackchannelHandler
+  fullName: Auth0.OidcClient.Auth0ClientOptions.BackchannelHandler
+  nameWithType: Auth0ClientOptions.BackchannelHandler
+- uid: Auth0.OidcClient.Auth0ClientOptions.Browser
+  name: Browser
+  href: api/Auth0.OidcClient.Auth0ClientOptions.html#Auth0_OidcClient_Auth0ClientOptions_Browser
+  commentId: P:Auth0.OidcClient.Auth0ClientOptions.Browser
+  fullName: Auth0.OidcClient.Auth0ClientOptions.Browser
+  nameWithType: Auth0ClientOptions.Browser
+- uid: Auth0.OidcClient.Auth0ClientOptions.Browser*
+  name: Browser
+  href: api/Auth0.OidcClient.Auth0ClientOptions.html#Auth0_OidcClient_Auth0ClientOptions_Browser_
+  commentId: Overload:Auth0.OidcClient.Auth0ClientOptions.Browser
+  fullName: Auth0.OidcClient.Auth0ClientOptions.Browser
+  nameWithType: Auth0ClientOptions.Browser
+- uid: Auth0.OidcClient.Auth0ClientOptions.ClientId
+  name: ClientId
+  href: api/Auth0.OidcClient.Auth0ClientOptions.html#Auth0_OidcClient_Auth0ClientOptions_ClientId
+  commentId: P:Auth0.OidcClient.Auth0ClientOptions.ClientId
+  fullName: Auth0.OidcClient.Auth0ClientOptions.ClientId
+  nameWithType: Auth0ClientOptions.ClientId
+- uid: Auth0.OidcClient.Auth0ClientOptions.ClientId*
+  name: ClientId
+  href: api/Auth0.OidcClient.Auth0ClientOptions.html#Auth0_OidcClient_Auth0ClientOptions_ClientId_
+  commentId: Overload:Auth0.OidcClient.Auth0ClientOptions.ClientId
+  fullName: Auth0.OidcClient.Auth0ClientOptions.ClientId
+  nameWithType: Auth0ClientOptions.ClientId
+- uid: Auth0.OidcClient.Auth0ClientOptions.ClientSecret
+  name: ClientSecret
+  href: api/Auth0.OidcClient.Auth0ClientOptions.html#Auth0_OidcClient_Auth0ClientOptions_ClientSecret
+  commentId: P:Auth0.OidcClient.Auth0ClientOptions.ClientSecret
+  fullName: Auth0.OidcClient.Auth0ClientOptions.ClientSecret
+  nameWithType: Auth0ClientOptions.ClientSecret
+- uid: Auth0.OidcClient.Auth0ClientOptions.ClientSecret*
+  name: ClientSecret
+  href: api/Auth0.OidcClient.Auth0ClientOptions.html#Auth0_OidcClient_Auth0ClientOptions_ClientSecret_
+  commentId: Overload:Auth0.OidcClient.Auth0ClientOptions.ClientSecret
+  fullName: Auth0.OidcClient.Auth0ClientOptions.ClientSecret
+  nameWithType: Auth0ClientOptions.ClientSecret
+- uid: Auth0.OidcClient.Auth0ClientOptions.Domain
+  name: Domain
+  href: api/Auth0.OidcClient.Auth0ClientOptions.html#Auth0_OidcClient_Auth0ClientOptions_Domain
+  commentId: P:Auth0.OidcClient.Auth0ClientOptions.Domain
+  fullName: Auth0.OidcClient.Auth0ClientOptions.Domain
+  nameWithType: Auth0ClientOptions.Domain
+- uid: Auth0.OidcClient.Auth0ClientOptions.Domain*
+  name: Domain
+  href: api/Auth0.OidcClient.Auth0ClientOptions.html#Auth0_OidcClient_Auth0ClientOptions_Domain_
+  commentId: Overload:Auth0.OidcClient.Auth0ClientOptions.Domain
+  fullName: Auth0.OidcClient.Auth0ClientOptions.Domain
+  nameWithType: Auth0ClientOptions.Domain
+- uid: Auth0.OidcClient.Auth0ClientOptions.EnableTelemetry
+  name: EnableTelemetry
+  href: api/Auth0.OidcClient.Auth0ClientOptions.html#Auth0_OidcClient_Auth0ClientOptions_EnableTelemetry
+  commentId: P:Auth0.OidcClient.Auth0ClientOptions.EnableTelemetry
+  fullName: Auth0.OidcClient.Auth0ClientOptions.EnableTelemetry
+  nameWithType: Auth0ClientOptions.EnableTelemetry
+- uid: Auth0.OidcClient.Auth0ClientOptions.EnableTelemetry*
+  name: EnableTelemetry
+  href: api/Auth0.OidcClient.Auth0ClientOptions.html#Auth0_OidcClient_Auth0ClientOptions_EnableTelemetry_
+  commentId: Overload:Auth0.OidcClient.Auth0ClientOptions.EnableTelemetry
+  fullName: Auth0.OidcClient.Auth0ClientOptions.EnableTelemetry
+  nameWithType: Auth0ClientOptions.EnableTelemetry
+- uid: Auth0.OidcClient.Auth0ClientOptions.Leeway
+  name: Leeway
+  href: api/Auth0.OidcClient.Auth0ClientOptions.html#Auth0_OidcClient_Auth0ClientOptions_Leeway
+  commentId: P:Auth0.OidcClient.Auth0ClientOptions.Leeway
+  fullName: Auth0.OidcClient.Auth0ClientOptions.Leeway
+  nameWithType: Auth0ClientOptions.Leeway
+- uid: Auth0.OidcClient.Auth0ClientOptions.Leeway*
+  name: Leeway
+  href: api/Auth0.OidcClient.Auth0ClientOptions.html#Auth0_OidcClient_Auth0ClientOptions_Leeway_
+  commentId: Overload:Auth0.OidcClient.Auth0ClientOptions.Leeway
+  fullName: Auth0.OidcClient.Auth0ClientOptions.Leeway
+  nameWithType: Auth0ClientOptions.Leeway
+- uid: Auth0.OidcClient.Auth0ClientOptions.LoadProfile
+  name: LoadProfile
+  href: api/Auth0.OidcClient.Auth0ClientOptions.html#Auth0_OidcClient_Auth0ClientOptions_LoadProfile
+  commentId: P:Auth0.OidcClient.Auth0ClientOptions.LoadProfile
+  fullName: Auth0.OidcClient.Auth0ClientOptions.LoadProfile
+  nameWithType: Auth0ClientOptions.LoadProfile
+- uid: Auth0.OidcClient.Auth0ClientOptions.LoadProfile*
+  name: LoadProfile
+  href: api/Auth0.OidcClient.Auth0ClientOptions.html#Auth0_OidcClient_Auth0ClientOptions_LoadProfile_
+  commentId: Overload:Auth0.OidcClient.Auth0ClientOptions.LoadProfile
+  fullName: Auth0.OidcClient.Auth0ClientOptions.LoadProfile
+  nameWithType: Auth0ClientOptions.LoadProfile
+- uid: Auth0.OidcClient.Auth0ClientOptions.LoggerFactory
+  name: LoggerFactory
+  href: api/Auth0.OidcClient.Auth0ClientOptions.html#Auth0_OidcClient_Auth0ClientOptions_LoggerFactory
+  commentId: P:Auth0.OidcClient.Auth0ClientOptions.LoggerFactory
+  fullName: Auth0.OidcClient.Auth0ClientOptions.LoggerFactory
+  nameWithType: Auth0ClientOptions.LoggerFactory
+- uid: Auth0.OidcClient.Auth0ClientOptions.LoggerFactory*
+  name: LoggerFactory
+  href: api/Auth0.OidcClient.Auth0ClientOptions.html#Auth0_OidcClient_Auth0ClientOptions_LoggerFactory_
+  commentId: Overload:Auth0.OidcClient.Auth0ClientOptions.LoggerFactory
+  fullName: Auth0.OidcClient.Auth0ClientOptions.LoggerFactory
+  nameWithType: Auth0ClientOptions.LoggerFactory
+- uid: Auth0.OidcClient.Auth0ClientOptions.MaxAge
+  name: MaxAge
+  href: api/Auth0.OidcClient.Auth0ClientOptions.html#Auth0_OidcClient_Auth0ClientOptions_MaxAge
+  commentId: P:Auth0.OidcClient.Auth0ClientOptions.MaxAge
+  fullName: Auth0.OidcClient.Auth0ClientOptions.MaxAge
+  nameWithType: Auth0ClientOptions.MaxAge
+- uid: Auth0.OidcClient.Auth0ClientOptions.MaxAge*
+  name: MaxAge
+  href: api/Auth0.OidcClient.Auth0ClientOptions.html#Auth0_OidcClient_Auth0ClientOptions_MaxAge_
+  commentId: Overload:Auth0.OidcClient.Auth0ClientOptions.MaxAge
+  fullName: Auth0.OidcClient.Auth0ClientOptions.MaxAge
+  nameWithType: Auth0ClientOptions.MaxAge
+- uid: Auth0.OidcClient.Auth0ClientOptions.PostLogoutRedirectUri
+  name: PostLogoutRedirectUri
+  href: api/Auth0.OidcClient.Auth0ClientOptions.html#Auth0_OidcClient_Auth0ClientOptions_PostLogoutRedirectUri
+  commentId: P:Auth0.OidcClient.Auth0ClientOptions.PostLogoutRedirectUri
+  fullName: Auth0.OidcClient.Auth0ClientOptions.PostLogoutRedirectUri
+  nameWithType: Auth0ClientOptions.PostLogoutRedirectUri
+- uid: Auth0.OidcClient.Auth0ClientOptions.PostLogoutRedirectUri*
+  name: PostLogoutRedirectUri
+  href: api/Auth0.OidcClient.Auth0ClientOptions.html#Auth0_OidcClient_Auth0ClientOptions_PostLogoutRedirectUri_
+  commentId: Overload:Auth0.OidcClient.Auth0ClientOptions.PostLogoutRedirectUri
+  fullName: Auth0.OidcClient.Auth0ClientOptions.PostLogoutRedirectUri
+  nameWithType: Auth0ClientOptions.PostLogoutRedirectUri
+- uid: Auth0.OidcClient.Auth0ClientOptions.RedirectUri
+  name: RedirectUri
+  href: api/Auth0.OidcClient.Auth0ClientOptions.html#Auth0_OidcClient_Auth0ClientOptions_RedirectUri
+  commentId: P:Auth0.OidcClient.Auth0ClientOptions.RedirectUri
+  fullName: Auth0.OidcClient.Auth0ClientOptions.RedirectUri
+  nameWithType: Auth0ClientOptions.RedirectUri
+- uid: Auth0.OidcClient.Auth0ClientOptions.RedirectUri*
+  name: RedirectUri
+  href: api/Auth0.OidcClient.Auth0ClientOptions.html#Auth0_OidcClient_Auth0ClientOptions_RedirectUri_
+  commentId: Overload:Auth0.OidcClient.Auth0ClientOptions.RedirectUri
+  fullName: Auth0.OidcClient.Auth0ClientOptions.RedirectUri
+  nameWithType: Auth0ClientOptions.RedirectUri
+- uid: Auth0.OidcClient.Auth0ClientOptions.RefreshTokenMessageHandler
+  name: RefreshTokenMessageHandler
+  href: api/Auth0.OidcClient.Auth0ClientOptions.html#Auth0_OidcClient_Auth0ClientOptions_RefreshTokenMessageHandler
+  commentId: P:Auth0.OidcClient.Auth0ClientOptions.RefreshTokenMessageHandler
+  fullName: Auth0.OidcClient.Auth0ClientOptions.RefreshTokenMessageHandler
+  nameWithType: Auth0ClientOptions.RefreshTokenMessageHandler
+- uid: Auth0.OidcClient.Auth0ClientOptions.RefreshTokenMessageHandler*
+  name: RefreshTokenMessageHandler
+  href: api/Auth0.OidcClient.Auth0ClientOptions.html#Auth0_OidcClient_Auth0ClientOptions_RefreshTokenMessageHandler_
+  commentId: Overload:Auth0.OidcClient.Auth0ClientOptions.RefreshTokenMessageHandler
+  fullName: Auth0.OidcClient.Auth0ClientOptions.RefreshTokenMessageHandler
+  nameWithType: Auth0ClientOptions.RefreshTokenMessageHandler
+- uid: Auth0.OidcClient.Auth0ClientOptions.Scope
+  name: Scope
+  href: api/Auth0.OidcClient.Auth0ClientOptions.html#Auth0_OidcClient_Auth0ClientOptions_Scope
+  commentId: P:Auth0.OidcClient.Auth0ClientOptions.Scope
+  fullName: Auth0.OidcClient.Auth0ClientOptions.Scope
+  nameWithType: Auth0ClientOptions.Scope
+- uid: Auth0.OidcClient.Auth0ClientOptions.Scope*
+  name: Scope
+  href: api/Auth0.OidcClient.Auth0ClientOptions.html#Auth0_OidcClient_Auth0ClientOptions_Scope_
+  commentId: Overload:Auth0.OidcClient.Auth0ClientOptions.Scope
+  fullName: Auth0.OidcClient.Auth0ClientOptions.Scope
+  nameWithType: Auth0ClientOptions.Scope
+- uid: Auth0.OidcClient.IAuth0Client
+  name: IAuth0Client
+  href: api/Auth0.OidcClient.IAuth0Client.html
+  commentId: T:Auth0.OidcClient.IAuth0Client
+  fullName: Auth0.OidcClient.IAuth0Client
+  nameWithType: IAuth0Client
+- uid: Auth0.OidcClient.IAuth0Client.GetUserInfoAsync(System.String)
+  name: GetUserInfoAsync(string)
+  href: api/Auth0.OidcClient.IAuth0Client.html#Auth0_OidcClient_IAuth0Client_GetUserInfoAsync_System_String_
+  commentId: M:Auth0.OidcClient.IAuth0Client.GetUserInfoAsync(System.String)
+  name.vb: GetUserInfoAsync(String)
+  fullName: Auth0.OidcClient.IAuth0Client.GetUserInfoAsync(string)
+  fullName.vb: Auth0.OidcClient.IAuth0Client.GetUserInfoAsync(String)
+  nameWithType: IAuth0Client.GetUserInfoAsync(string)
+  nameWithType.vb: IAuth0Client.GetUserInfoAsync(String)
+- uid: Auth0.OidcClient.IAuth0Client.GetUserInfoAsync*
+  name: GetUserInfoAsync
+  href: api/Auth0.OidcClient.IAuth0Client.html#Auth0_OidcClient_IAuth0Client_GetUserInfoAsync_
+  commentId: Overload:Auth0.OidcClient.IAuth0Client.GetUserInfoAsync
+  fullName: Auth0.OidcClient.IAuth0Client.GetUserInfoAsync
+  nameWithType: IAuth0Client.GetUserInfoAsync
+- uid: Auth0.OidcClient.IAuth0Client.LoginAsync(System.Object,System.Threading.CancellationToken)
+  name: LoginAsync(object, CancellationToken)
+  href: api/Auth0.OidcClient.IAuth0Client.html#Auth0_OidcClient_IAuth0Client_LoginAsync_System_Object_System_Threading_CancellationToken_
+  commentId: M:Auth0.OidcClient.IAuth0Client.LoginAsync(System.Object,System.Threading.CancellationToken)
+  name.vb: LoginAsync(Object, CancellationToken)
+  fullName: Auth0.OidcClient.IAuth0Client.LoginAsync(object, System.Threading.CancellationToken)
+  fullName.vb: Auth0.OidcClient.IAuth0Client.LoginAsync(Object, System.Threading.CancellationToken)
+  nameWithType: IAuth0Client.LoginAsync(object, CancellationToken)
+  nameWithType.vb: IAuth0Client.LoginAsync(Object, CancellationToken)
+- uid: Auth0.OidcClient.IAuth0Client.LoginAsync*
+  name: LoginAsync
+  href: api/Auth0.OidcClient.IAuth0Client.html#Auth0_OidcClient_IAuth0Client_LoginAsync_
+  commentId: Overload:Auth0.OidcClient.IAuth0Client.LoginAsync
+  fullName: Auth0.OidcClient.IAuth0Client.LoginAsync
+  nameWithType: IAuth0Client.LoginAsync
+- uid: Auth0.OidcClient.IAuth0Client.LogoutAsync(System.Boolean,System.Object,System.Threading.CancellationToken)
+  name: LogoutAsync(bool, object, CancellationToken)
+  href: api/Auth0.OidcClient.IAuth0Client.html#Auth0_OidcClient_IAuth0Client_LogoutAsync_System_Boolean_System_Object_System_Threading_CancellationToken_
+  commentId: M:Auth0.OidcClient.IAuth0Client.LogoutAsync(System.Boolean,System.Object,System.Threading.CancellationToken)
+  name.vb: LogoutAsync(Boolean, Object, CancellationToken)
+  fullName: Auth0.OidcClient.IAuth0Client.LogoutAsync(bool, object, System.Threading.CancellationToken)
+  fullName.vb: Auth0.OidcClient.IAuth0Client.LogoutAsync(Boolean, Object, System.Threading.CancellationToken)
+  nameWithType: IAuth0Client.LogoutAsync(bool, object, CancellationToken)
+  nameWithType.vb: IAuth0Client.LogoutAsync(Boolean, Object, CancellationToken)
+- uid: Auth0.OidcClient.IAuth0Client.LogoutAsync*
+  name: LogoutAsync
+  href: api/Auth0.OidcClient.IAuth0Client.html#Auth0_OidcClient_IAuth0Client_LogoutAsync_
+  commentId: Overload:Auth0.OidcClient.IAuth0Client.LogoutAsync
+  fullName: Auth0.OidcClient.IAuth0Client.LogoutAsync
+  nameWithType: IAuth0Client.LogoutAsync
+- uid: Auth0.OidcClient.IAuth0Client.PrepareLoginAsync(System.Object,System.Threading.CancellationToken)
+  name: PrepareLoginAsync(object, CancellationToken)
+  href: api/Auth0.OidcClient.IAuth0Client.html#Auth0_OidcClient_IAuth0Client_PrepareLoginAsync_System_Object_System_Threading_CancellationToken_
+  commentId: M:Auth0.OidcClient.IAuth0Client.PrepareLoginAsync(System.Object,System.Threading.CancellationToken)
+  name.vb: PrepareLoginAsync(Object, CancellationToken)
+  fullName: Auth0.OidcClient.IAuth0Client.PrepareLoginAsync(object, System.Threading.CancellationToken)
+  fullName.vb: Auth0.OidcClient.IAuth0Client.PrepareLoginAsync(Object, System.Threading.CancellationToken)
+  nameWithType: IAuth0Client.PrepareLoginAsync(object, CancellationToken)
+  nameWithType.vb: IAuth0Client.PrepareLoginAsync(Object, CancellationToken)
+- uid: Auth0.OidcClient.IAuth0Client.PrepareLoginAsync*
+  name: PrepareLoginAsync
+  href: api/Auth0.OidcClient.IAuth0Client.html#Auth0_OidcClient_IAuth0Client_PrepareLoginAsync_
+  commentId: Overload:Auth0.OidcClient.IAuth0Client.PrepareLoginAsync
+  fullName: Auth0.OidcClient.IAuth0Client.PrepareLoginAsync
+  nameWithType: IAuth0Client.PrepareLoginAsync
+- uid: Auth0.OidcClient.IAuth0Client.ProcessResponseAsync(System.String,IdentityModel.OidcClient.AuthorizeState,System.Object,System.Threading.CancellationToken)
+  name: ProcessResponseAsync(string, AuthorizeState, object, CancellationToken)
+  href: api/Auth0.OidcClient.IAuth0Client.html#Auth0_OidcClient_IAuth0Client_ProcessResponseAsync_System_String_IdentityModel_OidcClient_AuthorizeState_System_Object_System_Threading_CancellationToken_
+  commentId: M:Auth0.OidcClient.IAuth0Client.ProcessResponseAsync(System.String,IdentityModel.OidcClient.AuthorizeState,System.Object,System.Threading.CancellationToken)
+  name.vb: ProcessResponseAsync(String, AuthorizeState, Object, CancellationToken)
+  fullName: Auth0.OidcClient.IAuth0Client.ProcessResponseAsync(string, IdentityModel.OidcClient.AuthorizeState, object, System.Threading.CancellationToken)
+  fullName.vb: Auth0.OidcClient.IAuth0Client.ProcessResponseAsync(String, IdentityModel.OidcClient.AuthorizeState, Object, System.Threading.CancellationToken)
+  nameWithType: IAuth0Client.ProcessResponseAsync(string, AuthorizeState, object, CancellationToken)
+  nameWithType.vb: IAuth0Client.ProcessResponseAsync(String, AuthorizeState, Object, CancellationToken)
+- uid: Auth0.OidcClient.IAuth0Client.ProcessResponseAsync*
+  name: ProcessResponseAsync
+  href: api/Auth0.OidcClient.IAuth0Client.html#Auth0_OidcClient_IAuth0Client_ProcessResponseAsync_
+  commentId: Overload:Auth0.OidcClient.IAuth0Client.ProcessResponseAsync
+  fullName: Auth0.OidcClient.IAuth0Client.ProcessResponseAsync
+  nameWithType: IAuth0Client.ProcessResponseAsync
+- uid: Auth0.OidcClient.IAuth0Client.RefreshTokenAsync(System.String,System.Object,System.Threading.CancellationToken)
+  name: RefreshTokenAsync(string, object, CancellationToken)
+  href: api/Auth0.OidcClient.IAuth0Client.html#Auth0_OidcClient_IAuth0Client_RefreshTokenAsync_System_String_System_Object_System_Threading_CancellationToken_
+  commentId: M:Auth0.OidcClient.IAuth0Client.RefreshTokenAsync(System.String,System.Object,System.Threading.CancellationToken)
+  name.vb: RefreshTokenAsync(String, Object, CancellationToken)
+  fullName: Auth0.OidcClient.IAuth0Client.RefreshTokenAsync(string, object, System.Threading.CancellationToken)
+  fullName.vb: Auth0.OidcClient.IAuth0Client.RefreshTokenAsync(String, Object, System.Threading.CancellationToken)
+  nameWithType: IAuth0Client.RefreshTokenAsync(string, object, CancellationToken)
+  nameWithType.vb: IAuth0Client.RefreshTokenAsync(String, Object, CancellationToken)
+- uid: Auth0.OidcClient.IAuth0Client.RefreshTokenAsync(System.String,System.String,System.Object,System.Threading.CancellationToken)
+  name: RefreshTokenAsync(string, string, object, CancellationToken)
+  href: api/Auth0.OidcClient.IAuth0Client.html#Auth0_OidcClient_IAuth0Client_RefreshTokenAsync_System_String_System_String_System_Object_System_Threading_CancellationToken_
+  commentId: M:Auth0.OidcClient.IAuth0Client.RefreshTokenAsync(System.String,System.String,System.Object,System.Threading.CancellationToken)
+  name.vb: RefreshTokenAsync(String, String, Object, CancellationToken)
+  fullName: Auth0.OidcClient.IAuth0Client.RefreshTokenAsync(string, string, object, System.Threading.CancellationToken)
+  fullName.vb: Auth0.OidcClient.IAuth0Client.RefreshTokenAsync(String, String, Object, System.Threading.CancellationToken)
+  nameWithType: IAuth0Client.RefreshTokenAsync(string, string, object, CancellationToken)
+  nameWithType.vb: IAuth0Client.RefreshTokenAsync(String, String, Object, CancellationToken)
+- uid: Auth0.OidcClient.IAuth0Client.RefreshTokenAsync(System.String,System.Threading.CancellationToken)
+  name: RefreshTokenAsync(string, CancellationToken)
+  href: api/Auth0.OidcClient.IAuth0Client.html#Auth0_OidcClient_IAuth0Client_RefreshTokenAsync_System_String_System_Threading_CancellationToken_
+  commentId: M:Auth0.OidcClient.IAuth0Client.RefreshTokenAsync(System.String,System.Threading.CancellationToken)
+  name.vb: RefreshTokenAsync(String, CancellationToken)
+  fullName: Auth0.OidcClient.IAuth0Client.RefreshTokenAsync(string, System.Threading.CancellationToken)
+  fullName.vb: Auth0.OidcClient.IAuth0Client.RefreshTokenAsync(String, System.Threading.CancellationToken)
+  nameWithType: IAuth0Client.RefreshTokenAsync(string, CancellationToken)
+  nameWithType.vb: IAuth0Client.RefreshTokenAsync(String, CancellationToken)
+- uid: Auth0.OidcClient.IAuth0Client.RefreshTokenAsync*
+  name: RefreshTokenAsync
+  href: api/Auth0.OidcClient.IAuth0Client.html#Auth0_OidcClient_IAuth0Client_RefreshTokenAsync_
+  commentId: Overload:Auth0.OidcClient.IAuth0Client.RefreshTokenAsync
+  fullName: Auth0.OidcClient.IAuth0Client.RefreshTokenAsync
+  nameWithType: IAuth0Client.RefreshTokenAsync
+- uid: Auth0.OidcClient.Tokens
+  name: Auth0.OidcClient.Tokens
+  href: api/Auth0.OidcClient.Tokens.html
+  commentId: N:Auth0.OidcClient.Tokens
+  fullName: Auth0.OidcClient.Tokens
+  nameWithType: Auth0.OidcClient.Tokens
+- uid: Auth0.OidcClient.Tokens.IdTokenValidationException
+  name: IdTokenValidationException
+  href: api/Auth0.OidcClient.Tokens.IdTokenValidationException.html
+  commentId: T:Auth0.OidcClient.Tokens.IdTokenValidationException
+  fullName: Auth0.OidcClient.Tokens.IdTokenValidationException
+  nameWithType: IdTokenValidationException
+- uid: Auth0.OidcClient.Tokens.IdTokenValidationException.#ctor
+  name: IdTokenValidationException()
+  href: api/Auth0.OidcClient.Tokens.IdTokenValidationException.html#Auth0_OidcClient_Tokens_IdTokenValidationException__ctor
+  commentId: M:Auth0.OidcClient.Tokens.IdTokenValidationException.#ctor
+  name.vb: New()
+  fullName: Auth0.OidcClient.Tokens.IdTokenValidationException.IdTokenValidationException()
+  fullName.vb: Auth0.OidcClient.Tokens.IdTokenValidationException.New()
+  nameWithType: IdTokenValidationException.IdTokenValidationException()
+  nameWithType.vb: IdTokenValidationException.New()
+- uid: Auth0.OidcClient.Tokens.IdTokenValidationException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  name: IdTokenValidationException(SerializationInfo, StreamingContext)
+  href: api/Auth0.OidcClient.Tokens.IdTokenValidationException.html#Auth0_OidcClient_Tokens_IdTokenValidationException__ctor_System_Runtime_Serialization_SerializationInfo_System_Runtime_Serialization_StreamingContext_
+  commentId: M:Auth0.OidcClient.Tokens.IdTokenValidationException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  name.vb: New(SerializationInfo, StreamingContext)
+  fullName: Auth0.OidcClient.Tokens.IdTokenValidationException.IdTokenValidationException(System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext)
+  fullName.vb: Auth0.OidcClient.Tokens.IdTokenValidationException.New(System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext)
+  nameWithType: IdTokenValidationException.IdTokenValidationException(SerializationInfo, StreamingContext)
+  nameWithType.vb: IdTokenValidationException.New(SerializationInfo, StreamingContext)
+- uid: Auth0.OidcClient.Tokens.IdTokenValidationException.#ctor(System.String)
+  name: IdTokenValidationException(string)
+  href: api/Auth0.OidcClient.Tokens.IdTokenValidationException.html#Auth0_OidcClient_Tokens_IdTokenValidationException__ctor_System_String_
+  commentId: M:Auth0.OidcClient.Tokens.IdTokenValidationException.#ctor(System.String)
+  name.vb: New(String)
+  fullName: Auth0.OidcClient.Tokens.IdTokenValidationException.IdTokenValidationException(string)
+  fullName.vb: Auth0.OidcClient.Tokens.IdTokenValidationException.New(String)
+  nameWithType: IdTokenValidationException.IdTokenValidationException(string)
+  nameWithType.vb: IdTokenValidationException.New(String)
+- uid: Auth0.OidcClient.Tokens.IdTokenValidationException.#ctor(System.String,System.Exception)
+  name: IdTokenValidationException(string, Exception)
+  href: api/Auth0.OidcClient.Tokens.IdTokenValidationException.html#Auth0_OidcClient_Tokens_IdTokenValidationException__ctor_System_String_System_Exception_
+  commentId: M:Auth0.OidcClient.Tokens.IdTokenValidationException.#ctor(System.String,System.Exception)
+  name.vb: New(String, Exception)
+  fullName: Auth0.OidcClient.Tokens.IdTokenValidationException.IdTokenValidationException(string, System.Exception)
+  fullName.vb: Auth0.OidcClient.Tokens.IdTokenValidationException.New(String, System.Exception)
+  nameWithType: IdTokenValidationException.IdTokenValidationException(string, Exception)
+  nameWithType.vb: IdTokenValidationException.New(String, Exception)
+- uid: Auth0.OidcClient.Tokens.IdTokenValidationException.#ctor*
+  name: IdTokenValidationException
+  href: api/Auth0.OidcClient.Tokens.IdTokenValidationException.html#Auth0_OidcClient_Tokens_IdTokenValidationException__ctor_
+  commentId: Overload:Auth0.OidcClient.Tokens.IdTokenValidationException.#ctor
+  name.vb: New
+  fullName: Auth0.OidcClient.Tokens.IdTokenValidationException.IdTokenValidationException
+  fullName.vb: Auth0.OidcClient.Tokens.IdTokenValidationException.New
+  nameWithType: IdTokenValidationException.IdTokenValidationException
+  nameWithType.vb: IdTokenValidationException.New
+- uid: Auth0.OidcClient.WebAuthenticationBrokerBrowser
+  name: WebAuthenticationBrokerBrowser
+  href: api/Auth0.OidcClient.WebAuthenticationBrokerBrowser.html
+  commentId: T:Auth0.OidcClient.WebAuthenticationBrokerBrowser
+  fullName: Auth0.OidcClient.WebAuthenticationBrokerBrowser
+  nameWithType: WebAuthenticationBrokerBrowser
+- uid: Auth0.OidcClient.WebAuthenticationBrokerBrowser.#ctor(System.Boolean)
+  name: WebAuthenticationBrokerBrowser(bool)
+  href: api/Auth0.OidcClient.WebAuthenticationBrokerBrowser.html#Auth0_OidcClient_WebAuthenticationBrokerBrowser__ctor_System_Boolean_
+  commentId: M:Auth0.OidcClient.WebAuthenticationBrokerBrowser.#ctor(System.Boolean)
+  name.vb: New(Boolean)
+  fullName: Auth0.OidcClient.WebAuthenticationBrokerBrowser.WebAuthenticationBrokerBrowser(bool)
+  fullName.vb: Auth0.OidcClient.WebAuthenticationBrokerBrowser.New(Boolean)
+  nameWithType: WebAuthenticationBrokerBrowser.WebAuthenticationBrokerBrowser(bool)
+  nameWithType.vb: WebAuthenticationBrokerBrowser.New(Boolean)
+- uid: Auth0.OidcClient.WebAuthenticationBrokerBrowser.#ctor*
+  name: WebAuthenticationBrokerBrowser
+  href: api/Auth0.OidcClient.WebAuthenticationBrokerBrowser.html#Auth0_OidcClient_WebAuthenticationBrokerBrowser__ctor_
+  commentId: Overload:Auth0.OidcClient.WebAuthenticationBrokerBrowser.#ctor
+  name.vb: New
+  fullName: Auth0.OidcClient.WebAuthenticationBrokerBrowser.WebAuthenticationBrokerBrowser
+  fullName.vb: Auth0.OidcClient.WebAuthenticationBrokerBrowser.New
+  nameWithType: WebAuthenticationBrokerBrowser.WebAuthenticationBrokerBrowser
+  nameWithType.vb: WebAuthenticationBrokerBrowser.New
+- uid: Auth0.OidcClient.WebAuthenticationBrokerBrowser.InvokeAsync(IdentityModel.OidcClient.Browser.BrowserOptions,System.Threading.CancellationToken)
+  name: InvokeAsync(BrowserOptions, CancellationToken)
+  href: api/Auth0.OidcClient.WebAuthenticationBrokerBrowser.html#Auth0_OidcClient_WebAuthenticationBrokerBrowser_InvokeAsync_IdentityModel_OidcClient_Browser_BrowserOptions_System_Threading_CancellationToken_
+  commentId: M:Auth0.OidcClient.WebAuthenticationBrokerBrowser.InvokeAsync(IdentityModel.OidcClient.Browser.BrowserOptions,System.Threading.CancellationToken)
+  fullName: Auth0.OidcClient.WebAuthenticationBrokerBrowser.InvokeAsync(IdentityModel.OidcClient.Browser.BrowserOptions, System.Threading.CancellationToken)
+  nameWithType: WebAuthenticationBrokerBrowser.InvokeAsync(BrowserOptions, CancellationToken)
+- uid: Auth0.OidcClient.WebAuthenticationBrokerBrowser.InvokeAsync*
+  name: InvokeAsync
+  href: api/Auth0.OidcClient.WebAuthenticationBrokerBrowser.html#Auth0_OidcClient_WebAuthenticationBrokerBrowser_InvokeAsync_
+  commentId: Overload:Auth0.OidcClient.WebAuthenticationBrokerBrowser.InvokeAsync
+  fullName: Auth0.OidcClient.WebAuthenticationBrokerBrowser.InvokeAsync
+  nameWithType: WebAuthenticationBrokerBrowser.InvokeAsync
+- uid: Auth0.OidcClient.WebViewBrowser
+  name: WebViewBrowser
+  href: api/Auth0.OidcClient.WebViewBrowser.html
+  commentId: T:Auth0.OidcClient.WebViewBrowser
+  fullName: Auth0.OidcClient.WebViewBrowser
+  nameWithType: WebViewBrowser
+- uid: Auth0.OidcClient.WebViewBrowser.#ctor
+  name: WebViewBrowser()
+  href: api/Auth0.OidcClient.WebViewBrowser.html#Auth0_OidcClient_WebViewBrowser__ctor
+  commentId: M:Auth0.OidcClient.WebViewBrowser.#ctor
+  name.vb: New()
+  fullName: Auth0.OidcClient.WebViewBrowser.WebViewBrowser()
+  fullName.vb: Auth0.OidcClient.WebViewBrowser.New()
+  nameWithType: WebViewBrowser.WebViewBrowser()
+  nameWithType.vb: WebViewBrowser.New()
+- uid: Auth0.OidcClient.WebViewBrowser.#ctor*
+  name: WebViewBrowser
+  href: api/Auth0.OidcClient.WebViewBrowser.html#Auth0_OidcClient_WebViewBrowser__ctor_
+  commentId: Overload:Auth0.OidcClient.WebViewBrowser.#ctor
+  name.vb: New
+  fullName: Auth0.OidcClient.WebViewBrowser.WebViewBrowser
+  fullName.vb: Auth0.OidcClient.WebViewBrowser.New
+  nameWithType: WebViewBrowser.WebViewBrowser
+  nameWithType.vb: WebViewBrowser.New
+- uid: Auth0.OidcClient.WebViewBrowser.InvokeAsync(IdentityModel.OidcClient.Browser.BrowserOptions,System.Threading.CancellationToken)
+  name: InvokeAsync(BrowserOptions, CancellationToken)
+  href: api/Auth0.OidcClient.WebViewBrowser.html#Auth0_OidcClient_WebViewBrowser_InvokeAsync_IdentityModel_OidcClient_Browser_BrowserOptions_System_Threading_CancellationToken_
+  commentId: M:Auth0.OidcClient.WebViewBrowser.InvokeAsync(IdentityModel.OidcClient.Browser.BrowserOptions,System.Threading.CancellationToken)
+  fullName: Auth0.OidcClient.WebViewBrowser.InvokeAsync(IdentityModel.OidcClient.Browser.BrowserOptions, System.Threading.CancellationToken)
+  nameWithType: WebViewBrowser.InvokeAsync(BrowserOptions, CancellationToken)
+- uid: Auth0.OidcClient.WebViewBrowser.InvokeAsync*
+  name: InvokeAsync
+  href: api/Auth0.OidcClient.WebViewBrowser.html#Auth0_OidcClient_WebViewBrowser_InvokeAsync_
+  commentId: Overload:Auth0.OidcClient.WebViewBrowser.InvokeAsync
+  fullName: Auth0.OidcClient.WebViewBrowser.InvokeAsync
+  nameWithType: WebViewBrowser.InvokeAsync

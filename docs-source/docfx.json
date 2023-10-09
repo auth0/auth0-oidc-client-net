@@ -1,31 +1,6 @@
 {
-  "metadata": [
-    {
-      "src": [
-        {
-          "files": [
-            "**.csproj"
-          ],
-          "exclude": [
-            "**/obj/**",
-            "**/bin/**",
-            "_site/**"
-          ],
-          "cwd": "../src"
-        }
-      ],
-      "dest": "api",
-      "filter": "filter.yml"
-    }
-  ],
   "build": {
     "content": [
-      {
-        "files": [
-          "api/**.yml",
-          "api/index.md"
-        ]
-      },
       {
         "files": [
           "documentation/**.md",
@@ -61,14 +36,17 @@
     "dest": "../docs",
     "globalMetadataFiles": [],
     "globalMetadata": {
-      "_appFooter": "Copyright 2017-2019, Auth0 Inc.",
+      "_appFooter": "Copyright 2017-2023, Auth0 Inc.",
+      "_appLogoPath": "images/logo.png",
       "_gitContribute": {
         "branch": "master"
       }
     },
     "fileMetadataFiles": [],
     "template": [
-      "default"
+      "default",
+      "modern",
+      "custom-template"
     ],
     "postProcessors": [],
     "noLangKeyword": false

@@ -1,140 +1,151 @@
 ﻿<!DOCTYPE html>
-<!--[if IE]><![endif]-->
 <html>
-  
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Callback URLs </title>
-    <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Callback URLs ">
-    <meta name="generator" content="docfx 2.59.4.0">
-    
-    <link rel="shortcut icon" href="../../favicon.ico">
-    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
-    <link rel="stylesheet" href="../../styles/docfx.css">
-    <link rel="stylesheet" href="../../styles/main.css">
-    <meta property="docfx:navrel" content="../../toc.html">
-    <meta property="docfx:tocrel" content="../toc.html">
-    
-    
-    
+      <title>Callback URLs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Callback URLs ">
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/auth0/auth0-oidc-client-net/blob/master/docs-source/documentation/getting-started/callbacks.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
   </head>
-  <body data-spy="scroll" data-target="#affix" data-offset="120">
-    <div id="wrapper">
-      <header>
-        
-        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              
-              <a class="navbar-brand" href="../../index.html">
-                <img id="logo" class="svg" src="../../logo.svg" alt="">
-              </a>
+
+  <script type="module">
+    import options from './../../public/main.js'
+    import { init } from './../../public/docfx.min.js'
+    init(options)
+  </script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../images/logo.png" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
             </div>
-            <div class="collapse navbar-collapse" id="navbar">
-              <form class="navbar-form navbar-right" role="search" id="search">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
-                </div>
-              </form>
-            </div>
-          </div>
-        </nav>
-        
-        <div class="subnav navbar navbar-default">
-          <div class="container hide-when-search" id="breadcrumb">
-            <ul class="breadcrumb">
-              <li></li>
-            </ul>
           </div>
         </div>
-      </header>
-      <div role="main" class="container body-content hide-when-search">
-        
-        <div class="sidenav hide-when-search">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
-          <div class="sidetoggle collapse" id="sidetoggle">
-            <div id="sidetoc"></div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
           </div>
         </div>
-        <div class="article row grid-right">
-          <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="">
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
 <h1 id="callback-urls">Callback URLs</h1>
 
-<p>Callback URLs are the URLs that Auth0 invokes after the authentication process. Auth0 redirects back to this URL and appends additional parameters to it, including an access code which will be exchanged for an <code>id_token</code>, <code>access_token</code> and <code>refresh_token</code>. </p>
-<p>Since callback URLs can be manipulated, you will need to add your application&#39;s URL to your client&#39;s <em>Allowed Callback URLs</em> for security. This will enable Auth0 to recognize these URLs as valid. If omitted, authentication will not be successful.</p>
-<p>The format of the URL will depend on the platform. In the sample callback URLs below, replace <code>YOUR_AUTH0_DOMAIN</code> with your actual Auth0 domain. You can find your domain on the Settings tab for your Client inside the <a href="https://manage.auth0.com/#/">Auth0 dashboard</a>: </p>
+<p>Callback URLs are the URLs that Auth0 invokes after the authentication process. Auth0 redirects back to this URL and appends additional parameters to it, including an access code which will be exchanged for an <code>id_token</code>, <code>access_token</code> and <code>refresh_token</code>.</p>
+<p>Since callback URLs can be manipulated, you will need to add your application's URL to your client's <em>Allowed Callback URLs</em> for security. This will enable Auth0 to recognize these URLs as valid. If omitted, authentication will not be successful.</p>
+<p>The format of the URL will depend on the platform. In the sample callback URLs below, replace <code>YOUR_AUTH0_DOMAIN</code> with your actual Auth0 domain. You can find your domain on the Settings tab for your Client inside the <a href="https://manage.auth0.com/#/">Auth0 dashboard</a>:</p>
 <p><img src="/images/dashboard-domain.png" alt=""></p>
 <h2 id="universal-windows-platform-uwp">Universal Windows Platform (UWP)</h2>
 <p>Use the following callback URL:</p>
 <pre><code class="lang-text">https://YOUR_AUTH0_DOMAIN/mobile
-</code></pre><p>For example:</p>
+</code></pre>
+<p>For example:</p>
 <pre><code class="lang-text">https://contoso.auth0.com/mobile
-</code></pre><h2 id="windows-presentation-foundation-wpf">Windows Presentation Foundation (WPF)</h2>
+</code></pre>
+<h2 id="windows-presentation-foundation-wpf">Windows Presentation Foundation (WPF)</h2>
 <p>Use the following callback URL:</p>
 <pre><code class="lang-text">https://YOUR_AUTH0_DOMAIN/mobile
-</code></pre><p>For example:</p>
+</code></pre>
+<p>For example:</p>
 <pre><code class="lang-text">https://contoso.auth0.com/mobile
-</code></pre><h2 id="windows-forms-winforms">Windows Forms (WinForms)</h2>
+</code></pre>
+<h2 id="windows-forms-winforms">Windows Forms (WinForms)</h2>
 <p>Use the following callback URL:</p>
 <pre><code class="lang-text">https://YOUR_AUTH0_DOMAIN/mobile
-</code></pre><p>For example:</p>
+</code></pre>
+<p>For example:</p>
 <pre><code class="lang-text">https://contoso.auth0.com/mobile
-</code></pre><h2 id="ios-uses-xamarin">iOS (uses Xamarin)</h2>
+</code></pre>
+<h2 id="ios-uses-xamarin">iOS (uses Xamarin)</h2>
 <p>For iOS your Callback URL needs to be in the following format:</p>
 <pre><code class="lang-text">YOUR_BUNDLE_IDENTIFIER://YOUR_AUTH0_DOMAIN/ios/YOUR_BUNDLE_IDENTIFIER/callback
-</code></pre><p>Where <code>YOUR_BUNDLE_IDENTIFIER</code> is the Bundle Identifier of your application. So given a Bundle Identifier of <code>com.contoso.myapp</code>, and an Auth0 Domain of <code>contoso.auth0.com</code>, your callback URL will be the following:</p>
+</code></pre>
+<p>Where <code>YOUR_BUNDLE_IDENTIFIER</code> is the Bundle Identifier of your application. So given a Bundle Identifier of <code>com.contoso.myapp</code>, and an Auth0 Domain of <code>contoso.auth0.com</code>, your callback URL will be the following:</p>
 <pre><code class="lang-text">com.contoso.myapp://contoso.auth0.com/ios/com.contoso.myapp/callback
-</code></pre><h2 id="android-uses-xamarin">Android (uses Xamarin)</h2>
+</code></pre>
+<h2 id="android-uses-xamarin">Android (uses Xamarin)</h2>
 <p>For Android your Callback URL needs to be in the following format:</p>
 <pre><code class="lang-text">YOUR_ANDROID_PACKAGE_NAME://YOUR_AUTH0_DOMAIN/android/YOUR_ANDROID_PACKAGE_NAME/callback
-</code></pre><p>Where <code>YOUR_ANDROID_PACKAGE_NAME</code> is the Package Name of your application. So given a Package Name of <code>com.contoso.myapp</code>, and an Auth0 Domain of <code>contoso.auth0.com</code>, your callback URL will be the following:</p>
+</code></pre>
+<p>Where <code>YOUR_ANDROID_PACKAGE_NAME</code> is the Package Name of your application. So given a Package Name of <code>com.contoso.myapp</code>, and an Auth0 Domain of <code>contoso.auth0.com</code>, your callback URL will be the following:</p>
 <pre><code class="lang-text">com.contoso.myapp://contoso.auth0.com/android/com.contoso.myapp/callback
-</code></pre></article>
-          </div>
-          
-          <div class="hidden-sm col-md-2" role="complementary">
-            <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                  <li>
-                    <a href="https://github.com/auth0/auth0-oidc-client-net/blob/master/docs-source/documentation/getting-started/callbacks.md/#L1" class="contribution-link">Improve this Doc</a>
-                  </li>
-                </ul>
-              </div>
-              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In This Article</h5>
-                <div></div>
-              </nav>
-            </div>
-          </div>
+</code></pre>
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/auth0/auth0-oidc-client-net/blob/master/docs-source/documentation/getting-started/callbacks.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+        
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Copyright 2017-2023, Auth0 Inc.
         </div>
       </div>
-      
-      <footer>
-        <div class="grad-bottom"></div>
-        <div class="footer">
-          <div class="container">
-            <span class="pull-right">
-              <a href="#top">Back to top</a>
-            </span>
-            Copyright 2017-2019, Auth0 Inc.
-            
-          </div>
-        </div>
-      </footer>
-    </div>
-    
-    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
-    <script type="text/javascript" src="../../styles/docfx.js"></script>
-    <script type="text/javascript" src="../../styles/main.js"></script>
+    </footer>
   </body>
 </html>
