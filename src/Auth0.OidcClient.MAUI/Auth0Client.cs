@@ -1,4 +1,4 @@
-﻿namespace Auth0.OidcClient.MAUI;
+﻿namespace Auth0.OidcClient;
 
 /// <summary>
 /// Primary class for performing authentication and authorization operations with Auth0 using the
