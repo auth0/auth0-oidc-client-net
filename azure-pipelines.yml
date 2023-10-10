@@ -21,7 +21,7 @@ steps:
   inputs:
     command: 'custom'
     custom: 'workload'
-    arguments: 'install ios'
+    arguments: 'install ios --skip-sign-check'
 
 - task: DotNetCoreCLI@2
   displayName: "Install .NET Android workload"
