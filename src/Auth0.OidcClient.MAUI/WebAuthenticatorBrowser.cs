@@ -1,4 +1,4 @@
-﻿namespace Auth0.OidcClient.MAUI;
+﻿namespace Auth0.OidcClient;
 
 using IdentityModel.OidcClient.Browser;
 using IdentityModel.Client;
