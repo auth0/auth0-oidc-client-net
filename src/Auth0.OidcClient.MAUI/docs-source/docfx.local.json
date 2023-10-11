@@ -1,0 +1,65 @@
+{
+    "metadata": [
+      {
+        "src": [
+          {
+            "files": [
+              "bin/Release/**/Auth0.OidcClient.dll",
+              "bin/Release/**/Auth0.OidcClient.Core.dll"
+            ],
+            "cwd": "../"
+          }
+        ],
+        "dest": "api",
+        "filter": "filter.yml",
+        "includePrivateMembers": false,
+        "disableGitFeatures": false,
+        "disableDefaultFilter": false,
+        "noRestore": false,
+        "namespaceLayout": "flattened",
+        "memberLayout": "samePage",
+        "EnumSortOrder": "alphabetic",
+        "allowCompilationErrors": false,
+        "references": [
+          {
+            "files": [
+              "bin/Release/**/mscorlib.dll",
+              "bin/Release/**/System*.dll"
+            ],
+            "cwd": "../"
+          }
+        ]
+        
+      }
+    ],
+    "build": {
+      "content": [
+        {
+          "files": [ "**/*.{md,yml}" ],
+          "exclude": [ "_site/**", "obj/**" ]
+        }
+      ],
+      "resource": [
+        {
+          "files": [
+            "images/**"
+          ]
+        }
+      ],
+      "output": "_site",
+      "globalMetadata": {
+        "_appLogoUrl": "/",
+        "_appLogoPath": "images/logo.png"
+      },
+      "globalMetadataFiles": [],
+      "fileMetadataFiles": [],
+      "template": [
+        "default",
+        "modern",
+        "../../../docs-source/custom-template"
+      ],
+      "postProcessors": [],
+      "keepFileLink": false,
+      "disableGitFeatures": false
+    }
+  }
