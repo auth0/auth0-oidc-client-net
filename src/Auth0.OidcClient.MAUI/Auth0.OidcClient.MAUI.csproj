@@ -11,7 +11,10 @@
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
 
 		<PackageReadmeFile>README.md</PackageReadmeFile>
-		<PackageId>Auth0.OidcClient.MAUI</PackageId>
+		<RootNamespace>Auth0.OidcClient</RootNamespace>
+		<AssemblyName>Auth0.OidcClient</AssemblyName>
+		<Product>Auth0.OidcClient</Product>
+		<AssemblyTitle>Auth0.OidcClient.MAUI</AssemblyTitle>
 		<Version>1.0.0-beta.0</Version>
 		<Description>Auth0 OIDC Client for MAUI apps</Description>
 		<Authors>Auth0</Authors>
