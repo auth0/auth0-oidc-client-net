@@ -11,6 +11,7 @@
           }
         ],
         "dest": "api",
+        "filter": "filter.yml",
         "includePrivateMembers": false,
         "disableGitFeatures": false,
         "disableDefaultFilter": false,
