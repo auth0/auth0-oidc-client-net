@@ -15,8 +15,10 @@
 		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
 
 		<PackageReadmeFile>README.md</PackageReadmeFile>
-
-		<PackageId>Auth0.OidcClient.MAUI</PackageId>
+		<RootNamespace>Auth0.OidcClient</RootNamespace>
+		<AssemblyName>Auth0.OidcClient</AssemblyName>
+		<Product>Auth0.OidcClient</Product>
+		<AssemblyTitle>Auth0.OidcClient.MAUI</AssemblyTitle>
 		<Version>1.0.0-beta.0</Version>
 		<Description>Auth0 OIDC Client for MAUI apps</Description>
 		<Authors>Auth0</Authors>
