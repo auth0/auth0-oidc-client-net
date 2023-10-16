@@ -1,4 +1,4 @@
-﻿namespace Auth0.OidcClient;
+namespace Auth0.OidcClient;
 
 /// <summary>
 /// Primary class for performing authentication and authorization operations with Auth0 using the
@@ -14,8 +14,5 @@ public class Auth0Client : Auth0ClientBase
         : base(options, "xamarin-maui")
     {
         options.Browser = options.Browser ?? new WebAuthenticatorBrowser();
-        var callbackUrl = $"myapp://callback";
-        options.RedirectUri = options.RedirectUri ?? callbackUrl;
-        options.PostLogoutRedirectUri = options.PostLogoutRedirectUri ?? callbackUrl;
     }
 }
