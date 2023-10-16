@@ -1,4 +1,4 @@
-namespace Auth0.OidcClient;
+﻿namespace Auth0.OidcClient;
 
 /// <summary>
 /// Primary class for performing authentication and authorization operations with Auth0 using the
@@ -11,7 +11,7 @@ public class Auth0Client : Auth0ClientBase
     /// </summary>
     /// <param name="options">The <see cref="Auth0ClientOptions"/> specifying the configuration for the Auth0 OIDC Client.</param>
     public Auth0Client(Auth0ClientOptions options)
-        : base(options, "xamarin-maui")
+        : base(options, "maui")
     {
         options.Browser = options.Browser ?? new WebAuthenticatorBrowser();
     }
