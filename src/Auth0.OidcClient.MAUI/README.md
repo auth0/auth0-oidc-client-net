@@ -18,7 +18,9 @@ Once the SDK has been installed, you can integrate it by instantiating the Auth0
 var client = new Auth0Client(new Auth0ClientOptions()
 {
   Domain = "YOUR_AUTH0_DOMAIN",
-  ClientId = "YOUR_AUTH0_CLIENT_ID"
+  ClientId = "YOUR_AUTH0_CLIENT_ID",
+  RedirectUri = "myapp://callback",
+  PostLogoutRedirectUri = "myapp://callback"
 });
 ```
 
