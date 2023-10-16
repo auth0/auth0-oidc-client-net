@@ -17,6 +17,7 @@
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<RootNamespace>Auth0.OidcClient</RootNamespace>
 		<AssemblyName>Auth0.OidcClient</AssemblyName>
+		<PackageId>Auth0.OidcClient.MAUI</PackageId>
 		<Product>Auth0.OidcClient</Product>
 		<AssemblyTitle>Auth0.OidcClient.MAUI</AssemblyTitle>
 		<Version>1.0.0-beta.0</Version>
