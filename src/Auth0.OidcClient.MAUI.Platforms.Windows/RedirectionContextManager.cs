@@ -15,15 +15,7 @@ namespace Auth0.OidcClient.Platforms.Windows
 
             if (!string.IsNullOrEmpty(state))
             {
-
-                try
-                {
-                    jsonObject = JsonNode.Parse(state) as JsonObject;
-                }
-                catch
-                {
-                    jsonObject = JsonNode.Parse(Uri.UnescapeDataString(state)) as JsonObject;
-                }
+                jsonObject = JsonNode.Parse(Helpers.Decode(state)) as JsonObject;
             }
 
             if (jsonObject is not null)

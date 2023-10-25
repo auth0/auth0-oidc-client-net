@@ -205,7 +205,7 @@ public class WebAuthenticatorTests {
 
         var query = System.Web.HttpUtility.ParseQueryString("");
 
-        query["state"] = jsonObject.ToJsonString();
+        query["state"] = Helpers.Encode(jsonObject.ToJsonString());
 
         UriBuilder uriBuilder = new UriBuilder("myapp://callback")
         {

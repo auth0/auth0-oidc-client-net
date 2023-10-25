@@ -3,6 +3,7 @@ using Windows.ApplicationModel.Activation;
 using Microsoft.Windows.AppLifecycle;
 using Moq;
 using WinRT;
+using Auth0.OidcClient.Platforms.Windows;
 
 namespace Auth0.OidcClient.MAUI.Platforms.Windows.UnitTests
 {
@@ -21,7 +22,7 @@ namespace Auth0.OidcClient.MAUI.Platforms.Windows.UnitTests
 
             var query = System.Web.HttpUtility.ParseQueryString("");
 
-            query["state"] = jsonObject.ToJsonString();
+            query["state"] = Helpers.Encode(jsonObject.ToJsonString());
 
             UriBuilder uriBuilder = new UriBuilder("http://localhost");
             uriBuilder.Query = query.ToString();
@@ -48,7 +49,7 @@ namespace Auth0.OidcClient.MAUI.Platforms.Windows.UnitTests
 
             var query = System.Web.HttpUtility.ParseQueryString("");
 
-            query["state"] = Uri.EscapeDataString(jsonObject.ToJsonString());
+            query["state"] = Helpers.Encode(jsonObject.ToJsonString());
 
 
             UriBuilder uriBuilder = new UriBuilder("http://localhost")
@@ -73,7 +74,7 @@ namespace Auth0.OidcClient.MAUI.Platforms.Windows.UnitTests
 
             var query = System.Web.HttpUtility.ParseQueryString("");
 
-            query["state"] = jsonObject.ToJsonString();
+            query["state"] = Helpers.Encode(jsonObject.ToJsonString());
 
 
             UriBuilder uriBuilder = new UriBuilder("http://localhost")
@@ -95,7 +96,6 @@ namespace Auth0.OidcClient.MAUI.Platforms.Windows.UnitTests
             var eventArgsMock = new Mock<IProtocolActivatedEventArgs>();
 
             var query = System.Web.HttpUtility.ParseQueryString("");
-
 
             UriBuilder uriBuilder = new UriBuilder("http://localhost")
             {
