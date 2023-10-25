@@ -4,7 +4,7 @@ on:
   pull_request: {}
 
   push:
-    branches: ["master"]
+    branches: ["master", "beta"]
 
 jobs:
   build:
@@ -18,7 +18,7 @@ jobs:
           dotnet-version: 6.x
 
       - name: Install .NET Android and iOS workload
-        run: dotnet workload install android ios
+        run: dotnet workload install android ios maui
 
       - name: Setup NuGet
         uses: nuget/setup-nuget@v1
