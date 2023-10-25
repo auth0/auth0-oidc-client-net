@@ -11,9 +11,6 @@ on:
 permissions:
   contents: read
 
-env:
-  NODE_VERSION: 18
-
 jobs:
   publish-nuget:
     needs: configure
@@ -34,11 +31,8 @@ jobs:
         with:
           dotnet-version: 6.x
 
-      - name: Install .NET iOS workload
-        run: dotnet workload install ios
-
-      - name: Install .NET Android workload
-        run: dotnet workload install android
+      - name: Install .NET Android and iOS workload
+        run: dotnet workload install android ios
 
       - name: Setup NuGet
         uses: nuget/setup-nuget@v1
