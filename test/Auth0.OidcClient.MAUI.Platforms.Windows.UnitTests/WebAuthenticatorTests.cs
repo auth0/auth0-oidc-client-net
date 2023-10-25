@@ -25,6 +25,8 @@ public class WebAuthenticatorTests {
         var mockHelpers = new Mock<IHelpers>();
         var mockTasksManager = new Mock<ITasksManager>();
 
+        Activator.RedirectActivationCheck = false;
+
         var exception = await Assert.ThrowsAsync<InvalidOperationException>(() =>
             new WebAuthenticator(mockAppInstance.Object, mockHelpers.Object, mockTasksManager.Object).AuthenticateAsync(new Uri("http://www.idp.com"), new Uri("nyapp://callback")));
 
