@@ -48,7 +48,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Auth0.OidcClient.WPF", "src
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Auth0.OidcClient.MAUI.Platforms.Windows.UnitTests", "test\Auth0.OidcClient.MAUI.Platforms.Windows.UnitTests\Auth0.OidcClient.MAUI.Platforms.Windows.UnitTests.csproj", "{5DB6D1AB-3252-4833-B97F-1194502F01BF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Auth0.OidcClient.MAUI.Platforms.Windows", "Auth0.OidcClient.MAUI.Platforms.Windows\Auth0.OidcClient.MAUI.Platforms.Windows.csproj", "{5B9F23A7-E4B7-4FB7-B7DC-F208176799D1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Auth0.OidcClient.MAUI.Platforms.Windows", "src\Auth0.OidcClient.MAUI.Platforms.Windows\Auth0.OidcClient.MAUI.Platforms.Windows.csproj", "{5B9F23A7-E4B7-4FB7-B7DC-F208176799D1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
