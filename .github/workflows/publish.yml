@@ -1,0 +1,82 @@
+name: Publish Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: The branch to release from
+        required: true
+        default: master
+
+permissions:
+  contents: read
+
+jobs:
+  publish-nuget:
+    needs: configure
+
+    name: Publish to NPM
+    runs-on: windows-latest
+    environment: 'release'
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event.inputs.branch }}
+
+      - name: Install .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: 6.x
+
+      - name: Install .NET Android and iOS workload
+        run: dotnet workload install android ios
+
+      - name: Setup NuGet
+        uses: nuget/setup-nuget@v1
+
+      - name: Restore NuGet
+        run: nuget restore Auth0.OidcClient.All.sln
+
+      - name: Setup MSBuild
+        uses: microsoft/setup-msbuild@v1.1
+
+      - name: Build
+        run: msbuild Auth0.OidcClient.All.sln -t:rebuild -verbosity:diag -property:Configuration=Release
+
+      - name: NuGet pack
+        run: |
+          nuget pack nuget/Auth0.OidcClient.Android.nuspec
+          nuget pack nuget/Auth0.OidcClient.AndroidX.nuspec
+          nuget pack nuget/Auth0.OidcClient.Core.nuspec
+          nuget pack nuget/Auth0.OidcClient.iOS.nuspec
+          nuget pack nuget/Auth0.OidcClient.UWP.nuspec
+          nuget pack nuget/Auth0.OidcClient.WinForms.nuspec
+          nuget pack nuget/Auth0.OidcClient.WPF.nuspec
+
+      - name: Install DocFX
+        run: dotnet tool install -g docfx
+      
+      - name: Build docs
+        run: ./tools/build-docs.sh
+        shell: bash
+
+      - uses: actions/upload-artifact@v3
+        with:
+          name: docs
+          path: docs
+
+      - uses: actions/upload-artifact@v3
+        with:
+          name: drop
+          path: '**/*.nupkg'
+
+      - name: Publish release to NuGet
+        run: nuget push **\*.nupkg -ApiKey ${{ env.NUGET_API_KEY }} -Source https://api.nuget.org/v3/index.json -SkipDuplicate -NonInteractive
+        env:
+          NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
+
+
+

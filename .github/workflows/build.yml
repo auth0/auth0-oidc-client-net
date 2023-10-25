@@ -1,0 +1,40 @@
+name: Build
+
+on:
+  pull_request: {}
+
+  push:
+    branches: ["master"]
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: 6.x
+
+      - name: Install .NET Android and iOS workload
+        run: dotnet workload install android ios
+
+      - name: Setup NuGet
+        uses: nuget/setup-nuget@v1
+
+      - name: Restore NuGet
+        run: nuget restore Auth0.OidcClient.All.sln
+
+      - name: Setup MSBuild
+        uses: microsoft/setup-msbuild@v1.1
+
+      - name: Build
+        run: msbuild Auth0.OidcClient.All.sln -t:rebuild -verbosity:diag -property:Configuration=Release
+
+      - name: Tests
+        uses: microsoft/vstest-action@v1.0.0
+        with:
+          testAssembly: '**\bin\**\*UnitTests.dll'
+          searchFolder: '.\'
+          runInParallel: false
