@@ -1,4 +1,5 @@
 ﻿using System.Runtime.InteropServices;
+using System.Text;
 using System.Xml;
 using System.Xml.Linq;
 using System.Xml.XPath;
@@ -28,7 +29,7 @@ namespace Auth0.OidcClient.Platforms.Windows
                 {
                     // Application is MSIX packaged if it has an identity: https://learn.microsoft.com/en-us/windows/msix/detect-package-identity
                     int length = 0;
-                    var sb = new System.Text.StringBuilder(0);
+                    var sb = new StringBuilder(0);
                     int result = GetCurrentPackageFullName(ref length, sb);
                     return result != AppModelErrorNoPackage;
                 }
@@ -63,6 +64,18 @@ namespace Auth0.OidcClient.Platforms.Windows
             process.StartInfo.Arguments = $"url.dll,FileProtocolHandler \"{uri.ToString().Replace("\"", "%22")}\"";
             process.StartInfo.UseShellExecute = true;
             process.Start();
+        }
+
+        public static string Encode(string value)
+        {
+            var bytes = Encoding.UTF8.GetBytes(value);
+            return Convert.ToBase64String(bytes);
+        }
+
+        public static string Decode(string value)
+        {
+            var bytes = Convert.FromBase64String(value);
+            return Encoding.UTF8.GetString(bytes);
         }
     }
 }

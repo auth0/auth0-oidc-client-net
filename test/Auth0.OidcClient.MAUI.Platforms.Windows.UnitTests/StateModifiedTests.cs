@@ -19,6 +19,7 @@ public class StateModifiedTests
         var newReturnToQuery = System.Web.HttpUtility.ParseQueryString(newReturnToUri.Query);
 
         Assert.Equal(newReturnToQuery["state"], "abc");
+        Assert.Null(newQuery["state"]);
     }
 
     [Fact]
@@ -36,7 +37,7 @@ public class StateModifiedTests
 
         var query = System.Web.HttpUtility.ParseQueryString(new Uri("http://www.my-idp.com").Query);
 
-        query["state"] = jsonObject.ToJsonString();
+        query["state"] = Helpers.Encode(jsonObject.ToJsonString());
         
 
         originalUriBuilder.Query = query.ToString();
@@ -66,7 +67,7 @@ public class StateModifiedTests
 
         var query = System.Web.HttpUtility.ParseQueryString(new Uri("http://www.my-idp.com").Query);
 
-        query["state"] = Uri.EscapeDataString(jsonObject.ToJsonString());
+        query["state"] = Helpers.Encode(jsonObject.ToJsonString());
 
 
         originalUriBuilder.Query = query.ToString();
@@ -95,7 +96,7 @@ public class StateModifiedTests
 
         var query = System.Web.HttpUtility.ParseQueryString(new Uri("http://www.my-idp.com").Query);
 
-        query["state"] = Uri.EscapeDataString(jsonObject.ToJsonString());
+        query["state"] = Helpers.Encode(jsonObject.ToJsonString());
 
 
         originalUriBuilder.Query = query.ToString();

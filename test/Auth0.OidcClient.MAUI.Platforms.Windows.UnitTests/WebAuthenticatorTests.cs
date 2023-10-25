@@ -228,7 +228,7 @@ public class WebAuthenticatorTests {
     {
         var query = System.Web.HttpUtility.ParseQueryString(uri.Query);
 
-        var state = query["state"];
+        var state = Helpers.Decode(query["state"]);
         var jsonObject = JsonNode.Parse(state) as JsonObject;
 
         return jsonObject[paramName] != null;

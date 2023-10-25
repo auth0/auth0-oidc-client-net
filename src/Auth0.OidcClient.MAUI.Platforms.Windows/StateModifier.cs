@@ -4,6 +4,11 @@ namespace Auth0.OidcClient.Platforms.Windows;
 
 internal class StateModifier
 {
+    /// <summary>
+    /// Takes the state query param, and moves it to be a query param on the URL passed to returnTo
+    /// </summary>
+    /// <param name="uri"></param>
+    /// <returns></returns>
     internal static Uri MoveStateToReturnTo(Uri uri)
     {
         var query = System.Web.HttpUtility.ParseQueryString(uri.Query);
@@ -12,33 +17,34 @@ internal class StateModifier
         // The original returnTo as configured externally
         var returnTo = query["returnTo"];
 
-
         UriBuilder returnToBuilder = new UriBuilder(returnTo);
 
         // Get the original returnTo querystring params, so we can append state to it
         var returnToQuery = System.Web.HttpUtility.ParseQueryString(new Uri(returnTo).Query);
         // Append state as a querystring parameter to returnTo
         // We need to escape it for it to be accepted
-        returnToQuery["state"] = Uri.EscapeDataString(state);
+        returnToQuery["state"] = state;
         // Set the query again on the returnTo url
         returnToBuilder.Query = returnToQuery.ToString();
 
         // Update returnTo in the original query so that it now includes state
         query["returnTo"] = returnToBuilder.Uri.ToString();
+        // Remove original state
+        query.Remove("state");
 
-        UriBuilder logoutUrlBuilder = new UriBuilder(uri);
+        UriBuilder uriBuilder = new UriBuilder(uri);
         // Set the query again on the logout url
-        logoutUrlBuilder.Query = query.ToString();
+        uriBuilder.Query = query.ToString();
 
         // Return the Uri so it can be used internally by WinUIEx to start the process and open the browser
-        return logoutUrlBuilder.Uri;
+        return uriBuilder.Uri;
     }
 
     internal static Uri ResetRawState(Uri uri)
     {
         var query = System.Web.HttpUtility.ParseQueryString(uri.Query);
 
-        var state = query["state"];
+        var state = Helpers.Decode(query["state"]);
 
         JsonObject jsonObject;
         try
