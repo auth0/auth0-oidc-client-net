@@ -25,7 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Auth0.OidcClient.MAUI.Platforms.Windows\Auth0.OidcClient.MAUI.Platforms.Windows.csproj" />
+    <ProjectReference Include="..\..\src\Auth0.OidcClient.MAUI.Platforms.Windows\Auth0.OidcClient.MAUI.Platforms.Windows.csproj" />
   </ItemGroup>
 
 </Project>
