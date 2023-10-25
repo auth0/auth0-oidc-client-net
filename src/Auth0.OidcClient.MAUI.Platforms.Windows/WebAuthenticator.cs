@@ -6,13 +6,13 @@ using Windows.ApplicationModel.Activation;
 [assembly: InternalsVisibleTo("DynamicProxyGenAssembly2")]
 namespace Auth0.OidcClient.Platforms.Windows
 {
-    internal sealed class WebAuthenticator
+    public sealed class WebAuthenticator
     {
         private readonly IHelpers _helpers;
         private readonly IAppInstanceProxy _appInstanceProxy;
         private readonly ITasksManager _tasksManager;
 
-        internal static readonly WebAuthenticator Default = new WebAuthenticator(new AppInstanceProxy(), new Helpers(), TasksManager.Default);
+        public static readonly WebAuthenticator Default = new WebAuthenticator(new AppInstanceProxy(), new Helpers(), TasksManager.Default);
 
         internal WebAuthenticator(IAppInstanceProxy appInstanceProxy, IHelpers helpers, ITasksManager tasksManager)
         {
@@ -72,7 +72,7 @@ namespace Auth0.OidcClient.Platforms.Windows
             var query = System.Web.HttpUtility.ParseQueryString(authorizeUri.Query);
             var redirectContextJson = redirectContext.ToJsonObject(query);
 
-            query["state"] = redirectContextJson.ToJsonString();
+            query["state"] = Helpers.Encode(redirectContextJson.ToJsonString());
 
             // Update the AuthorizeUri's Query parameter.
             UriBuilder authorizeUriBuilder = new UriBuilder(authorizeUri)
