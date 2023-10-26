@@ -14,23 +14,10 @@
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
 		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
 
-		<PackageReadmeFile>README.md</PackageReadmeFile>
+		
 		<RootNamespace>Auth0.OidcClient</RootNamespace>
 		<AssemblyName>Auth0.OidcClient</AssemblyName>
-		<PackageId>Auth0.OidcClient.MAUI</PackageId>
-		<Product>Auth0.OidcClient</Product>
-		<AssemblyTitle>Auth0.OidcClient.MAUI</AssemblyTitle>
-		<Version>1.0.0-beta.0</Version>
-		<Description>Auth0 OIDC Client for MAUI apps</Description>
-		<Authors>Auth0</Authors>
-		<PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
-		<PackageProjectUrl>https://auth0.github.io/auth0-oidc-client-net/</PackageProjectUrl>
-		<PackageIcon>Auth0Icon.png</PackageIcon>
-		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-		<Copyright>Copyright 2023 Auth0, Inc.</Copyright>
-		<PackageTags>Auth0 OIDC MAUI</PackageTags>
-		<RepositoryUrl>https://github.com/auth0/auth0-oidc-client-net</RepositoryUrl>
-		<RepositoryType>git</RepositoryType>
+
 	</PropertyGroup>
 	<PropertyGroup Condition=" '$(Configuration)'=='Debug' ">
 		<GenerateDocumentationFile>false</GenerateDocumentationFile>
@@ -42,9 +29,7 @@
 	  <PackageReference Include="IdentityModel.OidcClient" Version="5.2.1" />
 	</ItemGroup>
 	<ItemGroup Condition="'$(TargetFramework)' == 'net6.0-windows10.0.19041.0'">
-	  <PackageReference Include="WinUIEx" Version="2.2.0">
-	  </PackageReference>
-    <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.3.230502000" />
+    	<PackageReference Include="Microsoft.WindowsAppSDK" Version="1.3.230502000" />
 	</ItemGroup>
 	<ItemGroup Condition="'$(TargetFramework)' == 'net6.0-windows10.0.19041.0'">
 	  <ProjectReference Include="..\Auth0.OidcClient.MAUI.Platforms.Windows\Auth0.OidcClient.MAUI.Platforms.Windows.csproj" />
@@ -56,7 +41,6 @@
 	  <None Remove="Platforms\MacCatalyst\" />
 	  <None Remove="Platforms\iOS\" />
 	  <None Remove="Platforms\Android\" />
-	  <None Remove="WinUIExEx\" />
 	</ItemGroup>
 	<ItemGroup>
 		<None Include="README.md" Pack="true" PackagePath="\" />
