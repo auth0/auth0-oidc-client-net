@@ -3,47 +3,54 @@ using Windows.ApplicationModel.Activation;
 
 namespace Auth0.OidcClient.Platforms.Windows
 {
-    public sealed class Activator
+    public interface IActivator
     {
-        internal static bool RedirectActivationCheck;
+        bool RedirectActivationChecked { get; }
+        bool CheckRedirectionActivation();
+    }
+
+    /// <summary>
+    /// Activator class used to enable protocol activation check and redirects activation to the correct application instance
+    /// </summary>
+    public sealed class Activator : IActivator
+    {
+        private readonly IAppInstanceProxy _appInstanceProxy;
+
+        public static readonly Activator Default = new Activator(new AppInstanceProxy());
+
+        internal Activator(IAppInstanceProxy appInstanceProxy)
+        {
+            _appInstanceProxy = appInstanceProxy;
+        }
 
         /// <summary>
-        /// Performs an protocol activation check and redirects activation to the correct application instance.
+        /// Boolean indication the redirect activation was checked
         /// </summary>
-        public static bool CheckRedirectionActivation()
-        {
-            var activatedEventArgs = AppInstance.GetCurrent()?.GetActivatedEventArgs();
+        public bool RedirectActivationChecked { get; internal set; }
 
-            RedirectActivationCheck = true;
+        /// <summary>
+        /// Performs a protocol activation check and redirects activation to the correct application instance.
+        /// </summary>
+        public bool CheckRedirectionActivation()
+        {
+            var activatedEventArgs = _appInstanceProxy.GetCurrentActivatedEventArgs();
+
+            RedirectActivationChecked = true;
 
             if (activatedEventArgs is null || activatedEventArgs.Kind != ExtendedActivationKind.Protocol || activatedEventArgs.Data is not IProtocolActivatedEventArgs protocolArgs)
             {
                 return false;
             }
 
-            var ctx = RedirectionContextManager.GetRedirectionContext(activatedEventArgs.Data as IProtocolActivatedEventArgs);
+            var ctx = RedirectionContextManager.GetRedirectionContext(protocolArgs);
 
             if (ctx is not null && ctx.AppInstanceKey is not null && ctx.TaskId is not null)
             {
-                var instance = AppInstance.GetInstances().FirstOrDefault(i => i.Key == ctx.AppInstanceKey);
-
-                if (instance is not null && !instance.IsCurrent)
-                {
-                    instance.RedirectActivationToAsync(activatedEventArgs).AsTask().Wait();
-
-                    System.Diagnostics.Process.GetCurrentProcess().Kill();
-
-                    return true;
-                }
+                return _appInstanceProxy.RedirectActivationToAsync(ctx.AppInstanceKey, activatedEventArgs);
             }
             else
             {
-                var instance = AppInstance.GetCurrent();
-
-                if (string.IsNullOrEmpty(instance.Key))
-                {
-                    AppInstance.FindOrRegisterForKey(Guid.NewGuid().ToString());
-                }
+                _appInstanceProxy.FindOrRegisterForKey();
             }
             return false;
         }

@@ -1,5 +1,4 @@
 ﻿using Microsoft.Windows.AppLifecycle;
-using System.Diagnostics.CodeAnalysis;
 using System.Runtime.CompilerServices;
 using Windows.ApplicationModel.Activation;
 
@@ -11,14 +10,16 @@ namespace Auth0.OidcClient.Platforms.Windows
         private readonly IHelpers _helpers;
         private readonly IAppInstanceProxy _appInstanceProxy;
         private readonly ITasksManager _tasksManager;
+        private readonly IActivator _activator;
 
-        public static readonly WebAuthenticator Default = new WebAuthenticator(new AppInstanceProxy(), new Helpers(), TasksManager.Default);
+        public static readonly WebAuthenticator Default = new WebAuthenticator(new AppInstanceProxy(), new Helpers(), TasksManager.Default, Activator.Default);
 
-        internal WebAuthenticator(IAppInstanceProxy appInstanceProxy, IHelpers helpers, ITasksManager tasksManager)
+        internal WebAuthenticator(IAppInstanceProxy appInstanceProxy, IHelpers helpers, ITasksManager tasksManager, IActivator activator)
         {
             _helpers = helpers;
             _appInstanceProxy = appInstanceProxy;
             _tasksManager = tasksManager;
+            _activator = activator;
             appInstanceProxy.Activated += CurrentAppInstance_Activated;
         }
 
@@ -54,7 +55,7 @@ namespace Auth0.OidcClient.Platforms.Windows
         /// <seealso cref="Activator.CheckRedirectionActivation()"/>
         public async Task<WebAuthenticatorResult> AuthenticateAsync(Uri authorizeUri, Uri callbackUri, CancellationToken cancellationToken = default(CancellationToken))
         {
-            if (!Activator.RedirectActivationCheck)
+            if (!_activator.RedirectActivationChecked)
             {
                 throw new InvalidOperationException("The redirection check on app activation was not detected. Please make sure a call to Activator.CheckRedirectionActivation was made during App creation.");
             }
@@ -69,17 +70,7 @@ namespace Auth0.OidcClient.Platforms.Windows
 
             var redirectContext = RedirectionContext.New(_appInstanceProxy);
 
-            var query = System.Web.HttpUtility.ParseQueryString(authorizeUri.Query);
-            var redirectContextJson = redirectContext.ToJsonObject(query);
-
-            query["state"] = Helpers.Encode(redirectContextJson.ToJsonString());
-
-            // Update the AuthorizeUri's Query parameter.
-            UriBuilder authorizeUriBuilder = new UriBuilder(authorizeUri)
-            {
-                Query = query.ToString() ?? string.Empty
-            };
-            authorizeUri = authorizeUriBuilder.Uri;
+            authorizeUri = StateModifier.WrapStateWithRedirectionContext(authorizeUri, redirectContext);
 
             var tcs = new TaskCompletionSource<Uri>();
 
@@ -102,7 +93,7 @@ namespace Auth0.OidcClient.Platforms.Windows
 
             _tasksManager.Add(redirectContext.TaskId, tcs);
             var uri = await tcs.Task.ConfigureAwait(false);
-            return new WebAuthenticatorResult(StateModifier.ResetRawState(uri));
+            return new WebAuthenticatorResult(StateModifier.UnwrapRedirectionContextFromState(uri));
         }
     }
 }

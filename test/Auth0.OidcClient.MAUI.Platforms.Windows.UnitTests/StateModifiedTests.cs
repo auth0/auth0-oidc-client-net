@@ -44,7 +44,7 @@ public class StateModifiedTests
 
 
 
-        var newUri = StateModifier.ResetRawState(originalUriBuilder.Uri);
+        var newUri = StateModifier.UnwrapRedirectionContextFromState(originalUriBuilder.Uri);
 
         var newQuery = System.Web.HttpUtility.ParseQueryString(newUri.Query);
         var newState = newQuery["state"];
@@ -74,7 +74,7 @@ public class StateModifiedTests
 
 
 
-        var newUri = StateModifier.ResetRawState(originalUriBuilder.Uri);
+        var newUri = StateModifier.UnwrapRedirectionContextFromState(originalUriBuilder.Uri);
 
         var newQuery = System.Web.HttpUtility.ParseQueryString(newUri.Query);
         var newState = newQuery["state"];
@@ -103,7 +103,7 @@ public class StateModifiedTests
 
 
 
-        var newUri = StateModifier.ResetRawState(originalUriBuilder.Uri);
+        var newUri = StateModifier.UnwrapRedirectionContextFromState(originalUriBuilder.Uri);
 
         var newQuery = System.Web.HttpUtility.ParseQueryString(newUri.Query);
         var newState = newQuery["state"];

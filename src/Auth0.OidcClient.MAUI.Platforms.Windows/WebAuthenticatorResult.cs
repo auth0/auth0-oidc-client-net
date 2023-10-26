@@ -11,12 +11,7 @@ public class WebAuthenticatorResult
     /// <summary>
     /// Initializes a new instance of the <see cref="WebAuthenticatorResult"/> class by parsing a URI's query string parameters.
     /// </summary>
-    /// <remarks>
-    /// If the responseDecoder is non-null, then it is used to decode the fragment or query string 
-    /// returned by the authorization service.  Otherwise, a default response decoder is used.
-    /// </remarks>
     /// <param name="uri">The callback uri that was used to end the authentication sequence.</param>
-    /// <param name="responseDecoder">The decoder that can be used to decode the callback uri.</param>
     public WebAuthenticatorResult(Uri uri)
     {
         CallbackUri = uri;
@@ -28,12 +23,8 @@ public class WebAuthenticatorResult
     }
 
     /// <summary>
-    /// The uri that was used to call back with the access token.
+    /// The uri that was used to call back.
     /// </summary>
-    /// <value>
-    /// The value of the callback URI, including the fragment or query string bearing 
-    /// the access token and associated information.
-    /// </value>
     public Uri CallbackUri { get; }
 
     /// <summary>

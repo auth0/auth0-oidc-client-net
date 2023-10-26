@@ -7,18 +7,12 @@ internal interface IAppInstanceProxy
 {
     event EventHandler<IAppActivationArguments> Activated;
     string GetCurrentAppKey();
-}
+    Microsoft.Windows.AppLifecycle.AppActivationArguments GetCurrentActivatedEventArgs();
 
-internal interface IAppActivationArguments
-{
-    ExtendedActivationKind Kind { get; set; }
-    object Data { get; set; }
-}
+    bool RedirectActivationToAsync(string key,
+        Microsoft.Windows.AppLifecycle.AppActivationArguments activatedEventArgs);
 
-internal class AppActivationArguments : IAppActivationArguments
-{
-    public ExtendedActivationKind Kind { get; set; }
-    public object Data { get; set; }
+    void FindOrRegisterForKey();
 }
 
 /// <summary>
@@ -43,8 +37,64 @@ internal class AppInstanceProxy : IAppInstanceProxy
         });
     }
 
+    /// <summary>
+    /// Get the current application key.
+    /// </summary>
+    /// <remarks>
+    /// Proxy call to AppInstance.GetCurrent().Key.
+    /// Used because AppInstance is complicated to use in tests.
+    /// </remarks>
+    /// <returns>The key for the current application.</returns>
     public virtual string GetCurrentAppKey()
     {
         return AppInstance.GetCurrent().Key;
+    }
+
+    /// <summary>
+    /// Get the current application <see cref="AppActivationArguments"/>
+    /// </summary>
+    /// <remarks>
+    /// Proxy call to AppInstance.GetCurrent().GetActivatedEventArgs().
+    /// Used because AppInstance is complicated to use in tests.
+    /// </remarks>
+    /// <returns>Null if no current application instance is found, or the corresponding <see cref="AppActivationArguments"/>.</returns>
+    public virtual Microsoft.Windows.AppLifecycle.AppActivationArguments GetCurrentActivatedEventArgs()
+    {
+        return AppInstance.GetCurrent()?.GetActivatedEventArgs();
+    }
+
+    /// <summary>
+    /// Redirect the activation to the correct application instance and kill the current process.
+    /// </summary>
+    /// <param name="key">Key of the application to activated</param>
+    /// <param name="activatedEventArgs"><see cref="AppActivationArguments"/> to pass to the application.</param>
+    /// <returns>Boolean indicating an application instance was activated.</returns>
+    public virtual bool RedirectActivationToAsync(string key, Microsoft.Windows.AppLifecycle.AppActivationArguments activatedEventArgs)
+    {
+        var instance = AppInstance.GetInstances().FirstOrDefault(i => i.Key == key);
+
+        if (instance is not null && !instance.IsCurrent)
+        {
+            instance.RedirectActivationToAsync(activatedEventArgs).AsTask().Wait();
+
+            System.Diagnostics.Process.GetCurrentProcess().Kill();
+
+            return true;
+        }
+
+        return false;
+    }
+
+    /// <summary>
+    /// Registers the current application using a new key.
+    /// </summary>
+    public virtual void FindOrRegisterForKey()
+    {
+        var instance = AppInstance.GetCurrent();
+
+        if (string.IsNullOrEmpty(instance.Key))
+        {
+            AppInstance.FindOrRegisterForKey(Guid.NewGuid().ToString());
+        }
     }
 }

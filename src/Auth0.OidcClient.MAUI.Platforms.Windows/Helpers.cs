@@ -12,6 +12,7 @@ namespace Auth0.OidcClient.Platforms.Windows
         bool IsUriProtocolDeclared(string scheme);
         void OpenBrowser(Uri uri);
     }
+
     internal class Helpers : IHelpers
     {
 #pragma warning disable SA1203 // Constants should appear before fields
@@ -21,6 +22,13 @@ namespace Auth0.OidcClient.Platforms.Windows
         [DllImport("kernel32.dll", CharSet = CharSet.Unicode, SetLastError = true)]
         private static extern int GetCurrentPackageFullName(ref int packageFullNameLength, System.Text.StringBuilder packageFullName);
 
+        /// <summary>
+        /// Helper property to verify the application is packaged.
+        /// </summary>
+        /// <remarks>
+        /// Original source: https://github.com/dotMorten/WinUIEx
+        /// </remarks>
+        /// <returns>A boolean indicate whether or not the app is packaged.</returns>
         public bool IsAppPackaged
         {
             get
@@ -40,6 +48,14 @@ namespace Auth0.OidcClient.Platforms.Windows
             }
         }
 
+        /// <summary>
+        /// Helper method to verify the scheme is defined as a protocol in the AppxManifest.xml files
+        /// </summary>
+        /// <remarks>
+        /// Original source: https://github.com/dotMorten/WinUIEx
+        /// </remarks>
+        /// <param name="scheme">The scheme expected to be declared.</param>
+        /// <returns>A boolean indicate whether or not the scheme is declared as an Uri protocol.</returns>
         public bool IsUriProtocolDeclared(string scheme)
         {
             if (global::Windows.ApplicationModel.Package.Current is null)
@@ -57,6 +73,10 @@ namespace Auth0.OidcClient.Platforms.Windows
             return decl != null && decl.Any();
         }
 
+        /// <summary>
+        /// Helper method to open the browser through the url.dll.
+        /// </summary>
+        /// <param name="uri">The Uri to open</param>
         public void OpenBrowser(Uri uri)
         {
             var process = new System.Diagnostics.Process();

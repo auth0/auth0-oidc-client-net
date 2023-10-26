@@ -24,11 +24,12 @@ public class WebAuthenticatorTests {
         var mockAppInstance = new Mock<IAppInstanceProxy>();
         var mockHelpers = new Mock<IHelpers>();
         var mockTasksManager = new Mock<ITasksManager>();
+        var mockActivator = new Mock<IActivator>();
 
-        Activator.RedirectActivationCheck = false;
+        mockActivator.SetupGet(h => h.RedirectActivationChecked).Returns(false);
 
         var exception = await Assert.ThrowsAsync<InvalidOperationException>(() =>
-            new WebAuthenticator(mockAppInstance.Object, mockHelpers.Object, mockTasksManager.Object).AuthenticateAsync(new Uri("http://www.idp.com"), new Uri("nyapp://callback")));
+            new WebAuthenticator(mockAppInstance.Object, mockHelpers.Object, mockTasksManager.Object, mockActivator.Object).AuthenticateAsync(new Uri("http://www.idp.com"), new Uri("nyapp://callback")));
 
         Assert.Equal("The redirection check on app activation was not detected. Please make sure a call to Activator.CheckRedirectionActivation was made during App creation.", exception.Message);
     }
@@ -39,11 +40,12 @@ public class WebAuthenticatorTests {
         var mockAppInstance = new Mock<IAppInstanceProxy>();
         var mockHelpers = new Mock<IHelpers>();
         var mockTasksManager = new Mock<ITasksManager>();
+        var mockActivator = new Mock<IActivator>();
 
-        Activator.RedirectActivationCheck = true;
+        mockActivator.SetupGet(h => h.RedirectActivationChecked).Returns(true);
 
         var exception = await Assert.ThrowsAsync<InvalidOperationException>(() =>
-            new WebAuthenticator(mockAppInstance.Object, mockHelpers.Object, mockTasksManager.Object).AuthenticateAsync(new Uri("http://www.idp.com"), new Uri("nyapp://callback")));
+            new WebAuthenticator(mockAppInstance.Object, mockHelpers.Object, mockTasksManager.Object, mockActivator.Object).AuthenticateAsync(new Uri("http://www.idp.com"), new Uri("nyapp://callback")));
 
         Assert.NotEqual("The redirection check on app activation was not detected. Please make sure a call to Activator.CheckRedirectionActivation was made during App creation.", exception.Message);
     }
@@ -54,13 +56,14 @@ public class WebAuthenticatorTests {
         var mockAppInstance = new Mock<IAppInstanceProxy>();
         var mockHelpers = new Mock<IHelpers>();
         var mockTasksManager = new Mock<ITasksManager>();
+        var mockActivator = new Mock<IActivator>();
 
-        Activator.RedirectActivationCheck = true;
+        mockActivator.SetupGet(h => h.RedirectActivationChecked).Returns(true);
 
         mockHelpers.SetupGet(h => h.IsAppPackaged).Returns(false);
 
         var exception = await Assert.ThrowsAsync<InvalidOperationException>(() =>
-            new WebAuthenticator(mockAppInstance.Object, mockHelpers.Object, mockTasksManager.Object).AuthenticateAsync(new Uri("http://www.idp.com"), new Uri("nyapp://callback")));
+            new WebAuthenticator(mockAppInstance.Object, mockHelpers.Object, mockTasksManager.Object, mockActivator.Object).AuthenticateAsync(new Uri("http://www.idp.com"), new Uri("nyapp://callback")));
 
         Assert.Equal("The WebAuthenticator requires a packaged app with an AppxManifest.", exception.Message);
     }
@@ -71,13 +74,14 @@ public class WebAuthenticatorTests {
         var mockAppInstance = new Mock<IAppInstanceProxy>();
         var mockHelpers = new Mock<IHelpers>();
         var mockTasksManager = new Mock<ITasksManager>();
+        var mockActivator = new Mock<IActivator>();
 
-        Activator.RedirectActivationCheck = true;
+        mockActivator.SetupGet(h => h.RedirectActivationChecked).Returns(true);
         mockHelpers.SetupGet(h => h.IsAppPackaged).Returns(true);
         mockHelpers.Setup(h => h.IsUriProtocolDeclared("myapp")).Returns(false);
 
         var exception = await Assert.ThrowsAsync<InvalidOperationException>(() =>
-            new WebAuthenticator(mockAppInstance.Object, mockHelpers.Object, mockTasksManager.Object).AuthenticateAsync(new Uri("http://www.idp.com"), new Uri("myapp://callback")));
+            new WebAuthenticator(mockAppInstance.Object, mockHelpers.Object, mockTasksManager.Object, mockActivator.Object).AuthenticateAsync(new Uri("http://www.idp.com"), new Uri("myapp://callback")));
 
         Assert.Equal($"The URI Scheme myapp is not declared in AppxManifest.xml.", exception.Message);
     }
@@ -88,14 +92,15 @@ public class WebAuthenticatorTests {
         var mockAppInstance = new Mock<IAppInstanceProxy>();
         var mockHelpers = new Mock<IHelpers>();
         var mockTasksManager = new Mock<ITasksManager>();
+        var mockActivator = new Mock<IActivator>();
 
-        Activator.RedirectActivationCheck = true;
+        mockActivator.SetupGet(h => h.RedirectActivationChecked).Returns(true);
         mockHelpers.SetupGet(h => h.IsAppPackaged).Returns(true);
         mockHelpers.Setup(h => h.IsUriProtocolDeclared("myapp")).Returns(true);
         mockHelpers.Setup(h => h.OpenBrowser(It.IsAny<Uri>()));
         mockAppInstance.Setup(a => a.GetCurrentAppKey()).Returns("test");
 
-        var webAuthenticator = new WebAuthenticator(mockAppInstance.Object, mockHelpers.Object, mockTasksManager.Object);
+        var webAuthenticator = new WebAuthenticator(mockAppInstance.Object, mockHelpers.Object, mockTasksManager.Object, mockActivator.Object);
 
         // Do no await so we can leave the method again
 #pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
@@ -113,8 +118,9 @@ public class WebAuthenticatorTests {
         var mockHelpers = new Mock<IHelpers>();
         var mockTasksManager = new Mock<ITasksManager>();
         Uri authorizeUri = new Uri("https://www.idp.com");
+        var mockActivator = new Mock<IActivator>();
 
-        Activator.RedirectActivationCheck = true;
+        mockActivator.SetupGet(h => h.RedirectActivationChecked).Returns(true);
         mockHelpers.SetupGet(h => h.IsAppPackaged).Returns(true);
         mockHelpers.Setup(h => h.IsUriProtocolDeclared("myapp")).Returns(true);
         mockHelpers.Setup(h => h.OpenBrowser(It.IsAny<Uri>())).Callback((Uri uri) =>
@@ -130,7 +136,7 @@ public class WebAuthenticatorTests {
             task.TrySetResult(new Uri($"myapp://callback?state={state}"));
         });
 
-        var webAuthenticator = new WebAuthenticator(mockAppInstance.Object, mockHelpers.Object, mockTasksManager.Object);
+        var webAuthenticator = new WebAuthenticator(mockAppInstance.Object, mockHelpers.Object, mockTasksManager.Object, mockActivator.Object);
         var result = await webAuthenticator.AuthenticateAsync(new Uri("http://www.idp.com/?state=abc"), new Uri("myapp://callback"));
 
         Assert.NotNull(result);
@@ -143,15 +149,16 @@ public class WebAuthenticatorTests {
         var mockAppInstance = new Mock<IAppInstanceProxy>();
         var mockHelpers = new Mock<IHelpers>();
         var mockTasksManager = new Mock<ITasksManager>();
+        var mockActivator = new Mock<IActivator>();
 
-        Activator.RedirectActivationCheck = true;
+        mockActivator.SetupGet(h => h.RedirectActivationChecked).Returns(true);
         mockHelpers.SetupGet(h => h.IsAppPackaged).Returns(true);
         mockHelpers.Setup(h => h.IsUriProtocolDeclared("myapp")).Returns(true);
         mockHelpers.Setup(h => h.OpenBrowser(It.IsAny<Uri>()));
         mockAppInstance.Setup(a => a.GetCurrentAppKey()).Returns("test");
 
         var cancellationTokenSource = new CancellationTokenSource();
-        var webAuthenticator = new WebAuthenticator(mockAppInstance.Object, mockHelpers.Object, mockTasksManager.Object);
+        var webAuthenticator = new WebAuthenticator(mockAppInstance.Object, mockHelpers.Object, mockTasksManager.Object, mockActivator.Object);
 
         webAuthenticator.AuthenticateAsync(new Uri("http://www.idp.com"), new Uri("myapp://callback"), cancellationTokenSource.Token);
 
@@ -166,15 +173,16 @@ public class WebAuthenticatorTests {
         var mockAppInstance = new Mock<IAppInstanceProxy>();
         var mockHelpers = new Mock<IHelpers>();
         var mockTasksManager = new Mock<ITasksManager>();
+        var mockActivator = new Mock<IActivator>();
 
-        Activator.RedirectActivationCheck = true;
+        mockActivator.SetupGet(h => h.RedirectActivationChecked).Returns(true);
         mockHelpers.SetupGet(h => h.IsAppPackaged).Returns(true);
         mockHelpers.Setup(h => h.IsUriProtocolDeclared("myapp")).Returns(true);
         mockHelpers.Setup(h => h.OpenBrowser(It.IsAny<Uri>()));
         mockAppInstance.Setup(a => a.GetCurrentAppKey()).Returns("test");
 
         var cancellationTokenSource = new CancellationTokenSource();
-        var webAuthenticator = new WebAuthenticator(mockAppInstance.Object, mockHelpers.Object, mockTasksManager.Object);
+        var webAuthenticator = new WebAuthenticator(mockAppInstance.Object, mockHelpers.Object, mockTasksManager.Object, mockActivator.Object);
 
         cancellationTokenSource.Cancel();
 
@@ -189,13 +197,14 @@ public class WebAuthenticatorTests {
         var mockAppInstance = new MockAppInstanceProxy();
         var mockHelpers = new Mock<IHelpers>();
         var mockTasksManager = new Mock<ITasksManager>();
+        var mockActivator = new Mock<IActivator>();
 
-        Activator.RedirectActivationCheck = true;
+        mockActivator.SetupGet(h => h.RedirectActivationChecked).Returns(true);
         mockHelpers.SetupGet(h => h.IsAppPackaged).Returns(true);
         mockHelpers.Setup(h => h.IsUriProtocolDeclared("myapp")).Returns(true);
         mockHelpers.Setup(h => h.OpenBrowser(It.IsAny<Uri>()));
 
-        new WebAuthenticator(mockAppInstance, mockHelpers.Object, mockTasksManager.Object);
+        new WebAuthenticator(mockAppInstance, mockHelpers.Object, mockTasksManager.Object, mockActivator.Object);
 
         var jsonObject = new JsonObject
         {
@@ -254,6 +263,20 @@ internal class MockAppInstanceProxy : IAppInstanceProxy
         return AppInstance.GetCurrent().Key;
     }
 
+    public Microsoft.Windows.AppLifecycle.AppActivationArguments GetCurrentActivatedEventArgs()
+    {
+        return null;
+    }
+
+    public bool RedirectActivationToAsync(string key, Microsoft.Windows.AppLifecycle.AppActivationArguments activatedEventArgs)
+    {
+        return true;
+    }
+
+    public void FindOrRegisterForKey()
+    {
+        
+    }
 }
 
 public class MockProtocolActivatedEventArgs : IProtocolActivatedEventArgs
