@@ -13,7 +13,6 @@
     <releaseNotes></releaseNotes>
     <copyright>Copyright 2017-2023 Auth0, Inc.</copyright>
     <tags>Auth0 OIDC MAUI</tags>
-    <readme>README.md</readme>
     <dependencies>
       <group targetFramework="net6.0-android29.0">
         <dependency id="Auth0.OidcClient.Core" version="3.4.1" />
