@@ -2,7 +2,7 @@
 
 Integrate Auth0 in a MAUI application targetting iOS, macOS or Android by using the `Auth0.OIdcClient.MAUI` SDK.
 
-> ℹ️ This SDK is available in **Beta**! Try it out today, any feedback is appreciated. Just as with any beta release, using this in production is highly discouraged.
+> ℹ️ This SDK is available in **Beta**! Try it out today, any feedback is appreciated. Just as with any beta release, **using this in production is highly discouraged**.
 
 ## Install the SDK
 
@@ -48,7 +48,7 @@ The above activity will ensure the application can handle the `myapp://callback`
 
 ### Windows
 
-> ℹ️ Even though the entire MAUI SDK is beta, the Windows implementation specifically is highly experimental and has not been battle tested from a security perspective yet.
+> ℹ️ Even though the entire MAUI SDK is beta, the Windows implementation specifically is highly experimental and has not been tested from a security perspective yet.
 
 
 To make sure it can properly reactivate your application after being redirected back go Auth0, you need to do two things:
