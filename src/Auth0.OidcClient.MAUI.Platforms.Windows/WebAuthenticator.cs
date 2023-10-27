@@ -87,7 +87,7 @@ namespace Auth0.OidcClient.Platforms.Windows
                 cancellationToken.ThrowIfCancellationRequested();
             }
 
-            var newUri = authorizeUri.ToString().IndexOf("logout", StringComparison.CurrentCultureIgnoreCase) > -1 ? StateModifier.MoveStateToReturnTo(authorizeUri) : authorizeUri;
+            var newUri = authorizeUri.AbsolutePath == "/v2/logout" ? StateModifier.MoveStateToReturnTo(authorizeUri) : authorizeUri;
 
             _helpers.OpenBrowser(newUri);
 

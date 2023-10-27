@@ -112,6 +112,56 @@ public class WebAuthenticatorTests {
     }
 
     [Fact]
+    public void Should_Open_Browser_With_State_When_Logout_In_Domain_Name()
+    {
+        var mockAppInstance = new Mock<IAppInstanceProxy>();
+        var mockHelpers = new Mock<IHelpers>();
+        var mockTasksManager = new Mock<ITasksManager>();
+        var mockActivator = new Mock<IActivator>();
+
+        mockActivator.SetupGet(h => h.RedirectActivationChecked).Returns(true);
+        mockHelpers.SetupGet(h => h.IsAppPackaged).Returns(true);
+        mockHelpers.Setup(h => h.IsUriProtocolDeclared("myapp")).Returns(true);
+        mockHelpers.Setup(h => h.OpenBrowser(It.IsAny<Uri>()));
+        mockAppInstance.Setup(a => a.GetCurrentAppKey()).Returns("test");
+
+        var webAuthenticator = new WebAuthenticator(mockAppInstance.Object, mockHelpers.Object, mockTasksManager.Object, mockActivator.Object);
+
+        // Do no await so we can leave the method again
+#pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
+        webAuthenticator.AuthenticateAsync(new Uri("http://www.logout.com"), new Uri("myapp://callback"));
+#pragma warning restore CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
+
+
+        mockHelpers.Verify(d => d.OpenBrowser(It.Is<Uri>(uri => HasStateParam(uri, "appInstanceKey") && HasStateParam(uri, "taskId"))));
+    }
+
+    [Fact]
+    public void Should_Open_Browser_With_State_On_Logout()
+    {
+        var mockAppInstance = new Mock<IAppInstanceProxy>();
+        var mockHelpers = new Mock<IHelpers>();
+        var mockTasksManager = new Mock<ITasksManager>();
+        var mockActivator = new Mock<IActivator>();
+
+        mockActivator.SetupGet(h => h.RedirectActivationChecked).Returns(true);
+        mockHelpers.SetupGet(h => h.IsAppPackaged).Returns(true);
+        mockHelpers.Setup(h => h.IsUriProtocolDeclared("myapp")).Returns(true);
+        mockHelpers.Setup(h => h.OpenBrowser(It.IsAny<Uri>()));
+        mockAppInstance.Setup(a => a.GetCurrentAppKey()).Returns("test");
+
+        var webAuthenticator = new WebAuthenticator(mockAppInstance.Object, mockHelpers.Object, mockTasksManager.Object, mockActivator.Object);
+
+        // Do no await so we can leave the method again
+#pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
+        webAuthenticator.AuthenticateAsync(new Uri("http://www.idp.com/v2/logout?returnTo=myapp://callback"), new Uri("myapp://callback"));
+#pragma warning restore CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
+
+
+        mockHelpers.Verify(d => d.OpenBrowser(It.Is<Uri>(uri => HasStateParamOnReturnTo(uri, "appInstanceKey") && HasStateParamOnReturnTo(uri, "taskId"))));
+    }
+
+    [Fact]
     public async void Should_return_WebAuthenticatorResult_With_Original_State()
     {
         var mockAppInstance = new Mock<IAppInstanceProxy>();
@@ -231,6 +281,18 @@ public class WebAuthenticatorTests {
         });
 
         mockTasksManager.Verify(d => d.ResumeTask(It.IsAny<Uri>(), "def"));
+    }
+
+    private bool HasStateParamOnReturnTo(Uri uri, string paramName)
+    {
+        var query = System.Web.HttpUtility.ParseQueryString(uri.Query);
+
+        // The original returnTo as configured externally
+        var returnTo = query["returnTo"];
+
+        var returnToUri = new Uri(returnTo ?? string.Empty);
+        return HasStateParam(returnToUri, paramName);
+
     }
 
     private bool HasStateParam(Uri uri, string paramName)
