@@ -2,12 +2,14 @@
 
 Integrate Auth0 in a MAUI application targetting iOS, macOS or Android by using the `Auth0.OIdcClient.MAUI` SDK.
 
+> ℹ️ This SDK is available in **Beta**! Try it out today, any feedback is appreciated. Just as with any beta release, using this in production is highly discouraged.
+
 ## Install the SDK
 
 The SDK can be installed through Nuget:
 
 ```sh
-Install-Package Auth0.OIdcClient.MAUI
+Install-Package Auth0.OIdcClient.MAUI -IncludePrerelease
 ```
 
 ## Configuring the SDK
@@ -45,6 +47,10 @@ public class WebAuthenticatorActivity : Microsoft.Maui.Authentication.WebAuthent
 The above activity will ensure the application can handle the `myapp://callback` URL when Auth0 redirects back to the Android application after logging in.
 
 ### Windows
+
+> ℹ️ Even though the entire MAUI SDK is beta, the Windows implementation specifically is highly experimental and has not been battle tested from a security perspective yet.
+
+
 To make sure it can properly reactivate your application after being redirected back go Auth0, you need to do two things:
 
 - Add the corresponding protocol to the `Package.appxmanifest`. In this case, this is set to `myapp`, but you can change this to whatever you like (ensure to update all relevant Auth0 URLs as well).
