@@ -79,11 +79,12 @@ namespace Auth0.OidcClient.Platforms.Windows
         /// <param name="uri">The Uri to open</param>
         public void OpenBrowser(Uri uri)
         {
-            var process = new System.Diagnostics.Process();
-            process.StartInfo.FileName = "rundll32.exe";
-            process.StartInfo.Arguments = $"url.dll,FileProtocolHandler \"{uri.ToString().Replace("\"", "%22")}\"";
-            process.StartInfo.UseShellExecute = true;
-            process.Start();
+            System.Diagnostics.ProcessStartInfo psi = new System.Diagnostics.ProcessStartInfo
+            {
+                FileName = uri.ToString(),
+                UseShellExecute = true
+            };
+            System.Diagnostics.Process.Start(psi);
         }
 
         public static string Encode(string value)
