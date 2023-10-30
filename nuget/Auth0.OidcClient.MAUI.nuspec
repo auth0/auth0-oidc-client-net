@@ -10,9 +10,13 @@
     <icon>Auth0Icon.png</icon>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Auth0 OIDC Client for MAUI apps</description>
-    <releaseNotes></releaseNotes>
+    <releaseNotes>
+    Version 1.0.0-beta.0
+      - Initial release to support MAUI
+    </releaseNotes>
     <copyright>Copyright 2017-2023 Auth0, Inc.</copyright>
     <tags>Auth0 OIDC MAUI</tags>
+    <readme>README.md</readme>
     <dependencies>
       <group targetFramework="net6.0-android29.0">
         <dependency id="Auth0.OidcClient.Core" version="3.4.1" />
@@ -46,5 +50,6 @@
     <file src="..\src\Auth0.OidcClient.MAUI\bin\Release\net6.0-windows10.0.19041.0\Auth0.OidcClient.xml" target="lib\net6.0-windows10.0.19041" />
     <file src="..\src\Auth0.OidcClient.MAUI\bin\Release\net6.0-windows10.0.19041.0\Auth0.OidcClient.MAUI.Platforms.Windows.dll" target="lib\net6.0-windows10.0.19041" />
     <file src="..\build\Auth0Icon.png" />
+    <file src="..\src\Auth0.OidcClient.MAUI\README.md" />
   </files>
 </package>
