@@ -13,9 +13,7 @@ permissions:
 
 jobs:
   publish-nuget:
-    needs: configure
-
-    name: Publish to NPM
+    name: Publish to NuGet
     runs-on: windows-latest
     environment: 'release'
 
