@@ -12,7 +12,7 @@
     <description>Auth0 OIDC Client for MAUI apps</description>
     <releaseNotes>
     Version 1.0.0-beta.0
-      - Initial release to support MAUI
+      - Initial beta release for adding support for MAUI on Android, iOS, macOS, and Windows.
     </releaseNotes>
     <copyright>Copyright 2017-2023 Auth0, Inc.</copyright>
     <tags>Auth0 OIDC MAUI</tags>
