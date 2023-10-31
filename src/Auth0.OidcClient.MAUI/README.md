@@ -48,8 +48,6 @@ The above activity will ensure the application can handle the `myapp://callback`
 
 ### Windows
 
-> ℹ️ Even though the entire MAUI SDK is beta, the Windows implementation specifically is highly experimental and has not been tested from a security perspective yet.
-
 To make sure it can properly reactivate your application after being redirected back go Auth0, you need to do two things:
 
 - Add the corresponding protocol to the `Package.appxmanifest`. In this case, this is set to `myapp`, but you can change this to whatever you like (ensure to update all relevant Auth0 URLs as well).
