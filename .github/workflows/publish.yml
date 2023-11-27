@@ -24,6 +24,12 @@ jobs:
           fetch-depth: 0
           ref: ${{ github.event.inputs.branch }}
 
+      - name: Install Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '11'
+
       - name: Install .NET
         uses: actions/setup-dotnet@v3
 
