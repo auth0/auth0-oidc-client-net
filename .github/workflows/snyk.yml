@@ -41,10 +41,14 @@ jobs:
         with:
           ref: ${{ github.event.pull_request.merge_commit_sha || github.ref }}
 
+      - name: Install Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '11'
+
       - name: Install .NET
         uses: actions/setup-dotnet@v3
-        with:
-          dotnet-version: 6.x
 
       - name: Install .NET Android and iOS workload
         run: dotnet workload install android ios
