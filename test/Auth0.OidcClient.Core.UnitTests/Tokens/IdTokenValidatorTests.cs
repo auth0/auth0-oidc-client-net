@@ -72,14 +72,6 @@ namespace Auth0.OidcClient.Core.UnitTests.Tokens
         }
 
         [Fact]
-        public async void DoesNotValidateSignatureWhenSignedWithHS256()
-        {
-            var token = "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3Rva2Vucy10ZXN0LmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHwxMjM0NTY3ODkiLCJhdWQiOlsidG9rZW5zLXRlc3QtMTIzIiwiZXh0ZXJuYWwtdGVzdC05OTkiXSwiZXhwIjoxNTY4MTgwODk0LjIyNCwiaWF0IjoxNTY4MDA4MDk0LjIyNCwibm9uY2UiOiJhMWIyYzNkNGU1IiwiYXpwIjoidG9rZW5zLXRlc3QtMTIzIiwiYXV0aF90aW1lIjoxNTY4MDk0NDk0LjIyNH0.D5ZbbKddQMnJMLkuV76ALdvuvAShPxLVuKNvjBPn618";
-
-            await ValidateToken(token);
-        }
-
-        [Fact]
         public async void SucceedsWhenSignatureIsValid()
         {
             var token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1qQXlNamczTWpFMVF6WXhNamhGUkVKR09FRkVSRGMzTlRoRU9EWTNRak13UVRSR056UkdRUSJ9.eyJuaWNrbmFtZSI6ImRhbWllbmcrdGVzdDQyIiwibmFtZSI6ImRhbWllbmcrdGVzdDQyQGdtYWlsLmNvbSIsInBpY3R1cmUiOiJodHRwczovL3MuZ3JhdmF0YXIuY29tL2F2YXRhci81MzFiMDJkYTllOWVjNzg3ZDBlMWE1NzA1YzQ0YzU2Nj9zPTQ4MCZyPXBnJmQ9aHR0cHMlM0ElMkYlMkZjZG4uYXV0aDAuY29tJTJGYXZhdGFycyUyRmRhLnBuZyIsInVwZGF0ZWRfYXQiOiIyMDE5LTExLTAxVDE3OjQ0OjE2LjY5NVoiLCJlbWFpbCI6ImRhbWllbmcrdGVzdDQyQGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwiaXNzIjoiaHR0cHM6Ly9hdXRoMC1kb3RuZXQtaW50ZWdyYXRpb24tdGVzdHMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDVkYTY0NTNjMTIyZmI2MGE5MjRlOTI2MSIsImF1ZCI6InFtc3M5QTY2c3RQV1RPWGpSNlgxT2VBMERMYWRvTlAyIiwiaWF0IjoxNTcyNjMwMjU2LCJleHAiOjE1NzI2NjYyNTYsIm5vbmNlIjoiU09ySE9hdTlxMGl0eDRpVEZfaVgydyJ9.NomT02whkH42ISpcd_JvG4ZvQQhzPKfoWCwcgrhyLeWmnmHTo704WtsnfCqR72uw26D-ZGA5n2Yu4Jdcv2A8_leGEQm3p45-ramIDwWUu2J30m_op_5I4wFvgpbRrWSrD1_3qK1GrDnrdv8psGL8VgCf3pLLDbqbkzDmtE6OtEfDp2hEFwXs9YntREXu5Z-ufFFLz9VU5uyRg7JA95YGQNIRhzMFoUNKZAO19nrBq3HKc_iR_W9g9Y3iLPLgVVazq6zHjn3cXNKpr7JN6MUKqIB-YYJ1KDEvmaMO60xs2DAhhnkUN1OhXBLTgQ9xbCJeaxE7N48YMxPAu3HHT-rhZg";
@@ -365,8 +357,11 @@ namespace Auth0.OidcClient.Core.UnitTests.Tokens
         [Fact]
         public async void DoesNotThrowWhenOrgIdAvailableButNotARequirement()
         {
-            var token = "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3Rva2Vucy10ZXN0LmF1dGgwLmNvbS8iLCJhdWQiOiJ0b2tlbnMtdGVzdC0xMjMiLCJzdWIiOiJhdXRoMHwxMjM0NTY3ODkiLCJleHAiOjE1NjgxODA4OTQuMjI0LCJpYXQiOjE1NjgwMDgwOTQuMjI0LCJub25jZSI6ImExYjJjM2Q0ZTUiLCJhenAiOiJ0b2tlbnMtdGVzdC0xMjMiLCJhdXRoX3RpbWUiOjE1NjgwOTQ0OTQuMjI0LCJvcmdfaWQiOiIxMjMifQ.AsGzG0MWXzd4v-XmIN_7Elgd527jOARv7ChDECH9qUw";
+            var key = new RsaSecurityKey(new RSACryptoServiceProvider(2048));
+            var tokenFactory = new JwtTokenFactory(key, SecurityAlgorithms.RsaSha256);
 
+            var token = tokenFactory.GenerateToken("https://tokens-test.auth0.com/", "tokens-test-123", "test_sub", new List<Claim> { new Claim(JwtRegisteredClaimNames.Nonce, "a1b2c3d4e5"), new Claim("org_id", "org_123") });
+            
             await ValidateToken(token);
         }
 

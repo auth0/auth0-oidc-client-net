@@ -39,10 +39,9 @@ namespace Auth0.OidcClient.Tokens
             if (string.IsNullOrWhiteSpace(rawIDToken))
                 throw new IdTokenValidationException("ID token is required but missing.");
 
-            var token = DecodeToken(rawIDToken);
+            var token = DecodeToken(rawIDToken); 
             
-            if (signatureVerifier != null)
-                (await assymetricSignatureVerifier.ForJwks(required.Issuer)).VerifySignature(rawIDToken);
+            (signatureVerifier ?? await assymetricSignatureVerifier.ForJwks(required.Issuer)).VerifySignature(rawIDToken);
 
             AssertTokenClaimsMeetRequirements(required, token, pointInTime ?? DateTime.Now);
         }
