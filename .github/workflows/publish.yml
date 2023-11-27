@@ -26,8 +26,6 @@ jobs:
 
       - name: Install .NET
         uses: actions/setup-dotnet@v3
-        with:
-          dotnet-version: 6.x
 
       - name: Install .NET Android and iOS workload
         run: dotnet workload install android ios
