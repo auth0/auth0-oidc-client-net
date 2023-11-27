@@ -40,11 +40,9 @@ namespace Auth0.OidcClient.Tokens
                 throw new IdTokenValidationException("ID token is required but missing.");
 
             var token = DecodeToken(rawIDToken);
-
-            // For now we want to support HS256 + ClientSecret as we just had a major release.
-            // TODO: In the next major (v4.0) we should remove this condition as well as Auth0ClientOptions.ClientSecret
-            if (token.SignatureAlgorithm != "HS256")
-                (signatureVerifier ?? await assymetricSignatureVerifier.ForJwks(required.Issuer)).VerifySignature(rawIDToken);
+            
+            if (signatureVerifier != null)
+                (await assymetricSignatureVerifier.ForJwks(required.Issuer)).VerifySignature(rawIDToken);
 
             AssertTokenClaimsMeetRequirements(required, token, pointInTime ?? DateTime.Now);
         }
