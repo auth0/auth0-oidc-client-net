@@ -38,7 +38,7 @@ namespace Auth0.OidcClient.Tokens
         {
             if (string.IsNullOrWhiteSpace(rawIDToken))
                 throw new IdTokenValidationException("ID token is required but missing.");
-            
+
             var token = DecodeToken(rawIDToken);
 
             // Signature Verification is optional because the token endpoint is over HTTPS.

@@ -78,7 +78,7 @@ namespace Auth0.OidcClient.Core.UnitTests.Tokens
 
             await ValidateToken(token);
         }
-        
+
         [Fact]
         public async void SucceedsWhenSignatureIsValid()
         {
@@ -366,7 +366,7 @@ namespace Auth0.OidcClient.Core.UnitTests.Tokens
         public async void DoesNotThrowWhenOrgIdAvailableButNotARequirement()
         {
             var token = "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3Rva2Vucy10ZXN0LmF1dGgwLmNvbS8iLCJhdWQiOiJ0b2tlbnMtdGVzdC0xMjMiLCJzdWIiOiJhdXRoMHwxMjM0NTY3ODkiLCJleHAiOjE1NjgxODA4OTQuMjI0LCJpYXQiOjE1NjgwMDgwOTQuMjI0LCJub25jZSI6ImExYjJjM2Q0ZTUiLCJhenAiOiJ0b2tlbnMtdGVzdC0xMjMiLCJhdXRoX3RpbWUiOjE1NjgwOTQ0OTQuMjI0LCJvcmdfaWQiOiIxMjMifQ.AsGzG0MWXzd4v-XmIN_7Elgd527jOARv7ChDECH9qUw";
-            
+
             await ValidateToken(token);
         }
 
