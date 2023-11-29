@@ -38,10 +38,13 @@ namespace Auth0.OidcClient.Tokens
         {
             if (string.IsNullOrWhiteSpace(rawIDToken))
                 throw new IdTokenValidationException("ID token is required but missing.");
-
-            var token = DecodeToken(rawIDToken); 
             
-            (signatureVerifier ?? await assymetricSignatureVerifier.ForJwks(required.Issuer)).VerifySignature(rawIDToken);
+            var token = DecodeToken(rawIDToken);
+
+            // Signature Verification is optional because the token endpoint is over HTTPS.
+            // As we allow HS256 signed Id token, but we do not have a Client Secret we skip signature verification for HS256.
+            if (token.SignatureAlgorithm != "HS256")
+                (signatureVerifier ?? await assymetricSignatureVerifier.ForJwks(required.Issuer)).VerifySignature(rawIDToken);
 
             AssertTokenClaimsMeetRequirements(required, token, pointInTime ?? DateTime.Now);
         }
