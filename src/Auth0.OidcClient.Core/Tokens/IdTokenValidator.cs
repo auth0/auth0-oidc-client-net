@@ -41,8 +41,8 @@ namespace Auth0.OidcClient.Tokens
 
             var token = DecodeToken(rawIDToken);
 
-            // For now we want to support HS256 + ClientSecret as we just had a major release.
-            // TODO: In the next major (v4.0) we should remove this condition as well as Auth0ClientOptions.ClientSecret
+            // Signature Verification is optional because the token endpoint is over HTTPS.
+            // As we allow HS256 signed Id token, but we do not have a Client Secret we skip signature verification for HS256.
             if (token.SignatureAlgorithm != "HS256")
                 (signatureVerifier ?? await assymetricSignatureVerifier.ForJwks(required.Issuer)).VerifySignature(rawIDToken);
 
