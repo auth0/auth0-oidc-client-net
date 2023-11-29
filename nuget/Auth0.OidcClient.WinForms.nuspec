@@ -120,11 +120,11 @@
     <dependencies>
       <group targetFramework="net462">
         <dependency id="Auth0.OidcClient.Core" version="3.4.1" />
-        <dependency id="Microsoft.Toolkit.Forms.UI.Controls.WebView" version="6.1.1"/>
+        <dependency id="Microsoft.Web.WebView2" version="1.0.1823.32"/>
       </group>
       <group targetFramework="netcoreapp3.1">
         <dependency id="Auth0.OidcClient.Core" version="3.4.1" />
-        <dependency id="Microsoft.Toolkit.Forms.UI.Controls.WebView" version="6.1.1"/>
+        <dependency id="Microsoft.Web.WebView2" version="1.0.1823.32"/>
       </group>
       <group targetFramework="net6.0-windows7.0">
         <dependency id="Auth0.OidcClient.Core" version="3.4.1" />
