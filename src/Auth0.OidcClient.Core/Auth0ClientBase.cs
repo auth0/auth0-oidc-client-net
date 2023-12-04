@@ -170,11 +170,6 @@ namespace Auth0.OidcClient
                 }
             };
 
-#pragma warning disable CS0618 // ClientSecret will be removed in a future update.
-            if (!String.IsNullOrWhiteSpace(oidcClientOptions.ClientSecret))
-                oidcClientOptions.ClientSecret = options.ClientSecret;
-#pragma warning restore CS0618
-
             if (options.RefreshTokenMessageHandler != null)
                 oidcClientOptions.RefreshTokenInnerHttpHandler = options.RefreshTokenMessageHandler;
 
