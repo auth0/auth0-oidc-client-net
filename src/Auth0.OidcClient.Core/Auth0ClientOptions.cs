@@ -22,13 +22,6 @@ namespace Auth0.OidcClient
         public string ClientId { get; set; }
 
         /// <summary>
-        /// Your Auth0 Client Secret.
-        /// </summary>
-        [Obsolete("Client Secrets should not be used in non-confidential clients such as native desktop and mobile apps. " +
-            "This property will be removed in a future release.")]
-        public string ClientSecret { get; set; }
-
-        /// <summary>
         /// Your Auth0 tenant domain.
         /// </summary>
         /// <remarks>
