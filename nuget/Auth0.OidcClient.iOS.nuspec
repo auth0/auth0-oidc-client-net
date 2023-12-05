@@ -3,7 +3,7 @@
 <package>
   <metadata>
     <id>Auth0.OidcClient.iOS</id>
-    <version>3.6.0</version>
+    <version>4.0.0</version>
     <authors>Auth0</authors>
     <owners>Auth0</owners>
     <license type="expression">Apache-2.0</license>
@@ -12,6 +12,9 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Auth0 OIDC Client for Xamarin iOS apps</description>
     <releaseNotes>
+    Version 4.0.0
+      - Remove support for Client Secret
+
     Version 3.6.0
       - Support .NET6 and above
 
@@ -110,7 +113,7 @@
     <tags>Auth0 OIDC iOS Xamarin</tags>
     <dependencies>
       <group targetFramework="Xamarin.iOS10">
-        <dependency id="Auth0.OidcClient.Core" version="3.4.1" />
+        <dependency id="Auth0.OidcClient.Core" version="4.0.0" />
       </group>
     </dependencies>
   </metadata>

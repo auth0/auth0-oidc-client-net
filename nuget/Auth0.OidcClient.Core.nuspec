@@ -3,7 +3,7 @@
 <package>
   <metadata>
     <id>Auth0.OidcClient.Core</id>
-    <version>3.4.1</version>
+    <version>4.0.0</version>
     <authors>Auth0</authors>
     <owners>Auth0</owners>
     <license type="expression">Apache-2.0</license>
@@ -12,6 +12,9 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Auth0 OIDC Client for native apps</description>
     <releaseNotes>
+    Version 4.0.0
+      - Remove support for Client Secret
+
     Version 3.4.1
       - Do not lowercase org_name claim
 
