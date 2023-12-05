@@ -13,7 +13,7 @@
     <description>Auth0 OIDC Client for WPF apps</description>
     <releaseNotes>
     Version 4.0.0
-      - Remove support for Client Secret and HS256
+      - Remove support for Client Secret
       - Drop support for WebView for WPF and Winforms and default to WebView2
 
     Version 3.5.0

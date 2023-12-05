@@ -13,7 +13,7 @@
     <description>Auth0 OIDC Client for Xamarin AndroidX apps</description>
     <releaseNotes>
     Version 4.0.0
-      - Remove support for Client Secret and HS256
+      - Remove support for Client Secret
 
     Version 3.5.0
       - Set Android Target Framework Version to v11

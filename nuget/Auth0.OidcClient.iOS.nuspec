@@ -13,7 +13,7 @@
     <description>Auth0 OIDC Client for Xamarin iOS apps</description>
     <releaseNotes>
     Version 4.0.0
-      - Remove support for Client Secret and HS256
+      - Remove support for Client Secret
 
     Version 3.6.0
       - Support .NET6 and above

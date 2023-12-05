@@ -13,7 +13,7 @@
     <description>Auth0 OIDC Client for Universal Windows Platform (UWP) apps</description>
     <releaseNotes>
     Version 4.0.0
-      - Remove support for Client Secret and HS256
+      - Remove support for Client Secret
 
     Version 3.4.1
       - Do not lowercase org_name claim
