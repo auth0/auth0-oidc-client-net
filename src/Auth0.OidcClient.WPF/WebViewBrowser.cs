@@ -1,9 +1,5 @@
 ﻿using IdentityModel.OidcClient.Browser;
-#if NET6_0
-using WebViewCompatible = Microsoft.Web.WebView2.Wpf.WebView2;
-#else
-using Microsoft.Toolkit.Wpf.UI.Controls;
-#endif
+using Microsoft.Web.WebView2.Wpf;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
@@ -54,16 +50,12 @@ namespace Auth0.OidcClient
 
             var window = _windowFactory();
             #pragma warning disable 618
-            var webView = new WebViewCompatible();
+            var webView = new WebView2();
             window.Content = webView;
 
             webView.NavigationStarting += (sender, e) =>
             {
-#if NET6_0
                 if (e.Uri.StartsWith(options.EndUrl))
-#else
-                if (e.Uri.AbsoluteUri.StartsWith(options.EndUrl))
-#endif
                 {
                     tcs.SetResult(new BrowserResult { ResultType = BrowserResultType.Success, Response = e.Uri.ToString() });
                     if (_shouldCloseWindow)
@@ -82,12 +74,8 @@ namespace Auth0.OidcClient
 
             window.Show();
 
-#if NET6_0
             await webView.EnsureCoreWebView2Async();
             webView.CoreWebView2.Navigate(options.StartUrl);
-#else
-            webView.Navigate(options.StartUrl);
-#endif
 
             return await tcs.Task;
         }
