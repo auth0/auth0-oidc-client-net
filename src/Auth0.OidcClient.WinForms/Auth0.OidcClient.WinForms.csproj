@@ -31,9 +31,7 @@
 		<When Condition="'$(TargetFramework)'!='net6.0-windows'">
 			<ItemGroup>
 				<PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
-				<PackageReference Include="Microsoft.Toolkit.Forms.UI.Controls.WebView">
-					<Version>6.1.2</Version>
-				</PackageReference>
+				<PackageReference Include="Microsoft.Web.WebView2" Version="1.0.1823.32" />
 			</ItemGroup>
 		</When>
 		<When Condition="'$(TargetFramework)'=='net6.0-windows'">
