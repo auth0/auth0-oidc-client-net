@@ -1,19 +1,17 @@
-name: Publish Release
+name: Generate API docs
 
 on:
   workflow_dispatch:
-    inputs:
-      branch:
-        description: The branch to release from
-        required: true
-        default: master
+
+  push:
+    branches: ["fix/api-docs"]
 
 permissions:
   contents: read
 
 jobs:
-  publish-nuget:
-    name: Publish to NuGet
+  generate-docs:
+    name: Generate API docs
     runs-on: windows-latest
     environment: 'release'
 
@@ -48,25 +46,14 @@ jobs:
       - name: Build
         run: msbuild Auth0.OidcClient.All.sln -t:rebuild -verbosity:diag -property:Configuration=Release
 
-      - name: NuGet pack
-        run: |
-          nuget pack nuget/Auth0.OidcClient.Android.nuspec
-          nuget pack nuget/Auth0.OidcClient.AndroidX.nuspec
-          nuget pack nuget/Auth0.OidcClient.Core.nuspec
-          nuget pack nuget/Auth0.OidcClient.iOS.nuspec
-          nuget pack nuget/Auth0.OidcClient.UWP.nuspec
-          nuget pack nuget/Auth0.OidcClient.WinForms.nuspec
-          nuget pack nuget/Auth0.OidcClient.WPF.nuspec
+      - name: Install DocFX
+        run: dotnet tool install -g docfx
+      
+      - name: Build docs
+        run: ./tools/build-docs.sh
+        shell: bash
 
       - uses: actions/upload-artifact@v3
         with:
-          name: drop
-          path: '**/*.nupkg'
-
-      - name: Publish release to NuGet
-        run: nuget push **\*.nupkg -ApiKey ${{ env.NUGET_API_KEY }} -Source https://api.nuget.org/v3/index.json -SkipDuplicate -NonInteractive
-        env:
-          NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
-
-
-
+          name: docs
+          path: docs

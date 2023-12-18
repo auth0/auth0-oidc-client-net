@@ -7,7 +7,7 @@
               "bin/Release/**/Auth0.OidcClient.dll",
               "bin/Release/**/Auth0.OidcClient.Core.dll"
             ],
-            "cwd": "../"
+            "src": "../"
           }
         ],
         "dest": "api",
@@ -26,7 +26,7 @@
               "bin/Release/**/mscorlib.dll",
               "bin/Release/**/System*.dll"
             ],
-            "cwd": "../"
+            "src": "../"
           }
         ]
         
