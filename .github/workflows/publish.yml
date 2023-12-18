@@ -48,6 +48,18 @@ jobs:
       - name: Build
         run: msbuild Auth0.OidcClient.All.sln -t:rebuild -verbosity:diag -property:Configuration=Release
 
+      - name: Install DocFX
+        run: dotnet tool install -g docfx
+
+      - name: Build docs
+        run: ./tools/build-docs.sh
+        shell: bash
+
+      - uses: actions/upload-artifact@v3
+        with:
+          name: docs
+          path: docs
+          
       - name: NuGet pack
         run: |
           nuget pack nuget/Auth0.OidcClient.Android.nuspec
@@ -57,18 +69,6 @@ jobs:
           nuget pack nuget/Auth0.OidcClient.UWP.nuspec
           nuget pack nuget/Auth0.OidcClient.WinForms.nuspec
           nuget pack nuget/Auth0.OidcClient.WPF.nuspec
-
-      - name: Install DocFX
-        run: dotnet tool install -g docfx
-      
-      - name: Build docs
-        run: ./tools/build-docs.sh
-        shell: bash
-
-      - uses: actions/upload-artifact@v3
-        with:
-          name: docs
-          path: docs
 
       - uses: actions/upload-artifact@v3
         with:
@@ -80,5 +80,28 @@ jobs:
         env:
           NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
 
+  # Deploy job
+  deploy-docs:
+    # Add a dependency to publish-nuget job
+    needs: publish-nuget
+
+    # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
+    permissions:
+      pages: write      # to deploy to Pages
+      id-token: write   # to verify the deployment originates from an appropriate source
+
+    # Deploy to the github-pages environment
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    # Specify runner + deployment step
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v3 # or specific "vX.X.X" version tag for this action
+        with:
+          artifact_name: docs
 
 
