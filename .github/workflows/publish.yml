@@ -82,7 +82,7 @@ jobs:
 
   # Deploy job
   deploy-docs:
-    # Add a dependency to the build job
+    # Add a dependency to publish-nuget job
     needs: publish-nuget
 
     # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
