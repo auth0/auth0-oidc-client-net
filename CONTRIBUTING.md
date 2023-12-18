@@ -11,4 +11,4 @@ When contributing to this SDK, please:
 
 ### API documentation
 
-As the API documentation requires a windows environment, it is built and deployed by running the correspondig GitHub Actions Workflow.
+As the API documentation requires a windows environment, it is built and deployed automatically when running the release GitHub Actions workflow.
