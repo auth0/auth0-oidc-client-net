@@ -65,6 +65,7 @@ jobs:
           nuget pack nuget/Auth0.OidcClient.AndroidX.nuspec
           nuget pack nuget/Auth0.OidcClient.Core.nuspec
           nuget pack nuget/Auth0.OidcClient.iOS.nuspec
+          nuget pack nuget/Auth0.OidcClient.MAUI.nuspec
           nuget pack nuget/Auth0.OidcClient.UWP.nuspec
           nuget pack nuget/Auth0.OidcClient.WinForms.nuspec
           nuget pack nuget/Auth0.OidcClient.WPF.nuspec
