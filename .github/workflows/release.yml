@@ -1,0 +1,182 @@
+name: Create NuGet and GitHub Release
+
+on:
+  pull_request:
+    types:
+      - closed
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+### TODO: Replace instances of './.github/workflows/' w/ `auth0/dx-sdk-actions/workflows` and append `@latest` after the common `dx-sdk-actions` repo is made public.
+### TODO: Also remove `get-prerelease`, `get-release-notes`, `get-version`, `release-create`, and `tag-exists` actions from this repo's .github/actions folder once the repo is public.
+
+jobs:
+  build:
+    name: Build
+    runs-on: windows-latest
+    environment: 'release'
+    if: github.event_name == 'workflow_dispatch' || (github.event_name == 'pull_request' && github.event.pull_request.merged && startsWith(github.event.pull_request.head.ref, 'release/'))
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '11'
+
+      - name: Install .NET
+        uses: actions/setup-dotnet@v3
+
+      - name: Install .NET Android and iOS workload
+        run: dotnet workload install android ios
+
+      - name: Setup NuGet
+        uses: nuget/setup-nuget@v1
+
+      - name: Restore NuGet
+        run: nuget restore Auth0.OidcClient.All.sln
+
+      - name: Setup MSBuild
+        uses: microsoft/setup-msbuild@v1.1
+
+      - name: Build
+        run: msbuild Auth0.OidcClient.All.sln -t:rebuild -verbosity:diag -property:Configuration=Release
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: build
+          path: './src'
+          retention-days: 1
+          compression-level: 9
+
+  android:
+    name: Android
+    uses: ./.github/workflows/nuget-release.yml
+    needs: build
+    with:
+      tag-prefix: 'android-'
+      project-path: "src/Auth0.OidcClient.Android"
+    secrets:
+      nuget-token: ${{ secrets.NUGET_APIKEY }}
+      github-token: ${{ secrets.GITHUB_TOKEN }}
+
+  androidx:
+    name: AndroidX
+    uses: ./.github/workflows/nuget-release.yml
+    needs: build
+    with:
+      tag-prefix: 'androidx-'
+      project-path: "src/Auth0.OidcClient.AndroidX"
+    secrets:
+      nuget-token: ${{ secrets.NUGET_APIKEY }}
+      github-token: ${{ secrets.GITHUB_TOKEN }}
+
+  ios:
+    name: iOS
+    uses: ./.github/workflows/nuget-release.yml
+    needs: build
+    with:
+      tag-prefix: 'ios-'
+      project-path: "src/Auth0.OidcClient.iOS"
+    secrets:
+      nuget-token: ${{ secrets.NUGET_APIKEY }}
+      github-token: ${{ secrets.GITHUB_TOKEN }}
+
+  core:
+    name: Core
+    uses: ./.github/workflows/nuget-release.yml
+    needs: build
+    with:
+      tag-prefix: 'core-'
+      project-path: "src/Auth0.OidcClient.Core"
+    secrets:
+      nuget-token: ${{ secrets.NUGET_APIKEY }}
+      github-token: ${{ secrets.GITHUB_TOKEN }}
+
+  wpf:
+    name: WPF
+    uses: ./.github/workflows/nuget-release.yml
+    needs: build
+    with:
+      tag-prefix: 'wpf-'
+      project-path: "src/Auth0.OidcClient.WPF"
+    secrets:
+      nuget-token: ${{ secrets.NUGET_APIKEY }}
+      github-token: ${{ secrets.GITHUB_TOKEN }}
+    
+  winforms:
+    name: WinForms
+    uses: ./.github/workflows/nuget-release.yml
+    needs: build
+    with:
+      tag-prefix: 'winforms-'
+      project-path: "src/Auth0.OidcClient.WinForms"
+    secrets:
+      nuget-token: ${{ secrets.NUGET_APIKEY }}
+      github-token: ${{ secrets.GITHUB_TOKEN }}
+
+  uwp:
+    name: UWP
+    uses: ./.github/workflows/nuget-release.yml
+    needs: build
+    with:
+      tag-prefix: 'uwp-'
+      project-path: "src/Auth0.OidcClient.UWP"
+    secrets:
+      nuget-token: ${{ secrets.NUGET_APIKEY }}
+      github-token: ${{ secrets.GITHUB_TOKEN }}
+
+  generate-docs:
+    name: Generate API docs
+    if: github.event_name == 'workflow_dispatch' || (github.event_name == 'pull_request' && github.event.pull_request.merged && startsWith(github.event.pull_request.head.ref, 'release/'))
+    runs-on: windows-latest
+    environment: release
+    needs: build
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/download-artifact@v4
+        with:
+          path: './src'
+          name: build
+
+      - name: Install DocFX
+        run: dotnet tool install -g docfx
+
+      - name: Build docs
+        run: ./tools/build-docs.sh
+        shell: bash
+
+      - uses: actions/upload-pages-artifact@v2
+        with:
+          path: docs
+
+  deploy-docs:
+    needs: generate-docs
+    name: Deploy API docs
+    if: github.event_name == 'workflow_dispatch' || (github.event_name == 'pull_request' && github.event.pull_request.merged && startsWith(github.event.pull_request.head.ref, 'release/'))
+
+    permissions:
+      pages: write      # to deploy to Pages
+      id-token: write   # to verify the deployment originates from an appropriate source
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v3 # or specific "vX.X.X" version tag for this action

@@ -1,0 +1,31 @@
+name: Publish release to NuGet
+
+inputs:
+  dotnet-version:
+    required: true
+  nuget-token:
+    required: true
+  project-path:
+    required: true
+  nuget-directory:
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: ${{ inputs.dotnet-version }}
+    
+    - name: Create NuGet packages
+      shell: pwsh
+      run: dotnet pack "${{ inputs.project-path }}" --configuration Release --output ${{ inputs.nuget-directory }}
+
+    - name: Publish NuGet packages
+      shell: pwsh
+      run: dotnet nuget push "${{ inputs.project-path }}" --api-key "${{ inputs.nuget-token }}" --source https://api.nuget.org/v3/index.json --skip-duplicate
+        

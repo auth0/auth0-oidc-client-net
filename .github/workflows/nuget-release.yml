@@ -1,0 +1,46 @@
+name: Create NuGet and GitHub Release
+
+on:
+  workflow_call:
+    inputs:
+      dotnet-version:
+        default: '6.0.x'
+        type: string
+      project-path:
+        required: true
+        type: string
+      tag-prefix:
+        default: ''
+        type: string
+    secrets:
+      github-token:
+        required: true
+      nuget-token:
+        required: true
+
+jobs:
+  release:
+    if: github.event_name == 'workflow_dispatch' || (github.event_name == 'pull_request' && github.event.pull_request.merged && startsWith(github.event.pull_request.head.ref, 'release/'))
+    runs-on: windows-latest
+    environment: release
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - uses: actions/download-artifact@v4
+      with:
+        path: './src'
+        name: build
+
+    - id: release_ios
+      uses: ./.github/actions/nuget-release
+      with:
+        dotnet-version: ${{ inputs.dotnet-version }}
+        project-path: ${{ inputs.project-path }}
+        tag-prefix: ${{ inputs.tag-prefix }}
+        nuget-directory: ${{ github.workspace}}/nuget
+        nuget-token: ${{ secrets.nuget-token }}
+        github-token: ${{ secrets.github-token }}

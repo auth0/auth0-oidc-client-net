@@ -1,0 +1,70 @@
+name: Create NuGet and GitHub Release
+
+
+### TODO: Replace instances of './.github/actions/' w/ `auth0/dx-sdk-actions` and append `@latest` after the common `dx-sdk-actions` repo is made public.
+### DO NOT replace nuget-publish, but keep the local version as it is slightly different as opposed to the one in auth0/dx-sdk-actions to support the mono repository structure.
+
+inputs:
+  dotnet-version:
+    required: true
+  nuget-token:
+    required: true
+  github-token:
+    required: true
+  project-path:
+    required: true
+  nuget-directory:
+    required: true
+  tag-prefix:
+    default: ''
+
+runs:
+  using: composite
+  steps:
+    # Get the version from the branch name
+    - id: get_version
+      uses: ./.github/actions/get-version
+      with:
+        working-directory: ${{ inputs.project-path }}
+
+    # Get the prerelease flag from the branch name
+    - id: get_prerelease
+      uses: ./.github/actions/get-prerelease
+      with:
+        version: ${{ steps.get_version.outputs.version }}
+
+    # Get the release notes
+    - id: get_release_notes
+      uses: ./.github/actions/get-release-notes
+      with:
+        token: ${{ inputs.github-token }}
+        version: ${{ inputs.tag-prefix }}${{ steps.get_version.outputs.version }}
+        repo_owner: ${{ github.repository_owner }}
+        repo_name: ${{ github.event.repository.name }}
+
+    # Check if the tag already exists
+    - id: tag_exists
+      uses: ./.github/actions/tag-exists
+      with:
+        tag: ${{ inputs.tag-prefix }}${{ steps.get_version.outputs.version }}
+        token: ${{ inputs.github-token }}
+
+    # Publish the release to our package manager
+    - uses: ./.github/actions/nuget-publish
+      if: steps.tag_exists.outputs.exists == 'false'
+      with:
+        dotnet-version: ${{ inputs.dotnet-version }}
+        project-path: ${{ inputs.project-path }}
+        nuget-token: ${{ inputs.nuget-token }}
+        nuget-directory: ${{ inputs.nuget-directory }}
+
+    # Create a release for the tag
+    - uses: ./.github/actions/release-create
+      if: steps.tag_exists.outputs.exists == 'false'
+      with:
+        token: ${{ inputs.github-token }}
+        name: ${{ steps.get_version.outputs.version }}
+        body: ${{ steps.get_release_notes.outputs.release-notes }}
+        tag: ${{ inputs.tag-prefix }}${{ steps.get_version.outputs.version }}
+        commit: ${{ github.sha }}
+        prerelease: ${{ steps.get_prerelease.outputs.prerelease }}
