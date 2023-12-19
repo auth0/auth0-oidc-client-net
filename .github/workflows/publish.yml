@@ -55,9 +55,8 @@ jobs:
         run: ./tools/build-docs.sh
         shell: bash
 
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-pages-artifact@v2
         with:
-          name: docs
           path: docs
           
       - name: NuGet pack
@@ -101,7 +100,5 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v3 # or specific "vX.X.X" version tag for this action
-        with:
-          artifact_name: docs
 
 
