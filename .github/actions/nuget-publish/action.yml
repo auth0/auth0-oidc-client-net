@@ -27,10 +27,6 @@ runs:
       shell: pwsh
       run: nuget pack ${{ inputs.nuspec-file }} -OutputDirectory ${{ inputs.nuget-directory }}
 
-    - name: Create NuGet packages
-      shell: bash
-      run: ls ${{ inputs.nuget-directory }}
-
     - name: Publish NuGet packages
       shell: pwsh
       run: |
