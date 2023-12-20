@@ -12,6 +12,9 @@ on:
       tag-prefix:
         default: ''
         type: string
+      nuspec-file:
+        type: string
+        required: true
     secrets:
       github-token:
         required: true
@@ -41,6 +44,7 @@ jobs:
         dotnet-version: ${{ inputs.dotnet-version }}
         project-path: ${{ inputs.project-path }}
         tag-prefix: ${{ inputs.tag-prefix }}
-        nuget-directory: ${{ github.workspace}}/nuget
+        nuget-directory: ${{ inputs.project-path }}/nuget
         nuget-token: ${{ secrets.nuget-token }}
         github-token: ${{ secrets.github-token }}
+        nuspec-file: ${{ inputs.nuspec-file }}

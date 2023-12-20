@@ -9,23 +9,32 @@ inputs:
     required: true
   nuget-directory:
     required: true
+  nuspec-file:
+    required: true
 
 runs:
   using: composite
   steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
-    
     - name: Setup .NET
       uses: actions/setup-dotnet@v3
       with:
         dotnet-version: ${{ inputs.dotnet-version }}
+
+    - name: Setup NuGet
+      uses: nuget/setup-nuget@v1
     
     - name: Create NuGet packages
       shell: pwsh
-      run: dotnet pack "${{ inputs.project-path }}" --configuration Release --output ${{ inputs.nuget-directory }}
+      run: nuget pack ${{ inputs.nuspec-file }} -OutputDirectory ${{ inputs.nuget-directory }}
+
+    - name: Create NuGet packages
+      shell: bash
+      run: ls ${{ inputs.nuget-directory }}
 
     - name: Publish NuGet packages
       shell: pwsh
-      run: dotnet nuget push "${{ inputs.project-path }}" --api-key "${{ inputs.nuget-token }}" --source https://api.nuget.org/v3/index.json --skip-duplicate
+      run: |
+        foreach($file in (Get-ChildItem "${{ inputs.nuget-directory }}" -Recurse -Include *.nupkg)) {
+            nuget push $file -ApiKey "${{ inputs.nuget-token }}" -Source https://api.nuget.org/v3/index.json -SkipDuplicate -NonInteractive
+        }
         
