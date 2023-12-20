@@ -38,7 +38,7 @@ jobs:
         path: './src'
         name: build
 
-    - id: release_ios
+    - id: release
       uses: ./.github/actions/nuget-release
       with:
         dotnet-version: ${{ inputs.dotnet-version }}
