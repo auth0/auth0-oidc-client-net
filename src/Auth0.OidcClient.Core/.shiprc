@@ -1,0 +1,15 @@
+{
+  "packageLabel": "core",
+  "files": {
+    ".version": []
+  },
+  "prFilters": [
+    {
+      "type": "title",
+      "args": [
+        "^core:"
+      ],
+      "invert": true
+    }
+  ]
+}

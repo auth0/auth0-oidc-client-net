@@ -1,0 +1,15 @@
+{
+  "packageLabel": "ios",
+  "files": {
+    ".version": []
+  },
+  "prFilters": [
+    {
+      "type": "title",
+      "args": [
+        "^ios:"
+      ],
+      "invert": true
+    }
+  ]
+}

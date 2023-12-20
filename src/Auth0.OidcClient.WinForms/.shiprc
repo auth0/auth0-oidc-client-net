@@ -1,0 +1,15 @@
+{
+  "packageLabel": "winforms",
+  "files": {
+    ".version": []
+  },
+  "prFilters": [
+    {
+      "type": "title",
+      "args": [
+        "^winforms:"
+      ],
+      "invert": true
+    }
+  ]
+}

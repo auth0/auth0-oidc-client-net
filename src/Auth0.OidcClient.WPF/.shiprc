@@ -1,0 +1,15 @@
+{
+  "packageLabel": "wpf",
+  "files": {
+    ".version": []
+  },
+  "prFilters": [
+    {
+      "type": "title",
+      "args": [
+        "^wpf:"
+      ],
+      "invert": true
+    }
+  ]
+}
