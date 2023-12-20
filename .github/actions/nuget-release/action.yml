@@ -67,8 +67,7 @@ runs:
       with:
         token: ${{ inputs.github-token }}
         name: ${{ steps.get_version.outputs.version }}
-        # body: ${{ steps.get_release_notes.outputs.release-notes }}
-        body: ''
+        body: ${{ steps.get_release_notes.outputs.release-notes }}
         tag: ${{ inputs.tag-prefix }}${{ steps.get_version.outputs.version }}
         commit: ${{ github.sha }}
         prerelease: ${{ steps.get_prerelease.outputs.prerelease }}
