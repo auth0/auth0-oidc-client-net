@@ -133,6 +133,17 @@ jobs:
       nuget-token: ${{ secrets.NUGET_APIKEY }}
       github-token: ${{ secrets.GITHUB_TOKEN }}
 
+  maui:
+    name: MAUI
+    uses: ./.github/workflows/nuget-release.yml
+    needs: build
+    with:
+      tag-prefix: 'maui-'
+      project-path: "src/Auth0.OidcClient.MAUI"
+    secrets:
+      nuget-token: ${{ secrets.NUGET_APIKEY }}
+      github-token: ${{ secrets.GITHUB_TOKEN }}
+
   generate-docs:
     name: Generate API docs
     if: github.event_name == 'workflow_dispatch' || (github.event_name == 'pull_request' && github.event.pull_request.merged && startsWith(github.event.pull_request.head.ref, 'release/'))
