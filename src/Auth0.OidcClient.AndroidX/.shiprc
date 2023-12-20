@@ -1,0 +1,15 @@
+{
+  "packageLabel": "androidx",
+  "files": {
+    ".version": []
+  },
+  "prFilters": [
+    {
+      "type": "title",
+      "args": [
+        "^androidx:"
+      ],
+      "invert": true
+    }
+  ]
+}

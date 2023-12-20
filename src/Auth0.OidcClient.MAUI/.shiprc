@@ -1,0 +1,15 @@
+{
+  "packageLabel": "maui",
+  "files": {
+    ".version": []
+  },
+  "prFilters": [
+    {
+      "type": "title",
+      "args": [
+        "^maui:"
+      ],
+      "invert": true
+    }
+  ]
+}

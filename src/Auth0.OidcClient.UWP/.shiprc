@@ -1,0 +1,15 @@
+{
+  "packageLabel": "uwp",
+  "files": {
+    ".version": []
+  },
+  "prFilters": [
+    {
+      "type": "title",
+      "args": [
+        "^uwp:"
+      ],
+      "invert": true
+    }
+  ]
+}
