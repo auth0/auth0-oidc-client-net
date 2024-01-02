@@ -79,7 +79,7 @@ var auth0Client = new Auth0Client(new Auth0ClientOptions
 ```
 
 ## API reference
-Read [the full API reference](https://auth0.github.io/auth0-oidc-client-net/api/Auth0.OidcClient.html) to find out about the public API's this SDK exposes.
+Read [the full API reference](https://auth0.github.io/auth0-oidc-client-net) to find out about the public API's this SDK exposes.
 
 ## Feedback
 ### Contributing
