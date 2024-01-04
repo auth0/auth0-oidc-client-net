@@ -13,6 +13,7 @@ This library makes use of the [IdentityModel/IdentityModel.OidcClient](https://g
 
 ## Documentation
 
+- [MAUI Quickstart](https://auth0.com/docs/quickstart/native/maui) - our interactive guide for quickly adding login, logout and user information to a MAUI application using Auth0.
 - [UWP Quickstart](https://auth0.com/docs/quickstart/native/windows-uwp-csharp) - our interactive guide for quickly adding login, logout and user information to a UWP application using Auth0.
 - [WPF/WinForms Quickstart](https://auth0.com/docs/quickstart/native/wpf-winforms) - our interactive guide for quickly adding login, logout and user information to a WPF and WinForms application using Auth0.
 - [Xamarin Quickstart](https://auth0.com/docs/quickstart/native/xamarin) - our interactive guide for quickly adding login, logout and user information to a Xamarin application using Auth0.
@@ -41,6 +42,7 @@ Install-Package Auth0.OidcClient.WPF
 Install-Package Auth0.OidcClient.WinForms
 Install-Package Auth0.OidcClient.iOS
 Install-Package Auth0.OidcClient.AndroidX
+Install-Package Auth0.OidcClient.MAUI
 ```
 
 > *Note*: As `Auth0.OidcClient.Android` relies on [support libraries](https://developer.android.com/topic/libraries/support-library) which have been deprecated by Google since 2019, there is no way for `Auth0.OidcClient.Android` to ever work on .NET 6 and above. If you wish to integrate Auth0 in an Android application, use `Auth0.OidcClient.AndroidX` instead.
@@ -77,6 +79,8 @@ var auth0Client = new Auth0Client(new Auth0ClientOptions
     ClientId = "YOUR_AUTH0_CLIENT_ID"
 });
 ```
+
+> ℹ️ Note that MAUI needs more specific configuration, ensure to read [our instructions for MAUI](ster/src/Auth0.OidcClient.MAUI) when you are targetting MAUI.
 
 ## API reference
 Read [the full API reference](https://auth0.github.io/auth0-oidc-client-net) to find out about the public API's this SDK exposes.
