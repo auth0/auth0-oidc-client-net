@@ -7,7 +7,7 @@ Integrate Auth0 in a MAUI application targetting iOS, macOS or Android by using 
 The SDK can be installed through Nuget:
 
 ```sh
-Install-Package Auth0.OIdcClient.MAUI -IncludePrerelease
+Install-Package Auth0.OIdcClient.MAUI
 ```
 
 ## Configuring the SDK
