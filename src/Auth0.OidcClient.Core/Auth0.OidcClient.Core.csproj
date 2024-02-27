@@ -5,6 +5,7 @@
     <AssemblyVersion>3.5.1</AssemblyVersion>
     <FileVersion>3.5.1</FileVersion>
     <Version>3.5.1</Version>
+    <PackageVersion>$(OfficialBuildNumber)</PackageVersion>
     <Configurations>Release;Debug</Configurations>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">

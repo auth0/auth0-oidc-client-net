@@ -19,7 +19,7 @@
 		<AssemblyName>Auth0.OidcClient</AssemblyName>
 
 
-        <Product>Ramsey.Auth0.OidcClient</Product>
+        <Product>Ramsey.Auth0.OidcClient.MAUI</Product>
         <PackageId>$(Product)</PackageId>
         <OutputType>Library</OutputType>
         <PackageVersion>$(OfficialBuildNumber)</PackageVersion>
