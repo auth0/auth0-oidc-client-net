@@ -1,22 +1,35 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>net6.0;net6.0-android;net6.0-ios;net6.0-maccatalyst</TargetFrameworks>
-		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net6.0-windows10.0.19041.0</TargetFrameworks>
+		<TargetFrameworks>net8.0;net8.0-android;net8.0-ios;net8.0-maccatalyst</TargetFrameworks>
+<!--		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net8.0-windows10.0.19041.0</TargetFrameworks>-->
 		<UseMaui>true</UseMaui>
 		<SingleProject>true</SingleProject>
 		<ImplicitUsings>enable</ImplicitUsings>
 
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">13.0</SupportedOSPlatformVersion>
-		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">14.0</SupportedOSPlatformVersion>
+<!--		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">14.0</SupportedOSPlatformVersion>-->
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">29.0</SupportedOSPlatformVersion>
 
-		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
-		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
+<!--		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>-->
+<!--		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>-->
 
 		
 		<RootNamespace>Auth0.OidcClient</RootNamespace>
 		<AssemblyName>Auth0.OidcClient</AssemblyName>
+
+
+        <Product>Ramsey.Auth0.OidcClient</Product>
+        <PackageId>$(Product)</PackageId>
+        <OutputType>Library</OutputType>
+        <PackageVersion>$(OfficialBuildNumber)</PackageVersion>
+        <Description>Fork of the Auth0.Oidc.Client package, rebuilt to support dotnet 8</Description>
+        <Authors>Auth0; forked by Matt Dreiss and Aaron Eversole</Authors>
+        <Company>Ramsey Solutions</Company>
+        <Copyright>Copyright Ramsey Solutions. All rights reserved.</Copyright>
+        <RepositoryType>GitHub</RepositoryType>
+        <RepositoryUrl>https://github.com/lampo/auth0-oidc-client-net</RepositoryUrl>
+        <PackageTags>mobile, maui, auth0, oidc</PackageTags>
 
 	</PropertyGroup>
 	<PropertyGroup Condition=" '$(Configuration)'=='Debug' ">
@@ -28,9 +41,9 @@
 	<ItemGroup>
 	  <PackageReference Include="IdentityModel.OidcClient" Version="5.2.1" />
 	</ItemGroup>
-	<ItemGroup Condition="'$(TargetFramework)' == 'net6.0-windows10.0.19041.0'">
-	  <ProjectReference Include="..\Auth0.OidcClient.MAUI.Platforms.Windows\Auth0.OidcClient.MAUI.Platforms.Windows.csproj" />
-	</ItemGroup>
+<!--	<ItemGroup Condition="'$(TargetFramework)' == 'net8.0-windows10.0.19041.0'">-->
+<!--	  <ProjectReference Include="..\Auth0.OidcClient.MAUI.Platforms.Windows\Auth0.OidcClient.MAUI.Platforms.Windows.csproj" />-->
+<!--	</ItemGroup>-->
 	<ItemGroup>
 	  <ProjectReference Include="..\Auth0.OidcClient.Core\Auth0.OidcClient.Core.csproj" />
 	</ItemGroup>

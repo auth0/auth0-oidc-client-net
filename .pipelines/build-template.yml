@@ -1,0 +1,53 @@
+jobs:
+- job: 'BuildAndPublishJob'
+
+  pool:
+    vmImage: 'windows-latest'
+
+  workspace:
+    clean: all
+
+  steps:
+
+  # Restore NuGet Packages.
+  - task: DotNetCoreCLI@2
+    displayName: 'Restore NuGet packages'
+    inputs:    
+      command: 'restore'
+      projects: 'Auth0.OidcClient.All.sln'
+      verbosityRestore: 'Normal'
+
+  # Build the solution.
+  - task: DotNetCoreCLI@2
+    displayName: 'Build Solution'
+    inputs:
+      command: 'build'
+      projects: 'Auth0.OidcClient.All.sln'
+      arguments: '--configuration Release --nologo --no-restore -p:OfficialBuildNumber=$(Build.BuildNumber)'
+
+  # Run the unit tests.
+  #- task: DotNetCoreCLI@2
+  #  displayName: 'Run unit tests'
+  #  inputs:
+  #    command: 'test'
+  #    projects: 'RamseyDesignSystem.sln'
+  #    arguments: '--configuration Release --no-build'
+
+  # Build the NuGet package.
+  - task: DotNetCoreCLI@2
+    displayName: 'Build NuGet package'
+    inputs:
+      command: pack
+      nobuild: true
+      packagesToPack: 'src/**/*.csproj'
+      configuration: Release
+      buildProperties: 'OfficialBuildNumber=$(Build.BuildNumber)'
+      verbosityPack: Normal
+      packDirectory: '$(Build.ArtifactStagingDirectory)'
+
+  # Publish the NuGet package to the Azure Pipeline.
+  - task: PublishBuildArtifacts@1
+    inputs:
+      PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+      ArtifactName: 'nuget'
+      publishLocation: 'Container'

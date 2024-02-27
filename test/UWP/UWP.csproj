@@ -132,10 +132,6 @@
       <Project>{1f79db59-f3a8-45b7-972b-ecd15259d1c9}</Project>
       <Name>Auth0.OidcClient.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\src\Auth0.OidcClient.UWP\Auth0.OidcClient.UWP.csproj">
-      <Project>{5ffff5d6-d6df-4351-b58d-3311bd0671f7}</Project>
-      <Name>Auth0.OidcClient.UWP</Name>
-    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

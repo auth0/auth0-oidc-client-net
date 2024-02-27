@@ -1,0 +1,23 @@
+#
+# Pull Release Pipeline
+#
+# This pipeline gets run for all PRs into the master branch
+# ignoring all markdown (*.md) files. The artifacts produced
+# will all have the '-beta' version suffix.
+#
+name: '2.3.$(date:yyMM).$(date:dd)$(rev:rrr)-beta'
+
+resources:
+- repo: self
+
+trigger: none
+pr:
+  branches:
+    include:
+    - master
+  paths:
+    exclude:
+    - '**/*.md'
+
+jobs:
+- template: build-template.yml

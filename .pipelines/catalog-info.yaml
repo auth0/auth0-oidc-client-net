@@ -1,0 +1,9 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: auth0-oidc-client-net
+  annotations:
+    github.com/project-slug: lampo/auth0-oidc-client-net
+spec:
+  type: general
+  lifecycle: production

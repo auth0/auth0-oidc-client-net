@@ -1,0 +1,23 @@
+#
+# Continuous Integration Pipeline
+#
+# This pipeline gets run after all merges into the master branch
+# ignoring all markdown (*.md) files. The artifacts produced
+# will not have any version suffix.
+#
+name: '2.2.$(date:yyMM).$(date:dd)$(rev:rrr)'
+
+resources:
+- repo: self
+
+pr: none
+trigger:
+  branches:
+    include:
+    - master
+  paths:
+    exclude:
+    - '**/*.md'
+
+jobs:
+- template: build-template.yml
