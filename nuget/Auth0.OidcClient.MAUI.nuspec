@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>Auth0.OidcClient.MAUI</id>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <authors>Auth0</authors>
     <owners>Auth0</owners>
     <license type="expression">Apache-2.0</license>
@@ -11,6 +11,9 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Auth0 OIDC Client for MAUI apps</description>
     <releaseNotes>
+    Version 1.0.1
+      - Add net-6.0 target to NuGet package, to allow MAUI apps with unit tests (using .net-8 and above targets) to use this package.
+
     Version 1.0.0
       - Initial release for adding support for MAUI on Android, iOS, macOS, and Windows.
 
@@ -24,6 +27,10 @@
     <tags>Auth0 OIDC MAUI</tags>
     <readme>README.md</readme>
     <dependencies>
+      <group targetFramework="net6.0">
+        <dependency id="Auth0.OidcClient.Core" version="3.4.1" />
+        <dependency id="IdentityModel.OidcClient" version="5.2.1" />
+      </group>
       <group targetFramework="net6.0-android29.0">
         <dependency id="Auth0.OidcClient.Core" version="3.4.1" />
         <dependency id="IdentityModel.OidcClient" version="5.2.1" />
@@ -46,6 +53,8 @@
     </dependencies>
   </metadata>
   <files>
+    <file src="..\src\Auth0.OidcClient.MAUI\bin\Release\net6.0\Auth0.OidcClient.dll" target="lib\net6.0" />
+    <file src="..\src\Auth0.OidcClient.MAUI\bin\Release\net6.0\Auth0.OidcClient.xml" target="lib\net6.0" />
     <file src="..\src\Auth0.OidcClient.MAUI\bin\Release\net6.0-android\Auth0.OidcClient.dll" target="lib\net6.0-android29.0" />
     <file src="..\src\Auth0.OidcClient.MAUI\bin\Release\net6.0-android\Auth0.OidcClient.xml" target="lib\net6.0-android29.0" />
     <file src="..\src\Auth0.OidcClient.MAUI\bin\Release\net6.0-ios\Auth0.OidcClient.dll" target="lib\net6.0-ios13.0" />
