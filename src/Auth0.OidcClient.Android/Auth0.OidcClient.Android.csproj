@@ -12,7 +12,7 @@
     <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
     <DefineConstants>$(DefineConstants);</DefineConstants>    
     <LangVersion>default</LangVersion>
-    <TargetFrameworkVersion>v11.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v12.0</TargetFrameworkVersion>
   </PropertyGroup>
    <PropertyGroup Condition=" '$(Configuration)'=='Debug' ">
     <DebugType>portable</DebugType>
