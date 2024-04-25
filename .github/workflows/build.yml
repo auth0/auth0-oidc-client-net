@@ -24,9 +24,6 @@ jobs:
       - name: Install .NET Android and iOS workload
         run: dotnet workload install android ios maui
 
-      - name: Log
-        run: dotnet workload list
-
       - name: Setup NuGet
         uses: nuget/setup-nuget@v1
 
