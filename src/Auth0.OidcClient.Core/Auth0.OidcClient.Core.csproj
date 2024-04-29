@@ -2,9 +2,9 @@
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0</TargetFrameworks>
     <RootNamespace>Auth0.OidcClient</RootNamespace>
-    <AssemblyVersion>3.4.1</AssemblyVersion>
-    <FileVersion>3.4.1</FileVersion>
-    <Version>3.4.1</Version>
+    <AssemblyVersion>4.0.1</AssemblyVersion>
+    <FileVersion>4.0.1</FileVersion>
+    <Version>4.0.1</Version>
     <Configurations>Release;Debug</Configurations>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
