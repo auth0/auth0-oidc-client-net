@@ -24,6 +24,10 @@
     <tags>Auth0 OIDC MAUI</tags>
     <readme>README.md</readme>
     <dependencies>
+      <group targetFramework="net6.0">
+        <dependency id="Auth0.OidcClient.Core" version="3.4.1" />
+        <dependency id="IdentityModel.OidcClient" version="5.2.1" />
+      </group>
       <group targetFramework="net6.0-android29.0">
         <dependency id="Auth0.OidcClient.Core" version="3.4.1" />
         <dependency id="IdentityModel.OidcClient" version="5.2.1" />
@@ -46,6 +50,8 @@
     </dependencies>
   </metadata>
   <files>
+    <file src="..\src\Auth0.OidcClient.MAUI\bin\Release\net6.0\Auth0.OidcClient.dll" target="lib\net6.0" />
+    <file src="..\src\Auth0.OidcClient.MAUI\bin\Release\net6.0\Auth0.OidcClient.xml" target="lib\net6.0" />
     <file src="..\src\Auth0.OidcClient.MAUI\bin\Release\net6.0-android\Auth0.OidcClient.dll" target="lib\net6.0-android29.0" />
     <file src="..\src\Auth0.OidcClient.MAUI\bin\Release\net6.0-android\Auth0.OidcClient.xml" target="lib\net6.0-android29.0" />
     <file src="..\src\Auth0.OidcClient.MAUI\bin\Release\net6.0-ios\Auth0.OidcClient.dll" target="lib\net6.0-ios13.0" />
