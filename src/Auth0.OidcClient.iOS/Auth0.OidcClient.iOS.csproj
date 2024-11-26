@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Xamarin.Legacy.Sdk/0.2.0-alpha4">
   <PropertyGroup>
-    <TargetFrameworks>xamarin.ios10;net6.0-ios</TargetFrameworks>
+    <TargetFrameworks>xamarin.ios10;net8.0-ios</TargetFrameworks>
     <RootNamespace>Auth0.OidcClient</RootNamespace>
     <AssemblyName>Auth0.OidcClient</AssemblyName>
     <AssemblyTitle>Auth0.OidcClient.iOS</AssemblyTitle>
@@ -11,7 +11,7 @@
     <NeutralLanguage>en</NeutralLanguage>
     <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
     <DefineConstants>$(DefineConstants);</DefineConstants>    
-    <LangVersion>default</LangVersion>
+    <LangVersion>default</LangVersion>    
   </PropertyGroup>
    <PropertyGroup Condition=" '$(Configuration)'=='Debug' ">
     <DebugType>portable</DebugType>
