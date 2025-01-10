@@ -45,7 +45,15 @@ jobs:
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: '8.0.404'
-    
+
+      - name: Setup Mono
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y mono-complete
+
+      - name: Setup NuGet
+        uses: nuget/setup-nuget@v1
+
       - uses: actions/download-artifact@v4
         with:
           path: './src'
@@ -53,13 +61,13 @@ jobs:
 
       - name: Create NuGet packages
         shell: pwsh
-        run: |          
+        run: |
             nuget pack ${{ inputs.nuspec-file }} -OutputDirectory ${{ github.workspace }}/nuget
-    
+
       - name: Create tgz build artifact
         run: |
           tar -czvf ${{ github.workspace }}/${{ inputs.artifact-name }} ${{ github.workspace }}/nuget
-      
+
       - id: get_version
         uses: ./.github/actions/get-version
         with:
