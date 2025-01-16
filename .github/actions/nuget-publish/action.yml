@@ -23,11 +23,6 @@ runs:
     - name: Setup NuGet
       uses: nuget/setup-nuget@v1
 
-    - name: Setup Mono
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y mono-complete
-
     - name: Create NuGet packages
       shell: pwsh
       run: nuget pack ${{ inputs.nuspec-file }} -OutputDirectory ${{ inputs.nuget-directory }}
