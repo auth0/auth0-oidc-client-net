@@ -45,6 +45,9 @@ jobs:
         with:
           dotnet-version: '8.0.404'
 
+      - name: workload update version
+        run: dotnet workload update --version 8.0.404
+
       - name: Install .NET Android and iOS workload
         run: dotnet workload install android ios maui --version 8.0.404
 
