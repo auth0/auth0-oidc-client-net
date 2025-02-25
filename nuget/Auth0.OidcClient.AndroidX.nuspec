@@ -3,7 +3,7 @@
 <package>
   <metadata>
     <id>Auth0.OidcClient.AndroidX</id>
-    <version>4.1.0</version>
+    <version>4.2.0</version>
     <authors>Auth0</authors>
     <owners>Auth0</owners>
     <license type="expression">Apache-2.0</license>
@@ -12,6 +12,9 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Auth0 OIDC Client for Xamarin AndroidX apps</description>
     <releaseNotes>
+    Version 4.2.0
+      - Support .NET 9
+
     Version 4.1.0
       - Upgrade to .NET 8
       - Bump Auth0.OidcClient.Core to use v4.0.1
@@ -83,6 +86,8 @@
     <file src="..\src\Auth0.OidcClient.AndroidX\bin\Release\monoandroid12.0\Auth0.OidcClient.xml" target="lib\MonoAndroid12" />
     <file src="..\src\Auth0.OidcClient.AndroidX\bin\Release\net8.0-android\Auth0.OidcClient.dll" target="lib\net8.0-android33.0.95" />
     <file src="..\src\Auth0.OidcClient.AndroidX\bin\Release\net8.0-android\Auth0.OidcClient.xml" target="lib\net8.0-android33.0.95" />
+    <file src="..\src\Auth0.OidcClient.AndroidX\bin\Release\net9.0-android\Auth0.OidcClient.dll" target="lib\net9.0-android33.0.95" />
+    <file src="..\src\Auth0.OidcClient.AndroidX\bin\Release\net9.0-android\Auth0.OidcClient.xml" target="lib\net9.0-android33.0.95" />
     <file src="..\build\Auth0Icon.png" />
   </files>
 </package>

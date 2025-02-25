@@ -43,13 +43,13 @@ jobs:
       - name: Install .NET
         uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: '8.0.404'
+          dotnet-version: '9.0.200'
 
       - name: workload update version
-        run: dotnet workload update --version 8.0.404
+        run: dotnet workload update --version 9.0.200
 
       - name: Install .NET Android and iOS workload
-        run: dotnet workload install android ios maui --version 8.0.404
+        run: dotnet workload install android ios maui --version 9.0.200
 
       - name: Setup NuGet
         uses: nuget/setup-nuget@v1
