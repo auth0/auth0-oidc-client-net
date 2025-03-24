@@ -1,5 +1,5 @@
 # Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
-version: v1.13.5
+version: v1.25.0
 # ignores vulnerabilities until expiry date; change duration by modifying expiry date
 ignore:
   SNYK-DOTNET-SYSTEMNETHTTP-60046:
@@ -14,4 +14,94 @@ ignore:
     - '*':
         reason: We are not a server.
         expires: 2019-10-03T00:00:00.000Z
+  snyk:lic:nuget:xamarin.androidx.migration:Unknown:
+    - '*':
+        reason: Seems like a false alarm, valid license exists
+        expires: 2030-12-31T00:00:00.000Z
+        created: 2025-03-24T00:00:00.000Z
+  snyk:lic:nuget:runtime.win10-x86.microsoft.net.uwpcoreruntimesdk:Unknown:
+    - '*':
+        reason: Seems like a false alarm, valid license exists
+        expires: 2030-12-31T00:00:00.000Z
+        created: 2025-03-24T00:00:00.000Z
+  snyk:lic:nuget:runtime.win10-x86.microsoft.net.native.sharedlibrary:Unknown:
+    - '*':
+        reason: Seems like a false alarm, valid license exists
+        expires: 2030-12-31T00:00:00.000Z
+        created: 2025-03-24T00:00:00.000Z
+  snyk:lic:nuget:runtime.win10-x86.microsoft.net.native.compiler:Unknown:
+    - '*':
+        reason: Seems like a false alarm, valid license exists
+        expires: 2030-12-31T00:00:00.000Z
+        created: 2025-03-24T00:00:00.000Z
+  snyk:lic:nuget:runtime.win10-x64.microsoft.net.uwpcoreruntimesdk:Unknown:
+    - '*':
+        reason: Seems like a false alarm, valid license exists
+        expires: 2030-12-31T00:00:00.000Z
+        created: 2025-03-24T00:00:00.000Z
+  snyk:lic:nuget:runtime.win10-x64.microsoft.net.native.sharedlibrary:Unknown:
+    - '*':
+        reason: Seems like a false alarm, valid license exists
+        expires: 2030-12-31T00:00:00.000Z
+        created: 2025-03-24T00:00:00.000Z
+  snyk:lic:nuget:runtime.win10-x64.microsoft.net.native.compiler:Unknown:
+    - '*':
+        reason: Seems like a false alarm, valid license exists
+        expires: 2030-12-31T00:00:00.000Z
+        created: 2025-03-24T00:00:00.000Z
+  snyk:lic:nuget:runtime.win10-arm64.microsoft.net.native.compiler:Unknown:
+    - '*':
+        reason: Seems like a false alarm, valid license exists
+        expires: 2030-12-31T00:00:00.000Z
+        created: 2025-03-24T00:00:00.000Z
+  snyk:lic:nuget:runtime.win10-arm.microsoft.net.uwpcoreruntimesdk:Unknown:
+    - '*':
+        reason: Seems like a false alarm, valid license exists
+        expires: 2030-12-31T00:00:00.000Z
+        created: 2025-03-24T00:00:00.000Z
+  snyk:lic:nuget:runtime.win10-arm.microsoft.net.native.sharedlibrary:Unknown:
+    - '*':
+        reason: Seems like a false alarm, valid license exists
+        expires: 2030-12-31T00:00:00.000Z
+        created: 2025-03-24T00:00:00.000Z
+  snyk:lic:nuget:runtime.win10-arm.microsoft.net.native.compiler:Unknown:
+    - '*':
+        reason: Seems like a false alarm, valid license exists
+        expires: 2030-12-31T00:00:00.000Z
+        created: 2025-03-24T00:00:00.000Z
+  snyk:lic:nuget:microsoft.net.uwpcoreruntimesdk:Unknown:
+    - '*':
+        reason: Seems like a false alarm, valid license exists
+        expires: 2030-12-31T00:00:00.000Z
+        created: 2025-03-24T00:00:00.000Z
+  snyk:lic:nuget:microsoft.net.native.compiler:Unknown:
+    - '*':
+        reason: Seems like a false alarm, valid license exists
+        expires: 2030-12-31T00:00:00.000Z
+        created: 2025-03-24T00:00:00.000Z
+  snyk:lic:nuget:microsoft.netcore.universalwindowsplatform:Unknown:
+    - '*':
+        reason: Seems like a false alarm, valid license exists
+        expires: 2030-12-31T00:00:00.000Z
+        created: 2025-03-24T00:00:00.000Z
+  snyk:lic:nuget:runtime.win10-arm64.microsoft.net.native.sharedlibrary:Unknown:
+    - '*':
+        reason: Seems like a false alarm, valid license exists
+        expires: 2030-12-31T00:00:00.000Z
+        created: 2025-03-24T00:00:00.000Z
+  snyk:lic:nuget:microsoft.windowsappsdk:Unknown:
+    - '*':
+        reason: Seems like a false alarm, valid license exists
+        expires: 2030-12-31T00:00:00.000Z
+        created: 2025-03-24T00:00:00.000Z
+  snyk:lic:nuget:microsoft.windows.sdk.buildtools:Unknown:
+    - '*':
+        reason: Seems like a false alarm, valid license exists
+        expires: 2030-12-31T00:00:00.000Z
+        created: 2025-03-24T00:00:00.000Z
+  snyk:lic:nuget:microsoft.graphics.win2d:Unknown:
+    - '*':
+        reason: Seems like a false alarm, valid license exists
+        expires: 2030-12-31T00:00:00.000Z
+        created: 2025-03-24T00:00:00.000Z
 patch: {}
