@@ -3,7 +3,7 @@
 <package>
   <metadata>
     <id>Auth0.OidcClient.WinForms</id>
-    <version>4.1.0</version>
+    <version>4.2.0</version>
     <authors>Auth0</authors>
     <owners>Auth0</owners>
     <license type="expression">Apache-2.0</license>
@@ -12,6 +12,9 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Auth0 OIDC Client for WinForms apps</description>
     <releaseNotes>
+    Version 4.2.0
+      - Support .NET 9
+
     Version 4.1.0
       - Upgrade to .NET 8
       - Bump Auth0.OidcClient.Core to use v4.0.1
@@ -135,11 +138,19 @@
         <dependency id="Microsoft.Web.WebView2" version="1.0.1823.32"/>
       </group>
       <group targetFramework="netcoreapp3.1">
-        <dependency id="Auth0.OidcClient.Core" version="4.0.0" />
+        <dependency id="Auth0.OidcClient.Core" version="4.0.1" />
         <dependency id="Microsoft.Web.WebView2" version="1.0.1823.32"/>
       </group>
       <group targetFramework="net6.0-windows7.0">
-        <dependency id="Auth0.OidcClient.Core" version="4.0.0" />
+        <dependency id="Auth0.OidcClient.Core" version="4.0.1" />
+        <dependency id="Microsoft.Web.WebView2" version="1.0.1823.32"/>
+      </group>
+      <group targetFramework="net8.0-windows7.0">
+        <dependency id="Auth0.OidcClient.Core" version="4.0.1" />
+        <dependency id="Microsoft.Web.WebView2" version="1.0.1823.32"/>
+      </group>
+      <group targetFramework="net9.0-windows7.0">
+        <dependency id="Auth0.OidcClient.Core" version="4.0.1" />
         <dependency id="Microsoft.Web.WebView2" version="1.0.1823.32"/>
       </group>
     </dependencies>
@@ -151,6 +162,8 @@
     <file src="..\src\Auth0.OidcClient.WinForms\bin\Release\netcoreapp3.1\Auth0.OidcClient.xml" target="lib\netcoreapp3.1" />
     <file src="..\src\Auth0.OidcClient.WinForms\bin\Release\net8.0-windows\Auth0.OidcClient.dll" target="lib\net8.0-windows7.0" />
     <file src="..\src\Auth0.OidcClient.WinForms\bin\Release\net8.0-windows\Auth0.OidcClient.xml" target="lib\net8.0-windows7.0" />
+    <file src="..\src\Auth0.OidcClient.WinForms\bin\Release\net9.0-windows\Auth0.OidcClient.dll" target="lib\net9.0-windows7.0" />
+    <file src="..\src\Auth0.OidcClient.WinForms\bin\Release\net9.0-windows\Auth0.OidcClient.xml" target="lib\net9.0-windows7.0" />
     <file src="..\build\Auth0Icon.png" />
   </files>
 </package>

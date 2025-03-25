@@ -43,13 +43,13 @@ jobs:
       - name: Install .NET
         uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: '8.0.404'
+          dotnet-version: '9.0.200'
 
       - name: workload update version
-        run: dotnet workload update --version 8.0.404
+        run: dotnet workload update --version 9.0.200
 
       - name: Install .NET Android and iOS workload
-        run: dotnet workload install android ios maui --version 8.0.404
+        run: dotnet workload install android ios maui --version 9.0.200
 
       - name: Setup NuGet
         uses: nuget/setup-nuget@v1
@@ -60,14 +60,7 @@ jobs:
       # Install Snyk
       - run: npm install snyk -g
 
-      # Check that project is registered with Snyk when triggered from master branch
-      - if: github.ref == 'refs/heads/master'
-        run: snyk monitor --file=Auth0.OidcClient.All.sln
-        env:
-          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-        continue-on-error: true
-
       # Report vulnerabilities
-      - run: snyk test --file=Auth0.OidcClient.All.sln
+      - run: snyk test --file=Auth0.OidcClient.All.sln --policy-path=.snyk
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}

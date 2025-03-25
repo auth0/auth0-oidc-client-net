@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>Auth0.OidcClient.MAUI</id>
-    <version>1.1.0</version>
+    <version>1.2.0</version>
     <authors>Auth0</authors>
     <owners>Auth0</owners>
     <license type="expression">Apache-2.0</license>
@@ -11,6 +11,9 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Auth0 OIDC Client for MAUI apps</description>
     <releaseNotes>
+    Version 1.2.0
+      - Support .NET 9
+
     Version 1.1.0
       - Upgrade to .NET 8
 
@@ -57,6 +60,29 @@
         <dependency id="IdentityModel.OidcClient" version="5.2.1" />
         <dependency id="Microsoft.WindowsAppSDK" version="1.5.240627000" />
       </group>
+      <group targetFramework="net9.0">
+        <dependency id="Auth0.OidcClient.Core" version="4.0.1" />
+        <dependency id="IdentityModel.OidcClient" version="5.2.1" />
+      </group>
+      <group targetFramework="net9.0-android33.0.95">
+        <dependency id="Auth0.OidcClient.Core" version="4.0.1" />
+        <dependency id="IdentityModel.OidcClient" version="5.2.1" />
+      </group>
+      <group targetFramework="net9.0-ios16.4.7142">
+        <dependency id="Auth0.OidcClient.Core" version="4.0.1" />
+        <dependency id="IdentityModel.OidcClient" version="5.2.1" />
+        <dependency id="System.Runtime.InteropServices.NFloat.Internal" version="6.0.1" />
+      </group>
+      <group targetFramework="net9.0-maccatalyst16.4.7142">
+        <dependency id="Auth0.OidcClient.Core" version="4.0.1" />
+        <dependency id="IdentityModel.OidcClient" version="5.2.1" />
+        <dependency id="System.Runtime.InteropServices.NFloat.Internal" version="6.0.1" />
+      </group>
+      <group targetFramework="net9.0-windows10.0.20348.0">
+        <dependency id="Auth0.OidcClient.Core" version="4.0.1" />
+        <dependency id="IdentityModel.OidcClient" version="5.2.1" />
+        <dependency id="Microsoft.WindowsAppSDK" version="1.5.240627000" />
+      </group>
     </dependencies>
   </metadata>
   <files>
@@ -71,6 +97,17 @@
     <file src="..\src\Auth0.OidcClient.MAUI\bin\Release\net8.0-windows10.0.20348.0\Auth0.OidcClient.dll" target="lib\net8.0-windows10.0.20348.0" />
     <file src="..\src\Auth0.OidcClient.MAUI\bin\Release\net8.0-windows10.0.20348.0\Auth0.OidcClient.xml" target="lib\net8.0-windows10.0.20348.0" />
     <file src="..\src\Auth0.OidcClient.MAUI\bin\Release\net8.0-windows10.0.20348.0\Auth0.OidcClient.MAUI.Platforms.Windows.dll" target="lib\net8.0-windows10.0.20348" />
+    <file src="..\src\Auth0.OidcClient.MAUI\bin\Release\net9.0\Auth0.OidcClient.dll" target="lib\net9.0" />
+    <file src="..\src\Auth0.OidcClient.MAUI\bin\Release\net9.0\Auth0.OidcClient.xml" target="lib\net9.0" />
+    <file src="..\src\Auth0.OidcClient.MAUI\bin\Release\net9.0-android\Auth0.OidcClient.dll" target="lib\net9.0-android33.0.95" />
+    <file src="..\src\Auth0.OidcClient.MAUI\bin\Release\net9.0-android\Auth0.OidcClient.xml" target="lib\net9.0-android33.0.95" />
+    <file src="..\src\Auth0.OidcClient.MAUI\bin\Release\net9.0-ios\Auth0.OidcClient.dll" target="lib\net9.0-ios16.4.7142" />
+    <file src="..\src\Auth0.OidcClient.MAUI\bin\Release\net9.0-ios\Auth0.OidcClient.xml" target="lib\net9.0-ios16.4.7142" />
+    <file src="..\src\Auth0.OidcClient.MAUI\bin\Release\net9.0-maccatalyst\Auth0.OidcClient.dll" target="lib\net9.0-maccatalyst16.4.7142" />
+    <file src="..\src\Auth0.OidcClient.MAUI\bin\Release\net9.0-maccatalyst\Auth0.OidcClient.xml" target="lib\net9.0-maccatalyst16.4.7142" />
+    <file src="..\src\Auth0.OidcClient.MAUI\bin\Release\net9.0-windows10.0.20348.0\Auth0.OidcClient.dll" target="lib\net9.0-windows10.0.20348.0" />
+    <file src="..\src\Auth0.OidcClient.MAUI\bin\Release\net9.0-windows10.0.20348.0\Auth0.OidcClient.xml" target="lib\net9.0-windows10.0.20348.0" />
+    <file src="..\src\Auth0.OidcClient.MAUI\bin\Release\net9.0-windows10.0.20348.0\Auth0.OidcClient.MAUI.Platforms.Windows.dll" target="lib\net9.0-windows10.0.20348" />
     <file src="..\build\Auth0Icon.png" />
     <file src="..\src\Auth0.OidcClient.MAUI\README.md" />
   </files>

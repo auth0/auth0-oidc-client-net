@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Xamarin.Legacy.Sdk/0.2.0-alpha4">
   <PropertyGroup>
-    <TargetFrameworks>xamarin.ios10;net8.0-ios</TargetFrameworks>
+    <TargetFrameworks>xamarin.ios10;net8.0-ios;net9.0-ios</TargetFrameworks>
     <RootNamespace>Auth0.OidcClient</RootNamespace>
     <AssemblyName>Auth0.OidcClient</AssemblyName>
     <AssemblyTitle>Auth0.OidcClient.iOS</AssemblyTitle>
