@@ -1,4 +1,4 @@
-﻿using IdentityModel.OidcClient.Browser;
+﻿using Duende.IdentityModel.OidcClient.Browser;
 using System.Threading;
 using System.Threading.Tasks;
 using UIKit;

@@ -1,4 +1,4 @@
-﻿using IdentityModel.OidcClient.Browser;
+﻿using Duende.IdentityModel.OidcClient.Browser;
 using Microsoft.Web.WebView2.Wpf;
 using System;
 using System.Threading;

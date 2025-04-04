@@ -1,6 +1,6 @@
 ﻿using Android.App;
 using Android.Content;
-using IdentityModel.OidcClient.Browser;
+using Duende.IdentityModel.OidcClient.Browser;
 using System;
 using System.Threading;
 using System.Threading.Tasks;

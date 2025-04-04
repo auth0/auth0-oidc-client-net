@@ -6,18 +6,19 @@ using System.Reflection;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+
 using Auth0.OidcClient.Tokens;
-using IdentityModel.Client;
-using IdentityModel.OidcClient;
-using IdentityModel.OidcClient.Browser;
-using IdentityModel.OidcClient.Results;
-using static IdentityModel.OidcClient.OidcClientOptions;
+
+using Duende.IdentityModel.Client;
+using Duende.IdentityModel.OidcClient;
+using Duende.IdentityModel.OidcClient.Browser;
+using Duende.IdentityModel.OidcClient.Results;
 
 namespace Auth0.OidcClient
 {
     /// <summary>
     /// Base class for performing authentication and authorization operations with Auth0 using the
-    /// underlying <see cref="IdentityModel.OidcClient.OidcClient"/>.
+    /// underlying <see cref="Duende.IdentityModel.OidcClient.OidcClient"/>.
     /// </summary>
     public abstract class Auth0ClientBase : IAuth0Client
     {
@@ -25,12 +26,12 @@ namespace Auth0.OidcClient
         private readonly IdTokenValidator _idTokenValidator;
         private readonly Auth0ClientOptions _options;
         private readonly string _userAgent;
-        private IdentityModel.OidcClient.OidcClient _oidcClient;
-        private IdentityModel.OidcClient.OidcClient OidcClient
+        private Duende.IdentityModel.OidcClient.OidcClient _oidcClient;
+        private Duende.IdentityModel.OidcClient.OidcClient OidcClient
         {
             get
             {
-                return _oidcClient ?? (_oidcClient = new IdentityModel.OidcClient.OidcClient(CreateOidcClientOptions(_options)));
+                return _oidcClient ?? (_oidcClient = new Duende.IdentityModel.OidcClient.OidcClient(CreateOidcClientOptions(_options)));
             }
         }
 

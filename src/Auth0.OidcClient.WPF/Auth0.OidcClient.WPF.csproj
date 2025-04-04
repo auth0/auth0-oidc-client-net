@@ -23,9 +23,7 @@
     <ProjectReference Include="..\Auth0.OidcClient.Core\Auth0.OidcClient.Core.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="IdentityModel.OidcClient">
-      <Version>5.2.1</Version>
-    </PackageReference>
+    <PackageReference Include="Duende.IdentityModel.OidcClient" Version="6.0.1" />
   </ItemGroup>
 	<Choose>
 		<When Condition="'$(TargetFramework)'!='net6.0-windows'">
