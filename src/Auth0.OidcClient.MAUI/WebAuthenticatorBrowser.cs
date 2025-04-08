@@ -1,7 +1,7 @@
 ﻿namespace Auth0.OidcClient;
 
-using IdentityModel.OidcClient.Browser;
-using IdentityModel.Client;
+using Duende.IdentityModel.OidcClient.Browser;
+using Duende.IdentityModel.Client;
 
 /// <summary>
 /// Implements the Browser <see cref="IBrowser"/> using <see cref="WebAuthenticator"/> for MAUI.

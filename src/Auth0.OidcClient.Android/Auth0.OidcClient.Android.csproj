@@ -46,9 +46,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="IdentityModel.OidcClient" Version="5.2.1">
-    </PackageReference>
-    <PackageReference Include="Xamarin.Android.Support.CustomTabs" Version="28.0.0.3">
-    </PackageReference>
+    <PackageReference Include="Duende.IdentityModel.OidcClient" Version="6.0.1" />
+    <PackageReference Include="Xamarin.Android.Support.CustomTabs" Version="28.0.0.3" />
   </ItemGroup>
 </Project>

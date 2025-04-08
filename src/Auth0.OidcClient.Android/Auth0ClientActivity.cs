@@ -1,6 +1,6 @@
 ﻿using Android.App;
 using Android.Content;
-using IdentityModel.OidcClient.Browser;
+using Duende.IdentityModel.OidcClient.Browser;
 
 namespace Auth0.OidcClient
 {

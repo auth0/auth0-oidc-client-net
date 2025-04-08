@@ -1,5 +1,5 @@
 ﻿using Foundation;
-using IdentityModel.OidcClient.Browser;
+using Duende.IdentityModel.OidcClient.Browser;
 using SafariServices;
 using System.Threading;
 using System.Threading.Tasks;

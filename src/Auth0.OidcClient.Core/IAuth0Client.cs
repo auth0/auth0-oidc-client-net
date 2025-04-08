@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
-using IdentityModel.OidcClient;
-using IdentityModel.OidcClient.Browser;
-using IdentityModel.OidcClient.Results;
+using Duende.IdentityModel.OidcClient;
+using Duende.IdentityModel.OidcClient.Browser;
+using Duende.IdentityModel.OidcClient.Results;
 
 namespace Auth0.OidcClient
 {
     /// <summary>
     /// Interface for performing authentication and authorization operations with Auth0 using the
-    /// underlying <see cref="IdentityModel.OidcClient.OidcClient"/>.
+    /// underlying <see cref="Duende.IdentityModel.OidcClient.OidcClient"/>.
     /// </summary>
     public interface IAuth0Client
     {
@@ -56,7 +56,7 @@ namespace Auth0.OidcClient
         /// Generates a new set of tokens based on a refresh token. 
         /// </summary>
         /// <param name="refreshToken">Refresh token which was issued during the authorization flow, or subsequent
-        /// calls to <see cref="IdentityModel.OidcClient.OidcClient.RefreshTokenAsync"/>.</param>
+        /// calls to <see cref="Duende.IdentityModel.OidcClient.OidcClient.RefreshTokenAsync"/>.</param>
         /// <param name="cancellationToken">Optional <see cref="CancellationToken"/> that can be used to cancel the request.</param>
         /// <returns>A <see cref="RefreshTokenResult"/> with the refreshed tokens.</returns>
         Task<RefreshTokenResult> RefreshTokenAsync(string refreshToken, CancellationToken cancellationToken = default);
@@ -65,7 +65,7 @@ namespace Auth0.OidcClient
         /// Generates a new set of tokens based on a refresh token. 
         /// </summary>
         /// <param name="refreshToken">Refresh token which was issued during the authorization flow, or subsequent
-        /// calls to <see cref="IdentityModel.OidcClient.OidcClient.RefreshTokenAsync"/>.</param>
+        /// calls to <see cref="Duende.IdentityModel.OidcClient.OidcClient.RefreshTokenAsync"/>.</param>
         /// <param name="extraParameters">Optional extra parameters that need to be passed to the endpoint.</param>
         /// <param name="cancellationToken">Optional <see cref="CancellationToken"/> that can be used to cancel the request.</param>
         /// <returns>A <see cref="RefreshTokenResult"/> with the refreshed tokens.</returns>
@@ -75,7 +75,7 @@ namespace Auth0.OidcClient
         /// Generates a new set of tokens based on a refresh token. 
         /// </summary>
         /// <param name="refreshToken">Refresh token which was issued during the authorization flow, or subsequent
-        /// calls to <see cref="IdentityModel.OidcClient.OidcClient.RefreshTokenAsync"/>.</param>
+        /// calls to <see cref="Duende.IdentityModel.OidcClient.OidcClient.RefreshTokenAsync"/>.</param>
         /// <param name="scope">Space separated list of the requested scopes.</param>
         /// <param name="extraParameters">Optional extra parameters that need to be passed to the endpoint.</param>
         /// <param name="cancellationToken">Optional <see cref="CancellationToken"/> that can be used to cancel the request.</param>

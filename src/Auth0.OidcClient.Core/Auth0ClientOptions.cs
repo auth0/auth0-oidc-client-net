@@ -1,4 +1,4 @@
-﻿using IdentityModel.OidcClient.Browser;
+﻿using Duende.IdentityModel.OidcClient.Browser;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Net.Http;

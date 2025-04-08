@@ -2,7 +2,7 @@
 {
     /// <summary>
     /// Primary class for performing authentication and authorization operations with Auth0 using the
-    /// underlying <see cref="IdentityModel.OidcClient.OidcClient"/>.
+    /// underlying <see cref="Duende.IdentityModel.OidcClient.OidcClient"/>.
     /// </summary>
     public class Auth0Client : Auth0ClientBase
     {
