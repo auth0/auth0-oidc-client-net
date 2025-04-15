@@ -3,7 +3,7 @@
 <package>
   <metadata>
     <id>Auth0.OidcClient.Core</id>
-    <version>4.0.1</version>
+    <version>4.1.0</version>
     <authors>Auth0</authors>
     <owners>Auth0</owners>
     <license type="expression">Apache-2.0</license>
@@ -12,6 +12,10 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Auth0 OIDC Client for native apps</description>
     <releaseNotes>
+    Version 4.1.0
+      - Replace IdentityModel.OidcClient Package with Duende.IdentityModelOidcClient v6.0.1
+      - Adds explicit dependency on Microsoft.Extensions.Logging v6.0.0
+
     Version 4.0.1
       - Update Microsoft.IdentityModel.Protocols.OpenIdConnect
 
@@ -102,8 +106,9 @@
     <tags>Auth0 OIDC</tags>
     <dependencies>
       <group targetFramework="netstandard2.0">
-        <dependency id="IdentityModel.OidcClient" version="5.2.1" />
+        <dependency id="Duende.IdentityModel.OidcClient" version="6.0.1" />
         <dependency id="Microsoft.IdentityModel.Protocols.OpenIdConnect" version="6.34.0" />
+        <dependency id="Microsoft.Extensions.Logging" version="6.0.0" />
       </group>
     </dependencies>
   </metadata>
