@@ -3,7 +3,7 @@
 <package>
   <metadata>
     <id>Auth0.OidcClient.Android</id>
-    <version>4.0.0</version>
+    <version>4.1.0</version>
     <authors>Auth0</authors>
     <owners>Auth0</owners>
     <license type="expression">Apache-2.0</license>
@@ -12,6 +12,9 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Auth0 OIDC Client for Xamarin Android apps. Relies on deprecated support libraries from Google, use Auth0.OidcClient.AndroidX instead.</description>
     <releaseNotes>
+    Version 4.1.0
+      - Update Auth0.OidcClient.Core to 4.1.0
+
     Version 4.0.0
       - Remove support for Client Secret
 
@@ -132,7 +135,7 @@
     <tags>Auth0 OIDC Android Xamarin</tags>
     <dependencies>
       <group targetFramework="MonoAndroid11">
-        <dependency id="Auth0.OidcClient.Core" version="4.0.0" />
+        <dependency id="Auth0.OidcClient.Core" version="4.1.0" />
       </group>
     </dependencies>
   </metadata>
