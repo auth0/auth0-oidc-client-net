@@ -1,8 +1,4 @@
-﻿using Auth0.OidcClient.Tokens;
-using Microsoft.IdentityModel.Tokens;
-using Moq;
-using Moq.Protected;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.IO;
@@ -13,34 +9,38 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+
 using Xunit;
+using Microsoft.IdentityModel.Tokens;
+using Moq;
+using Moq.Protected;
+using Auth0.OidcClient.Tokens;
 
 namespace Auth0.OidcClient.Core.UnitTests.Tokens
 {
-
     public class IdTokenValidatorUnitTests
     {
-        private static readonly DateTime tokensWereValid = new DateTime(2019, 9, 9, 10, 00, 00, DateTimeKind.Utc);
-        private static readonly ISignatureVerifier rs256NoSignature = new NoSignatureVerifier(new[] { "RS256" });
+        private static readonly DateTime TokensWereValid = new(2019, 9, 9, 10, 00, 00, DateTimeKind.Utc);
+        private static readonly ISignatureVerifier Rs256NoSignature = new NoSignatureVerifier(new[] { "RS256" });
 
-        private static readonly IdTokenRequirements defaultReqs =
-            new IdTokenRequirements("https://tokens-test.auth0.com/", "tokens-test-123", TimeSpan.FromMinutes(1))
+        private static readonly IdTokenRequirements DefaultReqs =
+            new("https://tokens-test.auth0.com/", "tokens-test-123", TimeSpan.FromMinutes(1))
         {
             Nonce = "a1b2c3d4e5",
             MaxAge = TimeSpan.FromSeconds(100)
         };
 
-        private static readonly JsonWebKeySet signingKeys = new JsonWebKeySet("{\"keys\":[{\"alg\":\"RS256\",\"kty\":\"RSA\",\"use\":\"sig\",\"x5c\":[\"MIIDGDCCAgCgAwIBAgIJ5HpMuw46gydLMA0GCSqGSIb3DQEBBQUAMDMxMTAvBgNVBAMTKGF1dGgwLWRvdG5ldC1pbnRlZ3JhdGlvbi10ZXN0cy5hdXRoMC5jb20wHhcNMTUxMTI0MTUyNDQ1WhcNMjkwODAyMTUyNDQ1WjAzMTEwLwYDVQQDEyhhdXRoMC1kb3RuZXQtaW50ZWdyYXRpb24tdGVzdHMuYXV0aDAuY29tMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA40mvPtnD1JaKsQWG9eT+1USq31Cl5GHyv2L/TYd7Kjena0v0qHIJ2/bU7jGBRwsbnQ/mL9UJ8Uzqb9VtSU1nG1py4bBS0M6CV9zYCjHROxg5qwyHOH0AbA/LOI/83IM9jK0KFboQmmHc0roLylR6QZ8EKrFEQgHTNMpKYJh7SVnrMrXfVndpNcxnkzI4dJfLUrGtPxsKURtApi1O/5WKytCeCg1lE3EZu0QkGSsvfW7xEYI/1mXVlX9V12/SAQjrF1+u910mfKkcc/PgMnArFCILLAwKm1GqnUnWO8JpKg9N5A8c3u+54JEJMbMFHWrZyNT2qouBWfz7rm+f5Z2KvwIDAQABoy8wLTAMBgNVHRMEBTADAQH/MB0GA1UdDgQWBBSNKc1MtlkujOOp295lpZ5slrHcaDANBgkqhkiG9w0BAQUFAAOCAQEAo9Be/Qe6w4oop19KsFThlOfhLuDEPKTBqL2KlEzwKs35a42o9dalQATRx/zMeIi4stm94YNBovCNi02zpddJKso09zEkPkRoHgZ3p8K+AoWek/4pmys0Yp0WgnHfvdhstqfjFo9bHzG0noNtHFErqdt/UfiRCcRL+tWqwi8TAkgbyv+ZsddH2Xomn8HbHOAaZfiUwRhLQe6yetcDHLx9emsPENLjZRVBAz2hHDfJK7urKprMHY4Q0Jm0nlXz6/gMiJRnyD5nuZjv7DyeFPixOxptCU90zq8UbS/3fj1a1RdbBBNe5KhJjHtLrBqYAuSgwpok99qzUiLjm4fK7sZPHQ==\"],\"n\":\"40mvPtnD1JaKsQWG9eT-1USq31Cl5GHyv2L_TYd7Kjena0v0qHIJ2_bU7jGBRwsbnQ_mL9UJ8Uzqb9VtSU1nG1py4bBS0M6CV9zYCjHROxg5qwyHOH0AbA_LOI_83IM9jK0KFboQmmHc0roLylR6QZ8EKrFEQgHTNMpKYJh7SVnrMrXfVndpNcxnkzI4dJfLUrGtPxsKURtApi1O_5WKytCeCg1lE3EZu0QkGSsvfW7xEYI_1mXVlX9V12_SAQjrF1-u910mfKkcc_PgMnArFCILLAwKm1GqnUnWO8JpKg9N5A8c3u-54JEJMbMFHWrZyNT2qouBWfz7rm-f5Z2Kvw\",\"e\":\"AQAB\",\"kid\":\"MjAyMjg3MjE1QzYxMjhFREJGOEFERDc3NThEODY3QjMwQTRGNzRGQQ\",\"x5t\":\"MjAyMjg3MjE1QzYxMjhFREJGOEFERDc3NThEODY3QjMwQTRGNzRGQQ\"}]}");
+        private static readonly JsonWebKeySet SigningKeys = new("{\"keys\":[{\"alg\":\"RS256\",\"kty\":\"RSA\",\"use\":\"sig\",\"x5c\":[\"MIIDGDCCAgCgAwIBAgIJ5HpMuw46gydLMA0GCSqGSIb3DQEBBQUAMDMxMTAvBgNVBAMTKGF1dGgwLWRvdG5ldC1pbnRlZ3JhdGlvbi10ZXN0cy5hdXRoMC5jb20wHhcNMTUxMTI0MTUyNDQ1WhcNMjkwODAyMTUyNDQ1WjAzMTEwLwYDVQQDEyhhdXRoMC1kb3RuZXQtaW50ZWdyYXRpb24tdGVzdHMuYXV0aDAuY29tMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA40mvPtnD1JaKsQWG9eT+1USq31Cl5GHyv2L/TYd7Kjena0v0qHIJ2/bU7jGBRwsbnQ/mL9UJ8Uzqb9VtSU1nG1py4bBS0M6CV9zYCjHROxg5qwyHOH0AbA/LOI/83IM9jK0KFboQmmHc0roLylR6QZ8EKrFEQgHTNMpKYJh7SVnrMrXfVndpNcxnkzI4dJfLUrGtPxsKURtApi1O/5WKytCeCg1lE3EZu0QkGSsvfW7xEYI/1mXVlX9V12/SAQjrF1+u910mfKkcc/PgMnArFCILLAwKm1GqnUnWO8JpKg9N5A8c3u+54JEJMbMFHWrZyNT2qouBWfz7rm+f5Z2KvwIDAQABoy8wLTAMBgNVHRMEBTADAQH/MB0GA1UdDgQWBBSNKc1MtlkujOOp295lpZ5slrHcaDANBgkqhkiG9w0BAQUFAAOCAQEAo9Be/Qe6w4oop19KsFThlOfhLuDEPKTBqL2KlEzwKs35a42o9dalQATRx/zMeIi4stm94YNBovCNi02zpddJKso09zEkPkRoHgZ3p8K+AoWek/4pmys0Yp0WgnHfvdhstqfjFo9bHzG0noNtHFErqdt/UfiRCcRL+tWqwi8TAkgbyv+ZsddH2Xomn8HbHOAaZfiUwRhLQe6yetcDHLx9emsPENLjZRVBAz2hHDfJK7urKprMHY4Q0Jm0nlXz6/gMiJRnyD5nuZjv7DyeFPixOxptCU90zq8UbS/3fj1a1RdbBBNe5KhJjHtLrBqYAuSgwpok99qzUiLjm4fK7sZPHQ==\"],\"n\":\"40mvPtnD1JaKsQWG9eT-1USq31Cl5GHyv2L_TYd7Kjena0v0qHIJ2_bU7jGBRwsbnQ_mL9UJ8Uzqb9VtSU1nG1py4bBS0M6CV9zYCjHROxg5qwyHOH0AbA_LOI_83IM9jK0KFboQmmHc0roLylR6QZ8EKrFEQgHTNMpKYJh7SVnrMrXfVndpNcxnkzI4dJfLUrGtPxsKURtApi1O_5WKytCeCg1lE3EZu0QkGSsvfW7xEYI_1mXVlX9V12_SAQjrF1-u910mfKkcc_PgMnArFCILLAwKm1GqnUnWO8JpKg9N5A8c3u-54JEJMbMFHWrZyNT2qouBWfz7rm-f5Z2Kvw\",\"e\":\"AQAB\",\"kid\":\"MjAyMjg3MjE1QzYxMjhFREJGOEFERDc3NThEODY3QjMwQTRGNzRGQQ\",\"x5t\":\"MjAyMjg3MjE1QzYxMjhFREJGOEFERDc3NThEODY3QjMwQTRGNzRGQQ\"}]}");
 
-        private static readonly IdTokenRequirements signedReqs =
-            new IdTokenRequirements("https://auth0-dotnet-integration-tests.auth0.com/", "qmss9A66stPWTOXjR6X1OeA0DLadoNP2", TimeSpan.FromMinutes(1))
+        private static readonly IdTokenRequirements SignedReqs =
+            new("https://auth0-dotnet-integration-tests.auth0.com/", "qmss9A66stPWTOXjR6X1OeA0DLadoNP2", TimeSpan.FromMinutes(1))
         {
             Nonce = "SOrHOau9q0itx4iTF_iX2w"
         };
 
         private Task ValidateToken(string token, IdTokenRequirements reqs = null, DateTime? when = null, ISignatureVerifier signatureVerifier = null)
         {
-            return new OidcClient.Tokens.IdTokenValidator().AssertTokenMeetsRequirements(reqs ?? defaultReqs, token, when ?? tokensWereValid, signatureVerifier ?? rs256NoSignature);
+            return new IdTokenValidator().AssertTokenMeetsRequirements(reqs ?? DefaultReqs, token, when ?? TokensWereValid, signatureVerifier ?? Rs256NoSignature);
         }
 
         [Fact]
@@ -72,7 +72,7 @@ namespace Auth0.OidcClient.Core.UnitTests.Tokens
         }
 
         [Fact]
-        public async void DoesNotValidateSignatureWhenSignedWithHS256()
+        public async void DoesNotValidateSignatureWhenSignedWithHs256()
         {
             var token = "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3Rva2Vucy10ZXN0LmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHwxMjM0NTY3ODkiLCJhdWQiOlsidG9rZW5zLXRlc3QtMTIzIiwiZXh0ZXJuYWwtdGVzdC05OTkiXSwiZXhwIjoxNTY4MTgwODk0LjIyNCwiaWF0IjoxNTY4MDA4MDk0LjIyNCwibm9uY2UiOiJhMWIyYzNkNGU1IiwiYXpwIjoidG9rZW5zLXRlc3QtMTIzIiwiYXV0aF90aW1lIjoxNTY4MDk0NDk0LjIyNH0.D5ZbbKddQMnJMLkuV76ALdvuvAShPxLVuKNvjBPn618";
 
@@ -84,9 +84,9 @@ namespace Auth0.OidcClient.Core.UnitTests.Tokens
         {
             var token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1qQXlNamczTWpFMVF6WXhNamhGUkVKR09FRkVSRGMzTlRoRU9EWTNRak13UVRSR056UkdRUSJ9.eyJuaWNrbmFtZSI6ImRhbWllbmcrdGVzdDQyIiwibmFtZSI6ImRhbWllbmcrdGVzdDQyQGdtYWlsLmNvbSIsInBpY3R1cmUiOiJodHRwczovL3MuZ3JhdmF0YXIuY29tL2F2YXRhci81MzFiMDJkYTllOWVjNzg3ZDBlMWE1NzA1YzQ0YzU2Nj9zPTQ4MCZyPXBnJmQ9aHR0cHMlM0ElMkYlMkZjZG4uYXV0aDAuY29tJTJGYXZhdGFycyUyRmRhLnBuZyIsInVwZGF0ZWRfYXQiOiIyMDE5LTExLTAxVDE3OjQ0OjE2LjY5NVoiLCJlbWFpbCI6ImRhbWllbmcrdGVzdDQyQGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwiaXNzIjoiaHR0cHM6Ly9hdXRoMC1kb3RuZXQtaW50ZWdyYXRpb24tdGVzdHMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDVkYTY0NTNjMTIyZmI2MGE5MjRlOTI2MSIsImF1ZCI6InFtc3M5QTY2c3RQV1RPWGpSNlgxT2VBMERMYWRvTlAyIiwiaWF0IjoxNTcyNjMwMjU2LCJleHAiOjE1NzI2NjYyNTYsIm5vbmNlIjoiU09ySE9hdTlxMGl0eDRpVEZfaVgydyJ9.NomT02whkH42ISpcd_JvG4ZvQQhzPKfoWCwcgrhyLeWmnmHTo704WtsnfCqR72uw26D-ZGA5n2Yu4Jdcv2A8_leGEQm3p45-ramIDwWUu2J30m_op_5I4wFvgpbRrWSrD1_3qK1GrDnrdv8psGL8VgCf3pLLDbqbkzDmtE6OtEfDp2hEFwXs9YntREXu5Z-ufFFLz9VU5uyRg7JA95YGQNIRhzMFoUNKZAO19nrBq3HKc_iR_W9g9Y3iLPLgVVazq6zHjn3cXNKpr7JN6MUKqIB-YYJ1KDEvmaMO60xs2DAhhnkUN1OhXBLTgQ9xbCJeaxE7N48YMxPAu3HHT-rhZg";
 
-            var signatureVerifier = new AsymmetricSignatureVerifier(signingKeys.Keys);
+            var signatureVerifier = new AsymmetricSignatureVerifier(SigningKeys.Keys);
 
-            await ValidateToken(token, signedReqs, when: new DateTime(2019, 11, 1, 20, 00, 00, DateTimeKind.Utc), signatureVerifier: signatureVerifier);
+            await ValidateToken(token, SignedReqs, when: new DateTime(2019, 11, 1, 20, 00, 00, DateTimeKind.Utc), signatureVerifier: signatureVerifier);
         }
 
         [Fact]
@@ -94,9 +94,9 @@ namespace Auth0.OidcClient.Core.UnitTests.Tokens
         {
             var token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1qQXlNamczTWpFMVF6WXhNamhGUkVKR09FRkVSRGMzTlRoRU9EWTNRak13UVRSR056UkdRUSJ9.eyJuaWNrbmFtZSI6ImRhbWllbmcrdGVzdDQyIiwibmFtZSI6ImRhbWllbmcrZmFrZUBnbWFpbC5jb20iLCJwaWN0dXJlIjoiaHR0cHM6Ly9zLmdyYXZhdGFyLmNvbS9hdmF0YXIvNTMxYjAyZGE5ZTllYzc4N2QwZTFhNTcwNWM0NGM1NjY_cz00ODAmcj1wZyZkPWh0dHBzJTNBJTJGJTJGY2RuLmF1dGgwLmNvbSUyRmF2YXRhcnMlMkZkYS5wbmciLCJ1cGRhdGVkX2F0IjoiMjAxOS0xMS0wMVQxNzo0NDoxNi42OTVaIiwiZW1haWwiOiJkYW1pZW5nK3Rlc3Q0MkBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImlzcyI6Imh0dHBzOi8vYXV0aDAtZG90bmV0LWludGVncmF0aW9uLXRlc3RzLmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw1ZGE2NDUzYzEyMmZiNjBhOTI0ZTkyNjEiLCJhdWQiOiJxbXNzOUE2NnN0UFdUT1hqUjZYMU9lQTBETGFkb05QMiIsImlhdCI6MTU3MjYzMDI1NiwiZXhwIjoxNTcyNjY2MjU2LCJub25jZSI6IlNPckhPYXU5cTBpdHg0aVRGX2lYMncifQ.oAXS_JCoVboZ0oheyQYyHbbaFQSS5wP4U2RYMnevEJNQxRWKi9wVjwUD5GpYMnhpQ_IfGaV5yld1kWgjWfg0R9bseZHPAgIRAz9dXZ-ZK2uadY4JDOLkFB5VNoTaKNTKG0gd5Rw9T2j_AABSyX0d9KP0id987OCI6GUCOAArqIZXklk2UM9-dmFH3H2IKBMRUxk2GtCw3jvrYzrSbm806JSzAihFeHYrmG0wTP243suznm21ZKhBU5a7Us1CLbGMJZ56ZUJY4IcB9zeDr87Y5b-DpG8L_5KAolNhha4GoV2G4kczEJNjwIgHADvsGUZAFNAmn-sTMygDpHIu4ZpEEQ";
 
-            var signatureVerifier = new AsymmetricSignatureVerifier(signingKeys.Keys);
+            var signatureVerifier = new AsymmetricSignatureVerifier(SigningKeys.Keys);
 
-            var ex = await Assert.ThrowsAsync<IdTokenValidationException>(() => ValidateToken(token, signedReqs, new DateTime(2019, 11, 1, 11, 00, 00, DateTimeKind.Utc), signatureVerifier));
+            var ex = await Assert.ThrowsAsync<IdTokenValidationException>(() => ValidateToken(token, SignedReqs, new DateTime(2019, 11, 1, 11, 00, 00, DateTimeKind.Utc), signatureVerifier));
             Assert.Equal("Invalid token signature.", ex.Message);
         }
 
@@ -263,7 +263,7 @@ namespace Auth0.OidcClient.Core.UnitTests.Tokens
             var key = new RsaSecurityKey(new RSACryptoServiceProvider(2048));
             var tokenFactory = new JwtTokenFactory(key, SecurityAlgorithms.RsaSha256);
 
-            var token = tokenFactory.GenerateToken("https://tokens-test.auth0.com/", "tokens-test-123", "test_sub", new List<Claim> { new Claim(JwtRegisteredClaimNames.Nonce, "a1b2c3d4e5"), new Claim("org_name", "123") });
+            var token = tokenFactory.GenerateToken("https://tokens-test.auth0.com/", "tokens-test-123", "test_sub", new List<Claim> { new(JwtRegisteredClaimNames.Nonce, "a1b2c3d4e5"), new("org_name", "123") });
 
             var ex = await Assert.ThrowsAsync<IdTokenValidationException>(() => ValidateToken(token, new IdTokenRequirements("https://tokens-test.auth0.com/", "tokens-test-123", TimeSpan.FromMinutes(1))
             {
@@ -280,7 +280,7 @@ namespace Auth0.OidcClient.Core.UnitTests.Tokens
             var key = new RsaSecurityKey(new RSACryptoServiceProvider(2048));
             var tokenFactory = new JwtTokenFactory(key, SecurityAlgorithms.RsaSha256);
 
-            var token = tokenFactory.GenerateToken("https://tokens-test.auth0.com/", "tokens-test-123", "test_sub", new List<Claim> { new Claim(JwtRegisteredClaimNames.Nonce, "a1b2c3d4e5"), new Claim("org_id", "org_123") });
+            var token = tokenFactory.GenerateToken("https://tokens-test.auth0.com/", "tokens-test-123", "test_sub", new List<Claim> { new(JwtRegisteredClaimNames.Nonce, "a1b2c3d4e5"), new("org_id", "org_123") });
 
             await ValidateToken(token, new IdTokenRequirements("https://tokens-test.auth0.com/", "tokens-test-123", TimeSpan.FromMinutes(1))
             {
@@ -296,7 +296,7 @@ namespace Auth0.OidcClient.Core.UnitTests.Tokens
             var key = new RsaSecurityKey(new RSACryptoServiceProvider(2048));
             var tokenFactory = new JwtTokenFactory(key, SecurityAlgorithms.RsaSha256);
 
-            var token = tokenFactory.GenerateToken("https://tokens-test.auth0.com/", "tokens-test-123", "test_sub", new List<Claim> { new Claim(JwtRegisteredClaimNames.Nonce, "a1b2c3d4e5"), new Claim("org_id", "org_123") });
+            var token = tokenFactory.GenerateToken("https://tokens-test.auth0.com/", "tokens-test-123", "test_sub", new List<Claim> { new(JwtRegisteredClaimNames.Nonce, "a1b2c3d4e5"), new("org_id", "org_123") });
 
             var ex = await Assert.ThrowsAsync<IdTokenValidationException>(() => ValidateToken(token, new IdTokenRequirements("https://tokens-test.auth0.com/", "tokens-test-123", TimeSpan.FromMinutes(1))
             {
@@ -314,7 +314,7 @@ namespace Auth0.OidcClient.Core.UnitTests.Tokens
             var key = new RsaSecurityKey(new RSACryptoServiceProvider(2048));
             var tokenFactory = new JwtTokenFactory(key, SecurityAlgorithms.RsaSha256);
 
-            var token = tokenFactory.GenerateToken("https://tokens-test.auth0.com/", "tokens-test-123", "test_sub", new List<Claim> { new Claim(JwtRegisteredClaimNames.Nonce, "a1b2c3d4e5"), new Claim("org_id", "org_123") });
+            var token = tokenFactory.GenerateToken("https://tokens-test.auth0.com/", "tokens-test-123", "test_sub", new List<Claim> { new(JwtRegisteredClaimNames.Nonce, "a1b2c3d4e5"), new("org_id", "org_123") });
 
             var ex = await Assert.ThrowsAsync<IdTokenValidationException>(() => ValidateToken(token, new IdTokenRequirements("https://tokens-test.auth0.com/", "tokens-test-123", TimeSpan.FromMinutes(1))
             {
@@ -331,7 +331,7 @@ namespace Auth0.OidcClient.Core.UnitTests.Tokens
             var key = new RsaSecurityKey(new RSACryptoServiceProvider(2048));
             var tokenFactory = new JwtTokenFactory(key, SecurityAlgorithms.RsaSha256);
 
-            var token = tokenFactory.GenerateToken("https://tokens-test.auth0.com/", "tokens-test-123", "test_sub", new List<Claim> { new Claim(JwtRegisteredClaimNames.Nonce, "a1b2c3d4e5"), new Claim("org_name", "organizationa") });
+            var token = tokenFactory.GenerateToken("https://tokens-test.auth0.com/", "tokens-test-123", "test_sub", new List<Claim> { new(JwtRegisteredClaimNames.Nonce, "a1b2c3d4e5"), new("org_name", "organizationa") });
 
             await ValidateToken(token, new IdTokenRequirements("https://tokens-test.auth0.com/", "tokens-test-123", TimeSpan.FromMinutes(1))
             {
@@ -347,7 +347,7 @@ namespace Auth0.OidcClient.Core.UnitTests.Tokens
             var key = new RsaSecurityKey(new RSACryptoServiceProvider(2048));
             var tokenFactory = new JwtTokenFactory(key, SecurityAlgorithms.RsaSha256);
 
-            var token = tokenFactory.GenerateToken("https://tokens-test.auth0.com/", "tokens-test-123", "test_sub", new List<Claim> { new Claim(JwtRegisteredClaimNames.Nonce, "a1b2c3d4e5"), new Claim("org_name", "organizationa") });
+            var token = tokenFactory.GenerateToken("https://tokens-test.auth0.com/", "tokens-test-123", "test_sub", new List<Claim> { new(JwtRegisteredClaimNames.Nonce, "a1b2c3d4e5"), new("org_name", "organizationa") });
 
             var ex = await Assert.ThrowsAsync<IdTokenValidationException>(() => ValidateToken(token, new IdTokenRequirements("https://tokens-test.auth0.com/", "tokens-test-123", TimeSpan.FromMinutes(1))
             {
@@ -399,7 +399,7 @@ namespace Auth0.OidcClient.Core.UnitTests.Tokens
                     Content = new StringContent(mockJsonWebKeySet, Encoding.UTF8, "application/json"),
                 });
 
-            await new OidcClient.Tokens.IdTokenValidator(mockHandler.Object).AssertTokenMeetsRequirements(signedReqs, token, new DateTime(2019, 11, 1, 20, 00, 00, DateTimeKind.Utc));
+            await new IdTokenValidator(mockHandler.Object).AssertTokenMeetsRequirements(SignedReqs, token, new DateTime(2019, 11, 1, 20, 00, 00, DateTimeKind.Utc));
 
 
             mockHandler.Protected().Verify(
