@@ -1,11 +1,11 @@
 ﻿using Auth0.OidcClient.Tokens;
-using Microsoft.IdentityModel.Protocols.OpenIdConnect;
 using Microsoft.IdentityModel.Tokens;
 using Moq;
 using Moq.Protected;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
+using System.IO;
 using System.Net;
 using System.Net.Http;
 using System.Security.Claims;
@@ -373,8 +373,8 @@ namespace Auth0.OidcClient.Core.UnitTests.Tokens
         [Fact]
         public async void UsesTheBackchannelWhenProvidedToFetchTheOpenIdConfiguration()
         {
+            var mockJsonWebKeySet = File.ReadAllText("./Data/mockJsonWebKeySet.json");
             var token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1qQXlNamczTWpFMVF6WXhNamhGUkVKR09FRkVSRGMzTlRoRU9EWTNRak13UVRSR056UkdRUSJ9.eyJuaWNrbmFtZSI6ImRhbWllbmcrdGVzdDQyIiwibmFtZSI6ImRhbWllbmcrdGVzdDQyQGdtYWlsLmNvbSIsInBpY3R1cmUiOiJodHRwczovL3MuZ3JhdmF0YXIuY29tL2F2YXRhci81MzFiMDJkYTllOWVjNzg3ZDBlMWE1NzA1YzQ0YzU2Nj9zPTQ4MCZyPXBnJmQ9aHR0cHMlM0ElMkYlMkZjZG4uYXV0aDAuY29tJTJGYXZhdGFycyUyRmRhLnBuZyIsInVwZGF0ZWRfYXQiOiIyMDE5LTExLTAxVDE3OjQ0OjE2LjY5NVoiLCJlbWFpbCI6ImRhbWllbmcrdGVzdDQyQGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwiaXNzIjoiaHR0cHM6Ly9hdXRoMC1kb3RuZXQtaW50ZWdyYXRpb24tdGVzdHMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDVkYTY0NTNjMTIyZmI2MGE5MjRlOTI2MSIsImF1ZCI6InFtc3M5QTY2c3RQV1RPWGpSNlgxT2VBMERMYWRvTlAyIiwiaWF0IjoxNTcyNjMwMjU2LCJleHAiOjE1NzI2NjYyNTYsIm5vbmNlIjoiU09ySE9hdTlxMGl0eDRpVEZfaVgydyJ9.NomT02whkH42ISpcd_JvG4ZvQQhzPKfoWCwcgrhyLeWmnmHTo704WtsnfCqR72uw26D-ZGA5n2Yu4Jdcv2A8_leGEQm3p45-ramIDwWUu2J30m_op_5I4wFvgpbRrWSrD1_3qK1GrDnrdv8psGL8VgCf3pLLDbqbkzDmtE6OtEfDp2hEFwXs9YntREXu5Z-ufFFLz9VU5uyRg7JA95YGQNIRhzMFoUNKZAO19nrBq3HKc_iR_W9g9Y3iLPLgVVazq6zHjn3cXNKpr7JN6MUKqIB-YYJ1KDEvmaMO60xs2DAhhnkUN1OhXBLTgQ9xbCJeaxE7N48YMxPAu3HHT-rhZg";
-
             var mockHandler = new Mock<HttpMessageHandler>(MockBehavior.Strict);
             mockHandler.Protected()
                 .Setup<Task<HttpResponseMessage>>(
@@ -385,7 +385,18 @@ namespace Auth0.OidcClient.Core.UnitTests.Tokens
                 .ReturnsAsync(new HttpResponseMessage()
                 {
                     StatusCode = HttpStatusCode.OK,
-                    Content = new StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(new OpenIdConnectConfiguration() { JsonWebKeySet = signingKeys }), Encoding.UTF8, "application/json"),
+                    Content = new StringContent("{  \"jwks_uri\": \"https://auth0-dotnet-integration-tests.auth0.com/.well-known/jwks.json\" }", Encoding.UTF8, "application/json"),
+                });
+            mockHandler.Protected()
+                .Setup<Task<HttpResponseMessage>>(
+                    "SendAsync",
+                    ItExpr.Is<HttpRequestMessage>(req => req.RequestUri.ToString() == $"https://auth0-dotnet-integration-tests.auth0.com/.well-known/jwks.json"),
+                    ItExpr.IsAny<CancellationToken>()
+                )
+                .ReturnsAsync(new HttpResponseMessage()
+                {
+                    StatusCode = HttpStatusCode.OK,
+                    Content = new StringContent(mockJsonWebKeySet, Encoding.UTF8, "application/json"),
                 });
 
             await new OidcClient.Tokens.IdTokenValidator(mockHandler.Object).AssertTokenMeetsRequirements(signedReqs, token, new DateTime(2019, 11, 1, 20, 00, 00, DateTimeKind.Utc));
