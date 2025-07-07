@@ -52,7 +52,7 @@ jobs:
         run: dotnet workload install android ios maui --version 9.0.200
 
       - name: Setup NuGet
-        uses: nuget/setup-nuget@v1
+        uses: nuget/setup-nuget@v2
 
       - name: Restore NuGet
         run: nuget restore Auth0.OidcClient.All.sln
