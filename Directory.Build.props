@@ -1,0 +1,6 @@
+<Project>
+  <PropertyGroup>
+    <!-- Suppress EOL workload warnings for CI/CD compatibility -->
+    <CheckEolWorkloads>false</CheckEolWorkloads>
+  </PropertyGroup>
+</Project>
