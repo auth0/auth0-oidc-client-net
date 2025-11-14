@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Xamarin.Legacy.Sdk/0.2.0-alpha4">
   <PropertyGroup>
-    <TargetFrameworks>xamarin.ios10;net8.0-ios;net9.0-ios</TargetFrameworks>
+    <TargetFrameworks>xamarin.ios10;net8.0-ios17.2;net9.0-ios18.0</TargetFrameworks>
     <RootNamespace>Auth0.OidcClient</RootNamespace>
     <AssemblyName>Auth0.OidcClient</AssemblyName>
     <AssemblyTitle>Auth0.OidcClient.iOS</AssemblyTitle>
@@ -11,7 +11,16 @@
     <NeutralLanguage>en</NeutralLanguage>
     <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
     <DefineConstants>$(DefineConstants);</DefineConstants>    
-    <LangVersion>default</LangVersion>    
+    <LangVersion>default</LangVersion>
+    <EnableStrictPlatformVersionValidation>false</EnableStrictPlatformVersionValidation>
+
+    <!-- net8.0 -->
+		<!-- <SupportedOSPlatformVersion Condition="'$(TargetFramework)' == 'net8.0-ios17.2'">17.2</SupportedOSPlatformVersion>
+		<TargetPlatformVersion Condition="'$(TargetFramework)' == 'net8.0-ios17.2'">17.2</TargetPlatformVersion> -->
+
+    <!-- net9.0 -->
+		<SupportedOSPlatformVersion Condition="'$(TargetFramework)' == 'net9.0-ios18.0'">18.0</SupportedOSPlatformVersion>
+		<TargetPlatformVersion Condition="'$(TargetFramework)' == 'net9.0-ios18.0'">18.0</TargetPlatformVersion>
   </PropertyGroup>
    <PropertyGroup Condition=" '$(Configuration)'=='Debug' ">
     <DebugType>portable</DebugType>

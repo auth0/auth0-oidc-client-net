@@ -18,19 +18,13 @@ jobs:
           distribution: 'temurin'
           java-version: '11'
 
-      - name: Install .NET
+      - name: Install .NET 9
         uses: actions/setup-dotnet@v5
         with:
           dotnet-version: '9.0.200'
 
-      - name: workload update version
-        run: dotnet workload update --version 9.0.200
-
-      - name: Install .NET Android and iOS workload
+      - name: Install .NET 9 workloads
         run: dotnet workload install android ios maui --version 9.0.200
-
-      - name: workload update version
-        run: dotnet workload update --version 9.0.200
 
       - name: Dotnet framework and workload versions
         run: dotnet --info
@@ -45,7 +39,7 @@ jobs:
         uses: microsoft/setup-msbuild@v2
 
       - name: Build
-        run: msbuild Auth0.OidcClient.All.sln -t:rebuild -verbosity:diag -property:Configuration=Release
+        run: msbuild Auth0.OidcClient.All.sln -t:rebuild -property:Configuration=Release
 
       - name: Tests
         run: dotnet test **\bin\**\*UnitTests.dll
