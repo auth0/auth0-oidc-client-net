@@ -38,7 +38,7 @@ jobs:
           dotnet-version: '9.0.200'
 
       - name: Install .NET Android and iOS workload
-        run: dotnet workload install android ios maui --version 9.0.200
+        run: dotnet workload install android ios maui
 
       - name: Setup NuGet
         uses: nuget/setup-nuget@v2
