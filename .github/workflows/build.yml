@@ -24,13 +24,13 @@ jobs:
           dotnet-version: '9.0.200'
 
       - name: workload update version
-        run: dotnet workload update --version 9.0.200
+        run: dotnet workload update
 
       - name: Install .NET Android and iOS workload
-        run: dotnet workload install android ios maui --version 9.0.200
+        run: dotnet workload install android ios maui
 
       - name: workload update version
-        run: dotnet workload update --version 9.0.200
+        run: dotnet workload update
 
       - name: Dotnet framework and workload versions
         run: dotnet --info
