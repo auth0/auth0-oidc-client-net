@@ -33,7 +33,7 @@ jobs:
       with:
         fetch-depth: 0
 
-    - uses: actions/download-artifact@v6
+    - uses: actions/download-artifact@v7
       with:
         path: './src'
         name: build
