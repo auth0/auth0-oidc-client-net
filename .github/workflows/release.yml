@@ -52,7 +52,7 @@ jobs:
       - name: Build
         run: msbuild Auth0.OidcClient.All.sln -t:rebuild -verbosity:diag -property:Configuration=Release
 
-      - uses: actions/upload-artifact@v5
+      - uses: actions/upload-artifact@v6
         with:
           name: build
           path: './src'
