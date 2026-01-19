@@ -16,7 +16,7 @@ jobs:
       ANDROID_API_LEVEL: "31"
       BUILD_TOOLS_VERSION: "31.0.0"
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
 
       - name: Install Java
         uses: actions/setup-java@v5
