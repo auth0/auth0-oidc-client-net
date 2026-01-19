@@ -9,6 +9,12 @@ on:
 jobs:
   build:
     runs-on: windows-2022
+    env:
+      DOTNET_VERSION: '9.0.200'
+      ANDROID_SDK_ROOT: "C:\\Android\\android-sdk"
+      ANDROID_HOME: "C:\\Android\\android-sdk"
+      ANDROID_API_LEVEL: "31"
+      BUILD_TOOLS_VERSION: "31.0.0"
     steps:
       - uses: actions/checkout@v5
 
@@ -21,7 +27,21 @@ jobs:
       - name: Install .NET
         uses: actions/setup-dotnet@v5
         with:
-          dotnet-version: '9.0.200'
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+
+      - name: Configure Android env (Windows)
+        shell: pwsh
+        run: |
+          Add-Content $env:GITHUB_ENV "ANDROID_HOME=$env:ANDROID_SDK_ROOT"
+          Add-Content $env:GITHUB_ENV "ANDROID_SDK_HOME=$env:RUNNER_TEMP\android-home"
+          Add-Content $env:GITHUB_PATH "$env:ANDROID_SDK_ROOT\cmdline-tools\latest\bin"
+
+      - name: Install Android platform + build-tools (Windows)
+        shell: pwsh
+        run: |
+          sdkmanager "platforms;android-$env:ANDROID_API_LEVEL" "build-tools;$env:BUILD_TOOLS_VERSION"
+          if (!(Test-Path "$env:ANDROID_SDK_ROOT\platforms\android-$env:ANDROID_API_LEVEL")) { throw "platforms missing" }
+          if (!(Test-Path "$env:ANDROID_SDK_ROOT\build-tools\$env:BUILD_TOOLS_VERSION")) { throw "build-tools missing" }
 
       - name: workload update version
         run: dotnet workload update
@@ -45,7 +65,7 @@ jobs:
         uses: microsoft/setup-msbuild@v2
 
       - name: Build
-        run: msbuild Auth0.OidcClient.All.sln -t:rebuild -property:Configuration=Release
+        run: msbuild Auth0.OidcClient.All.sln -t:rebuild -property:Configuration=Release -property:AndroidSdkDirectory=%ANDROID_SDK_ROOT%
 
       - name: Tests
         run: dotnet test **\bin\**\*UnitTests.dll
