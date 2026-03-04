@@ -61,12 +61,18 @@ jobs:
 
       - name: Create NuGet packages
         shell: pwsh
+        env:
+          NUSPEC_FILE: ${{ inputs.nuspec-file }}
+          NUGET_OUTPUT: ${{ github.workspace }}/nuget
         run: |
-            nuget pack ${{ inputs.nuspec-file }} -OutputDirectory ${{ github.workspace }}/nuget
+            nuget pack $env:NUSPEC_FILE -OutputDirectory $env:NUGET_OUTPUT
 
       - name: Create tgz build artifact
+        env:
+          ARTIFACT_NAME: ${{ inputs.artifact-name }}
+          WORKSPACE: ${{ github.workspace }}
         run: |
-          tar -czvf ${{ github.workspace }}/${{ inputs.artifact-name }} ${{ github.workspace }}/nuget
+          tar -czvf "$WORKSPACE/$ARTIFACT_NAME" "$WORKSPACE/nuget"
 
       - id: get_version
         uses: ./.github/actions/get-version

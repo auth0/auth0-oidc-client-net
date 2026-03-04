@@ -25,12 +25,18 @@ runs:
 
     - name: Create NuGet packages
       shell: pwsh
-      run: nuget pack ${{ inputs.nuspec-file }} -OutputDirectory ${{ inputs.nuget-directory }}
+      env:
+        NUSPEC_FILE: ${{ inputs.nuspec-file }}
+        NUGET_DIRECTORY: ${{ inputs.nuget-directory }}
+      run: nuget pack $env:NUSPEC_FILE -OutputDirectory $env:NUGET_DIRECTORY
 
     - name: Publish NuGet packages
       shell: pwsh
+      env:
+        NUGET_DIRECTORY: ${{ inputs.nuget-directory }}
+        NUGET_TOKEN: ${{ inputs.nuget-token }}
       run: |
-        foreach($file in (Get-ChildItem "${{ inputs.nuget-directory }}" -Recurse -Include *.nupkg)) {
-            nuget push $file -ApiKey "${{ inputs.nuget-token }}" -Source https://api.nuget.org/v3/index.json -SkipDuplicate -NonInteractive
+        foreach($file in (Get-ChildItem "$env:NUGET_DIRECTORY" -Recurse -Include *.nupkg)) {
+            nuget push $file -ApiKey "$env:NUGET_TOKEN" -Source https://api.nuget.org/v3/index.json -SkipDuplicate -NonInteractive
         }
         
