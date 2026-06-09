@@ -60,7 +60,7 @@ jobs:
           compression-level: 9
 
   rl-scanner-android:
-    needs: build    
+    needs: build
     uses: ./.github/workflows/rl-secure.yml
     with:
       nuspec-file: "nuget/Auth0.OidcClient.Android.nuspec"
@@ -70,13 +70,15 @@ jobs:
       RLSECURE_LICENSE: ${{ secrets.RLSECURE_LICENSE }}
       RLSECURE_SITE_KEY: ${{ secrets.RLSECURE_SITE_KEY }}
       SIGNAL_HANDLER_TOKEN: ${{ secrets.SIGNAL_HANDLER_TOKEN }}
+      SIGNAL_HANDLER_DOMAIN: ${{ secrets.SIGNAL_HANDLER_DOMAIN }}
       PRODSEC_TOOLS_USER: ${{ secrets.PRODSEC_TOOLS_USER }}
       PRODSEC_TOOLS_TOKEN: ${{ secrets.PRODSEC_TOOLS_TOKEN }}
       PRODSEC_TOOLS_ARN: ${{ secrets.PRODSEC_TOOLS_ARN }}
+      PRODSEC_PYTHON_TOOLS_REPO: ${{ secrets.PRODSEC_PYTHON_TOOLS_REPO }}
 
   rl-scanner-androidx:
-    needs: build    
-    uses: ./.github/workflows/rl-secure.yml    
+    needs: build
+    uses: ./.github/workflows/rl-secure.yml
     with:
       nuspec-file: "nuget/Auth0.OidcClient.AndroidX.nuspec"
       artifact-name: "Auth0.OidcClient.AndroidX.tgz"
@@ -85,12 +87,14 @@ jobs:
       RLSECURE_LICENSE: ${{ secrets.RLSECURE_LICENSE }}
       RLSECURE_SITE_KEY: ${{ secrets.RLSECURE_SITE_KEY }}
       SIGNAL_HANDLER_TOKEN: ${{ secrets.SIGNAL_HANDLER_TOKEN }}
+      SIGNAL_HANDLER_DOMAIN: ${{ secrets.SIGNAL_HANDLER_DOMAIN }}
       PRODSEC_TOOLS_USER: ${{ secrets.PRODSEC_TOOLS_USER }}
       PRODSEC_TOOLS_TOKEN: ${{ secrets.PRODSEC_TOOLS_TOKEN }}
       PRODSEC_TOOLS_ARN: ${{ secrets.PRODSEC_TOOLS_ARN }}
+      PRODSEC_PYTHON_TOOLS_REPO: ${{ secrets.PRODSEC_PYTHON_TOOLS_REPO }}
 
   rl-scanner-iOS:
-    needs: build    
+    needs: build
     uses: ./.github/workflows/rl-secure.yml
     with:
       nuspec-file: "nuget/Auth0.OidcClient.iOS.nuspec"
@@ -100,12 +104,14 @@ jobs:
       RLSECURE_LICENSE: ${{ secrets.RLSECURE_LICENSE }}
       RLSECURE_SITE_KEY: ${{ secrets.RLSECURE_SITE_KEY }}
       SIGNAL_HANDLER_TOKEN: ${{ secrets.SIGNAL_HANDLER_TOKEN }}
+      SIGNAL_HANDLER_DOMAIN: ${{ secrets.SIGNAL_HANDLER_DOMAIN }}
       PRODSEC_TOOLS_USER: ${{ secrets.PRODSEC_TOOLS_USER }}
       PRODSEC_TOOLS_TOKEN: ${{ secrets.PRODSEC_TOOLS_TOKEN }}
       PRODSEC_TOOLS_ARN: ${{ secrets.PRODSEC_TOOLS_ARN }}
+      PRODSEC_PYTHON_TOOLS_REPO: ${{ secrets.PRODSEC_PYTHON_TOOLS_REPO }}
 
   rl-scanner-core:
-    needs: build    
+    needs: build
     uses: ./.github/workflows/rl-secure.yml
     with:
       nuspec-file: "nuget/Auth0.OidcClient.Core.nuspec"
@@ -115,12 +121,14 @@ jobs:
       RLSECURE_LICENSE: ${{ secrets.RLSECURE_LICENSE }}
       RLSECURE_SITE_KEY: ${{ secrets.RLSECURE_SITE_KEY }}
       SIGNAL_HANDLER_TOKEN: ${{ secrets.SIGNAL_HANDLER_TOKEN }}
+      SIGNAL_HANDLER_DOMAIN: ${{ secrets.SIGNAL_HANDLER_DOMAIN }}
       PRODSEC_TOOLS_USER: ${{ secrets.PRODSEC_TOOLS_USER }}
       PRODSEC_TOOLS_TOKEN: ${{ secrets.PRODSEC_TOOLS_TOKEN }}
       PRODSEC_TOOLS_ARN: ${{ secrets.PRODSEC_TOOLS_ARN }}
+      PRODSEC_PYTHON_TOOLS_REPO: ${{ secrets.PRODSEC_PYTHON_TOOLS_REPO }}
 
   rl-scanner-wpf:
-    needs: build    
+    needs: build
     uses: ./.github/workflows/rl-secure.yml
     with:
       nuspec-file: "nuget/Auth0.OidcClient.WPF.nuspec"
@@ -130,12 +138,14 @@ jobs:
       RLSECURE_LICENSE: ${{ secrets.RLSECURE_LICENSE }}
       RLSECURE_SITE_KEY: ${{ secrets.RLSECURE_SITE_KEY }}
       SIGNAL_HANDLER_TOKEN: ${{ secrets.SIGNAL_HANDLER_TOKEN }}
+      SIGNAL_HANDLER_DOMAIN: ${{ secrets.SIGNAL_HANDLER_DOMAIN }}
       PRODSEC_TOOLS_USER: ${{ secrets.PRODSEC_TOOLS_USER }}
       PRODSEC_TOOLS_TOKEN: ${{ secrets.PRODSEC_TOOLS_TOKEN }}
       PRODSEC_TOOLS_ARN: ${{ secrets.PRODSEC_TOOLS_ARN }}
+      PRODSEC_PYTHON_TOOLS_REPO: ${{ secrets.PRODSEC_PYTHON_TOOLS_REPO }}
 
   rl-scanner-winforms:
-    needs: build    
+    needs: build
     uses: ./.github/workflows/rl-secure.yml
     with:
       nuspec-file: "nuget/Auth0.OidcClient.WinForms.nuspec"
@@ -145,27 +155,31 @@ jobs:
       RLSECURE_LICENSE: ${{ secrets.RLSECURE_LICENSE }}
       RLSECURE_SITE_KEY: ${{ secrets.RLSECURE_SITE_KEY }}
       SIGNAL_HANDLER_TOKEN: ${{ secrets.SIGNAL_HANDLER_TOKEN }}
+      SIGNAL_HANDLER_DOMAIN: ${{ secrets.SIGNAL_HANDLER_DOMAIN }}
       PRODSEC_TOOLS_USER: ${{ secrets.PRODSEC_TOOLS_USER }}
       PRODSEC_TOOLS_TOKEN: ${{ secrets.PRODSEC_TOOLS_TOKEN }}
       PRODSEC_TOOLS_ARN: ${{ secrets.PRODSEC_TOOLS_ARN }}
+      PRODSEC_PYTHON_TOOLS_REPO: ${{ secrets.PRODSEC_PYTHON_TOOLS_REPO }}
 
   rl-scanner-uwp:
-      needs: build    
-      uses: ./.github/workflows/rl-secure.yml
-      with:
-        nuspec-file: "nuget/Auth0.OidcClient.UWP.nuspec"
-        artifact-name: "Auth0.OidcClient.UWP.tgz"
-        project-path: "src/Auth0.OidcClient.UWP"
-      secrets:
-        RLSECURE_LICENSE: ${{ secrets.RLSECURE_LICENSE }}
-        RLSECURE_SITE_KEY: ${{ secrets.RLSECURE_SITE_KEY }}
-        SIGNAL_HANDLER_TOKEN: ${{ secrets.SIGNAL_HANDLER_TOKEN }}
-        PRODSEC_TOOLS_USER: ${{ secrets.PRODSEC_TOOLS_USER }}
-        PRODSEC_TOOLS_TOKEN: ${{ secrets.PRODSEC_TOOLS_TOKEN }}
-        PRODSEC_TOOLS_ARN: ${{ secrets.PRODSEC_TOOLS_ARN }}
+    needs: build
+    uses: ./.github/workflows/rl-secure.yml
+    with:
+      nuspec-file: "nuget/Auth0.OidcClient.UWP.nuspec"
+      artifact-name: "Auth0.OidcClient.UWP.tgz"
+      project-path: "src/Auth0.OidcClient.UWP"
+    secrets:
+      RLSECURE_LICENSE: ${{ secrets.RLSECURE_LICENSE }}
+      RLSECURE_SITE_KEY: ${{ secrets.RLSECURE_SITE_KEY }}
+      SIGNAL_HANDLER_TOKEN: ${{ secrets.SIGNAL_HANDLER_TOKEN }}
+      SIGNAL_HANDLER_DOMAIN: ${{ secrets.SIGNAL_HANDLER_DOMAIN }}
+      PRODSEC_TOOLS_USER: ${{ secrets.PRODSEC_TOOLS_USER }}
+      PRODSEC_TOOLS_TOKEN: ${{ secrets.PRODSEC_TOOLS_TOKEN }}
+      PRODSEC_TOOLS_ARN: ${{ secrets.PRODSEC_TOOLS_ARN }}
+      PRODSEC_PYTHON_TOOLS_REPO: ${{ secrets.PRODSEC_PYTHON_TOOLS_REPO }}
 
   rl-scanner-maui:
-    needs: build    
+    needs: build
     uses: ./.github/workflows/rl-secure.yml
     with:
       nuspec-file: "nuget/Auth0.OidcClient.MAUI.nuspec"
@@ -175,9 +189,11 @@ jobs:
       RLSECURE_LICENSE: ${{ secrets.RLSECURE_LICENSE }}
       RLSECURE_SITE_KEY: ${{ secrets.RLSECURE_SITE_KEY }}
       SIGNAL_HANDLER_TOKEN: ${{ secrets.SIGNAL_HANDLER_TOKEN }}
+      SIGNAL_HANDLER_DOMAIN: ${{ secrets.SIGNAL_HANDLER_DOMAIN }}
       PRODSEC_TOOLS_USER: ${{ secrets.PRODSEC_TOOLS_USER }}
       PRODSEC_TOOLS_TOKEN: ${{ secrets.PRODSEC_TOOLS_TOKEN }}
       PRODSEC_TOOLS_ARN: ${{ secrets.PRODSEC_TOOLS_ARN }}
+      PRODSEC_PYTHON_TOOLS_REPO: ${{ secrets.PRODSEC_PYTHON_TOOLS_REPO }}
 
   android:
     name: Android
