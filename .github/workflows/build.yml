@@ -56,7 +56,7 @@ jobs:
         run: dotnet --info
 
       - name: Setup NuGet
-        uses: nuget/setup-nuget@b26b823c478ee115be5c9403e62c90b0bf943843 # v3.1.0
+        uses: nuget/setup-nuget@fd55a6f3b34392fa83fde1454582407d8c714123 # v4.0
 
       - name: Restore NuGet
         run: nuget restore Auth0.OidcClient.All.sln
