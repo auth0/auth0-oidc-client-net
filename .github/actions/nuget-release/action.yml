@@ -7,7 +7,7 @@ name: Create NuGet and GitHub Release
 inputs:
   dotnet-version:
     required: true
-  nuget-token:
+  nuget-user:
     required: true
   github-token:
     required: true
@@ -57,7 +57,7 @@ runs:
       with:
         dotnet-version: ${{ inputs.dotnet-version }}
         project-path: ${{ inputs.project-path }}
-        nuget-token: ${{ inputs.nuget-token }}
+        nuget-user: ${{ inputs.nuget-user }}
         nuget-directory: ${{ inputs.nuget-directory }}
         nuspec-file: ${{ inputs.nuspec-file }}
 

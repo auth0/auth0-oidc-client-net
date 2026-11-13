@@ -18,7 +18,7 @@ on:
     secrets:
       github-token:
         required: true
-      nuget-token:
+      nuget-user:
         required: true
 
 jobs:
@@ -45,6 +45,6 @@ jobs:
         project-path: ${{ inputs.project-path }}
         tag-prefix: ${{ inputs.tag-prefix }}
         nuget-directory: ${{ inputs.project-path }}/nuget
-        nuget-token: ${{ secrets.nuget-token }}
+        nuget-user: ${{ secrets.nuget-user }}
         github-token: ${{ secrets.github-token }}
         nuspec-file: ${{ inputs.nuspec-file }}
