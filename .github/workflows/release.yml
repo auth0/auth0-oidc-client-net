@@ -204,7 +204,7 @@ jobs:
       project-path: "src/Auth0.OidcClient.Android"
       nuspec-file: "nuget/Auth0.OidcClient.Android.nuspec"
     secrets:
-      nuget-token: ${{ secrets.NUGET_API_KEY }}
+      nuget-user: ${{ secrets.NUGET_USER }}
       github-token: ${{ secrets.GITHUB_TOKEN }}
 
   androidx:
@@ -216,7 +216,7 @@ jobs:
       project-path: "src/Auth0.OidcClient.AndroidX"
       nuspec-file: "nuget/Auth0.OidcClient.AndroidX.nuspec"
     secrets:
-      nuget-token: ${{ secrets.NUGET_API_KEY }}
+      nuget-user: ${{ secrets.NUGET_USER }}
       github-token: ${{ secrets.GITHUB_TOKEN }}
 
   ios:
@@ -228,7 +228,7 @@ jobs:
       project-path: "src/Auth0.OidcClient.iOS"
       nuspec-file: "nuget/Auth0.OidcClient.iOS.nuspec"
     secrets:
-      nuget-token: ${{ secrets.NUGET_API_KEY }}
+      nuget-user: ${{ secrets.NUGET_USER }}
       github-token: ${{ secrets.GITHUB_TOKEN }}
 
   core:
@@ -240,7 +240,7 @@ jobs:
       project-path: "src/Auth0.OidcClient.Core"
       nuspec-file: "nuget/Auth0.OidcClient.Core.nuspec"
     secrets:
-      nuget-token: ${{ secrets.NUGET_API_KEY }}
+      nuget-user: ${{ secrets.NUGET_USER }}
       github-token: ${{ secrets.GITHUB_TOKEN }}
 
   wpf:
@@ -252,7 +252,7 @@ jobs:
       project-path: "src/Auth0.OidcClient.WPF"
       nuspec-file: "nuget/Auth0.OidcClient.WPF.nuspec"
     secrets:
-      nuget-token: ${{ secrets.NUGET_API_KEY }}
+      nuget-user: ${{ secrets.NUGET_USER }}
       github-token: ${{ secrets.GITHUB_TOKEN }}
     
   winforms:
@@ -264,7 +264,7 @@ jobs:
       project-path: "src/Auth0.OidcClient.WinForms"
       nuspec-file: "nuget/Auth0.OidcClient.WinForms.nuspec"
     secrets:
-      nuget-token: ${{ secrets.NUGET_API_KEY }}
+      nuget-user: ${{ secrets.NUGET_USER }}
       github-token: ${{ secrets.GITHUB_TOKEN }}
 
   uwp:
@@ -276,7 +276,7 @@ jobs:
       project-path: "src/Auth0.OidcClient.UWP"
       nuspec-file: "nuget/Auth0.OidcClient.UWP.nuspec"
     secrets:
-      nuget-token: ${{ secrets.NUGET_API_KEY }}
+      nuget-user: ${{ secrets.NUGET_USER }}
       github-token: ${{ secrets.GITHUB_TOKEN }}
 
   maui:
@@ -288,7 +288,7 @@ jobs:
       project-path: "src/Auth0.OidcClient.MAUI"
       nuspec-file: "nuget/Auth0.OidcClient.MAUI.nuspec"
     secrets:
-      nuget-token: ${{ secrets.NUGET_API_KEY }}
+      nuget-user: ${{ secrets.NUGET_USER }}
       github-token: ${{ secrets.GITHUB_TOKEN }}
 
   generate-docs:
