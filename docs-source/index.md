@@ -8,7 +8,7 @@ OIDC Client for .NET Desktop (WinForms, WPF and UWP) as well as Xamarin-based iO
 [![NuGet version](https://img.shields.io/nuget/v/auth0.oidcclient.core.svg?style=flat)](https://www.nuget.org/packages/Auth0.OidcClient.Core/)
 ![Downloads](https://img.shields.io/nuget/dt/Auth0.OidcClient.Core)
 [![License](https://img.shields.io/:license-Apache2.0-blue.svg?style=flat)](https://opensource.org/licenses/Apache-2.0)
-[![Build Status](https://dev.azure.com/Auth0SDK/Auth0%20OIDC%20Client.NET/_apis/build/status/auth0.auth0-oidc-client-net?branchName=master)](https://dev.azure.com/Auth0SDK/Auth0%20OIDC%20Client.NET/_build/latest?definitionId=4&branchName=master)
+[![Build](https://github.com/auth0/auth0-oidc-client-net/actions/workflows/build.yml/badge.svg)](https://github.com/auth0/auth0-oidc-client-net/actions/workflows/build.yml)
 
 :books: [Documentation](#documentation) - :rocket: [Getting Started](#getting-started) - :computer: [API Reference](#api-reference) - :speech_balloon: [Feedback](#feedback)
 
